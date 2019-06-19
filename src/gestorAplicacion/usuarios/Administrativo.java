@@ -9,6 +9,7 @@ public class Administrativo extends Usuario{
     
     public Administrativo(String name, long cedula, String correo, String clave,Departamento dpto){
         super(name,cedula,correo,clave);
+        dpto.add(cedula, clave);
         dpto.add(this);
     }
     public String toString(){

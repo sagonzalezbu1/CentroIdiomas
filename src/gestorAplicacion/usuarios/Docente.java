@@ -8,6 +8,7 @@ public class Docente extends Usuario{
     
     public Docente(String name, long cedula, String correo, String clave, Departamento dpto){
         super(name,cedula,correo,clave);
+        dpto.add(cedula, clave);
         dpto.add(this);
     }
     

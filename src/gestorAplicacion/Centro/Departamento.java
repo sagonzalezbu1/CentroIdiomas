@@ -8,7 +8,8 @@ public class Departamento {
      private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
      private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
      private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
-
+     private HashMap<Long, String> Usuarios= new HashMap<>();
+     
      public String verEstudiantes() {
         String ver = "";
         for (Estudiante x : listaEstudiantes) {
@@ -52,10 +53,12 @@ public class Departamento {
      public void add(Administrativo a) {
         listaAdministrativos.add(a);
     }
-
      public void add(Curso c) {
         listaCursos.add(c);
     }
+     public void add(long cc, String pass) {
+    	 Usuarios.put(cc,pass);
+     }
      public ArrayList<Curso> getCursos(){
         return listaCursos;
     }
