@@ -12,6 +12,9 @@ public class Solicitud {
     Scanner entry = new Scanner(System.in);
     static private HashMap<String, ArrayList<Estudiante>> solicitudes = new HashMap();
     private String tipoCurso;
+    public Solicitud(String tipo) {
+    	tipoCurso=tipo;
+    }
 
     static private Curso disponibilidad(String tip) {
         ArrayList<Curso> lista = Departamento.getCursos();
@@ -28,8 +31,8 @@ public class Solicitud {
     
     public void aceptarSolicitud(String tipo) {
         Curso x = Solicitud.disponibilidad(tipo);
+        ArrayList<Estudiante> e = solicitudes.get(tipo);
         if (x == null) {
-            ArrayList<Estudiante> e = solicitudes.get(tipo);
             // solucitudes tiene estudiantes
             while (e.size() != 0) {
             	System.out.println("Ingrese el nombre del nuevo curso: ");
@@ -39,6 +42,7 @@ public class Solicitud {
                 ArrayList<Docente> doc = Departamento.getDocentes();
                 Curso course = new Curso(nombre, horario, doc.get(0), tipo);
                 Departamento.addCurso(course);
+                (doc.get(0)).addCurso(course);
                 System.out.println("El nuevo curso ha sido creado.");
                 int cup= 0;
                 // aceptar solicitudes una a una, hasta completar el cupo maximo de 10
@@ -49,9 +53,11 @@ public class Solicitud {
                 		int op= entry.nextInt();
                 		if(op==1) {
                 			course.matricular(acep);
+                			acep.removeSolicitud(this);
                 			e.remove(acep);
                 			cup++;
                         }else {
+                        	acep.removeSolicitud(this);
                         	e.remove(acep);
                         }
                     } else {
@@ -60,7 +66,35 @@ public class Solicitud {
                     }
                 }   
             }
+        }else {
+        	while(x.getCuposDisponibles()!=0) {
+            	if (e.size() != 0) {
+            		Estudiante acep= e.get(0);
+            		System.out.println("Si desea aceptar la solucitud de "+ acep.toString()+ " marque 1. Para rechazar marque 0. \nPara ");
+            		int op= entry.nextInt();
+            		if(op==1) {
+            			x.matricular(acep);
+            			acep.removeSolicitud(this);
+            			e.remove(acep);
+                    }else {
+                    	acep.removeSolicitud(this);
+                    	e.remove(acep);
+                    }
+                } else {
+                	System.out.println("No hay mas solicitudes");
+                    break;
+                }
+            }
         }
+    }
+    public void solicitar(String tipo, Estudiante e) {
+    	if(solicitudes.containsKey(tipo)) {
+    		(solicitudes.get(tipo)).add(e);
+    		e.adSolicitud(new Solicitud(tipo));
+    	}else {
+    		solicitudes.put(tipo, null);
+    		(solicitudes.get(tipo)).add(e);
+    	}
     }
 
 }
