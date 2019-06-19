@@ -47,7 +47,7 @@ public class Curso {
 	}
 
 	// terminar un curso
-	public void finalizeCurso() {
+	public void finalizeCurso(Departamento Departamento) {
 		Departamento.removeCurso(nombre);
 		for (Estudiante x : alumnos) {
 			float nota = x.getNota(nombre);

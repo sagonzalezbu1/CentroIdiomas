@@ -18,7 +18,7 @@ public class Solicitud {
 		tipoCurso = tipo;
 	}
 
-	static private Curso disponibilidad(String tip) {
+	static private Curso disponibilidad(String tip, Departamento Departamento) {
 		ArrayList<Curso> lista = Departamento.getCursos();
 		Iterator<Curso> I = lista.iterator();
 
@@ -31,8 +31,8 @@ public class Solicitud {
 		return null;
 	}
 
-	public void aceptarSolicitud(String tipo) {
-		Curso x = Solicitud.disponibilidad(tipo);
+	public void aceptarSolicitud(String tipo, Departamento Departamento) {
+		Curso x = Solicitud.disponibilidad(tipo, Departamento);
 		ArrayList<Estudiante> e = solicitudes.get(tipo);
 		int per = 0;
 		if (x == null) {
@@ -44,7 +44,7 @@ public class Solicitud {
 				String horario = entry.next();
 				ArrayList<Docente> doc = Departamento.getDocentes();
 				Curso course = new Curso(nombre, horario, doc.get(0), tipo);
-				Departamento.addCurso(course);
+				Departamento.add(course);
 				(doc.get(0)).addCurso(course);
 				System.out.println("El nuevo curso ha sido creado.");
 				int cup = 0;
