@@ -1,5 +1,6 @@
 package gestorAplicacion.Centro;
 import java.util.*;
+import gestorAplicacion.usuarios.*;
 
 public class Curso {
 	//No olvidar poner el GC para verificar si sí se borra el curso;
