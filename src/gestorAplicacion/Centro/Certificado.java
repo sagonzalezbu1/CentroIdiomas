@@ -15,7 +15,7 @@ public class Certificado {
     }
 
     public String toString() {
-        return "El estudiante " + alumno + " ha aprobado el curso de " + nombre + " con una nota de " + nota + " \n con el profesor " + docente.getNombre();
+        return "El estudiante " + alumno + " ha aprobado el curso de " + nombre + " con una nota de " + nota + " con el profesor " + docente.getNombre();
     }
 
 }
