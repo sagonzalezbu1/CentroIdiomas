@@ -77,6 +77,9 @@ public class Estudiante extends Usuario{
     public void adSolicitud(Solicitud reg) {
     	misSolicitudes.add(reg);
     }
+    public void removeSolicitud(Solicitud soli) {
+    	misSolicitudes.remove(soli);
+    }
     public String toString(){
         return ("Nombre: " + super.nombre + "Cedula: " + super.cedula);
     }
