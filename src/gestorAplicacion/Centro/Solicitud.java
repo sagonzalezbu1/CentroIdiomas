@@ -101,11 +101,9 @@ public class Solicitud {
 	public void solicitar(String tipo, Estudiante e) {
 		if (solicitudes.containsKey(tipo)) {
 			(solicitudes.get(tipo)).add(e);
-			e.adSolicitud(new Solicitud(tipo));
 		} else {
 			solicitudes.put(tipo, new ArrayList<>());
 			(solicitudes.get(tipo)).add(e);
-			e.adSolicitud(new Solicitud(tipo));
 		}
 	}
 

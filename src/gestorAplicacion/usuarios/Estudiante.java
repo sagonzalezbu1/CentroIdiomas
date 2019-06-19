@@ -79,9 +79,11 @@ public class Estudiante extends Usuario {
 		ArrayList<Float> itemsList = misNotas.get(name);
 		itemsList.add(grade);
 	}
-
-	public void adSolicitud(Solicitud reg) {
-		misSolicitudes.add(reg);
+	
+	public void solicitar(String type) {
+		Solicitud s = new Solicitud(type);
+		misSolicitudes.add(s);
+		s.solicitar(type, this);
 	}
 
 	public void removeSolicitud(Solicitud soli) {
