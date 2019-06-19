@@ -10,7 +10,7 @@ public class Estudiante extends Usuario{
     private ArrayList <Curso> misCursos;
     private HashMap<String, ArrayList<Float>> misNotas = new HashMap();
     
-    Estudiante(String name, long cedula, String correo, String clave){
+    public Estudiante(String name, long cedula, String correo, String clave){
         super(name,cedula,correo,clave);
     }
     
