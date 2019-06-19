@@ -4,12 +4,12 @@ import gestorAplicacion.usuarios.*;
 
 
 public class Departamento {
-    static private ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();
-    static private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
-    static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
-    static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
+     private ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();
+     private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
+     private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
+     private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 
-    static public String verEstudiantes() {
+     public String verEstudiantes() {
         String ver = "";
         for (Estudiante x : listaEstudiantes) {
             ver = ver + x.toString() + "\n";
@@ -17,7 +17,7 @@ public class Departamento {
         return ver;
     }
 
-    static public String verDocentes() {
+     public String verDocentes() {
         String ver = "";
         for (Docente x : listaDocentes) {
             ver = ver + x.toString() + "\n";
@@ -25,7 +25,7 @@ public class Departamento {
         return ver;
     }
 
-    static public String verAdministrativos() {
+     public String verAdministrativos() {
         String ver = "";
         for (Administrativo x : listaAdministrativos) {
             ver = ver + x.toString() + "\n";
@@ -33,7 +33,7 @@ public class Departamento {
         return ver;
     }
 
-    static public String verCursos() {
+     public String verCursos() {
         String ver = "";
         for (Curso x : listaCursos) {
             ver = ver + x.toString() + "\n";
@@ -41,28 +41,28 @@ public class Departamento {
         return ver;
     }
 
-    static public void addEstudiante(Estudiante e) {
+     public void add(Estudiante e) {
         listaEstudiantes.add(e);
     }
 
-    static public void addDocente(Docente d) {
+     public void add(Docente d) {
         listaDocentes.add(d);
     }
 
-    static public void addAdminitrativo(Administrativo a) {
+     public void add(Administrativo a) {
         listaAdministrativos.add(a);
     }
 
-    static public void addCurso(Curso c) {
+     public void add(Curso c) {
         listaCursos.add(c);
     }
-    static public ArrayList<Curso> getCursos(){
+     public ArrayList<Curso> getCursos(){
         return listaCursos;
     }
-    static public ArrayList<Docente> getDocentes(){
+     public ArrayList<Docente> getDocentes(){
         return listaDocentes;
     }
-    static public void removeCurso(String nombre) {
+     public void removeCurso(String nombre) {
         Iterator<Curso> I = listaCursos.iterator();
         while (I.hasNext()) {
             Curso x = I.next();

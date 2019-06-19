@@ -53,7 +53,7 @@ public class Solicitud {
 					if (e.size() != 0) {
 						Estudiante acep = e.get(0);
 						System.out.println("Si desea aceptar la solucitud de " + acep.toString()
-								+ " marque 0. /nPara rechazar marque 1. \\nPara salir marque 2.");
+								+ " marque 0. \nPara rechazar marque 1. \nPara salir marque 2.");
 						int op = entry.nextInt();
 						if (op == 0) {
 							course.matricular(acep);
@@ -78,7 +78,7 @@ public class Solicitud {
 				if (e.size() != 0) {
 					Estudiante acep = e.get(0);
 					System.out.println("Si desea aceptar la solucitud de " + acep.toString()
-							+ " marque 0. /nPara rechazar marque 1. \nPara salir marque 2.");
+							+ " marque 0. \nPara rechazar marque 1. \nPara salir marque 2.");
 					int op = entry.nextInt();
 					if (op == 0) {
 						x.matricular(acep);
@@ -104,7 +104,7 @@ public class Solicitud {
 			(solicitudes.get(tipo)).add(e);
 			e.adSolicitud(new Solicitud(tipo));
 		} else {
-			solicitudes.put(tipo, null);
+			solicitudes.put(tipo, new ArrayList<>());
 			(solicitudes.get(tipo)).add(e);
 			e.adSolicitud(new Solicitud(tipo));
 		}
