@@ -43,8 +43,7 @@ public class Solicitud {
 				System.out.print("Ingrese el horario del nuevo curso: ");
 				String horario = entry.next();
 				ArrayList<Docente> doc = Departamento.getDocentes();
-				Curso course = new Curso(nombre, horario, doc.get(0), tipo);
-				Departamento.add(course);
+				Curso course = new Curso(nombre, horario, doc.get(0), tipo, Departamento);
 				(doc.get(0)).addCurso(course);
 				System.out.println("El nuevo curso ha sido creado.");
 				int cup = 0;

@@ -12,11 +12,12 @@ public class Curso {
 	private int cupos = 10;
 	private ArrayList<Estudiante> alumnos = new ArrayList<Estudiante>();
 
-	public Curso(String name, String horario, Docente docente, String tipo) {
+	public Curso(String name, String horario, Docente docente, String tipo, Departamento depart) {
 		nombre = name;
 		this.horario = horario;
 		this.docente = docente;
 		this.tipo = tipo;
+		depart.add(this);
 	}
 
 	//
