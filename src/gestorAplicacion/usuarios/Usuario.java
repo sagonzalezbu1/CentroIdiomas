@@ -4,10 +4,10 @@ public abstract class Usuario {
     protected String nombre;
     protected long cedula;
     protected String correo;
-    protected String contraseña;
+    protected String contrasena;
     
-    public void setContraseña(String pass){
-        contraseña = pass;
+    public void setContrasena(String pass){
+        contrasena = pass;
     }
     public String getNombre(){
         return nombre;
@@ -19,13 +19,13 @@ public abstract class Usuario {
         return correo;
     }
     public String getContraseña(){
-        return contraseña;
+        return contrasena;
     }
     
     public Usuario(String name, long id, String email, String password) {
         nombre = name;
         cedula = id;
         correo = email;
-        contraseña = password;
+        contrasena = password;
     }
 }
