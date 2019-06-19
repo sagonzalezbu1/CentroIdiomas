@@ -1,6 +1,6 @@
 package uiMain;
 
-public class Ingresar extends OpcionMenu{
+public class Ingresar extends OpcionDeMenu{
 	public void ejecutar() {
 		
 	}

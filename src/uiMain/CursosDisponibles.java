@@ -1,5 +1,5 @@
 package uiMain;
 
-public class CursosDisponibles extends OpcionMenu{
+public class CursosDisponibles extends OpcionDeMenu{
 
 }
