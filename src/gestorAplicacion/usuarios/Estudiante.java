@@ -5,9 +5,9 @@ import gestorAplicacion.Centro.*;
 
 public class Estudiante extends Usuario{  
     private String estado = "Inactivo";
-    private ArrayList <Certificado> misCertificados;
-    private ArrayList <Solicitud> misSolicitudes;
-    private ArrayList <Curso> misCursos;
+    private ArrayList <Certificado> misCertificados = new ArrayList<Certificado>();
+    private ArrayList <Solicitud> misSolicitudes = new ArrayList<Solicitud>();
+    private ArrayList <Curso> misCursos = new ArrayList<Curso>();
     private HashMap<String, ArrayList<Float>> misNotas = new HashMap();
     
     public Estudiante(String name, long cedula, String correo, String clave){
@@ -81,6 +81,6 @@ public class Estudiante extends Usuario{
     	misSolicitudes.remove(soli);
     }
     public String toString(){
-        return ("Nombre: " + super.nombre + "Cedula: " + super.cedula);
+        return ("Nombre: " + super.nombre + "\nCedula: " + super.cedula);
     }
 }

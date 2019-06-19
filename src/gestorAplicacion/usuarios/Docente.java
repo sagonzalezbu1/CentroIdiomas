@@ -6,7 +6,7 @@ public class Docente extends Usuario{
     private ArrayList <Curso> misCursos;
     private int codigo;  
     
-    Docente(String name, long cedula, String correo, String clave){
+    public Docente(String name, long cedula, String correo, String clave){
         super(name,cedula,correo,clave);
     }
     
@@ -28,7 +28,7 @@ public class Docente extends Usuario{
         misCursos.add(course);
     }
     public String toString(){
-        return("Nombre: " + super.nombre +"Cedula: " + super.cedula);
+        return("Nombre: " + super.nombre +"\nCedula: " + super.cedula);
     }
     public int getCodigo(int code){
         return codigo;
