@@ -74,6 +74,9 @@ public class Estudiante extends Usuario{
             ArrayList<Float> itemsList = misNotas.get(name);
             itemsList.add(grade);
     }
+    public void adSolicitud(Solicitud reg) {
+    	misSolicitudes.add(reg);
+    }
     public String toString(){
         return ("Nombre: " + super.nombre + "Cedula: " + super.cedula);
     }
