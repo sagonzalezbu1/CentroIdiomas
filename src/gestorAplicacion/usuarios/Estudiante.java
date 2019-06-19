@@ -19,6 +19,7 @@ public class Estudiante extends Usuario {
 		String aux = "";
 		for (Curso x : misCursos) {
 			aux += x + "\n";
+			aux += "\n";
 		}
 		return aux;
 	}
