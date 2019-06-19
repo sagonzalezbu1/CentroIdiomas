@@ -1,5 +1,5 @@
 package uiMain;
 
-public class VerEstudiantes extends OpcionMenu{
+public class VerEstudiantes extends OpcionDeMenu{
 
 }

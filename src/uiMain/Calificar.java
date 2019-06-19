@@ -1,5 +1,5 @@
 package uiMain;
 
-public class Calificar extends OpcionMenu {
+public class Calificar extends OpcionDeMenu {
 
 }

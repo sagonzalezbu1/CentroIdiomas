@@ -1,9 +1,8 @@
 package uiMain;
 import java.util.*;
 
-import gestorAplicacion.usuarios.*;
-import gestorAplicacion.Centro.*;
-public class Ingresar extends OpcionMenu{
+
+public class Ingresar extends OpcionDeMenu{
 	public void ejecutar() {
 		Scanner entry= new Scanner(System.in);
 		System.out.println("Ingrese su cedula :");

@@ -51,7 +51,7 @@ public class Solicitud {
 				while (cup <= 10) {
 					if (e.size() != 0) {
 						Estudiante acep = e.get(0);
-						System.out.println("Si desea aceptar la solucitud de " + acep.toString()
+						System.out.println("Si desea aceptar la solucitud de " + acep.getNombre()
 								+ " marque 0. \nPara rechazar marque 1. \nPara salir marque 2.");
 						int op = entry.nextInt();
 						if (op == 0) {
@@ -76,7 +76,7 @@ public class Solicitud {
 			while (x.getCuposDisponibles() != 0) {
 				if (e.size() != 0) {
 					Estudiante acep = e.get(0);
-					System.out.println("Si desea aceptar la solucitud de " + acep.toString()
+					System.out.println("Si desea aceptar la solucitud de " + acep.getNombre()
 							+ " marque 0. \nPara rechazar marque 1. \nPara salir marque 2.");
 					int op = entry.nextInt();
 					if (op == 0) {

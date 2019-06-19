@@ -1,5 +1,5 @@
 package uiMain;
 
-public class VerNotas extends OpcionMenu {
+public class VerNotas extends OpcionDeMenu {
 
 }

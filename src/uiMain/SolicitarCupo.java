@@ -1,5 +1,5 @@
 package uiMain;
 
-public class SolicitarCupo extends OpcionMenu{
+public class SolicitarCupo extends OpcionDeMenu{
 
 }
