@@ -1,7 +1,7 @@
 package gestorAplicacion.usuarios;
 
 import java.util.*;
-import gestorAplicacion.Centro.Curso;
+import gestorAplicacion.Centro.*;
 
 public class Estudiante extends Usuario{  
     private String estado = "Inactivo";

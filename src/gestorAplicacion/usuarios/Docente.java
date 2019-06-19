@@ -1,6 +1,6 @@
 package gestorAplicacion.usuarios;
 import java.util.*;
-import gestorAplicacion.Centro.Curso; 
+import gestorAplicacion.Centro.*; 
 
 public class Docente extends Usuario{
     private ArrayList <Curso> misCursos;

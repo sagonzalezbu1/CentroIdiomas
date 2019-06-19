@@ -1,5 +1,6 @@
 package gestorAplicacion.usuarios;
-import gestorAplicacion.Centro.Solicitud;
+
+import gestorAplicacion.Centro.*;
 import java.util.*;
 
 public class Administrativo extends Usuario{

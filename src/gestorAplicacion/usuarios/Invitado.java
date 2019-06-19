@@ -1,5 +1,10 @@
 package gestorAplicacion.usuarios;
 
-public class Invitado {
+import java.util.*;
+import gestorAplicacion.Centro.*;
 
+public class Invitado {
+	public void ingresar(String user, String key) {
+		
+	}
 }
