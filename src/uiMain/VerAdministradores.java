@@ -1,5 +1,5 @@
 package uiMain;
 
-public class VerAdministradores extends OpcionMenu {
+public class VerAdministradores extends OpcionDeMenu {
 
 }

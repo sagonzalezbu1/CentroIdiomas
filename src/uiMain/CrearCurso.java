@@ -1,5 +1,5 @@
 package uiMain;
 
-public class CrearCurso extends OpcionMenu{
+public class CrearCurso extends OpcionDeMenu{
 
 }

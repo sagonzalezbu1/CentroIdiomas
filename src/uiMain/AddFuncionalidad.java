@@ -1,5 +1,5 @@
 package uiMain;
 
-public class AddFuncionalidad extends OpcionMenu{
+public class AddFuncionalidad extends OpcionDeMenu{
 
 }

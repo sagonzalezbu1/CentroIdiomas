@@ -1,5 +1,5 @@
 package uiMain;
 
-public class RemoveFuncionalidad extends OpcionMenu{
+public class RemoveFuncionalidad extends OpcionDeMenu{
 
 }

@@ -1,5 +1,5 @@
 package uiMain;
 
-public class RechazarSolicitudes extends OpcionMenu{
+public class RechazarSolicitudes extends OpcionDeMenu{
 
 }

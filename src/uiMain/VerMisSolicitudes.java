@@ -1,5 +1,5 @@
 package uiMain;
 
-public class VerMisSolicitudes extends OpcionMenu{
+public class VerMisSolicitudes extends OpcionDeMenu{
 
 }
