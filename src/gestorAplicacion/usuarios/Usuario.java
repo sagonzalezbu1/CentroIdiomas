@@ -31,4 +31,7 @@ public abstract class Usuario {
         correo = email;
         contrasena = password;
     }
+    public MenuDeConsola getMenu() {
+    	return menu;
+    }
 }

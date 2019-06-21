@@ -1,7 +1,9 @@
 package gestorAplicacion.usuarios;
 import gestorAplicacion.Centro.*;
+import uiMain.MenuDeConsola;
 public class Invitado {
 	private static Usuario y;
+	private static MenuDeConsola menu;	
 	static public Usuario ingresar(long user, String key) {
 			for (Usuario x : Archivo.getEstudiantes()) {
 				if (y.cedula == user && (y.contrasena).equals(key)) {
@@ -23,5 +25,8 @@ public class Invitado {
 				}
 			} 
 			return y;
+	}
+	static public MenuDeConsola getMenu() {
+		return menu;
 	}
 }
