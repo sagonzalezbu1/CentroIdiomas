@@ -20,4 +20,7 @@ public class MenuDeConsola {
             cont++;
         }
     }
+    public ArrayList<OpcionDeMenu> getMenu(){
+        return Menu;
+    }
 }
