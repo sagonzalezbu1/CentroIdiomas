@@ -10,10 +10,10 @@ public class Estudiante extends Usuario {
 	private ArrayList<Curso> misCursos = new ArrayList<Curso>();
 	private HashMap<String, ArrayList<Float>> misNotas = new HashMap<>();
 
-	public Estudiante(String name, long cedula, String correo, String clave,Departamento dpto) {
+	public Estudiante(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		dpto.add(cedula, clave);
-		dpto.add(this);
+		Archivo.add(cedula, clave);
+		Archivo.add(this);
 	}
 
 	public String miHorario() {

@@ -6,10 +6,10 @@ public class Docente extends Usuario{
     private ArrayList <Curso> misCursos;
     private int codigo;  
     
-    public Docente(String name, long cedula, String correo, String clave, Departamento dpto){
+    public Docente(String name, long cedula, String correo, String clave){
         super(name,cedula,correo,clave);
-        dpto.add(cedula, clave);
-        dpto.add(this);
+        Archivo.add(cedula, clave);
+        Archivo.add(this);
     }
     
     public String miHorario(){
