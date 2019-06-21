@@ -18,7 +18,7 @@ public abstract class Usuario {
     public String getCorreo(){
         return correo;
     }
-    public String getContraseña(){
+    public String getContrasena(){
         return contrasena;
     }
     

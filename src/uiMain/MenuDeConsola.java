@@ -8,14 +8,16 @@ public class MenuDeConsola {
     public void anadirOpcion(OpcionDeMenu option){
         Menu.add(option);
     }
-    public void eliminarOpcion(OpcionDeMenu option){
-        System.out.println("¿Que opcion desea eliminar del menú?");
+    public void eliminarOpcion(){
+        System.out.println("¿Que opcion desea eliminar del menu?");
         int i = entry.nextInt();
         Menu.remove(i);
     }
     public void lanzarMenu(){
+        int cont = 0;
         for (OpcionDeMenu x : Menu) {
-            System.out.println(x);
+            System.out.println(cont + ". " + x);
+            cont++;
         }
     }
 }
