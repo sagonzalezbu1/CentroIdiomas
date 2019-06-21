@@ -20,7 +20,7 @@ public class MenuDeConsola {
             cont++;
         }
     }
-    public ArrayList<OpcionDeMenu> getMenu(){
-        return Menu;
+    public void ejecutarOpcion(int op) {
+    	Menu.get(op).ejecutar();
     }
 }
