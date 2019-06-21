@@ -16,6 +16,6 @@ public class Registrar extends OpcionDeMenu {
 		m.anadirOpcion(new RegistrarAdministrativo());
 		m.lanzarMenu();
 		int eleccion = entrada.nextInt();
-		// ejecutar la eleccion m.getMenu()[eleccion].ejecutar();
-		}
+		m.ejecutarOpcion(eleccion);
+	}
 }

@@ -4,7 +4,7 @@ import gestorAplicacion.Centro.*;
 
 public class Docente extends Usuario{
     private ArrayList <Curso> misCursos;
-    private int codigo;  
+    private static final String codigo = "0000";  
     
     public Docente(String name, long cedula, String correo, String clave){
         super(name,cedula,correo,clave);
@@ -32,7 +32,7 @@ public class Docente extends Usuario{
     public String toString(){
         return("Nombre: " + super.nombre +"\nCedula: " + super.cedula);
     }
-    public int getCodigo(int code){
+    public String getCodigo(String code){
         return codigo;
     }
 }
