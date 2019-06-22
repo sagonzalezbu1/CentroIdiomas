@@ -2,12 +2,30 @@ package uiMain;
 
 import gestorAplicacion.usuarios.*;
 import gestorAplicacion.Centro.*;
+import java.util.*;
 
 public class VerNotas extends OpcionDeMenu {
+	
 	public void ejecutar() {
-		for(Curso c : ((Estudiante) UsIn).getCurso()) {
-			System.out.print(c.getNombreCurso() + ": ");
-			System.out.println(((Estudiante) UsIn).getNotas(c.getNombreCurso()));
+		//Estudiante quiere ver sus notas
+		if(Main.user instanceof Estudiante) {
+			for(Curso c : ((Estudiante) Main.user).getCurso()) {
+				System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).getNotas(c.getNombreCurso()) + "\n");
+			}
+		}
+		//Usuario que no es Estudiante quiere ver las notas de un estudiante
+		else {
+			Scanner entrada = new Scanner(System.in);
+			System.out.println("Ingrese la cédula del estudiante del que quiere ver las notas: ");
+			long ced = entrada.nextLong();
+			for(Estudiante e : Archivo.getEstudiantes()) {
+				if(e.getCedula()==ced) {
+					for(Curso c : e.getCurso()) {
+						System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).getNotas(c.getNombreCurso()) + "\n");
+					}
+					break;
+				}
+			}
 		}
 	}
 
