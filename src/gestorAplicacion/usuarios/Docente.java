@@ -30,7 +30,7 @@ public class Docente extends Usuario{
         misCursos.add(course);
     }
     public String toString(){
-        return("Nombre: " + super.nombre +"\nCedula: " + super.cedula);
+        return("Nombre: " + super.getNombre() +"\nCedula: " + super.getCedula());
     }
     public static String getCodigo(){
         return codigo;

@@ -117,12 +117,12 @@ public class Estudiante extends Usuario {
 	public String verCertificados() {
 		String aux = "";
 		for (Certificado x : misCertificados) {
-			aux += x.getNombre() + "\n";
+			aux += x + "\n";
 		}
 		return aux;
 	}
 	
 	public String toString() {
-		return ("Nombre: " + super.nombre + "\nCedula: " + super.cedula);
+		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
 }
