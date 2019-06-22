@@ -23,14 +23,9 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 		String codigo = entrada.next();
 		if(codigo.equals(Administrativo.getCodigo())) {
 			Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
-			/*a.getMenu().lanzarMenu();
-			int eleccion = entrada.nextInt();
-			a.getMenu().ejecutarOpcion(eleccion);*/
-		}/*else {
-			Invitado.getMenu().lanzarMenu();
-			int eleccion = entrada.nextInt();
-			Invitado.getMenu().ejecutarOpcion(eleccion);
-		}*/
+		}else {
+			System.out.println("Codigo incorrecto");
+		}
 	}
 	public String toString() {
 		return"Registrar Administrativo";

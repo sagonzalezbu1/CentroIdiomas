@@ -21,19 +21,16 @@ public class RegistrarDocente extends OpcionDeMenu {
 		String contraseña = entrada.next();
 		System.out.println("Esciba el codigo necesario para ser docente: ");
 		String codigo = entrada.next();
-		if(codigo.equals(Docente.getCodigo())) {
+		if (codigo.equals(Docente.getCodigo())) {
 			Docente d = new Docente(nombre + " " + apellido, cc, correo, contraseña);
 		}
-			/*d.getMenu().lanzarMenu();
-			int eleccion = entrada.nextInt();
-			d.getMenu().ejecutarOpcion(eleccion);
-		}else {
-			Invitado.getMenu().lanzarMenu();
-			int eleccion = entrada.nextInt();
-			Invitado.getMenu().ejecutarOpcion(eleccion);
-		}*/
+		else {
+			System.out.println("Codigo incorrecto");
+		}
+
 	}
+
 	public String toString() {
-		return"Registrar Docente";
+		return "Registrar Docente";
 	}
 }
