@@ -4,7 +4,6 @@ import java.util.*;
 import gestorAplicacion.usuarios.*;
 
 public class Curso {
-	// No olvidar poner el GC para verificar si sí se borra el curso;
 	final String nombre;
 	private String tipo;
 	private String horario;
@@ -20,34 +19,6 @@ public class Curso {
 		Archivo.add(this);
 	}
 
-	//
-	public boolean matricular(Estudiante e) {
-		if (cupos - alumnos.size() > 0) {
-			alumnos.add(e);
-			e.addCurso(this);
-			e.setEstado(0);
-			return true;
-		} else {
-			return false;
-
-		}
-	}
-
-	//
-	public String toString() {
-		return "Nombre: " + nombre + "\nHorario: " + horario + "\nProfesor: " + docente.getNombre() + "\nCupos disponibles: "
-				+ (cupos - alumnos.size());
-	}
-
-	public String verEstudiantes() {
-		String ver = "";
-		for (Estudiante x : alumnos) {
-			ver += x.toString() + "\n";
-		}
-		return ver;
-	}
-
-	// terminar un curso
 	public void finalizeCurso() {
 		Archivo.removeCurso(nombre);
 		for (Estudiante x : alumnos) {
@@ -61,27 +32,53 @@ public class Curso {
 		docente.removeCurso(nombre);
 	}
 
-	public String getNombreCurso() {
-		return nombre;
+	public int getCupos() {
+		return cupos;
+	}
+
+	public int getCuposDisponibles() {
+		return cupos - alumnos.size();
+	}
+
+	public ArrayList<Estudiante> getEstudiantes() {
+		return alumnos;
 	}
 
 	public String getHorarioCurso() {
 		return horario;
 	}
 
+	public String getNombreCurso() {
+		return nombre;
+	}
+
 	public String getTipo() {
 		return tipo;
 	}
 
-	public int getCupos() {
-		return cupos;
-	}
-	
-	public ArrayList<Estudiante> getEstudiantes(){
-		return alumnos;
+	public boolean matricular(Estudiante e) {
+		if (cupos - alumnos.size() > 0) {
+			alumnos.add(e);
+			e.addCurso(this);
+			e.setEstado(0);
+			return true;
+		} else {
+			return false;
+
+		}
 	}
 
-	public int getCuposDisponibles() {
-		return cupos - alumnos.size();
+	public String toString() {
+		return "Nombre: " + nombre + "\nHorario: " + horario + "\nProfesor: " + docente.getNombre()
+				+ "\nCupos disponibles: " + (cupos - alumnos.size());
 	}
+
+	public String verEstudiantes() {
+		String ver = "";
+		for (Estudiante x : alumnos) {
+			ver += x.toString() + "\n";
+		}
+		return ver;
+	}
+
 }

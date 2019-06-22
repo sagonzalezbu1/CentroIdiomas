@@ -17,20 +17,6 @@ public class Solicitud {
 	public Solicitud(String tipo) {
 		tipoCurso = tipo;
 	}
-
-	static private Curso disponibilidad(String tipo) {
-		ArrayList<Curso> lista = Archivo.getCursos();
-		Iterator<Curso> I = lista.iterator();
-
-		while (I.hasNext()) {
-			Curso x = I.next();
-			if (x.getTipo().equals(tipo) && x.getCupos() < 50) {
-				return x;
-			}
-		}
-		return null;
-	}
-
 	public void aceptarSolicitud(String tipo) {
 		Curso x = Solicitud.disponibilidad(tipo);
 		ArrayList<Estudiante> e = solicitudes.get(tipo);

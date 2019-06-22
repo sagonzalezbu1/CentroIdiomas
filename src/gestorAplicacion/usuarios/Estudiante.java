@@ -16,9 +16,46 @@ public class Estudiante extends Usuario {
 		Archivo.add(cedula, clave);
 		Archivo.add(this);
 	}
-	
+
+	public void addCertificado(Certificado certify) {
+		misCertificados.add(certify);
+	}
+
+	public void addCurso(Curso course) {
+		misCursos.add(course);
+	}
+
+	public void calificar(String name, float grade) {
+		ArrayList<Float> itemsList = misNotas.get(name);
+		itemsList.add(grade);
+	}
+
 	public ArrayList<Curso> getCurso() {
 		return misCursos;
+	}
+
+	public float getDefinitiva(String name) {
+		ArrayList<Float> prom = misNotas.get(name);
+		float def = 0;
+		for (Float x : prom) {
+			def += x;
+		}
+		def /= misNotas.size();
+		return def;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public String getNotas(String nombreM) {
+		ArrayList<Float> prom = misNotas.get(nombreM);
+		String list = " ";
+		for (Float x : prom) {
+			list += x + "  ";
+		}
+		list += "  Definitiva: " + this.getDefinitiva(nombreM);
+		return list;
 	}
 
 	public String miHorario() {
@@ -30,8 +67,16 @@ public class Estudiante extends Usuario {
 		return aux;
 	}
 
-	public String getEstado() {
-		return estado;
+	public void removeCurso(String nombreCurso) {
+		for (Curso x : misCursos) {
+			if (x.getNombreCurso().equals(nombreCurso)) {
+				misCursos.remove(x);
+			}
+		}
+	}
+
+	public void removeSolicitud(Solicitud soli) {
+		misSolicitudes.remove(soli);
 	}
 
 	// 0 para matricular, 1 para finalizar
@@ -56,64 +101,16 @@ public class Estudiante extends Usuario {
 		}
 	}
 
-	public String getNotas(String nombreM) {
-		ArrayList<Float> prom = misNotas.get(nombreM);
-		String list = " ";
-		for (Float x : prom) {
-			list += x + "  ";
-		}
-		list += "  Definitiva: " + this.getDefinitiva(nombreM);
-		return list;
-	}
-	
-	public float getDefinitiva(String name) {
-		ArrayList<Float> prom = misNotas.get(name);
-		float def = 0;
-		for (Float x : prom) {
-			def += x;
-		}
-		def /= misNotas.size();
-		return def;
-	}
-
-	public void addCurso(Curso course) {
-		misCursos.add(course);
-	}
-
-	public void removeCurso(String nombreCurso) {
-		for (Curso x : misCursos) {
-			if (x.getNombreCurso().equals(nombreCurso)) {
-				misCursos.remove(x);
-			}
-		}
-	}
-
-	public void addCertificado(Certificado certify) {
-		misCertificados.add(certify);
-	}
-
-	public void calificar(String name, float grade) {
-		ArrayList<Float> itemsList = misNotas.get(name);
-		itemsList.add(grade);
-	}
-	
 	public void solicitar(String type) {
 		Solicitud s = new Solicitud(type);
 		misSolicitudes.add(s);
 		s.solicitar(type, this);
 	}
 
-	public void removeSolicitud(Solicitud soli) {
-		misSolicitudes.remove(soli);
+	public String toString() {
+		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
-	
-	public String verSolicitudes() {
-		String aux = "";
-		for (Solicitud x : misSolicitudes) {
-			aux += x + ", ";
-		}
-		return aux;
-	}
+
 	public String verCertificados() {
 		String aux = "";
 		for (Certificado x : misCertificados) {
@@ -121,8 +118,12 @@ public class Estudiante extends Usuario {
 		}
 		return aux;
 	}
-	
-	public String toString() {
-		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
+
+	public String verSolicitudes() {
+		String aux = "";
+		for (Solicitud x : misSolicitudes) {
+			aux += x + ", ";
+		}
+		return aux;
 	}
 }
