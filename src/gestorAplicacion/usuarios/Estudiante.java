@@ -109,6 +109,6 @@ public class Estudiante extends Usuario {
 	}
 	
 	public String toString() {
-		return ("Nombre: " + super.nombre + "\nCedula: " + super.cedula);
+		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
 }

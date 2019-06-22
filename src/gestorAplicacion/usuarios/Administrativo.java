@@ -13,7 +13,7 @@ public class Administrativo extends Usuario{
         Archivo.add(this);
     }
     public String toString() {
-        return("Nombre: " + super.nombre +"\nCedula: " + super.cedula);
+        return("Nombre: " + super.getNombre() +"\nCedula: " + super.getCedula());
     }
     public static String getCodigo(){
         return codigo;
