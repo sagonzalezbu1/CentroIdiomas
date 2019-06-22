@@ -21,14 +21,14 @@ public class Curso {
 	}
 
 	//
-	public void matricular(Estudiante e) {
+	public boolean matricular(Estudiante e) {
 		if (cupos - alumnos.size() > 0) {
 			alumnos.add(e);
 			e.addCurso(this);
 			e.setEstado(0);
-			System.out.println("El estudiante quedó matriculado");
+			return true;
 		} else {
-			System.out.println("No hay cupos");
+			return false;
 
 		}
 	}
