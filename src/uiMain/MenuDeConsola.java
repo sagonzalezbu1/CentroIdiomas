@@ -9,6 +9,11 @@ public class MenuDeConsola {
         Menu.add(option);
     }
     public void eliminarOpcion(){
+    	int cont = 0;
+        for (OpcionDeMenu x : Menu) {
+            System.out.println(cont + ". " + x);
+            cont++;
+        }
         System.out.println("¿Que opcion desea eliminar del menu?");
         int i = entry.nextInt();
         Menu.remove(i);
