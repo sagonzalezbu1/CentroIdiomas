@@ -3,11 +3,11 @@ package gestorAplicacion.usuarios;
 import uiMain.*;
 
 public abstract class Usuario {
-    protected String nombre;
-    protected long cedula;
-    protected String correo;
-    protected String contrasena;
-    protected MenuDeConsola menu;
+    private String nombre;
+    private long cedula;
+    private String correo;
+    private String contrasena;
+    private MenuDeConsola menu;
     
     public void setContrasena(String pass){
         contrasena = pass;
