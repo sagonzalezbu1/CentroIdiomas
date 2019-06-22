@@ -18,4 +18,8 @@ public class Registrar extends OpcionDeMenu {
 		int eleccion = entrada.nextInt();
 		m.ejecutarOpcion(eleccion);
 	}
+	
+	public String toString() {
+		return "Registrar";
+	}
 }

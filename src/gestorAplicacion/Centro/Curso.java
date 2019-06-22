@@ -51,7 +51,7 @@ public class Curso {
 	public void finalizeCurso() {
 		Archivo.removeCurso(nombre);
 		for (Estudiante x : alumnos) {
-			float nota = x.getNota(nombre);
+			float nota = x.getDefinitiva(nombre);
 			if (nota >= 3) {
 				x.setEstado(nombre, 1);
 				x.addCertificado(new Certificado(tipo, x.getNombre(), docente, nota));

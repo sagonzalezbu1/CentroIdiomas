@@ -16,6 +16,10 @@ public class Estudiante extends Usuario {
 		Archivo.add(cedula, clave);
 		Archivo.add(this);
 	}
+	
+	public ArrayList<Curso> getCurso() {
+		return misCursos;
+	}
 
 	public String miHorario() {
 		String aux = "";
@@ -42,7 +46,7 @@ public class Estudiante extends Usuario {
 			if (misCursos.size() > 1) {
 				estado = "Activo";
 			} else {
-				float aux = this.getNota(mater);
+				float aux = this.getDefinitiva(mater);
 				if (aux >= 3.0) {
 					estado = "Egresado";
 				} else {
@@ -52,13 +56,23 @@ public class Estudiante extends Usuario {
 		}
 	}
 
-	public float getNota(String nombreM) {
+	public String getNotas(String nombreM) {
 		ArrayList<Float> prom = misNotas.get(nombreM);
+		String list = " ";
+		for (Float x : prom) {
+			list += x + "  ";
+		}
+		list += "  Definitiva: " + this.getDefinitiva(nombreM);
+		return list;
+	}
+	
+	public float getDefinitiva(String name) {
+		ArrayList<Float> prom = misNotas.get(name);
 		float def = 0;
-		for (float x : prom) {
+		for (Float x : prom) {
 			def += x;
 		}
-		def = def / prom.size();
+		def /= misNotas.size();
 		return def;
 	}
 
