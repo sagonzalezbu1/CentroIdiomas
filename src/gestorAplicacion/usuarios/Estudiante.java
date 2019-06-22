@@ -100,6 +100,14 @@ public class Estudiante extends Usuario {
 		}
 		return aux;
 	}
+	public String verCertificados() {
+		String aux = "";
+		for (Certificado x : misCertificados) {
+			aux += x.getNombre() + "\n";
+		}
+		return aux;
+	}
+	
 	public String toString() {
 		return ("Nombre: " + super.nombre + "\nCedula: " + super.cedula);
 	}
