@@ -5,6 +5,6 @@ public class VerCertificados extends OpcionDeMenu{
 		((Estudiante)UsIn).verCertificados();
 	}
 	public String toString() {
-		return "Certificados Pendientes";
+		return "Mis Certificados";
 	}
 }
