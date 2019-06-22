@@ -6,7 +6,7 @@ import gestorAplicacion.usuarios.*;
 
 import gestorAplicacion.Centro.*;
 
-public class RegistrarDocente extends OpcionDeMenu {
+public class RegistrarAdministrativo extends OpcionDeMenu {
 	public void ejecutar() {
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Escriba su nombre: ");
@@ -19,13 +19,13 @@ public class RegistrarDocente extends OpcionDeMenu {
 		String correo = entrada.next();
 		System.out.println("Escriba la contraseña que desee: ");
 		String contraseña = entrada.next();
-		System.out.println("Esciba el codigo necesario para ser docente: ");
+		System.out.println("Esciba el codigo necesario para ser Administrativo: ");
 		String codigo = entrada.next();
-		if(codigo.equals(Docente.getCodigo())) {
-			Docente d = new Docente(nombre + " " + apellido, cc, correo, contraseña);
-			d.getMenu().lanzarMenu();
+		if(codigo.equals(Administrativo.getCodigo())) {
+			Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
+			a.getMenu().lanzarMenu();
 			int eleccion = entrada.nextInt();
-			d.getMenu().ejecutarOpcion(eleccion);
+			a.getMenu().ejecutarOpcion(eleccion);
 		}else {
 			Invitado.getMenu().lanzarMenu();
 			int eleccion = entrada.nextInt();
@@ -33,6 +33,6 @@ public class RegistrarDocente extends OpcionDeMenu {
 		}
 	}
 	public String toString() {
-		return"Registrar Docente";
+		return"Registrar Administrativo";
 	}
 }

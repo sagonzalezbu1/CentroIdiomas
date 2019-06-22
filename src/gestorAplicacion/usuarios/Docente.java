@@ -32,7 +32,7 @@ public class Docente extends Usuario{
     public String toString(){
         return("Nombre: " + super.nombre +"\nCedula: " + super.cedula);
     }
-    public String getCodigo(){
+    public static String getCodigo(){
         return codigo;
     }
 }

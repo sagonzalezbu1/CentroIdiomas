@@ -2,6 +2,7 @@ package gestorAplicacion.usuarios;
 
 import java.util.*;
 import gestorAplicacion.Centro.*;
+import uiMain.MenuDeConsola;
 
 public class Estudiante extends Usuario {
 	private String estado = "Inactivo";
