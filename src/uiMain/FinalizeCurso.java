@@ -24,6 +24,7 @@ public class FinalizeCurso extends OpcionDeMenu {
 			curso.finalizeCurso();
 			System.out.println("El curso ha sido eliminado");
 		}
+		
 	}
 
 	public String toString() {
