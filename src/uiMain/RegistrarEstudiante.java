@@ -20,8 +20,8 @@ public class RegistrarEstudiante extends OpcionDeMenu {
 		System.out.println("Escriba la contraseña que desee: ");
 		String contraseña = entrada.next();
 		Estudiante e = new Estudiante(nombre + " " + apellido, cc, correo, contraseña);
-		Archivo.add(e);
 	}
+	
 	public String toString() {
 		return"Registrar estudiante";
 	}

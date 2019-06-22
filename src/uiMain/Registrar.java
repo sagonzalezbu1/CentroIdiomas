@@ -2,8 +2,7 @@ package uiMain;
 
 import gestorAplicacion.usuarios.*;
 import gestorAplicacion.Centro.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Registrar extends OpcionDeMenu {
 
