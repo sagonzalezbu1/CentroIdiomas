@@ -23,14 +23,14 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 		String codigo = entrada.next();
 		if(codigo.equals(Administrativo.getCodigo())) {
 			Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
-			a.getMenu().lanzarMenu();
+			/*a.getMenu().lanzarMenu();
 			int eleccion = entrada.nextInt();
-			a.getMenu().ejecutarOpcion(eleccion);
-		}else {
+			a.getMenu().ejecutarOpcion(eleccion);*/
+		}/*else {
 			Invitado.getMenu().lanzarMenu();
 			int eleccion = entrada.nextInt();
 			Invitado.getMenu().ejecutarOpcion(eleccion);
-		}
+		}*/
 	}
 	public String toString() {
 		return"Registrar Administrativo";

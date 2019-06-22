@@ -1,6 +1,7 @@
 package gestorAplicacion.usuarios;
 import java.util.*;
-import gestorAplicacion.Centro.*; 
+import gestorAplicacion.Centro.*;
+import uiMain.*; 
 
 public class Docente extends Usuario{
     private ArrayList <Curso> misCursos;
@@ -10,6 +11,7 @@ public class Docente extends Usuario{
         super(name,cedula,correo,clave);
         Archivo.add(cedula, clave);
         Archivo.add(this);
+        getMenu().anadirOpcion(new VerEstudiantes());
     }
     
     public String miHorario(){

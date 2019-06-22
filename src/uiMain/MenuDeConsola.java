@@ -19,8 +19,10 @@ public class MenuDeConsola {
             System.out.println(cont + ". " + x);
             cont++;
         }
+        int op= entry.nextInt();
+        ejecutarOpcion(op);
     }
-    public void ejecutarOpcion(int op) {
+    private void ejecutarOpcion(int op) {
     	Menu.get(op).ejecutar();
     }
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Registrar extends OpcionDeMenu {
 
-	MenuDeConsola m;
+	MenuDeConsola m= new MenuDeConsola();
 	
 	public void ejecutar() {
 		Scanner entrada = new Scanner(System.in);
@@ -15,8 +15,6 @@ public class Registrar extends OpcionDeMenu {
 		m.anadirOpcion(new RegistrarDocente());
 		m.anadirOpcion(new RegistrarAdministrativo());
 		m.lanzarMenu();
-		int eleccion = entrada.nextInt();
-		m.ejecutarOpcion(eleccion);
 	}
 	
 	public String toString() {

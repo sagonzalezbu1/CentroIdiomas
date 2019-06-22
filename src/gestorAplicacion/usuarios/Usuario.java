@@ -7,7 +7,7 @@ public abstract class Usuario {
     private long cedula;
     private String correo;
     private String contrasena;
-    private MenuDeConsola menu;
+    private MenuDeConsola menu= new MenuDeConsola();
     
     public void setContrasena(String pass){
         contrasena = pass;

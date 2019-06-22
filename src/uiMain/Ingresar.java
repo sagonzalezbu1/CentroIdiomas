@@ -11,28 +11,7 @@ public class Ingresar extends OpcionDeMenu {
 		long cc = entry.nextInt();
 		System.out.println("Ingrese su contraseña :");
 		String pass = entry.next();
-		UsIn = Invitado.ingresar(cc, pass);
-		if (UsIn == null) {
-			System.out.println("Su usuario o contraseña no son invalidos.");
-			Invitado.getMenu().lanzarMenu();
-			int op= entry.nextInt();
-			Invitado.getMenu().ejecutarOpcion(op);
-		}
-
-		if (UsIn instanceof Estudiante) {
-			((Estudiante) UsIn).getMenu().lanzarMenu();
-			int op = entry.nextInt();
-			((Estudiante) UsIn).getMenu().ejecutarOpcion(op);
-		} else if (UsIn instanceof Docente) {
-			((Docente) UsIn).getMenu().lanzarMenu();
-			int op = entry.nextInt();
-			((Estudiante) UsIn).getMenu().ejecutarOpcion(op);
-		} else {
-			((Administrativo) UsIn).getMenu().lanzarMenu();
-			int op = entry.nextInt();
-			((Estudiante) UsIn).getMenu().ejecutarOpcion(op);
-		}
-
+		Invitado.ingresar(cc, pass);
 	}
 
 	public String toString() {

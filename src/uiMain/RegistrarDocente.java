@@ -23,14 +23,15 @@ public class RegistrarDocente extends OpcionDeMenu {
 		String codigo = entrada.next();
 		if(codigo.equals(Docente.getCodigo())) {
 			Docente d = new Docente(nombre + " " + apellido, cc, correo, contraseña);
-			d.getMenu().lanzarMenu();
+		}
+			/*d.getMenu().lanzarMenu();
 			int eleccion = entrada.nextInt();
 			d.getMenu().ejecutarOpcion(eleccion);
 		}else {
 			Invitado.getMenu().lanzarMenu();
 			int eleccion = entrada.nextInt();
 			Invitado.getMenu().ejecutarOpcion(eleccion);
-		}
+		}*/
 	}
 	public String toString() {
 		return"Registrar Docente";
