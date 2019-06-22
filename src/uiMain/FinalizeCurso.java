@@ -20,15 +20,11 @@ public class FinalizeCurso extends OpcionDeMenu {
 		}
 		if(curso==null) {
 			System.out.println("No se encontró el curso"+"\n");
-			( UsIn).getMenu().lanzarMenu();
-			int eleccion = e.nextInt();
-			UsIn.getMenu().ejecutarOpcion(eleccion);
+			volverMenu();
 		}else {
-			curso.matricular((Estudiante)(UsIn));
-			System.out.println("Usted quedó matriculado");
-			UsIn.getMenu().lanzarMenu();
-			int eleccion = e.nextInt();
-			UsIn.getMenu().ejecutarOpcion(eleccion);
+			curso.finalizeCurso();
+			System.out.println("El curso ha sido eliminado");
+			volverMenu();
 		}
 	}
 	public String toString() {
