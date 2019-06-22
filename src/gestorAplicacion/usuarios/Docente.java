@@ -18,6 +18,7 @@ public class Docente extends Usuario{
         String aux = "";
         for (Curso x:misCursos){
             aux += "Nombre: " + x.getNombreCurso() + "\n" + "Horario: " + x.getHorarioCurso() + "\n";
+            aux += "\n";
         }
         return aux;
     }
