@@ -20,11 +20,9 @@ public class Matricular extends OpcionDeMenu {
 		}
 		if(b==false) {
 			System.out.println("No se encontró el curso"+"\n");
-			volverMenu();
 		}else {
 			curso.matricular((Estudiante)(UsIn));
 			System.out.println("Usted quedó matriculado");
-			volverMenu();
 		}
 		
 	}
