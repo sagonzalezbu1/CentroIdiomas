@@ -11,7 +11,6 @@ public class Docente extends Usuario{
         super(name,cedula,correo,clave);
         Archivo.add(cedula, clave);
         Archivo.add(this);
-        getMenu().anadirOpcion(new VerEstudiantes());
     }
     
     public String miHorario(){
