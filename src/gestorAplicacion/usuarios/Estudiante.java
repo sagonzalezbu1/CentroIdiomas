@@ -116,7 +116,12 @@ public class Estudiante extends Usuario {
 		for (Certificado x : misCertificados) {
 			aux += x + "\n";
 		}
-		return aux;
+		if (aux.equals("")) {
+			return "Este estudiante aun no tiene certificados";
+		} else {
+			return aux;
+		}
+
 	}
 
 	public String verSolicitudes() {
