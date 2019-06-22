@@ -7,7 +7,6 @@ public class Main {
 	public static void main(String[] args) {
 		while(true) {
 			user.getMenu().lanzarMenu();
-			System.out.println("prueba");
 		}
 	}
 }
