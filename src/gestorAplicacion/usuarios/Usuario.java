@@ -16,6 +16,10 @@ public abstract class Usuario {
 		contrasena = password;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+	
 	public long getCedula() {
 		return cedula;
 	}
@@ -32,10 +36,18 @@ public abstract class Usuario {
 		return menu;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public void setNombre(String name) {
+		nombre = name;
 	}
-
+	
+	public void setCedula(String id) {
+		cedula = Long.parseLong(id);
+	}
+	
+	public void setCorreo(String mail) {
+		correo = mail;
+	}
+	
 	public void setContrasena(String pass) {
 		contrasena = pass;
 	}
