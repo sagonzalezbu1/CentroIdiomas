@@ -10,6 +10,7 @@ import java.util.Scanner;
 import gestorAplicacion.usuarios.Estudiante;
 import uiMain.AceptarSolicitud;
 import uiMain.CrearCurso;
+import uiMain.RechazarSolicitud;
 
 public class Solicitud {
 
@@ -43,7 +44,7 @@ public class Solicitud {
 		Curso x = disponibilidad();
 		// ArrayList<Estudiante> e = solicitudes.get(tipo);
 		int per = 0;
-		//aceptar solicitudes sin que haya cupos disponibles
+		// aceptar solicitudes sin que haya cupos disponibles
 		if (x == null) {
 			CrearCurso cc = new CrearCurso();
 			// Se ejecuta la opcion de menu Crear un curso.
@@ -53,19 +54,21 @@ public class Solicitud {
 			int cont = 0;
 			for (Estudiante d : solicitudes.get(tipo)) {
 				im += cont + " " + d.toString();
+				cont++;
 			}
 			int posicion = AceptarSolicitud.CC(im);
 			Estudiante aceptar = (solicitudes.get(tipo)).get(posicion);
 			aceptar.removeSolicitud(this);
 			nuevo.matricular(aceptar);
 			(solicitudes.get(tipo)).remove(posicion);
-		} 
+		}
 		// aceptar solicitudes si hay cupos disponibles
 		else {
 			String im = "";
 			int cont = 0;
 			for (Estudiante d : solicitudes.get(tipo)) {
 				im += cont + " " + d.toString();
+				cont++;
 			}
 			int posicion = AceptarSolicitud.CC(im);
 			Estudiante aceptar = (solicitudes.get(tipo)).get(posicion);
@@ -73,6 +76,19 @@ public class Solicitud {
 			x.matricular(aceptar);
 			(solicitudes.get(tipo)).remove(posicion);
 		}
+	}
+
+	public void rechazarSolicitud() {
+		String im = "";
+		int cont = 0;
+		for (Estudiante d : solicitudes.get(tipo)) {
+			im += cont + " " + d.toString();
+			cont++;
+		}
+		int posicion = RechazarSolicitud.CC(im);
+		Estudiante aceptar = (solicitudes.get(tipo)).get(posicion);
+		aceptar.removeSolicitud(this);
+		(solicitudes.get(tipo)).remove(posicion);
 	}
 
 	public void solicitar(String tipo, Estudiante e) {

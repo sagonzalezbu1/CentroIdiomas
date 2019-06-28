@@ -7,7 +7,7 @@ public class Main {
 	public static Usuario user= new Invitado();
 	public static void main(String[] args) {
 		ArrayList<OpcionDeMenu> funcionalidadess = new ArrayList<OpcionDeMenu>();
-		funcionalidadess.add(new AceptarSolicitudes());
+		funcionalidadess.add(new AceptarSolicitud());
 		funcionalidadess.add(new AddFuncionalidad());
 		funcionalidadess.add(new Calificar());
 		funcionalidadess.add(new CrearCurso());
@@ -15,7 +15,7 @@ public class Main {
 		funcionalidadess.add(new FinalizeCurso());
 		funcionalidadess.add(new Ingresar());
 		funcionalidadess.add(new Matricular());
-		funcionalidadess.add(new RechazarSolicitudes());
+		funcionalidadess.add(new RechazarSolicitud());
 		funcionalidadess.add(new Registrar());
 		funcionalidadess.add(new RemoveFuncionalidad());
 		funcionalidadess.add(new SolicitarCupo());
