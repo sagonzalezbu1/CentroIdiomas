@@ -1,8 +1,8 @@
 package gestorAplicacion.usuarios;
 
 import java.util.*;
-import gestorAplicacion.Centro.*;
 import uiMain.MenuDeConsola;
+import gestorAplicacion.Centro.*;
 
 public class Estudiante extends Usuario {
 	private String estado = "Inactivo";
@@ -10,11 +10,21 @@ public class Estudiante extends Usuario {
 	private ArrayList<Solicitud> misSolicitudes = new ArrayList<Solicitud>();
 	private ArrayList<Curso> misCursos = new ArrayList<Curso>();
 	private HashMap<String, ArrayList<Float>> misNotas = new HashMap<>();
-
+	
+	//Constructor para creacion de objeto
 	public Estudiante(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		Archivo.add(cedula, clave);
 		Archivo.add(this);
+		//Menu por defecto
+	}
+	
+	//Constructor para carga de archivos
+	public Estudiante(long cedula, String name, String correo, String clave) {
+		super(name, cedula, correo, clave);
+		Archivo.add(cedula, clave);
+		Archivo.add(this);
+		//Menu editado
 	}
 
 	public void addCertificado(Certificado certify) {

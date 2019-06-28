@@ -1,8 +1,8 @@
 package gestorAplicacion.usuarios;
 
 import java.util.*;
+import uiMain.MenuDeConsola;
 import gestorAplicacion.Centro.*;
-import uiMain.*;
 
 public class Docente extends Usuario {
 	private ArrayList<Curso> misCursos;
@@ -12,10 +12,20 @@ public class Docente extends Usuario {
 		return codigo;
 	}
 
+	//Constructor para creacion de objeto
 	public Docente(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		Archivo.add(cedula, clave);
 		Archivo.add(this);
+		//Menu por defecto
+	}
+	
+	//Constructor para carga de archivos
+	public Docente(long cedula, String name, String correo, String clave) {
+		super(name, cedula, correo, clave);
+		Archivo.add(cedula, clave);
+		Archivo.add(this);
+		//Menu editado
 	}
 
 	public void addCurso(Curso course) {

@@ -25,7 +25,7 @@ public class Data {
                 	}
                 }
                 if(aux==0) {
-                	Estudiante e = new Estudiante(usuario[0], Long.parseLong(usuario[1]), usuario[2], usuario[3]);
+                	Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); //Segundo constructor
                 }
             }
             br.close();
@@ -52,7 +52,7 @@ public class Data {
                 	}
                 }
                 if(aux==0) {
-                	Docente d = new Docente(usuario[0], Long.parseLong(usuario[1]), usuario[2], usuario[3]);
+                	Docente d = new Docente(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); //Segundo constructor
                 }
             }
             br.close();
@@ -79,7 +79,7 @@ public class Data {
                 	}
                 }
                 if(aux==0) {
-                	Administrativo a = new Administrativo(usuario[0], Long.parseLong(usuario[1]), usuario[2], usuario[3]);
+                	Administrativo a = new Administrativo(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); //Segundo constructor
                 }
             }
             br.close();
