@@ -4,83 +4,74 @@ import gestorAplicacion.usuarios.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 
 import gestorAplicacion.usuarios.Estudiante;
+import uiMain.AceptarSolicitud;
+import uiMain.CrearCurso;
 
 public class Solicitud {
 
 	Scanner entry = new Scanner(System.in);
 	static private HashMap<String, ArrayList<Estudiante>> solicitudes = new HashMap<>();
-	private String tipoCurso;
+	private String tipo;
 
 	public Solicitud(String tipo) {
-		tipoCurso = tipo;
+		this.tipo = tipo;
 	}
-	public void aceptarSolicitud(String tipo) {
-		Curso x = Solicitud.disponibilidad(tipo);
-		ArrayList<Estudiante> e = solicitudes.get(tipo);
+
+	private Curso disponibilidad() {
+		ArrayList<Curso> Cursos = Archivo.getCursos();
+		for (Curso c : Cursos) {
+			if (c.getTipo().equals(tipo) && c.getCuposDisponibles() > 0) {
+				return c;
+			}
+		}
+		return null;
+	}
+
+	public static String solicitudes() {
+		String im = "";
+		for (String key : solicitudes.keySet()) {
+			im += key + "\n";
+		}
+		return im;
+	}
+
+	public void aceptarSolicitud() {
+		Curso x = disponibilidad();
+		// ArrayList<Estudiante> e = solicitudes.get(tipo);
 		int per = 0;
+		//aceptar solicitudes sin que haya cupos disponibles
 		if (x == null) {
-			// solucitudes tiene estudiantes
-			while (e.size() != 0 && per == 0) {
-				System.out.println("Ingrese el nombre del nuevo curso: ");
-				String nombre = entry.next();
-				System.out.print("Ingrese el horario del nuevo curso: ");
-				String horario = entry.next();
-				ArrayList<Docente> doc = Archivo.getDocentes();
-				Curso course = new Curso(nombre, horario, doc.get(0), tipo);
-				(doc.get(0)).addCurso(course);
-				System.out.println("El nuevo curso ha sido creado.");
-				int cup = 0;
-				// aceptar solicitudes una a una, hasta completar el cupo maximo de 10
-				while (cup <= 10) {
-					if (e.size() != 0) {
-						Estudiante acep = e.get(0);
-						System.out.println("Si desea aceptar la solucitud de " + acep.getNombre()
-								+ " marque 0. \nPara rechazar marque 1. \nPara salir marque 2.");
-						int op = entry.nextInt();
-						if (op == 0) {
-							course.matricular(acep);
-							acep.removeSolicitud(this);
-							e.remove(acep);
-							cup++;
-						} else if (op == 1) {
-							acep.removeSolicitud(this);
-							e.remove(acep);
-						} else {
-							per = 1;
-							break;
-						}
-					} else {
-						System.out.println("No hay mas solicitudes");
-						break;
-					}
-				}
+			CrearCurso cc = new CrearCurso();
+			// Se ejecuta la opcion de menu Crear un curso.
+			cc.ejecutar();
+			Curso nuevo = disponibilidad();
+			String im = "";
+			int cont = 0;
+			for (Estudiante d : solicitudes.get(tipo)) {
+				im += cont + " " + d.toString();
 			}
-		} else {
-			while (x.getCuposDisponibles() != 0) {
-				if (e.size() != 0) {
-					Estudiante acep = e.get(0);
-					System.out.println("Si desea aceptar la solucitud de " + acep.getNombre()
-							+ " marque 0. \nPara rechazar marque 1. \nPara salir marque 2.");
-					int op = entry.nextInt();
-					if (op == 0) {
-						x.matricular(acep);
-						acep.removeSolicitud(this);
-						e.remove(acep);
-					} else if (op == 1) {
-						acep.removeSolicitud(this);
-						e.remove(acep);
-					} else {
-						per = 1;
-						break;
-					}
-				} else {
-					System.out.println("No hay mas solicitudes");
-					break;
-				}
+			int posicion = AceptarSolicitud.CC(im);
+			Estudiante aceptar = (solicitudes.get(tipo)).get(posicion);
+			aceptar.removeSolicitud(this);
+			nuevo.matricular(aceptar);
+			(solicitudes.get(tipo)).remove(posicion);
+		} 
+		// aceptar solicitudes si hay cupos disponibles
+		else {
+			String im = "";
+			int cont = 0;
+			for (Estudiante d : solicitudes.get(tipo)) {
+				im += cont + " " + d.toString();
 			}
+			int posicion = AceptarSolicitud.CC(im);
+			Estudiante aceptar = (solicitudes.get(tipo)).get(posicion);
+			aceptar.removeSolicitud(this);
+			x.matricular(aceptar);
+			(solicitudes.get(tipo)).remove(posicion);
 		}
 	}
 
@@ -94,6 +85,6 @@ public class Solicitud {
 	}
 
 	public String toString() {
-		return tipoCurso;
+		return tipo;
 	}
 }
