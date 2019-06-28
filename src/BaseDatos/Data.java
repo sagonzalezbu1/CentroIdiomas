@@ -2,7 +2,6 @@ package BaseDatos;
 
 import java.io.*;
 import java.util.*;
-
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.usuarios.*;
 
@@ -16,13 +15,22 @@ public class Data {
             BufferedReader br = new BufferedReader(fr);
             String linea;
             while((linea = br.readLine()) != null){
-                String [] user = linea.split(" ");
-                Estudiante e = new Estudiante(user[0], Long.parseLong(user[1]), user[2], user[3]);
+                String [] usuario = linea.split(" ");
+                ArrayList<Estudiante> lista = Archivo.getEstudiantes();
+                int aux = 0;
+                for(Estudiante x: lista) {
+                	if(x.getCedula() == Long.parseLong(usuario[1])) {
+                		aux++;
+                	}
+                }
+                if(aux==0) {
+                	Estudiante e = new Estudiante(usuario[0], Long.parseLong(usuario[1]), usuario[2], usuario[3]);
+                }
             }
             br.close();
         }
 		catch(Exception ex) {
-            System.out.println("Error en carga de estudiantes: " + ex);
+            System.out.println("\nError en carga de estudiantes: " + ex);
         }
 	}
 	
@@ -33,13 +41,22 @@ public class Data {
             BufferedReader br = new BufferedReader(fr);
             String linea;
             while((linea = br.readLine()) != null){
-                String [] user = linea.split(" ");
-                Docente d = new Docente(user[0], Long.parseLong(user[1]), user[2], user[3]);
+                String [] usuario = linea.split(" ");
+                ArrayList<Docente> lista = Archivo.getDocentes();
+                int aux = 0;
+                for(Docente x: lista) {
+                	if(x.getCedula() == Long.parseLong(usuario[1])) {
+                		aux++;
+                	}
+                }
+                if(aux==0) {
+                	Docente d = new Docente(usuario[0], Long.parseLong(usuario[1]), usuario[2], usuario[3]);
+                }
             }
             br.close();
         }
 		catch(Exception ex) {
-            System.out.println("Error en carga de docentes: " + ex);
+            System.out.println("\nError en carga de docentes: " + ex);
         }
 	}
 	
@@ -50,15 +67,25 @@ public class Data {
             BufferedReader br = new BufferedReader(fr);
             String linea;
             while((linea = br.readLine()) != null){
-                String [] user = linea.split(" ");
-                Administrativo a = new Administrativo(user[0], Long.parseLong(user[1]), user[2], user[3]);
+                String [] usuario = linea.split(" ");
+                ArrayList<Administrativo> lista = Archivo.getAdministrativos();
+                int aux = 0;
+                for(Administrativo x: lista) {
+                	if(x.getCedula() == Long.parseLong(usuario[1])) {
+                		aux++;
+                	}
+                }
+                if(aux==0) {
+                	Administrativo a = new Administrativo(usuario[0], Long.parseLong(usuario[1]), usuario[2], usuario[3]);
+                }
             }
             br.close();
         }
 		catch(Exception ex) {
-            System.out.println("Error en carga de administrativos: " + ex);
+            System.out.println("\nError en carga de administrativos: " + ex);
         }
 	}
+	
 	//ESCRITURA ARCHIVOS DE TEXTO
 	public static void escribirEstudiantes() {
 		try {
@@ -70,7 +97,7 @@ public class Data {
 	            String linea = e.getNombre() + " ";
 	            linea += e.getCedula() + " ";
 	            linea += e.getCorreo() + " ";
-	            linea += e.getContrasena() + " ";
+	            linea += e.getContrasena();
 	            pw.write(linea + "\n");
 			}
             pw.close();
