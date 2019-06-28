@@ -7,15 +7,16 @@ import gestorAplicacion.usuarios.*;
 
 public class Data {
 	
-	//CARGA DE OBJETOS A ARCHIVOS DE TEXTO
+	//CARGA DE OBJETOS AL PROGRAMA
 	public static void cargarEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-            FileReader fr = new FileReader(direccion + "estudiantes.txt");
+			File f = new File(direccion + "estudiantes.txt");
+			FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String linea;
             while((linea = br.readLine()) != null){
-                String [] usuario = linea.split(" ");
+                String [] usuario = linea.split(";");
                 ArrayList<Estudiante> lista = Archivo.getEstudiantes();
                 int aux = 0;
                 for(Estudiante x: lista) {
@@ -37,11 +38,12 @@ public class Data {
 	public static void cargarDocentes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-            FileReader fr = new FileReader(direccion + "docentes.txt");
+			File f = new File(direccion + "docentes.txt");
+			FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String linea;
             while((linea = br.readLine()) != null){
-                String [] usuario = linea.split(" ");
+                String [] usuario = linea.split(";");
                 ArrayList<Docente> lista = Archivo.getDocentes();
                 int aux = 0;
                 for(Docente x: lista) {
@@ -63,11 +65,12 @@ public class Data {
 	public static void cargarAdministrativos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-            FileReader fr = new FileReader(direccion + "administrativos.txt");
+			File f = new File(direccion + "administrativos.txt");
+			FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String linea;
             while((linea = br.readLine()) != null){
-                String [] usuario = linea.split(" ");
+                String [] usuario = linea.split(";");
                 ArrayList<Administrativo> lista = Archivo.getAdministrativos();
                 int aux = 0;
                 for(Administrativo x: lista) {
@@ -86,17 +89,18 @@ public class Data {
         }
 	}
 	
-	//ESCRITURA ARCHIVOS DE TEXTO
+	//ESCRITURA DE ARCHIVOS DE TEXTO
 	public static void escribirEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-			FileWriter fw = new FileWriter(direccion + "estudiantes.txt", true);
+			File f = new File(direccion + "estudiantes.txt");
+			FileWriter fw = new FileWriter(f);
 			BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
 			for(Estudiante e: Archivo.getEstudiantes()) {
-	            String linea = e.getNombre() + " ";
-	            linea += e.getCedula() + " ";
-	            linea += e.getCorreo() + " ";
+	            String linea = e.getNombre() + ";";
+	            linea += e.getCedula() + ";";
+	            linea += e.getCorreo() + ";";
 	            linea += e.getContrasena();
 	            pw.write(linea + "\n");
 			}
@@ -110,14 +114,15 @@ public class Data {
 	public static void escribirDocentes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-			FileWriter fw = new FileWriter(direccion + "docentes.txt", true);
+			File f = new File(direccion + "docentes.txt");
+			FileWriter fw = new FileWriter(f);
 			BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
 			for(Docente d: Archivo.getDocentes()) {
-	            String linea = d.getNombre() + " ";
-	            linea += d.getCedula() + " ";
-	            linea += d.getCorreo() + " ";
-	            linea += d.getContrasena() + " ";
+	            String linea = d.getNombre() + ";";
+	            linea += d.getCedula() + ";";
+	            linea += d.getCorreo() + ";";
+	            linea += d.getContrasena();
 	            pw.write(linea + "\n");
 			}
             pw.close();
@@ -130,14 +135,15 @@ public class Data {
 	public static void escribirAdministrativos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-			FileWriter fw = new FileWriter(direccion + "administrativos.txt", true);
+			File f = new File(direccion + "administrativos.txt");
+			FileWriter fw = new FileWriter(f);
 			BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
 			for(Administrativo a: Archivo.getAdministrativos()) {
-	            String linea = a.getNombre() + " ";
-	            linea += a.getCedula() + " ";
-	            linea += a.getCorreo() + " ";
-	            linea += a.getContrasena() + " ";
+	            String linea = a.getNombre() + ";";
+	            linea += a.getCedula() + ";";
+	            linea += a.getCorreo() + ";";
+	            linea += a.getContrasena();
 	            pw.write(linea + "\n");
 			}
             pw.close();
