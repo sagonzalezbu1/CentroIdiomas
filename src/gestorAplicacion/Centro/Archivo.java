@@ -31,6 +31,42 @@ abstract public class Archivo {
 		Usuarios.put(cc, pass);
 	}
 
+	static public boolean buscarAdministrativo(String admin) {
+		for (Administrativo x : listaAdministrativos) {
+			if (x.getNombre().equals(admin)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	static public boolean buscarDocente(String docen) {
+		for (Docente x : listaDocentes) {
+			if (x.getNombre().equals(docen)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	static public boolean buscarCurso(String curso) {
+		for (Curso x : listaCursos) {
+			if (x.getNombreCurso().equals(curso)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	static public boolean buscarEstudiante(String estud) {
+		for (Estudiante x : listaEstudiantes) {
+			if (x.getNombre().equals(estud)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	static public Curso CursoDisponibilidad(String tipo) {
 		ArrayList<Curso> Cursos = getCursos();
 		for (Curso c : Cursos) {
@@ -40,7 +76,7 @@ abstract public class Archivo {
 		}
 		return null;
 	}
-	
+
 	static public ArrayList<Administrativo> getAdministrativos() {
 		return listaAdministrativos;
 	}
@@ -56,8 +92,8 @@ abstract public class Archivo {
 	static public ArrayList<Estudiante> getEstudiantes() {
 		return listaEstudiantes;
 	}
-	
-	static public HashMap<String,ArrayList<Estudiante>> getSolicitudes() {
+
+	static public HashMap<String, ArrayList<Estudiante>> getSolicitudes() {
 		return solicitudes;
 	}
 
@@ -71,10 +107,11 @@ abstract public class Archivo {
 			}
 		}
 	}
-	
+
 	static public void removeSolicitud(String tipo, Estudiante e) {
 		(solicitudes.get(tipo)).remove(e);
 	}
+
 	static public String verAdministrativos() {
 		String ver = "";
 		for (Administrativo x : listaAdministrativos) {
