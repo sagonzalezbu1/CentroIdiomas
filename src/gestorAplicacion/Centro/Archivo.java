@@ -9,6 +9,7 @@ abstract public class Archivo {
 	static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
 	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 	static private HashMap<Long, String> Usuarios = new HashMap<>();
+	static private HashMap<String, ArrayList<Estudiante>> solicitudes = new HashMap<>();
 
 	static public void add(Administrativo a) {
 		listaAdministrativos.add(a);
@@ -30,6 +31,16 @@ abstract public class Archivo {
 		Usuarios.put(cc, pass);
 	}
 
+	static public Curso CursoDisponibilidad(String tipo) {
+		ArrayList<Curso> Cursos = getCursos();
+		for (Curso c : Cursos) {
+			if (c.getTipo().equals(tipo) && c.getCuposDisponibles() > 0) {
+				return c;
+			}
+		}
+		return null;
+	}
+	
 	static public ArrayList<Administrativo> getAdministrativos() {
 		return listaAdministrativos;
 	}
@@ -45,6 +56,10 @@ abstract public class Archivo {
 	static public ArrayList<Estudiante> getEstudiantes() {
 		return listaEstudiantes;
 	}
+	
+	static public HashMap<String,ArrayList<Estudiante>> getSolicitudes() {
+		return solicitudes;
+	}
 
 	static public void removeCurso(String nombre) {
 		Iterator<Curso> I = listaCursos.iterator();
@@ -56,7 +71,10 @@ abstract public class Archivo {
 			}
 		}
 	}
-
+	
+	static public void removeSolicitud(String tipo, Estudiante e) {
+		(solicitudes.get(tipo)).remove(e);
+	}
 	static public String verAdministrativos() {
 		String ver = "";
 		for (Administrativo x : listaAdministrativos) {

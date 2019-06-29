@@ -6,10 +6,9 @@ import gestorAplicacion.usuarios.*;
 
 public class Main {
 	public static Usuario user= new Invitado();
+	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>();
 	
 	public static void main(String[] args) {
-		HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>();
-		funcionalidades.put("AceptarSolicitud", new AceptarSolicitud());
 		funcionalidades.put("AddFuncionalidad", new AddFuncionalidad());
 		funcionalidades.put("Calificar", new Calificar());
 		funcionalidades.put("CrearCurso", new CrearCurso());
@@ -17,9 +16,9 @@ public class Main {
 		funcionalidades.put("FinalizeCurso", new FinalizeCurso());
 		funcionalidades.put("Ingresar", new Ingresar());
 		funcionalidades.put("Matricular", new Matricular());
-		funcionalidades.put("RechazarSolicitud", new RechazarSolicitud());
 		funcionalidades.put("Registrar", new Registrar());
 		funcionalidades.put("RemoveFuncionalidad", new RemoveFuncionalidad());
+		funcionalidades.put("ResponderSolicitudes", new ResponderSolicitudes());
 		funcionalidades.put("SolicitarCupo", new SolicitarCupo());
 		funcionalidades.put("VerAdministradores", new VerAdministradores());
 		funcionalidades.put("VerCertificados", new VerCertificados());

@@ -85,8 +85,13 @@ public class Estudiante extends Usuario {
 		}
 	}
 
-	public void removeSolicitud(Solicitud soli) {
-		misSolicitudes.remove(soli);
+	public void removeSolicitud(String tipo) {
+		for(Solicitud s: misSolicitudes) {
+			if((s.getTipo()).equals(tipo)) {
+				misSolicitudes.remove(s);
+				return;
+			}
+		}
 	}
 
 	// 0 para matricular, 1 para finalizar
@@ -112,9 +117,8 @@ public class Estudiante extends Usuario {
 	}
 
 	public void solicitar(String type) {
-		Solicitud s = new Solicitud(type);
+		Solicitud s = new Solicitud(type,this);
 		misSolicitudes.add(s);
-		s.solicitar(type, this);
 	}
 
 	public String toString() {
