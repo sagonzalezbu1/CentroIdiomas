@@ -1,4 +1,4 @@
-package gestorAplicacion.usuarios;
+package gestorAplicacion.Usuarios;
 
 import java.util.*;
 import uiMain.MenuDeConsola;

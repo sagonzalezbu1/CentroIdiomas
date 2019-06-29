@@ -3,7 +3,7 @@ package uiMain;
 import java.util.Scanner;
 
 import gestorAplicacion.Centro.*;
-import gestorAplicacion.usuarios.*;
+import gestorAplicacion.Usuarios.*;
 
 public class CrearCurso extends OpcionDeMenu {
 	public void ejecutar() {

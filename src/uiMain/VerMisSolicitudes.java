@@ -3,7 +3,7 @@ package uiMain;
 import java.util.Scanner;
 
 import gestorAplicacion.Centro.Archivo;
-import gestorAplicacion.usuarios.*;
+import gestorAplicacion.Usuarios.*;
 
 public class VerMisSolicitudes extends OpcionDeMenu {
 	public void ejecutar() {

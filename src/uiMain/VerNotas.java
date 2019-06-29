@@ -1,7 +1,8 @@
 package uiMain;
 
-import gestorAplicacion.usuarios.*;
 import gestorAplicacion.Centro.*;
+import gestorAplicacion.Usuarios.*;
+
 import java.util.*;
 
 public class VerNotas extends OpcionDeMenu {

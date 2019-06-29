@@ -1,6 +1,6 @@
 package gestorAplicacion.Centro;
 
-import gestorAplicacion.usuarios.*;
+import gestorAplicacion.Usuarios.*;
 
 public class Certificado {
 	final private String nombre;

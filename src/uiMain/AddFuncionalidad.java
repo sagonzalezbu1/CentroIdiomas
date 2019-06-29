@@ -3,7 +3,7 @@ package uiMain;
 import java.util.Scanner;
 
 import gestorAplicacion.Centro.Archivo;
-import gestorAplicacion.usuarios.Usuario;
+import gestorAplicacion.Usuarios.Usuario;
 
 public class AddFuncionalidad extends OpcionDeMenu {
 	public void ejecutar() {

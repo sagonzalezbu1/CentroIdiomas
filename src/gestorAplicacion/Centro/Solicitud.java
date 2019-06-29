@@ -1,7 +1,8 @@
 package gestorAplicacion.Centro;
 
 import java.util.ArrayList;
-import gestorAplicacion.usuarios.Estudiante;
+
+import gestorAplicacion.Usuarios.Estudiante;
 
 public class Solicitud {
 	private String tipo;

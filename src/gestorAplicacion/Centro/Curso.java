@@ -1,7 +1,8 @@
 package gestorAplicacion.Centro;
 
 import java.util.*;
-import gestorAplicacion.usuarios.*;
+
+import gestorAplicacion.Usuarios.*;
 
 public class Curso {
 	final String nombre;

@@ -1,7 +1,8 @@
 package gestorAplicacion.Centro;
 
 import java.util.*;
-import gestorAplicacion.usuarios.*;
+
+import gestorAplicacion.Usuarios.*;
 
 abstract public class Archivo {
 	static private ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();

@@ -1,4 +1,4 @@
-package gestorAplicacion.usuarios;
+package gestorAplicacion.Usuarios;
 
 import gestorAplicacion.Centro.*;
 import uiMain.*;

@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Centro.Curso;
-import gestorAplicacion.usuarios.Estudiante;
+import gestorAplicacion.Usuarios.Estudiante;
+
 import java.util.*;
 
 public class ResponderSolicitudes extends OpcionDeMenu {

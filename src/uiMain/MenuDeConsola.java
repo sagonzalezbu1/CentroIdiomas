@@ -40,4 +40,7 @@ public class MenuDeConsola {
     private void ejecutarOpcion(int op) {
     	Menu.get(op).ejecutar();
     }
+    public ArrayList<OpcionDeMenu> getList(){
+    	return Menu;
+    }
 }

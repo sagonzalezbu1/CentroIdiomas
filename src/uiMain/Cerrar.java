@@ -3,7 +3,7 @@ package uiMain;
 import BaseDatos.*;
 import java.util.*;
 import gestorAplicacion.Centro.*;
-import gestorAplicacion.usuarios.*;
+import gestorAplicacion.Usuarios.*;
 
 public class Cerrar extends OpcionDeMenu {
 	public void ejecutar() {

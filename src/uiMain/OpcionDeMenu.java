@@ -1,7 +1,8 @@
 package uiMain;
 
 import java.util.Scanner;
-import gestorAplicacion.usuarios.*;
+
+import gestorAplicacion.Usuarios.*;
 
 public abstract class OpcionDeMenu {
 	public abstract void ejecutar();

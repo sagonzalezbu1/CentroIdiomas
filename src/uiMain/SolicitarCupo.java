@@ -1,6 +1,7 @@
 package uiMain;
 import gestorAplicacion.Centro.*;
-import gestorAplicacion.usuarios.*;
+import gestorAplicacion.Usuarios.*;
+
 import java.util.*;
 
 public class SolicitarCupo extends OpcionDeMenu{

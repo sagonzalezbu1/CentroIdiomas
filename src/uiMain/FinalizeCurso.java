@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Centro.Curso;
-import gestorAplicacion.usuarios.Estudiante;
+import gestorAplicacion.Usuarios.Estudiante;
 
 public class FinalizeCurso extends OpcionDeMenu {
 	public void ejecutar() {
