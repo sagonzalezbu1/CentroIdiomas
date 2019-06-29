@@ -7,7 +7,7 @@ import gestorAplicacion.usuarios.*;
 
 public class Data {
 	
-	//CARGA DE OBJETOS AL PROGRAMA
+	//CARGA DE OBJETOS AL PROGRAMA...
 	public static void cargarEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
