@@ -31,40 +31,40 @@ abstract public class Archivo {
 		Usuarios.put(cc, pass);
 	}
 
-	static public boolean buscarAdministrativo(String admin) {
+	static public Administrativo buscarAdministrativo(String admin) {
 		for (Administrativo x : listaAdministrativos) {
 			if (x.getNombre().equals(admin)) {
-				return true;
+				return x;
 			}
 		}
-		return false;
+		return null;
 	}
 	
-	static public boolean buscarDocente(String docen) {
+	static public Docente buscarDocente(String docen) {
 		for (Docente x : listaDocentes) {
 			if (x.getNombre().equals(docen)) {
-				return true;
+				return x;
 			}
 		}
-		return false;
+		return null;
 	}
 	
-	static public boolean buscarCurso(String curso) {
+	static public Curso buscarCurso(String curso) {
 		for (Curso x : listaCursos) {
 			if (x.getNombreCurso().equals(curso)) {
-				return true;
+				return x;
 			}
 		}
-		return false;
+		return null;
 	}
 	
-	static public boolean buscarEstudiante(String estud) {
+	static public Estudiante buscarEstudiante(String estud) {
 		for (Estudiante x : listaEstudiantes) {
 			if (x.getNombre().equals(estud)) {
-				return true;
+				return x;
 			}
 		}
-		return false;
+		return null;
 	}
 
 	static public Curso CursoDisponibilidad(String tipo) {
