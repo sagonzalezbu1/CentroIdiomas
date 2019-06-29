@@ -1,10 +1,12 @@
 package uiMain;
 
 import java.util.*;
-
+import BaseDatos.*;
 import gestorAplicacion.usuarios.*;
+
 public class Main {
 	public static Usuario user= new Invitado();
+	
 	public static void main(String[] args) {
 		ArrayList<OpcionDeMenu> funcionalidadess = new ArrayList<OpcionDeMenu>();
 		funcionalidadess.add(new AceptarSolicitud());
@@ -26,6 +28,11 @@ public class Main {
 		funcionalidadess.add(new VerHorario());
 		funcionalidadess.add(new VerMisSolicitudes());
 		funcionalidadess.add(new VerNotas());
+		funcionalidadess.add(new Cerrar());
+		
+		Data.cargarEstudiantes();
+		Data.cargarDocentes();
+		Data.cargarAdministrativos();
 		
 		while(true) {
 			user.getMenu().lanzarMenu();

@@ -8,6 +8,7 @@ public class Invitado extends Usuario {
 		super(name, id, email, password);
 		getMenu().anadirOpcion(new Ingresar());
 		getMenu().anadirOpcion(new Registrar());
+		getMenu().anadirOpcion(new Cerrar());
 	}
 
 	public Invitado() {
