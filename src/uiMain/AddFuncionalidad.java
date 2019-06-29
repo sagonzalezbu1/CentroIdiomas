@@ -27,8 +27,7 @@ public class AddFuncionalidad extends OpcionDeMenu {
 			}
 		}
 		if (y != null) {
-			MenuDeConsola menu = y.getMenu();
-			menu.eliminarOpcion();
+			//y.getMenu().
 		} else {
 			System.out.println("El usuario no esta registrado");
 		}

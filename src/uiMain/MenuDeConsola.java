@@ -5,6 +5,16 @@ public class MenuDeConsola {
     Scanner entry = new Scanner(System.in);
     private ArrayList<OpcionDeMenu> Menu = new ArrayList<OpcionDeMenu>();
     
+    public MenuDeConsola() {
+    	
+    }
+    
+    public MenuDeConsola(RegistrarEstudiante RegistrarEstudiante , RegistrarDocente RegistrarDocente, RegistrarAdministrativo RegistrarAdministrativo) {
+    	Menu.add(RegistrarEstudiante);
+    	Menu.add(RegistrarDocente);
+    	Menu.add(RegistrarAdministrativo);
+    }
+    
     public void anadirOpcion(OpcionDeMenu option){
         Menu.add(option);
     }
