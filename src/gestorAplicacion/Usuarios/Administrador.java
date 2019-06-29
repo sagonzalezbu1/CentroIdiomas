@@ -4,8 +4,11 @@ import gestorAplicacion.Centro.Archivo;
 import uiMain.*;
 
 public class Administrador extends Usuario {
+	static long cedula;
+	static String contrasena;
 	public Administrador(String name, long id, String email, String password) {
 		super(name, id, email, password);
+		
 		getMenu().anadirOpcion(Main.funcionalidades.get("AddFuncionalidad"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("RemoveFuncionalidad"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("UserMenu"));

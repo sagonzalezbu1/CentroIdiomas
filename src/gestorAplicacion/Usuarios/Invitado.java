@@ -16,20 +16,28 @@ public class Invitado extends Usuario {
 	}
 
 	static public void ingresar(long user, String key) {
+		if(user == Archivo.getAdministrador().getCedula() && key == Archivo.getAdministrador().getContrasena()) {
+			Main.user = Archivo.getAdministrador();
+			return;
+		}
 		for (Usuario x : Archivo.getEstudiantes()) {
 			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
 				Main.user = x;
+				return;
 			}
 		}
 		for (Usuario x : Archivo.getDocentes()) {
 			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
 				Main.user = x;
+				return;
 			}
 		}
 		for (Usuario x : Archivo.getAdministrativos()) {
 			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
 				Main.user = x;
+				return;
 			}
 		}
+		
 	}
 }

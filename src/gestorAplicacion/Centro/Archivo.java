@@ -11,6 +11,7 @@ abstract public class Archivo {
 	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 	static private HashMap<Long, String> Usuarios = new HashMap<>();
 	static private HashMap<String, ArrayList<Estudiante>> solicitudes = new HashMap<>();
+	static private Administrador a1 = new Administrador("Jaime Guzman", 0000, "admin@cdi.com", "123");
 
 	static public void add(Administrativo a) {
 		listaAdministrativos.add(a);
@@ -76,6 +77,9 @@ abstract public class Archivo {
 			}
 		}
 		return null;
+	}
+	static public Administrador getAdministrador() {
+		return a1;
 	}
 
 	static public ArrayList<Administrativo> getAdministrativos() {
