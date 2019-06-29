@@ -27,7 +27,9 @@ public class AddFuncionalidad extends OpcionDeMenu {
 			}
 		}
 		if (y != null) {
-			//y.getMenu().
+			System.out.println("Ingrese la funcionalidad que quiere agregar: ");
+			String option = e.next();
+			y.getMenu().anadirOpcion(Main.funcionalidades.get(option));
 		} else {
 			System.out.println("El usuario no esta registrado");
 		}
