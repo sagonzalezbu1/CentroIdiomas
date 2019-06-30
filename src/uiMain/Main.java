@@ -3,11 +3,12 @@ package uiMain;
 
 import java.util.*;
 import BaseDatos.*;
+import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 public class Main {
 
-	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>(){
+	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>() {
 		{
 			put("AddFuncionalidad", new AddFuncionalidad());
 			put("Calificar", new Calificar());
@@ -35,7 +36,7 @@ public class Main {
 	public static Usuario user = new Invitado();
 
 	public static void main(String[] args) {
-		
+
 		Data.cargarEstudiantes();
 		Data.cargarDocentes();
 		Data.cargarAdministrativos();
