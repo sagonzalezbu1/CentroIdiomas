@@ -1,6 +1,8 @@
 package gestorAplicacion.Usuarios;
 
 import java.util.*;
+
+import uiMain.Main;
 import uiMain.MenuDeConsola;
 import gestorAplicacion.Centro.*;
 
@@ -14,15 +16,21 @@ public class Estudiante extends Usuario {
 	//Constructor para creacion de objeto
 	public Estudiante(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		Archivo.add(cedula, clave);
-		Archivo.add(this);
 		//Menu por defecto
+		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("Matricular"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerCertificados"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerMisSolicitudes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerNotas"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("SolicitarCupo"));
+		Archivo.add(this);
+		
 	}
 	
 	//Constructor para carga de archivos
 	public Estudiante(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		Archivo.add(cedula, clave);
 		Archivo.add(this);
 		//Menu editado
 	}

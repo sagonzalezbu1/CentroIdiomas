@@ -1,6 +1,8 @@
 package gestorAplicacion.Usuarios;
 
 import java.util.*;
+
+import uiMain.Main;
 import uiMain.MenuDeConsola;
 import gestorAplicacion.Centro.*;
 
@@ -15,15 +17,19 @@ public class Docente extends Usuario {
 	//Constructor para creacion de objeto
 	public Docente(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		Archivo.add(cedula, clave);
-		Archivo.add(this);
 		//Menu por defecto
+		getMenu().anadirOpcion(Main.funcionalidades.get("Calificar"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantes"));
+		Archivo.add(this);
+		
 	}
 	
 	//Constructor para carga de archivos
 	public Docente(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		Archivo.add(cedula, clave);
 		Archivo.add(this);
 		//Menu editado
 	}

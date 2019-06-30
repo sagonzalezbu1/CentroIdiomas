@@ -12,7 +12,7 @@ public class UserMenu extends OpcionDeMenu {
 	}
 
 	public String toString() {
-		return "Opciones del Usuario";
+		return "Funcionalidades del Usuario";
 	}
 
 }

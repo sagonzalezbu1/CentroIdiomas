@@ -9,7 +9,7 @@ public class SystemMenu extends OpcionDeMenu {
 	}
 
 	public String toString() {
-		return "Funcionalidades del sistema";
+		return "Funcionalidades del Sistema";
 	}
 
 }

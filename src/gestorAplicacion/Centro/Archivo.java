@@ -9,7 +9,6 @@ abstract public class Archivo {
 	static private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
 	static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
 	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
-	static private HashMap<Long, String> Usuarios = new HashMap<>();
 	static private HashMap<String, ArrayList<Estudiante>> solicitudes = new HashMap<>();
 	static private Administrador a1 = new Administrador("Jaime Guzman", 0000, "admin@cdi.com", "123");
 
@@ -29,9 +28,6 @@ abstract public class Archivo {
 		listaEstudiantes.add(e);
 	}
 
-	static public void add(long cc, String pass) {
-		Usuarios.put(cc, pass);
-	}
 
 	static public Administrativo buscarAdministrativo(String admin) {
 		for (Administrativo x : listaAdministrativos) {

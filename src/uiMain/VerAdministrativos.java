@@ -1,7 +1,7 @@
 package uiMain;
 import gestorAplicacion.Centro.Archivo;
 
-public class VerAdministradores extends OpcionDeMenu {
+public class VerAdministrativos extends OpcionDeMenu {
 	public void ejecutar() {
 		Archivo.verAdministrativos();
 	}

@@ -6,31 +6,36 @@ import BaseDatos.*;
 import gestorAplicacion.Usuarios.*;
 
 public class Main {
+
+	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>(){
+		{
+			put("AddFuncionalidad", new AddFuncionalidad());
+			put("Calificar", new Calificar());
+			put("CrearCurso", new CrearCurso());
+			put("CursosDisponibles", new CursosDisponibles());
+			put("FinalizeCurso", new FinalizeCurso());
+			put("Ingresar", new Ingresar());
+			put("Matricular", new Matricular());
+			put("Registrar", new Registrar());
+			put("RemoveFuncionalidad", new RemoveFuncionalidad());
+			put("ResponderSolicitudes", new ResponderSolicitudes());
+			put("SolicitarCupo", new SolicitarCupo());
+			put("VerAdministradores", new VerAdministrativos());
+			put("VerCertificados", new VerCertificados());
+			put("VerDocentes", new VerDocentes());
+			put("VerEstudiantes", new VerEstudiantes());
+			put("VerHorario", new VerHorario());
+			put("VerMisSolicitudes", new VerMisSolicitudes());
+			put("VerNotas", new VerNotas());
+			put("Cerrar", new Cerrar());
+			put("UserMenu", new UserMenu());
+			put("SystemMenu", new SystemMenu());
+		}
+	};
 	public static Usuario user = new Invitado();
-	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>();
 
 	public static void main(String[] args) {
-		funcionalidades.put("AddFuncionalidad", new AddFuncionalidad());
-		funcionalidades.put("Calificar", new Calificar());
-		funcionalidades.put("CrearCurso", new CrearCurso());
-		funcionalidades.put("CursosDisponibles", new CursosDisponibles());
-		funcionalidades.put("FinalizeCurso", new FinalizeCurso());
-		funcionalidades.put("Ingresar", new Ingresar());
-		funcionalidades.put("Matricular", new Matricular());
-		funcionalidades.put("Registrar", new Registrar());
-		funcionalidades.put("RemoveFuncionalidad", new RemoveFuncionalidad());
-		funcionalidades.put("ResponderSolicitudes", new ResponderSolicitudes());
-		funcionalidades.put("SolicitarCupo", new SolicitarCupo());
-		funcionalidades.put("VerAdministradores", new VerAdministradores());
-		funcionalidades.put("VerCertificados", new VerCertificados());
-		funcionalidades.put("VerDocentes", new VerDocentes());
-		funcionalidades.put("VerEstudiantes", new VerEstudiantes());
-		funcionalidades.put("VerHorario", new VerHorario());
-		funcionalidades.put("VerMisSolicitudes", new VerMisSolicitudes());
-		funcionalidades.put("VerNotas", new VerNotas());
-		funcionalidades.put("Cerrar", new Cerrar());
-		funcionalidades.put("UserMenu", new UserMenu());
-		funcionalidades.put("SystemMenu", new SystemMenu());
+		
 		Data.cargarEstudiantes();
 		Data.cargarDocentes();
 		Data.cargarAdministrativos();

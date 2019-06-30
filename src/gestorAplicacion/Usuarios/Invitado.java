@@ -6,9 +6,10 @@ import uiMain.*;
 public class Invitado extends Usuario {
 	public Invitado(String name, long id, String email, String password) {
 		super(name, id, email, password);
-		getMenu().anadirOpcion(new Ingresar());
-		getMenu().anadirOpcion(new Registrar());
-		getMenu().anadirOpcion(new Cerrar());
+		getMenu().anadirOpcion(Main.funcionalidades.get("Ingresar"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("Registrar"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("Cerrar"));
 	}
 
 	public Invitado() {
@@ -16,7 +17,7 @@ public class Invitado extends Usuario {
 	}
 
 	static public void ingresar(long user, String key) {
-		if(user == Archivo.getAdministrador().getCedula() && key == Archivo.getAdministrador().getContrasena()) {
+		if(user == Archivo.getAdministrador().getCedula() && key.equals(Archivo.getAdministrador().getContrasena())) {
 			Main.user = Archivo.getAdministrador();
 			return;
 		}
@@ -41,3 +42,4 @@ public class Invitado extends Usuario {
 		
 	}
 }
+
