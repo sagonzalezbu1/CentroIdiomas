@@ -26,6 +26,10 @@ public class Data {
                 }
                 if(aux==0) {
                 	Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); //Segundo constructor
+                	String [] solic = usuario[4].split(",");
+                	for(String x: solic) {
+                		e.solicitar(x);
+                	}
                 }
             }
             br.close();
@@ -88,7 +92,7 @@ public class Data {
             System.out.println("\nError en carga de administrativos: " + ex);
         }
 	}
-	
+
 	//ESCRITURA DE ARCHIVOS DE TEXTO
 	public static void escribirEstudiantes() {
 		try {
@@ -102,6 +106,7 @@ public class Data {
 	            linea += e.getCedula() + ";";
 	            linea += e.getCorreo() + ";";
 	            linea += e.getContrasena();
+	            linea += e.verSolicitudes();
 	            pw.write(linea + "\n");
 			}
             pw.close();

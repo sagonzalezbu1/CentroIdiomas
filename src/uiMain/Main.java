@@ -3,6 +3,7 @@ package uiMain;
 
 import java.util.*;
 import BaseDatos.*;
+import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 public class Main {
@@ -31,6 +32,7 @@ public class Main {
 		funcionalidades.put("Cerrar", new Cerrar());
 		funcionalidades.put("UserMenu", new UserMenu());
 		funcionalidades.put("SystemMenu", new SystemMenu());
+		
 		Data.cargarEstudiantes();
 		Data.cargarDocentes();
 		Data.cargarAdministrativos();

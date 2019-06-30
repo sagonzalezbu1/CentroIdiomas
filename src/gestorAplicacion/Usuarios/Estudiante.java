@@ -141,7 +141,7 @@ public class Estudiante extends Usuario {
 	public String verSolicitudes() {
 		String aux = "";
 		for (Solicitud x : misSolicitudes) {
-			aux += x + ", ";
+			aux += x + ",";
 		}
 		return aux;
 	}
