@@ -3,7 +3,7 @@ import gestorAplicacion.Centro.Archivo;
 
 public class VerDocentes extends OpcionDeMenu{
 	public void ejecutar() {
-		Archivo.verDocentes();
+		System.out.println(Archivo.verDocentes());
 	}
 
 	public String toString() {
