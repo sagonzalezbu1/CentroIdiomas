@@ -21,7 +21,7 @@ public class Main {
 			put("RemoveFuncionalidad", new RemoveFuncionalidad());
 			put("ResponderSolicitudes", new ResponderSolicitudes());
 			put("SolicitarCupo", new SolicitarCupo());
-			put("VerAdministradores", new VerAdministrativos());
+			put("VerAdministrativos", new VerAdministrativos());
 			put("VerCertificados", new VerCertificados());
 			put("VerDocentes", new VerDocentes());
 			put("VerEstudiantes", new VerEstudiantes());
