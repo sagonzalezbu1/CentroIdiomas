@@ -7,7 +7,7 @@ public class VerDocentes extends OpcionDeMenu{
 	}
 
 	public String toString() {
-		return " Ver docentes";
+		return "Ver docentes";
 	}
 	
 }

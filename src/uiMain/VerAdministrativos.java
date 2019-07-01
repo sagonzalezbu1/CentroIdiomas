@@ -7,6 +7,6 @@ public class VerAdministrativos extends OpcionDeMenu {
 	}
 
 	public String toString() {
-		return " Ver administrativos";
+		return "Ver administrativos";
 	}
 }
