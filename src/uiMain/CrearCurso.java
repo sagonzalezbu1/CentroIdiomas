@@ -23,7 +23,7 @@ public class CrearCurso extends OpcionDeMenu {
 			}
 		}
 		if(b=true) {
-			System.out.println("Ingrese el tipo del curso(ingles,aleman,mandarin...): "); 
+			System.out.println("Ingrese el tipo del curso(ingles, aleman, mandarin,...): "); 
 			String tipo = e.next();
 			new Curso(nombre,horario,docente,tipo);
 		}

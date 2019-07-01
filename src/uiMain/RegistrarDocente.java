@@ -8,9 +8,9 @@ import gestorAplicacion.Usuarios.*;
 public class RegistrarDocente extends OpcionDeMenu {
 	public void ejecutar() {
 		Scanner entrada = new Scanner(System.in);
-		System.out.println("Escriba la nombre: ");
+		System.out.println("Escriba el nombre: ");
 		String nombre = entrada.next();
-		System.out.println("Escriba la primer apellido: ");
+		System.out.println("Escriba el primer apellido: ");
 		String apellido = entrada.next();
 		System.out.println("Escriba la cedula: ");
 		long cc = entrada.nextLong();
