@@ -11,6 +11,7 @@ public class Salir extends OpcionDeMenu {
 		Data.escribirDocentes();
 		Data.escribirEstudiantes();
 		Data.escribirAdministrativos();
+		Data.escribirSolicitudes();
 		System.exit(0);
 	}
 	public String toString() {
