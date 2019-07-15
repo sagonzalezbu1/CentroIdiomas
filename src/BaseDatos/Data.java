@@ -27,7 +27,7 @@ public class Data {
 					Curso curso = Archivo.buscarCurso(array[0]);
 					e.addCurso(curso);
 					for (int i = 1; i < cursos.length; i++) {
-						e.addNota(curso.getNombreCurso(),Float.parseFloat(array[i]));
+						e.addNota(curso,Float.parseFloat(array[i]));
 					}	
 				}		
 				String linea3 = br.readLine();
