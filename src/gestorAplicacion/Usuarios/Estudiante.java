@@ -1,12 +1,10 @@
 package gestorAplicacion.Usuarios;
 
 import java.util.*;
-
-import uiMain.Main;
-import uiMain.MenuDeConsola;
+import uiMain.*;
 import gestorAplicacion.Centro.*;
 
-public class Estudiante extends Usuario {
+public class Estudiante extends Usuario implements Horario {
 	private String estado = "Inactivo";
 	private ArrayList<Certificado> misCertificados = new ArrayList<Certificado>();
 	private ArrayList<Solicitud> misSolicitudes = new ArrayList<Solicitud>();
@@ -24,6 +22,7 @@ public class Estudiante extends Usuario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerNotas"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("SolicitarCupo"));
+		getMenu().anadirOpcion(new CerrarSesion());
 		Archivo.add(this);
 		
 	}

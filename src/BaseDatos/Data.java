@@ -27,8 +27,10 @@ public class Data {
 					}
 				}
 				if (aux == 0) {
-					Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo
-																													// constructor
+
+
+				Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo constructor
+
 					String[] solic = usuario[4].split(",");
 					for (String x : solic) {
 						e.solicitar(x);
@@ -93,6 +95,78 @@ public class Data {
 		} catch (Exception ex) {
 			System.out.println("\nError en carga de administrativos: " + ex);
 		}
+
+	}
+
+	public static void cargarSolicitudes() {
+		try {
+			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
+			File f = new File(direccion + "solicitudes.txt");
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			ArrayList<Estudiante> es= Archivo.getEstudiantes();
+			String key;
+			while ((key = br.readLine()) != null) {
+				String values = br.readLine();
+				String[] CC = values.split(";");
+				for (String cc : CC) {
+					for(Estudiante x: es) {
+						if(Long.parseLong(cc)==x.getCedula()) {
+							x.solicitar(key);
+						}
+					}
+				}
+			}
+			br.close();
+		} catch (Exception ex) {
+			System.out.println("\nError en carga de docentes: " + ex);
+		}
+	}
+	public static void cargarCursos() {
+		try {
+			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
+			File f = new File(direccion + "docentes.txt");
+			FileReader fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+            String linea;
+            int cont = 0;
+            String nombrecurso = "";
+            while((linea = br.readLine()) != null){
+            	
+            	if(cont%2==0) {
+            		String [] curso = linea.split(";");
+                    ArrayList<Curso> lista = Archivo.getCursos();
+                    int aux = 0;
+                    for(Curso x: lista) {
+                    	if(x.getNombreCurso().equals(curso[0])) {
+                    		aux++;
+                    	}
+                    }
+                    if(aux==0) {
+                    	long aux2 = Long.parseLong(curso[3]);
+                    	Docente aux3 = Archivo.buscarDocente(aux2);
+                    	Curso c = new Curso(curso[0],curso[1],curso[2],aux3);
+                    	aux3.addCurso(c);
+                    	nombrecurso = curso[0];
+                    }
+                    cont++;
+            	}
+            	else {
+            		String [] students = linea.split(";");
+            		for(String x : students) {
+            			Estudiante aux4 = Archivo.buscarEstudiante(Long.parseLong(x));
+            			Curso aux5 = Archivo.buscarCurso(nombrecurso);
+            			aux4.addCurso(aux5);
+            		}
+            	}
+                
+            }
+            br.close();
+        }
+		catch(Exception ex) {
+            System.out.println("\nError en carga de curso: " + ex);
+        }
+
 	}
 
 	// ESCRITURA DE ARCHIVOS DE TEXTO
@@ -143,6 +217,9 @@ public class Data {
 				ArrayList<OpcionDeMenu> menu = e.getMenu().getList();
 				
 
+
+				linea += e.verSolicitudes();
+				pw.write(linea + "\n");
 			}
 			pw.close();
 		} catch (Exception ex) {
@@ -183,10 +260,63 @@ public class Data {
 				linea += a.getCorreo() + ";";
 				linea += a.getContrasena();
 				pw.write(linea + "\n");
+
 			}
 			pw.close();
 		} catch (Exception ex) {
 			System.out.println("Error en escritura de administrativos: " + ex);
+
+			}
+			
+		} 
+	
+	
+	public static void escribirCursos() {
+		try {
+			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
+			File f = new File(direccion + "administrativos.txt");
+			FileWriter fw = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
+            for(Curso c: Archivo.getCursos()) {
+	            String linea1 = c.getNombreCurso() + ";";
+	            linea1 += c.getTipo() + ";";
+	            linea1 += c.getHorarioCurso()+ ";";
+	            linea1 += c.getDocente().getCedula();
+	            pw.write(linea1 + "\n");
+	            String linea2 = "";
+	            for (Estudiante x : c.getEstudiantes()) {
+	            	linea2 += x.getCedula() + ";";
+	            }
+	            linea2 = linea2.substring(0,linea2.length()-1) + "\n";
+			}
+            pw.close();
+		}
+		catch(Exception ex) {
+			System.out.println("Error en escritura de cursos: " + ex);
+
 		}
 	}
+
+	public static void escribirSolicitudes() {
+		try {
+			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
+			File f = new File(direccion + "solicitudes.txt");
+			FileWriter fw = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter pw = new PrintWriter(bw);
+			for (String key : (Archivo.getSolicitudes()).keySet()) {
+				String linea = key + "\n";
+				for (Solicitud value : (Archivo.getSolicitudes()).get(key)) {
+					linea += value.getEstudiante().getCedula() + ";";
+				}
+				linea = linea.substring(0,linea.length()-1);
+				pw.write(linea + "\n");
+			}
+			pw.close();
+		} catch (Exception ex) {
+			System.out.println("Error en escritura de solicitudes: " + ex);
+		}
+	}
+
 }

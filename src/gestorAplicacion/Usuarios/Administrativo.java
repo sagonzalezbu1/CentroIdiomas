@@ -1,9 +1,7 @@
 package gestorAplicacion.Usuarios;
 
 import java.util.*;
-
-import uiMain.Main;
-import uiMain.MenuDeConsola;
+import uiMain.*;
 import gestorAplicacion.Centro.*;
 
 public class Administrativo extends Usuario {
@@ -25,6 +23,7 @@ public class Administrativo extends Usuario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerAdministrativos"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantes"));
+		getMenu().anadirOpcion(new CerrarSesion());
 		Archivo.add(this);
 		
 	}

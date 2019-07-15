@@ -9,7 +9,7 @@ abstract public class Archivo {
 	static private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
 	static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
 	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
-	static private HashMap<String, ArrayList<Estudiante>> solicitudes = new HashMap<>();
+	static private HashMap<String, ArrayList<Solicitud>> solicitudes = new HashMap<>();
 	static private Administrador a1 = new Administrador("Jaime Guzman", 123, "admin@cdi.com", "123");
 
 	static public void add(Administrativo a) {
@@ -94,7 +94,7 @@ abstract public class Archivo {
 		return listaEstudiantes;
 	}
 
-	static public HashMap<String, ArrayList<Estudiante>> getSolicitudes() {
+	static public HashMap<String, ArrayList<Solicitud>> getSolicitudes() {
 		return solicitudes;
 	}
 

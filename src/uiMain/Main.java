@@ -35,6 +35,7 @@ public class Main {
 		Data.cargarEstudiantes();
 		Data.cargarDocentes();
 		Data.cargarAdministrativos();
+		Data.cargarSolicitudes();
 
 		while (true) {
 			user.getMenu().lanzarMenu();
