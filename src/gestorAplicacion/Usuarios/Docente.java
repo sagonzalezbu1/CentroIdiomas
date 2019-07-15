@@ -1,12 +1,10 @@
 package gestorAplicacion.Usuarios;
 
 import java.util.*;
-
-import uiMain.Main;
-import uiMain.MenuDeConsola;
+import uiMain.*;
 import gestorAplicacion.Centro.*;
 
-public class Docente extends Usuario {
+public class Docente extends Usuario implements Horario {
 	private ArrayList<Curso> misCursos;
 	private static final String codigo = "0000";
 
@@ -23,6 +21,7 @@ public class Docente extends Usuario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantes"));
+		getMenu().anadirOpcion(new CerrarSesion());
 		Archivo.add(this);
 		
 	}
