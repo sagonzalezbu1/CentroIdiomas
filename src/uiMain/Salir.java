@@ -5,7 +5,7 @@ import java.util.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
-public class Cerrar extends OpcionDeMenu {
+public class Salir extends OpcionDeMenu {
 	String nombre="";
 	public void ejecutar() {
 		Data.escribirDocentes();
@@ -14,6 +14,6 @@ public class Cerrar extends OpcionDeMenu {
 		System.exit(0);
 	}
 	public String toString() {
-		return "Cerrar programa";
+		return "Salir del programa";
 	}
 }

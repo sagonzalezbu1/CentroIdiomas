@@ -13,6 +13,7 @@ public class Administrador extends Usuario {
 		getMenu().anadirOpcion(new RemoveFuncionalidad());
 		getMenu().anadirOpcion(new UserMenu());
 		getMenu().anadirOpcion(new SystemMenu());
+		getMenu().anadirOpcion(new CerrarSesion());
 	}
 
 	public String SystemMenu() {
