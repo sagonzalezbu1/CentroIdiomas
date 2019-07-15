@@ -28,7 +28,7 @@ abstract public class Archivo {
 		listaEstudiantes.add(e);
 	}
 
-
+	//busca por cedula a las personas y por nombre a los cursos
 	static public Administrativo buscarAdministrativo(long admin) {
 		for (Administrativo x : listaAdministrativos) {
 			if (x.getCedula()==admin) {

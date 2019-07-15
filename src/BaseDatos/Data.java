@@ -223,8 +223,7 @@ public class Data {
 				} else {
 
 					for (Certificado x : certificados) {
-						linea = x.getNombre() + ";" + x.getAlumno().getCedula() + ";" + x.getDocente().getCedula() + ";"
-								+ x.getNota() + ".";
+						linea += x.getNombre() + ";" + x.getAlumno().getCedula() + ";" + x.getDocente().getCedula() + ";"+ x.getNota() + ".";
 					}
 					linea = linea.substring(0, linea.length() - 1);
 					pw.write(linea + "\n");
@@ -232,7 +231,7 @@ public class Data {
 				linea = null;
 				ArrayList<OpcionDeMenu> menu = e.getMenu().getList();
 				for(OpcionDeMenu x : menu) {
-					linea= x.getNombre()+";";
+					linea += x.getNombre()+";";
 				}
 				linea = linea.substring(0, linea.length() - 1);
 				pw.write(linea + "\n");
