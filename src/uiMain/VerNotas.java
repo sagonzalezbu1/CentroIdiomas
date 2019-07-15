@@ -11,7 +11,7 @@ public class VerNotas extends OpcionDeMenu {
 		//Estudiante quiere ver sus notas
 		if(Main.user instanceof Estudiante) {
 			for(Curso c : ((Estudiante) Main.user).getCurso()) {
-				System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).getNotas(c.getNombreCurso()) + "\n");
+				System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).verNotas(c.getNombreCurso()) + "\n");
 			}
 		}
 		//Usuario que no es Estudiante quiere ver las notas de un estudiante
@@ -22,7 +22,7 @@ public class VerNotas extends OpcionDeMenu {
 			for(Estudiante e : Archivo.getEstudiantes()) {
 				if(e.getCedula()==ced) {
 					for(Curso c : e.getCurso()) {
-						System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).getNotas(c.getNombreCurso()) + "\n");
+						System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).verNotas(c.getNombreCurso()) + "\n");
 					}
 					break;
 				}

@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
+import uiMain.Main;
+import uiMain.OpcionDeMenu;
 
 public class Data {
 
@@ -25,7 +27,10 @@ public class Data {
 					}
 				}
 				if (aux == 0) {
-					Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo constructor
+
+
+				Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo constructor
+
 					String[] solic = usuario[4].split(",");
 					for (String x : solic) {
 						e.solicitar(x);
@@ -90,6 +95,7 @@ public class Data {
 		} catch (Exception ex) {
 			System.out.println("\nError en carga de administrativos: " + ex);
 		}
+
 	}
 
 	public static void cargarSolicitudes() {
@@ -161,6 +167,7 @@ public class Data {
 		catch(Exception ex) {
             System.out.println("\nError en carga de curso: " + ex);
         }
+
 	}
 
 	// ESCRITURA DE ARCHIVOS DE TEXTO
@@ -176,6 +183,42 @@ public class Data {
 				linea += e.getCedula() + ";";
 				linea += e.getCorreo() + ";";
 				linea += e.getContrasena();
+				pw.write(linea + "\n");
+				linea = null;
+				HashMap<String, ArrayList<Float>> hash = e.getNotas();
+				if (hash.isEmpty()) {
+					pw.write("0" + "\n");
+				} else {
+
+					for (String x : hash.keySet()) {
+						linea = x;
+						ArrayList<Float> notas = hash.get(x);
+						for (float y : notas) {
+							linea += ";" + y;
+						}
+						linea += ".";
+					}
+					linea = linea.substring(0, linea.length() - 1);
+					pw.write(linea + "\n");
+				}
+				linea = null;
+				ArrayList<Certificado> certificados = e.getCertificados();
+				if (certificados.isEmpty()) {
+					pw.write("0" + "\n");
+				} else {
+
+					for (Certificado x : certificados) {
+						linea = x.getNombre() + ";" + x.getAlumno().getCedula() + ";" + x.getDocente().getCedula() + ";"
+								+ x.getNota() + ".";
+					}
+					linea = linea.substring(0, linea.length() - 1);
+					pw.write(linea + "\n");
+				}
+				linea = null;
+				ArrayList<OpcionDeMenu> menu = e.getMenu().getList();
+				
+
+
 				linea += e.verSolicitudes();
 				pw.write(linea + "\n");
 			}
@@ -218,12 +261,16 @@ public class Data {
 				linea += a.getCorreo() + ";";
 				linea += a.getContrasena();
 				pw.write(linea + "\n");
+
 			}
 			pw.close();
 		} catch (Exception ex) {
 			System.out.println("Error en escritura de administrativos: " + ex);
-		}
-	}
+
+			}
+			
+		} 
+	
 	
 	public static void escribirCursos() {
 		try {
@@ -248,6 +295,7 @@ public class Data {
 		}
 		catch(Exception ex) {
 			System.out.println("Error en escritura de cursos: " + ex);
+
 		}
 	}
 
