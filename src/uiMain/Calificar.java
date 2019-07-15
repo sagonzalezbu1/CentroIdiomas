@@ -1,14 +1,16 @@
 package uiMain;
+
 import java.util.*;
 import gestorAplicacion.Centro.*;
-import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Usuarios.*;
+
 public class Calificar extends OpcionDeMenu {
 	private String nombre="Calificar";
 	public String getNombre() {
 		return nombre;
 	}
 	public void ejecutar() {
+		//Se califica buscando primero el grupo y luego el estudiante
 		Scanner entry =new Scanner(System.in);
 		System.out.println("Introduzca el nombre del grupo al que desea calificar: ");
 		String aux = entry.next();

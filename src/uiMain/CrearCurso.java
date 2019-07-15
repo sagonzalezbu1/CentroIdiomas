@@ -11,6 +11,7 @@ public class CrearCurso extends OpcionDeMenu {
 		return nombre;
 	}
 	public void ejecutar() {
+		//Se crea el curso pidiendo información de este al usuario
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso: ");
 		String nombre = e.next();
@@ -20,6 +21,7 @@ public class CrearCurso extends OpcionDeMenu {
 		long cc = e.nextLong();
 		Docente docente=null;
 		boolean b = false;
+		//Se verifica que el docente que dictará el curso exista
 		for(Docente x : Archivo.getDocentes()) {
 			if(cc==x.getCedula()) {
 				b=true;
