@@ -19,7 +19,7 @@ public class Curso {
 		this.tipo = tipo;
 		Archivo.add(this);
 	}
-
+	//termina el curso y da certificados a quienes lo merezcan.
 	public void finalizeCurso() {
 		Archivo.removeCurso(nombre);
 		for (Estudiante x : alumnos) {

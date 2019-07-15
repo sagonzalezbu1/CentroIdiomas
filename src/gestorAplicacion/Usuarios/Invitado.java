@@ -4,6 +4,7 @@ import gestorAplicacion.Centro.*;
 import uiMain.*;
 
 public class Invitado extends Usuario {
+	//Constructor con menu
 	public Invitado(String name, long id, String email, String password) {
 		super(name, id, email, password);
 		getMenu().anadirOpcion(new Ingresar());
@@ -12,10 +13,12 @@ public class Invitado extends Usuario {
 		getMenu().anadirOpcion(new Salir());
 	}
 
+	//Constructor por defecto
 	public Invitado() {
 		this("", 0, "", "");
 	}
 
+	//Login
 	static public void ingresar(long user, String key) {
 		if(user == Archivo.getAdministrador().getCedula() && key.equals(Archivo.getAdministrador().getContrasena())) {
 			Main.user = Archivo.getAdministrador();

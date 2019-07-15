@@ -33,10 +33,12 @@ public class Docente extends Usuario implements Horario {
 		//Menu editado
 	}
 
+	//Añadir curso a la lista de cursos profesor
 	public void addCurso(Curso course) {
 		misCursos.add(course);
 	}
 
+	//Horario de clases del docente
 	public String miHorario() {
 		String aux = "";
 		for (Curso x : misCursos) {
@@ -46,6 +48,7 @@ public class Docente extends Usuario implements Horario {
 		return aux;
 	}
 
+	//Borrar curso de la lista de cursos del docente
 	public void removeCurso(String nombreCurso) {
 		for (Curso x : misCursos) {
 			if (x.getNombreCurso().equals(nombreCurso)) {

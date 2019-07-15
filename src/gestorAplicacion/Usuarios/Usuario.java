@@ -9,6 +9,7 @@ public abstract class Usuario {
 	private String contrasena;
 	private MenuDeConsola menu = new MenuDeConsola();
 
+	//Constructor
 	public Usuario(String name, long id, String email, String password) {
 		nombre = name;
 		cedula = id;
@@ -16,6 +17,7 @@ public abstract class Usuario {
 		contrasena = password;
 	}
 
+	//Setters y Getters
 	public String getNombre() {
 		return nombre;
 	}
