@@ -6,6 +6,8 @@ import uiMain.*;
 public class Administrador extends Usuario {
 	static long cedula;
 	static String contrasena;
+	
+	//Constructor por defecto de administrador
 	public Administrador(String name, long id, String email, String password) {
 		super(name, id, email, password);	
 		
@@ -16,6 +18,7 @@ public class Administrador extends Usuario {
 		getMenu().anadirOpcion(new CerrarSesion());
 	}
 
+	// Menu del sistema
 	public String SystemMenu() {
 		String aux = "";
 		for (String x : Main.funcionalidades.keySet()) {
@@ -24,6 +27,7 @@ public class Administrador extends Usuario {
 		return aux;
 	}
 
+	// Menu del Usuario
 	public String userSystemMenu(long id) {
 		Usuario user = null;
 		for (Usuario x : Archivo.getEstudiantes()) {

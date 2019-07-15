@@ -65,6 +65,7 @@ public class Curso {
 			alumnos.add(e);
 			e.addCurso(this);
 			e.setEstado(0);
+			
 			return true;
 		} else {
 			return false;
