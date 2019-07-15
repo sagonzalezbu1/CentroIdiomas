@@ -21,7 +21,7 @@ public class Data {
 				String[] usuario = linea1.split(";");
 				Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo Contructor																								// contructor
 				String linea2 = br.readLine();
-				String[] cursos = linea2.split(".");
+				String[] cursos = linea2.split("-");
 				for (String x : cursos) {
 					String[] array = x.split(";");
 					Curso curso = Archivo.buscarCurso(array[0]);
@@ -31,7 +31,7 @@ public class Data {
 					}	
 				}		
 				String linea3 = br.readLine();
-				String[] certificados = linea3.split(".");
+				String[] certificados = linea3.split("-");
 				for (String x : certificados) {
 					String[] array = x.split(";");
 					Docente d = Archivo.buscarDocente(Long.parseLong(array[2]));
@@ -222,7 +222,7 @@ public class Data {
 						for (float y : notas) {
 							linea += ";" + y;
 						}
-						linea += ".";
+						linea += "-";
 					}
 					linea = linea.substring(0, linea.length() - 1);
 					pw.write(linea + "\n");
@@ -235,7 +235,7 @@ public class Data {
 
 					for (Certificado x : certificados) {
 						linea += x.getNombre() + ";" + x.getAlumno().getCedula() + ";" + x.getDocente().getCedula()
-								+ ";" + x.getNota() + ".";
+								+ ";" + x.getNota() + "-";
 					}
 					linea = linea.substring(0, linea.length() - 1);
 					pw.write(linea + "\n");
