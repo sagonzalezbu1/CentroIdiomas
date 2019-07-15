@@ -26,6 +26,7 @@ public class Main {
 			put("VerHorario", new VerHorario());
 			put("VerMisSolicitudes", new VerMisSolicitudes());
 			put("VerNotas", new VerNotas());
+			put("CerrarSesion", new CerrarSesion());
 		}
 	};
 	public static Usuario user = new Invitado();
