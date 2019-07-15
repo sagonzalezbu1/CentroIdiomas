@@ -15,7 +15,7 @@ public class CrearCurso extends OpcionDeMenu {
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso: ");
 		String nombre = e.next();
-		System.out.println("Ingrese el horario del curso: ");
+		System.out.println("Ingrese el horario del curso (dia1-dia2_horainicio-horafinal): ");
 		String horario = e.next();
 		System.out.println("Ingrese la cedula del docente que dará el curso: ");
 		long cc = e.nextLong();
