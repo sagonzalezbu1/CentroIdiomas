@@ -3,6 +3,7 @@ package uiMain;
 import java.util.Scanner;
 
 import gestorAplicacion.Centro.Archivo;
+import gestorAplicacion.Usuarios.Administrador;
 import gestorAplicacion.Usuarios.Usuario;
 
 public class AddFuncionalidad extends OpcionDeMenu {
@@ -27,6 +28,7 @@ public class AddFuncionalidad extends OpcionDeMenu {
 			}
 		}
 		if (y != null) {
+			System.out.println(Archivo.getAdministrador().SystemMenu());
 			System.out.println("Ingrese la funcionalidad que quiere agregar: ");
 			String option = e.next();
 			y.getMenu().anadirOpcion(Main.funcionalidades.get(option));

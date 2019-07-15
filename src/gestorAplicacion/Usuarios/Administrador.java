@@ -17,10 +17,8 @@ public class Administrador extends Usuario {
 
 	public String SystemMenu() {
 		String aux = "";
-		int cont = 0;
 		for (String x : Main.funcionalidades.keySet()) {
-			aux += (cont + ". " + x + "\n");
-			cont++;
+			aux += ("- " + x + "\n");
 		}
 		return aux;
 	}
