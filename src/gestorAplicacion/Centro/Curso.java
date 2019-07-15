@@ -26,7 +26,7 @@ public class Curso {
 			float nota = x.getDefinitiva(nombre);
 			if (nota >= 3) {
 				x.setEstado(nombre, 1);
-				x.addCertificado(new Certificado(tipo, x.getNombre(), docente, nota));
+				x.addCertificado(new Certificado(tipo, x, docente, nota));
 			}
 			x.removeCurso(nombre);
 		}

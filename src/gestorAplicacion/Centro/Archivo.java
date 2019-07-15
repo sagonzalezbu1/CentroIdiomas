@@ -29,18 +29,18 @@ abstract public class Archivo {
 	}
 
 
-	static public Administrativo buscarAdministrativo(String admin) {
+	static public Administrativo buscarAdministrativo(long admin) {
 		for (Administrativo x : listaAdministrativos) {
-			if (x.getNombre().equals(admin)) {
+			if (x.getCedula()==admin) {
 				return x;
 			}
 		}
 		return null;
 	}
 	
-	static public Docente buscarDocente(String docen) {
+	static public Docente buscarDocente(long docen) {
 		for (Docente x : listaDocentes) {
-			if (x.getNombre().equals(docen)) {
+			if (x.getCedula()==docen) {
 				return x;
 			}
 		}
@@ -49,16 +49,16 @@ abstract public class Archivo {
 	
 	static public Curso buscarCurso(String curso) {
 		for (Curso x : listaCursos) {
-			if (x.getNombreCurso().equals(curso)) {
+			if (x.getNombreCurso()==curso) {
 				return x;
 			}
 		}
 		return null;
 	}
 	
-	static public Estudiante buscarEstudiante(String estud) {
+	static public Estudiante buscarEstudiante(long estud) {
 		for (Estudiante x : listaEstudiantes) {
-			if (x.getNombre().equals(estud)) {
+			if (x.getCedula()==estud) {
 				return x;
 			}
 		}

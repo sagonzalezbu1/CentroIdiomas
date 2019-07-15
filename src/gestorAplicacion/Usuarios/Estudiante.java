@@ -65,8 +65,16 @@ public class Estudiante extends Usuario {
 	public String getEstado() {
 		return estado;
 	}
+	
+	public ArrayList<Certificado> getCertificados(){
+		return misCertificados;
+	}
+	
+	public HashMap<String, ArrayList<Float>> getNotas(){
+		return misNotas;
+	}
 
-	public String getNotas(String nombreM) {
+	public String verNotas(String nombreM) {
 		ArrayList<Float> prom = misNotas.get(nombreM);
 		String list = " ";
 		for (Float x : prom) {
