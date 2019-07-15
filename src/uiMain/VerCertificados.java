@@ -3,6 +3,7 @@ import java.util.Scanner;
 import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Usuarios.*;
 public class VerCertificados extends OpcionDeMenu{
+	String nombre="VerCertificados";
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		if(Main.user instanceof Estudiante) {

@@ -4,6 +4,7 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Usuarios.*;
 public class Calificar extends OpcionDeMenu {
+	String nombre="Calificar";
 	public void ejecutar() {
 		Scanner entry =new Scanner(System.in);
 		System.out.println("Introduzca el nombre del grupo al que desea calificar: ");

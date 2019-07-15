@@ -6,7 +6,7 @@ import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
 public class VerNotas extends OpcionDeMenu {
-	
+	String nombre="VerNotas";
 	public void ejecutar() {
 		//Estudiante quiere ver sus notas
 		if(Main.user instanceof Estudiante) {

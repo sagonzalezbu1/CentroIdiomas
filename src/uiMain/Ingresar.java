@@ -5,7 +5,7 @@ import java.util.*;
 import gestorAplicacion.Usuarios.*;
 
 public class Ingresar extends OpcionDeMenu {
-
+	String nombre="";
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese su cedula:");

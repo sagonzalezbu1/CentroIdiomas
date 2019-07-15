@@ -5,6 +5,7 @@ import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
 public class SolicitarCupo extends OpcionDeMenu{
+	String nombre="SolicitarCupo";
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		if(Main.user instanceof Estudiante) {

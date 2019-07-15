@@ -1,9 +1,10 @@
 package uiMain;
 
 public class Registrar extends OpcionDeMenu {
-
-	MenuDeConsola m= new MenuDeConsola(new RegistrarEstudiante(),new RegistrarDocente(),new RegistrarAdministrativo());
 	
+	String nombre="Registrar";
+	MenuDeConsola m= new MenuDeConsola(new RegistrarEstudiante(),new RegistrarDocente(),new RegistrarAdministrativo());
+
 	public void ejecutar() {
 		m.lanzarMenu();
 	}

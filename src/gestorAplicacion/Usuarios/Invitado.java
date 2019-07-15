@@ -6,10 +6,10 @@ import uiMain.*;
 public class Invitado extends Usuario {
 	public Invitado(String name, long id, String email, String password) {
 		super(name, id, email, password);
-		getMenu().anadirOpcion(Main.funcionalidades.get("Ingresar"));
+		getMenu().anadirOpcion(new Ingresar());
 		getMenu().anadirOpcion(Main.funcionalidades.get("Registrar"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("Cerrar"));
+		getMenu().anadirOpcion(new Cerrar());
 	}
 
 	public Invitado() {

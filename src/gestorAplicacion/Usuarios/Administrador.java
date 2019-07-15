@@ -7,12 +7,12 @@ public class Administrador extends Usuario {
 	static long cedula;
 	static String contrasena;
 	public Administrador(String name, long id, String email, String password) {
-		super(name, id, email, password);
+		super(name, id, email, password);	
 		
-		getMenu().anadirOpcion(Main.funcionalidades.get("AddFuncionalidad"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("RemoveFuncionalidad"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("UserMenu"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("SystemMenu"));
+		getMenu().anadirOpcion(new AddFuncionalidad());
+		getMenu().anadirOpcion(new RemoveFuncionalidad());
+		getMenu().anadirOpcion(new UserMenu());
+		getMenu().anadirOpcion(new SystemMenu());
 	}
 
 	public String SystemMenu() {

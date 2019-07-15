@@ -9,6 +9,7 @@ import gestorAplicacion.Usuarios.Estudiante;
 import java.util.*;
 
 public class ResponderSolicitudes extends OpcionDeMenu {
+	String nombre="ResponderSolicitudes";
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese el tipo de la materia que desea aceptar solicitudes: ");

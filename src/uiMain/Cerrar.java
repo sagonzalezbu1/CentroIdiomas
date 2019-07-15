@@ -6,6 +6,7 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 public class Cerrar extends OpcionDeMenu {
+	String nombre="";
 	public void ejecutar() {
 		Data.escribirDocentes();
 		Data.escribirEstudiantes();

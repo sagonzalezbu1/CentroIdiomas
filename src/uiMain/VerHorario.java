@@ -6,6 +6,7 @@ import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
 public class VerHorario extends OpcionDeMenu {
+	String nombre="VerHorario";
 	public void ejecutar() {
 		if (Main.user instanceof Estudiante) {
 			System.out.println(((Estudiante) Main.user).miHorario());
