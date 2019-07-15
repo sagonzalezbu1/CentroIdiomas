@@ -6,7 +6,10 @@ import gestorAplicacion.Usuarios.*;
 import java.util.Scanner;
 
 public class Matricular extends OpcionDeMenu {
-	String nombre="Matricular";
+	private String nombre="Matricular";
+	public String getNombre() {
+		return nombre;
+	}
 	public void ejecutar() {
 
 		Scanner e = new Scanner(System.in);

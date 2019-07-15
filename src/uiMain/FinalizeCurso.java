@@ -7,7 +7,10 @@ import gestorAplicacion.Centro.Curso;
 import gestorAplicacion.Usuarios.Estudiante;
 
 public class FinalizeCurso extends OpcionDeMenu {
-	String nombre="FinalizeCurso";
+	private String nombre="FinalizeCurso";
+	public String getNombre() {
+		return nombre;
+	}
 	public void ejecutar() {
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso que desea finalizar: ");

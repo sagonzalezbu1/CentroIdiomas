@@ -2,7 +2,10 @@ package uiMain;
 import gestorAplicacion.Centro.Archivo;
 
 public class VerEstudiantes extends OpcionDeMenu{
-	String nombre="VerEstudiantes";
+	private String nombre="VerEstudiantes";
+	public String getNombre() {
+		return nombre;
+	}
 	public void ejecutar() {
 		System.out.println(Archivo.verEstudiantes());
 	}

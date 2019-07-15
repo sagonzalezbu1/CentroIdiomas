@@ -6,7 +6,10 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 public class CrearCurso extends OpcionDeMenu {
-	String nombre="CrearCurso";
+	private String nombre="CrearCurso";
+	public String getNombre() {
+		return nombre;
+	}
 	public void ejecutar() {
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso: ");

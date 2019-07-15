@@ -2,7 +2,10 @@ package uiMain;
 import gestorAplicacion.Centro.Archivo;
 
 public class VerAdministrativos extends OpcionDeMenu {
-	String nombre="VerAdministrativos";
+	private String nombre="VerAdministrativos";
+	public String getNombre() {
+		return nombre;
+	}
 	public void ejecutar() {
 		System.out.println(Archivo.verAdministrativos());
 	}

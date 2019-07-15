@@ -6,7 +6,10 @@ import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Usuarios.*;
 
 public class VerMisSolicitudes extends OpcionDeMenu {
-	String nombre="VerMisSolicitudes";
+	private String nombre="VerMisSolicitudes";
+	public String getNombre() {
+		return nombre;
+	}
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		if (Main.user instanceof Estudiante) {
