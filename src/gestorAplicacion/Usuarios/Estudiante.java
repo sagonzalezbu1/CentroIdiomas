@@ -46,6 +46,7 @@ public class Estudiante extends Usuario implements Horario {
 		ArrayList<Float> itemsList = misNotas.get(name);
 		itemsList.add(grade);
 	}
+	
 
 	public ArrayList<Curso> getCurso() {
 		return misCursos;

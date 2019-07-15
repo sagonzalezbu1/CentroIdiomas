@@ -8,7 +8,7 @@ public class Certificado {
 	final private float nota;
 	final private Docente docente;
 
-	Certificado(String name, Estudiante alumno, Docente docente, float nota) {
+	public Certificado(String name, Estudiante alumno, Docente docente, float nota) {
 		nombre = name;
 		this.alumno = alumno;
 		this.docente = docente;
