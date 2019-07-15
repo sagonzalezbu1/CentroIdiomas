@@ -12,7 +12,7 @@ public class Curso {
 	private int cupos = 10;
 	private ArrayList<Estudiante> alumnos = new ArrayList<Estudiante>();
 
-	public Curso(String name, String horario, Docente docente, String tipo) {
+	public Curso(String name, String tipo, String horario, Docente docente) {
 		nombre = name;
 		this.horario = horario;
 		this.docente = docente;
@@ -43,6 +43,9 @@ public class Curso {
 
 	public ArrayList<Estudiante> getEstudiantes() {
 		return alumnos;
+	}
+	public Docente getDocente() {
+		return docente;
 	}
 
 	public String getHorarioCurso() {
