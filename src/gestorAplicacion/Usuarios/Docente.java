@@ -4,7 +4,7 @@ import java.util.*;
 import uiMain.*;
 import gestorAplicacion.Centro.*;
 
-public class Docente extends Usuario {
+public class Docente extends Usuario implements Horario {
 	private ArrayList<Curso> misCursos;
 	private static final String codigo = "0000";
 

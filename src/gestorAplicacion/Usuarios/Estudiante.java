@@ -4,7 +4,7 @@ import java.util.*;
 import uiMain.*;
 import gestorAplicacion.Centro.*;
 
-public class Estudiante extends Usuario {
+public class Estudiante extends Usuario implements Horario {
 	private String estado = "Inactivo";
 	private ArrayList<Certificado> misCertificados = new ArrayList<Certificado>();
 	private ArrayList<Solicitud> misSolicitudes = new ArrayList<Solicitud>();
