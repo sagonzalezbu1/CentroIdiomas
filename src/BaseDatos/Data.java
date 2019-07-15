@@ -152,6 +152,7 @@ public class Data {
             			Curso aux5 = Archivo.buscarCurso(nombrecurso);
             			aux4.addCurso(aux5);
             		}
+            		cont++;
             	}
                 
             }
