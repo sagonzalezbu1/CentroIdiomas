@@ -1,12 +1,12 @@
 package uiMain;
 
 import java.util.Scanner;
-
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 public class RegistrarEstudiante extends OpcionDeMenu {
 	public void ejecutar() {
+		//Registra al estudiante con sus datos
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Escriba su nombre: ");
 		String nombre = entrada.next();

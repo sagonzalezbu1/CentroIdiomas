@@ -6,8 +6,11 @@ public class Registrar extends OpcionDeMenu {
 	public String getNombre() {
 		return nombre;
 	}
-	MenuDeConsola m= new MenuDeConsola(new RegistrarEstudiante(),new RegistrarDocente(),new RegistrarAdministrativo());
-
+	
+	//Submenú
+	MenuDeConsola m = new MenuDeConsola(new RegistrarEstudiante(),new RegistrarDocente(),new RegistrarAdministrativo());
+	
+	//Ejecución del submenú
 	public void ejecutar() {
 		m.lanzarMenu();
 	}

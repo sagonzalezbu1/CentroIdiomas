@@ -1,10 +1,8 @@
 package uiMain;
 
 import java.util.Scanner;
-
-import gestorAplicacion.Centro.Archivo;
-import gestorAplicacion.Centro.Curso;
-import gestorAplicacion.Usuarios.Estudiante;
+import gestorAplicacion.Centro.*;
+import gestorAplicacion.Usuarios.*;
 
 public class FinalizeCurso extends OpcionDeMenu {
 	private String nombre="FinalizeCurso";
@@ -12,6 +10,7 @@ public class FinalizeCurso extends OpcionDeMenu {
 		return nombre;
 	}
 	public void ejecutar() {
+		//Se busca el curso, si se encuentra se cierra el período de calificaciones del curso
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso que desea finalizar: ");
 		String nombre = e.next();
@@ -28,7 +27,6 @@ public class FinalizeCurso extends OpcionDeMenu {
 			curso.finalizeCurso();
 			System.out.println("El curso ha sido eliminado");
 		}
-		
 	}
 
 	public String toString() {

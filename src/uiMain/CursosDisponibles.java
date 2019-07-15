@@ -7,6 +7,7 @@ public class CursosDisponibles extends OpcionDeMenu {
 		return nombre;
 	}
 	public void ejecutar() {
+		//Muestra por pantalla los cursos con su información (salida del toString)
 		System.out.println(Archivo.verCursos());
 	}
 

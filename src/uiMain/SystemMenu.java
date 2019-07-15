@@ -5,6 +5,7 @@ import gestorAplicacion.Centro.*;
 
 public class SystemMenu extends OpcionDeMenu {
 	public void ejecutar() {
+		//Muestra todas las funcionalidades
 		System.out.println(((Administrador) Main.user).SystemMenu());
 	}
 	

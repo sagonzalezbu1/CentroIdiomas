@@ -1,13 +1,8 @@
 package uiMain;
 
-import java.util.Scanner;
-
-import gestorAplicacion.Centro.Archivo;
-import gestorAplicacion.Centro.Curso;
-import gestorAplicacion.Centro.Solicitud;
-import gestorAplicacion.Usuarios.Estudiante;
-
 import java.util.*;
+import gestorAplicacion.Centro.*;
+import gestorAplicacion.Usuarios.Estudiante;
 
 public class ResponderSolicitudes extends OpcionDeMenu {
 	private String nombre="ResponderSolicitudes";
@@ -15,15 +10,17 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 		return nombre;
 	}
 	public void ejecutar() {
+		//Se busca la lista de solicitudes de cierto curso
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese el tipo de la materia que desea aceptar solicitudes: ");
 		String tipo = entry.next();
 		ArrayList<Solicitud> aux1 = Archivo.getSolicitudes().get(tipo);
-		
+		//Evalúa cada solicitud
 		for (Solicitud x : aux1) {
 			Curso course = Archivo.CursoDisponibilidad(tipo);
-			System.out.println("Ingrese :\n1 para aceptar\n2 para rechazar\n3 no responder mas solicitudes");
+			System.out.println("Ingrese :\n1 para aceptar\n2 para rechazar\n3 para no responder más solicitudes");
 			int op = entry.nextInt();
+			//Acepta, matricula al estudiante y elimina la solicitud
 			if (op == 1) {
 				if (course == null) {
 					(Main.funcionalidades.get("CrearCurso")).ejecutar();
@@ -31,19 +28,23 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 					course.matricular(x.getEstudiante());
 					Archivo.removeSolicitud(tipo, x.getEstudiante());
 					(x.getEstudiante()).removeSolicitud(tipo);
-				} else {
+				}
+				else {
 					course.matricular(x.getEstudiante());
 					Archivo.removeSolicitud(tipo, x.getEstudiante());
 					(x.getEstudiante()).removeSolicitud(tipo);
 				}
 
-			} else if (op == 2) {
+			}
+			//Rechaza y elimina la solicitud
+			else if (op == 2) {
 				Archivo.removeSolicitud(tipo, x.getEstudiante());
 				(x.getEstudiante()).removeSolicitud(tipo);
-			} else {
-				break;
 			}
-			
+			//No responde
+			else {
+				return;
+			}
 		}
 		System.out.println("No hay mas solicitudes de este tipo");
 	}

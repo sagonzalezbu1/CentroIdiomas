@@ -6,8 +6,8 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 public class Salir extends OpcionDeMenu {
-	String nombre="";
 	public void ejecutar() {
+		//Antes de salir del programa se guarda toda la información en los archivos de texto
 		Data.escribirDocentes();
 		Data.escribirEstudiantes();
 		Data.escribirAdministrativos();

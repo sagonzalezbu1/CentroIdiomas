@@ -8,6 +8,7 @@ public class CerrarSesion extends OpcionDeMenu {
 		return nombre;
 	}
 	public void ejecutar() {
+		//Se cierra sesión volviendo al menú de invitado
 		Main.user = new Invitado();
 	}
 	public String toString() {

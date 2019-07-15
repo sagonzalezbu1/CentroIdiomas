@@ -7,6 +7,7 @@ import gestorAplicacion.Usuarios.*;
 public class Ingresar extends OpcionDeMenu {
 	
 	public void ejecutar() {
+		//Se inicia sesión con los datos del usuario
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese su cedula:");
 		long cc = entry.nextInt();
