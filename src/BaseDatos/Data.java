@@ -129,11 +129,26 @@ public class Data {
 			FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String linea;
-            int cont = 0;
+            //int cont = 0;
             String nombrecurso = "";
             while((linea = br.readLine()) != null){
+            	String [] curso = linea.split(";");
+                ArrayList<Curso> lista = Archivo.getCursos();
+                int aux = 0;
+                for(Curso x: lista) {
+                	if(x.getNombreCurso().equals(curso[0])) {
+                		aux++;
+                	}
+                }
+                if(aux==0) {
+                	long aux2 = Long.parseLong(curso[3]);
+                	Docente aux3 = Archivo.buscarDocente(aux2);
+                	Curso c = new Curso(curso[0],curso[1],curso[2],aux3);
+                	aux3.addCurso(c);
+                	nombrecurso = curso[0];
+                }
             	
-            	if(cont%2==0) {
+            	/*if(cont%2==0) {
             		String [] curso = linea.split(";");
                     ArrayList<Curso> lista = Archivo.getCursos();
                     int aux = 0;
@@ -159,7 +174,7 @@ public class Data {
             			aux4.addCurso(aux5);
             		}
             		cont++;
-            	}
+            	}*/
                 
             }
             br.close();
@@ -285,11 +300,11 @@ public class Data {
 	            linea1 += c.getHorarioCurso()+ ";";
 	            linea1 += c.getDocente().getCedula();
 	            pw.write(linea1 + "\n");
-	            String linea2 = "";
+	            /*String linea2 = "";
 	            for (Estudiante x : c.getEstudiantes()) {
 	            	linea2 += x.getCedula() + ";";
 	            }
-	            linea2 = linea2.substring(0,linea2.length()-1) + "\n";
+	            linea2 = linea2.substring(0,linea2.length()-1) + "\n";*/
 			}
             pw.close();
 		}

@@ -34,23 +34,34 @@ public class Estudiante extends Usuario implements Horario {
 		//Menu editado
 	}
 
+	//Añadir certificado a lista de certicifados del estudiante
 	public void addCertificado(Certificado certify) {
 		misCertificados.add(certify);
 	}
 
+	//Añadir curso a lista de cursos y al hashmap de notas
 	public void addCurso(Curso course) {
 		misCursos.add(course);
+		misNotas.put(course.getNombreCurso(),new ArrayList());
+	}
+	
+	//Añadir una nota al estudiante (Uso exclusivo en carga de archivos)
+	public void addNota(Curso course, float grade) {
+		misNotas.get(course).add(grade);
 	}
 
+	//Calificar al estudiante
 	public void calificar(String name, float grade) {
 		ArrayList<Float> itemsList = misNotas.get(name);
 		itemsList.add(grade);
 	}
 
+	//Lista de mis cursos
 	public ArrayList<Curso> getCurso() {
 		return misCursos;
 	}
 
+	//Saber definitiva del estudiante en cierto curso
 	public float getDefinitiva(String name) {
 		ArrayList<Float> prom = misNotas.get(name);
 		float def = 0;
@@ -61,18 +72,22 @@ public class Estudiante extends Usuario implements Horario {
 		return def;
 	}
 
+	//Estado del estudiante
 	public String getEstado() {
 		return estado;
 	}
 	
+	//Lista de certificados del estudiante
 	public ArrayList<Certificado> getCertificados(){
 		return misCertificados;
 	}
 	
+	//Hashmap de notas del estudiante
 	public HashMap<String, ArrayList<Float>> getNotas(){
 		return misNotas;
 	}
 
+	//Ver notas del estudiante con formato correcto
 	public String verNotas(String nombreM) {
 		ArrayList<Float> prom = misNotas.get(nombreM);
 		String list = " ";
@@ -83,6 +98,7 @@ public class Estudiante extends Usuario implements Horario {
 		return list;
 	}
 
+	//Ver horario del estudiante con formato correcto
 	public String miHorario() {
 		String aux = "";
 		for (Curso x : misCursos) {
@@ -92,6 +108,7 @@ public class Estudiante extends Usuario implements Horario {
 		return aux;
 	}
 
+	//Eliminar curso de lista de cursos del estudiante
 	public void removeCurso(String nombreCurso) {
 		for (Curso x : misCursos) {
 			if (x.getNombreCurso().equals(nombreCurso)) {
@@ -100,6 +117,7 @@ public class Estudiante extends Usuario implements Horario {
 		}
 	}
 
+	//Eliminar solicitud de lista de solicitudes del estudiante
 	public void removeSolicitud(String tipo) {
 		for(Solicitud s: misSolicitudes) {
 			if((s.getTipo()).equals(tipo)) {
@@ -109,13 +127,14 @@ public class Estudiante extends Usuario implements Horario {
 		}
 	}
 
-	// 0 para matricular, 1 para finalizar
+	//Cambiar estado del estudiante (0 para matricular curso, 1 para finalizar curso)
 	public void setEstado(int status) {
 		if (status == 0) {
 			estado = "Activo";
 		}
 	}
 
+	//Cambiar estado del estudiante (0 para matricular curso, 1 para finalizar curso)
 	public void setEstado(String mater, int status) {
 		if (status == 1) {
 			if (misCursos.size() > 1) {
@@ -131,15 +150,18 @@ public class Estudiante extends Usuario implements Horario {
 		}
 	}
 
+	//Solicitar cupo a un curso
 	public void solicitar(String type) {
 		Solicitud s = new Solicitud(type,this);
 		misSolicitudes.add(s);
 	}
 
+	//toString del estudiante
 	public String toString() {
 		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
 
+	//Ver certificados del estudiante con formato correcto
 	public String verCertificados() {
 		String aux = "";
 		for (Certificado x : misCertificados) {
@@ -153,6 +175,7 @@ public class Estudiante extends Usuario implements Horario {
 
 	}
 
+	//Ver solicitudes del estudiante con formato correcto
 	public String verSolicitudes() {
 		String aux = "";
 		for (Solicitud x : misSolicitudes) {
