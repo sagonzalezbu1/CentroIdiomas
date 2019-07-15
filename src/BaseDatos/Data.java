@@ -191,6 +191,7 @@ public class Data {
 				for (Solicitud value : (Archivo.getSolicitudes()).get(key)) {
 					linea += value.getEstudiante().getCedula() + ";";
 				}
+				linea = linea.substring(0,linea.length()-1);
 				pw.write(linea + "\n");
 			}
 			pw.close();
