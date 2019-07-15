@@ -7,7 +7,8 @@ import gestorAplicacion.Usuarios.Estudiante;
 public class Solicitud {
 	private Estudiante estu;
 	private String tipo;
-
+	
+	//Al crear una solicitud se agg archivo.
 	public Solicitud(String tipo, Estudiante e) {
 		this.tipo = tipo;
 		estu= e;
