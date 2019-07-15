@@ -215,10 +215,10 @@ public class Data {
 				}
 				linea = null;
 				ArrayList<OpcionDeMenu> menu = e.getMenu().getList();
-				
-
-
-				linea += e.verSolicitudes();
+				for(OpcionDeMenu x : menu) {
+					linea= x.getNombre()+";";
+				}
+				linea = linea.substring(0, linea.length() - 1);
 				pw.write(linea + "\n");
 			}
 			pw.close();
