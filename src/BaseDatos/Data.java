@@ -125,7 +125,7 @@ public class Data {
 	public static void cargarCursos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-			File f = new File(direccion + "docentes.txt");
+			File f = new File(direccion + "cursos.txt");
 			FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String linea;
@@ -158,6 +158,7 @@ public class Data {
             			Curso aux5 = Archivo.buscarCurso(nombrecurso);
             			aux4.addCurso(aux5);
             		}
+            		cont++;
             	}
                 
             }
