@@ -20,9 +20,7 @@ public class Data {
 			while ((linea1 = br.readLine()) != null) {
 				String[] usuario = linea1.split(";");
 				Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo
-																												// Contructor
-																												// //
-																												// contructor
+																												// Contructor																												// /																												// contructor
 				String linea2 = br.readLine();
 				if (!linea2.equals("0")) {
 					String[] cursos = linea2.split("-");
@@ -106,19 +104,33 @@ public class Data {
 			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
 			String linea;
+			int cont = 0;
+			long cedula = 0;
 			while ((linea = br.readLine()) != null) {
-				String[] usuario = linea.split(";");
-				ArrayList<Administrativo> lista = Archivo.getAdministrativos();
-				int aux = 0;
-				for (Administrativo x : lista) {
-					if (x.getCedula() == Long.parseLong(usuario[1])) {
-						aux++;
+				if(cont%2==0) {
+					String[] usuario = linea.split(";");
+					ArrayList<Administrativo> lista = Archivo.getAdministrativos();
+					int aux = 0;
+					for (Administrativo x : lista) {
+						if (x.getCedula() == Long.parseLong(usuario[1])) {
+							aux++;
+						}
 					}
+					if (aux == 0) {
+						cedula = Long.parseLong(usuario[1]);
+						Administrativo d = new Administrativo(cedula, usuario[0], usuario[2], usuario[3]); // Segundo
+																													// constructor
+					}
+                cont++;
 				}
-				if (aux == 0) {
-					Administrativo a = new Administrativo(Long.parseLong(usuario[1]), usuario[0], usuario[2],
-							usuario[3]); // Segundo constructor
-				}
+	        	else {
+	        		Administrativo aux2 = Archivo.buscarAdministrativo(cedula);
+	        		String [] menu = linea.split(";");
+	        		for(String x : menu) {
+	        			aux2.getMenu().anadirOpcion(Main.funcionalidades.get(x));
+	        		}
+	        		cont++;
+	        		}
 			}
 			br.close();
 		} catch (Exception ex) {
@@ -159,8 +171,6 @@ public class Data {
 			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
 			String linea;
-			// int cont = 0;
-			// String nombrecurso = "";
 			while ((linea = br.readLine()) != null) {
 				String[] curso = linea.split(";");
 				ArrayList<Curso> lista = Archivo.getCursos();
@@ -175,8 +185,7 @@ public class Data {
 					Docente aux3 = Archivo.buscarDocente(aux2);
 					Curso c = new Curso(curso[0], curso[1], curso[2], aux3);
 					// Hasta acá
-					aux3.addCurso(c);
-					// nombrecurso = curso[0];
+					aux3.addCurso(c);	
 				}
 
 			}
@@ -186,18 +195,6 @@ public class Data {
 		}
 
 	}
-
-	/*
-	 * if(cont%2==0) { String [] curso = linea.split(";"); ArrayList<Curso> lista =
-	 * Archivo.getCursos(); int aux = 0; for(Curso x: lista) {
-	 * if(x.getNombreCurso().equals(curso[0])) { aux++; } } if(aux==0) { long aux2 =
-	 * Long.parseLong(curso[3]); Docente aux3 = Archivo.buscarDocente(aux2); Curso c
-	 * = new Curso(curso[0],curso[1],curso[2],aux3); aux3.addCurso(c); nombrecurso =
-	 * curso[0]; } cont++; } else { String [] students = linea.split(";");
-	 * for(String x : students) { Estudiante aux4 =
-	 * Archivo.buscarEstudiante(Long.parseLong(x)); Curso aux5 =
-	 * Archivo.buscarCurso(nombrecurso); aux4.addCurso(aux5); } cont++; }
-	 */
 
 	// ESCRITURA DE ARCHIVOS DE TEXTO
 	public static void escribirEstudiantes() {
@@ -300,6 +297,14 @@ public class Data {
 				linea += a.getCorreo() + ";";
 				linea += a.getContrasena();
 				pw.write(linea + "\n");
+				
+				String linea2 = "";
+				ArrayList<OpcionDeMenu> aux = a.getMenu().getList();
+				for (OpcionDeMenu x : aux) {
+					linea2 += x.getNombre() + ";";
+				}
+				linea2 = linea2.substring(0, linea2.length() - 1);
+				pw.write(linea2 + "\n");
 
 			}
 			pw.close();
@@ -323,10 +328,7 @@ public class Data {
 				linea1 += c.getHorarioCurso() + ";";
 				linea1 += c.getDocente().getCedula();
 				pw.write(linea1 + "\n");
-				/*
-				 * String linea2 = ""; for (Estudiante x : c.getEstudiantes()) { linea2 +=
-				 * x.getCedula() + ";"; } linea2 = linea2.substring(0,linea2.length()-1) + "\n";
-				 */
+
 			}
 			pw.close();
 		} catch (Exception ex) {
