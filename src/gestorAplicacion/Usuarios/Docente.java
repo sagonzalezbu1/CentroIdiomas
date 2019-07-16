@@ -5,7 +5,7 @@ import uiMain.*;
 import gestorAplicacion.Centro.*;
 
 public class Docente extends Usuario implements Horario {
-	private ArrayList<Curso> misCursos;
+	private ArrayList<Curso> misCursos = new ArrayList<>();
 	private static final String codigo = "0000";
 
 	public static String getCodigo() {
