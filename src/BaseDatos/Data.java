@@ -58,19 +58,33 @@ public class Data {
 			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
 			String linea;
+			int cont = 0;
+			long cedula = 0;
 			while ((linea = br.readLine()) != null) {
-				String[] usuario = linea.split(";");
-				ArrayList<Docente> lista = Archivo.getDocentes();
-				int aux = 0;
-				for (Docente x : lista) {
-					if (x.getCedula() == Long.parseLong(usuario[1])) {
-						aux++;
+				if(cont%2==0) {
+					String[] usuario = linea.split(";");
+					ArrayList<Docente> lista = Archivo.getDocentes();
+					int aux = 0;
+					for (Docente x : lista) {
+						if (x.getCedula() == Long.parseLong(usuario[1])) {
+							aux++;
+						}
 					}
+					if (aux == 0) {
+						cedula = Long.parseLong(usuario[1]);
+						Docente d = new Docente(cedula, usuario[0], usuario[2], usuario[3]); // Segundo
+																													// constructor
+					}
+                cont++;
 				}
-				if (aux == 0) {
-					Docente d = new Docente(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo
-																												// constructor
-				}
+	        	else {
+	        		Docente aux2 = Archivo.buscarDocente(cedula);
+	        		String [] menu = linea.split(";");
+	        		for(String x : menu) {
+	        			aux2.getMenu().anadirOpcion(Main.funcionalidades.get(x));
+	        		}
+	        		cont++;
+	        		}
 			}
 			br.close();
 		} catch (Exception ex) {
