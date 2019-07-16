@@ -127,7 +127,7 @@ public class Data {
 			}
 			br.close();
 		} catch (Exception ex) {
-			System.out.println("\nError en carga de docentes: " + ex);
+			System.out.println("\nError en carga de solicitudes: " + ex);
 		}
 	}
 
@@ -153,6 +153,7 @@ public class Data {
                     long aux2 = Long.parseLong(curso[3]);
                     Docente aux3 = Archivo.buscarDocente(aux2);
                     Curso c = new Curso(curso[0],curso[1],curso[2],aux3);
+                    //Hasta acá
                     aux3.addCurso(c);
                     //nombrecurso = curso[0];
                 }
@@ -161,7 +162,7 @@ public class Data {
             br.close();
         }
         catch(Exception ex) {
-            System.out.println("\nError en carga de curso: " + ex);
+            System.out.println("\nError en carga de cursos: " + ex);
         }
 
     }

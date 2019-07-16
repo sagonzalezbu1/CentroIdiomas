@@ -34,8 +34,8 @@ public class Main {
 	public static void main(String[] args) {
 		//Siempre que se inicie el porgrama se cargarán los datos de los archivos de texto a éste
 		Data.cargarDocentes();
-		Data.cargarEstudiantes();
 		Data.cargarCursos();
+		Data.cargarEstudiantes();
 		Data.cargarAdministrativos();
 		Data.cargarSolicitudes();
 		//Ejecución completa, ejecuta el menú acorde al tipo de usuario
