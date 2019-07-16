@@ -49,7 +49,7 @@ abstract public class Archivo {
 	
 	static public Curso buscarCurso(String curso) {
 		for (Curso x : listaCursos) {
-			if (x.getNombreCurso()==curso) {
+			if (x.getNombreCurso().equals(curso)) {
 				return x;
 			}
 		}
