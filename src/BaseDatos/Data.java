@@ -139,7 +139,7 @@ public class Data {
             BufferedReader br = new BufferedReader(fr);
             String linea;
             //int cont = 0;
-            String nombrecurso = "";
+            //String nombrecurso = "";
             while((linea = br.readLine()) != null){
                 String [] curso = linea.split(";");
                 ArrayList<Curso> lista = Archivo.getCursos();
@@ -154,7 +154,7 @@ public class Data {
                     Docente aux3 = Archivo.buscarDocente(aux2);
                     Curso c = new Curso(curso[0],curso[1],curso[2],aux3);
                     aux3.addCurso(c);
-                    nombrecurso = curso[0];
+                    //nombrecurso = curso[0];
                 }
 
             }
@@ -262,11 +262,21 @@ public class Data {
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 			for (Docente d : Archivo.getDocentes()) {
-				String linea = d.getNombre() + ";";
-				linea += d.getCedula() + ";";
-				linea += d.getCorreo() + ";";
-				linea += d.getContrasena();
-				pw.write(linea + "\n");
+				String linea1 = "";
+				linea1 += d.getNombre() + ";";
+				linea1 += d.getCedula() + ";";
+				linea1 += d.getCorreo() + ";";
+				linea1 += d.getContrasena();
+				pw.write(linea1 + "\n");
+				
+				String linea2 = "";
+				ArrayList <OpcionDeMenu> aux = d.getMenu().getList();
+				for(OpcionDeMenu x : aux) {
+					linea2 += x.getNombre() + ";";
+				}
+				linea2 = linea2.substring(0, linea2.length() - 1);
+				pw.write(linea2 + "\n");
+				
 			}
 			pw.close();
 		} catch (Exception ex) {
