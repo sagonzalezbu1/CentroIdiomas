@@ -300,7 +300,7 @@ public class Data {
 	public static void escribirCursos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
-			File f = new File(direccion + "administrativos.txt");
+			File f = new File(direccion + "cursos.txt");
 			FileWriter fw = new FileWriter(f);
 			BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
