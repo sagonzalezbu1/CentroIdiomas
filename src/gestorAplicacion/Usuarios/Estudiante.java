@@ -107,7 +107,12 @@ public class Estudiante extends Usuario implements Horario {
 			aux += x + "\n";
 			aux += "\n";
 		}
-		return aux;
+		if (aux.equals("")) {
+			return "Este estudiante aun no tiene horario";
+		}
+		else {
+			return aux;
+		}
 	}
 
 	//Eliminar curso de lista de cursos del estudiante
@@ -183,6 +188,10 @@ public class Estudiante extends Usuario implements Horario {
 		for (Solicitud x : misSolicitudes) {
 			aux += x + ",";
 		}
-		return aux;
+		if (aux.equals("")) {
+			return "Este estudiante no tiene solicitudes pendientes";
+		} else {
+			return aux;
+		}
 	}
 }

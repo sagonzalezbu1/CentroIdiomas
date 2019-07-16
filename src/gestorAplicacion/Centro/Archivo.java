@@ -126,7 +126,12 @@ abstract public class Archivo {
 		for (Curso x : listaCursos) {
 			ver = ver + x.toString() + "\n";
 		}
-		return ver;
+		if (ver.equals("")) {
+			return "No hay cursos disponibles";
+		}
+		else {
+			return ver;
+		}
 	}
 
 	static public String verDocentes() {

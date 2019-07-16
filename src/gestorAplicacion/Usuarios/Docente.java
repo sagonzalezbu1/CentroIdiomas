@@ -45,7 +45,12 @@ public class Docente extends Usuario implements Horario {
 			aux += "Nombre: " + x.getNombreCurso() + "\n" + "Horario: " + x.getHorarioCurso() + "\n";
 			aux += "\n";
 		}
-		return aux;
+		if (aux.equals("")) {
+			return "Este docente aun no tiene horario";
+		}
+		else {
+			return aux;
+		}
 	}
 
 	//Borrar curso de la lista de cursos del docente
