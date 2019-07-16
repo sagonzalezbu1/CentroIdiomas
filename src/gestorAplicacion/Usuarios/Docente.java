@@ -21,7 +21,7 @@ public class Docente extends Usuario implements Horario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantes"));
-		getMenu().anadirOpcion(new CerrarSesion());
+		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
 		Archivo.add(this);
 		
 	}
