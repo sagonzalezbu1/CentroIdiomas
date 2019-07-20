@@ -28,7 +28,7 @@ public class AddFuncionalidad extends OpcionDeMenu {
 				y = x;
 			}
 		}
-		if (y != null) {
+		if (y != null ) {
 			System.out.println(Archivo.getAdministrador().SystemMenu());
 			System.out.println("Ingrese la funcionalidad que quiere agregar: ");
 			String option = e.next();
