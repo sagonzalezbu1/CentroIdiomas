@@ -184,6 +184,9 @@ public class Estudiante extends Usuario implements Horario {
 		for (Solicitud x : misSolicitudes) {
 			aux += x + ",";
 		}
+		if(!aux.equals("")) {
+			aux = aux.substring(0, aux.length() - 1);
+		}
 		return aux;
 	}
 }
