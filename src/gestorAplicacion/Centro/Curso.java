@@ -19,18 +19,22 @@ public class Curso {
 		this.tipo = tipo;
 		Archivo.add(this);
 	}
-	//termina el curso y da certificados a quienes lo merezcan.
+
+	// termina el curso y da certificados a quienes lo merezcan.
 	public void finalizeCurso() {
-		Archivo.removeCurso(nombre);
-		for (Estudiante x : alumnos) {
+		while (alumnos.size() > 0) {
+			Estudiante x = alumnos.get(0);
+			alumnos.remove(0);
 			float nota = x.getDefinitiva(nombre);
 			if (nota >= 3) {
 				x.setEstado(nombre, 1);
 				x.addCertificado(new Certificado(tipo, x, docente, nota));
 			}
 			x.removeCurso(nombre);
+			
 		}
 		docente.removeCurso(nombre);
+		Archivo.removeCurso(nombre);
 	}
 
 	public int getCupos() {
@@ -44,6 +48,7 @@ public class Curso {
 	public ArrayList<Estudiante> getEstudiantes() {
 		return alumnos;
 	}
+
 	public Docente getDocente() {
 		return docente;
 	}
@@ -65,7 +70,7 @@ public class Curso {
 			alumnos.add(e);
 			e.addCurso(this);
 			e.setEstado(0);
-			
+
 			return true;
 		} else {
 			return false;

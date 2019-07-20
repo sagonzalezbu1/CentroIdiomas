@@ -12,10 +12,10 @@ public class Docente extends Usuario implements Horario {
 		return codigo;
 	}
 
-	//Constructor para creacion de objeto
+	// Constructor para creacion de objeto
 	public Docente(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		//Menu por defecto
+		// Menu por defecto
 		getMenu().anadirOpcion(Main.funcionalidades.get("Calificar"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
@@ -23,22 +23,22 @@ public class Docente extends Usuario implements Horario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
 		Archivo.add(this);
-		
+
 	}
-	
-	//Constructor para carga de archivos
+
+	// Constructor para carga de archivos
 	public Docente(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		Archivo.add(this);
-		//Menu editado
+		// Menu editado
 	}
 
-	//Añadir curso a la lista de cursos profesor
+	// Añadir curso a la lista de cursos profesor
 	public void addCurso(Curso course) {
 		misCursos.add(course);
 	}
 
-	//Horario de clases del docente
+	// Horario de clases del docente
 	public String miHorario() {
 		String aux = "";
 		for (Curso x : misCursos) {
@@ -47,19 +47,20 @@ public class Docente extends Usuario implements Horario {
 		}
 		if (aux.equals("")) {
 			return "Este docente aun no tiene horario";
-		}
-		else {
+		} else {
 			return aux;
 		}
 	}
 
-	//Borrar curso de la lista de cursos del docente
+	// Borrar curso de la lista de cursos del docente
 	public void removeCurso(String nombreCurso) {
+		Curso y = null;
 		for (Curso x : misCursos) {
 			if (x.getNombreCurso().equals(nombreCurso)) {
-				misCursos.remove(x);
+				y = x;
 			}
 		}
+		misCursos.remove(y);
 	}
 
 	public String toString() {
