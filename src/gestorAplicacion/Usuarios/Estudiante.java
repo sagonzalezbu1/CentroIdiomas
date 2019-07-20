@@ -48,7 +48,7 @@ public class Estudiante extends Usuario implements Horario {
 	
 	//Añadir una nota al estudiante (Uso exclusivo en carga de archivos)
 	public void addNota(Curso course, float grade) {
-		misNotas.get(course).add(grade);
+		misNotas.get(course.getNombreCurso()).add(grade);
 	}
 
 	//Calificar al estudiante

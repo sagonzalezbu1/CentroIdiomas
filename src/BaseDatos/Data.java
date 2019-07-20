@@ -27,9 +27,10 @@ public class Data {
 					for (String x : cursos) {
 						String[] array = x.split(";");
 						Curso curso = Archivo.buscarCurso(array[0]);
-						e.addCurso(curso);
-						for (int i = 1; i < cursos.length; i++) {
-							e.addNota(curso, Float.parseFloat(array[i]));
+						curso.matricular(e);
+						for (int i = 1; i < array.length; i++) {
+							float aux = Float.parseFloat(array[i]);
+							e.addNota(curso, aux);
 						}
 					}
 				}
@@ -217,7 +218,7 @@ public class Data {
 				} else {
 
 					for (String x : hash.keySet()) {
-						linea = x;
+						linea += x;
 						ArrayList<Float> notas = hash.get(x);
 						for (float y : notas) {
 							linea += ";" + y;
