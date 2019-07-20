@@ -14,26 +14,28 @@ public class VerCertificados extends OpcionDeMenu{
 		//Verifica qué tipo de usuario verá los certificados
 		if(Main.user instanceof Estudiante) {
 			//Si es estudiante muestra sus certificados
-			System.out.println(((Estudiante)Main.user).verCertificados());
-		}
-		else if(Main.user instanceof Docente) {
-			System.out.println("Introduzca el ID del estudiante del que quiere ver los certificados");
-			long ID = entry.nextLong();
-			for(Estudiante x:Archivo.getEstudiantes()) {
-				if(x.getCedula()==ID) {
-					System.out.println(x.verCertificados());
-				}
+			String aux = ((Estudiante)Main.user).verCertificados();
+			if(aux.equals("")){
+				System.out.println("usted no tiene certificados");
+			}else {
+				System.out.println(aux);
 			}
 		}
-		else if(Main.user instanceof Administrativo) {
-			//Si es administrativo pregunta de qué estudiante mostrar certificados
+		else {
 			System.out.println("Introduzca el ID del estudiante del que quiere ver los certificados");
 			long ID = entry.nextLong();
-			for(Estudiante x:Archivo.getEstudiantes()) {
-				if(x.getCedula()==ID) {
-					System.out.println(x.verCertificados());
+			Estudiante e = Archivo.buscarEstudiante(ID);
+			if(e==null) {
+				System.out.println("Este estudiante no esta registrado");
+			}else {
+				String aux = e.verCertificados();
+				if(aux.equals("")){
+					System.out.println("Este estudiante no tiene certificados");
+				}else {
+					System.out.println(aux);
 				}
 			}
+			
 		}	
 	}
 	public String toString() {
