@@ -174,11 +174,7 @@ public class Estudiante extends Usuario implements Horario {
 		for (Certificado x : misCertificados) {
 			aux += x + "\n";
 		}
-		if (aux.equals("")) {
-			return "Este estudiante aun no tiene certificados";
-		} else {
-			return aux;
-		}
+		return aux;
 
 	}
 
@@ -188,10 +184,6 @@ public class Estudiante extends Usuario implements Horario {
 		for (Solicitud x : misSolicitudes) {
 			aux += x + ",";
 		}
-		if (aux.equals("")) {
-			return "Este estudiante no tiene solicitudes pendientes";
-		} else {
-			return aux;
-		}
+		return aux;
 	}
 }
