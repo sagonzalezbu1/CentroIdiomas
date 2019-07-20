@@ -156,5 +156,13 @@ abstract public class Archivo {
 		}
 		return ver;
 	}
+	
+	static public String verEstudiantesCurso(String curso) {
+		String ver = "";
+		for (Estudiante x : Archivo.buscarCurso(curso).getEstudiantes()){
+			ver = ver + x.toString() + "\n";
+		}
+		return ver;
+	}
 
 }

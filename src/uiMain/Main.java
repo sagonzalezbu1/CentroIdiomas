@@ -25,6 +25,7 @@ public class Main {
 			put("VerMisSolicitudes", new VerMisSolicitudes());
 			put("VerNotas", new VerNotas());
 			put("CerrarSesion", new CerrarSesion());
+			put("VerEstudiantesCurso", new VerEstudiantesCurso());
 		}
 	};
 	//Usuario por defecto, al que se ingresará siempre que se ejecute el programa
