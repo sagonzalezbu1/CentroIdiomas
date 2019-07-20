@@ -70,7 +70,7 @@ public class Estudiante extends Usuario implements Horario {
 		for (Float x : prom) {
 			def += x;
 		}
-		def /= misNotas.size();
+		def /= prom.size();
 		return def;
 	}
 
