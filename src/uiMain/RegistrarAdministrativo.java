@@ -21,11 +21,17 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 		System.out.println("Esciba el codigo necesario para ser Administrativo: ");
 		String codigo = entrada.next();
 		//Verifica que el código sea correcto
-		if(codigo.equals(Administrativo.getCodigo())) {
-			Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
-		}else {
-			System.out.println("Codigo incorrecto");
+		if(Archivo.buscarAdministrativo(cc).getCedula() != cc) {
+			if(codigo.equals(Administrativo.getCodigo())) {
+				Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
+			}else {
+				System.out.println("Codigo incorrecto");
+			}
 		}
+		else {
+			System.out.println("Ya se encuentra registrado un Administrativo con esa cédula");
+		}
+
 	}
 	public String toString() {
 		return"Registrar Administrativo";
