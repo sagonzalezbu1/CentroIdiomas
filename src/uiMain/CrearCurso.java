@@ -30,8 +30,14 @@ public class CrearCurso extends OpcionDeMenu {
 		}
 		if(b==true) {
 			System.out.println("Ingrese el tipo del curso(ingles, aleman, mandarin,...): "); 
-			String tipo = e.next();
-			new Curso(nombre,tipo,horario,docente);
+			String tipo = e.next(); 
+			Curso busqueda= Archivo.buscarCurso(nombre);
+			if(busqueda==null) {
+				new Curso(nombre,tipo,horario,docente);
+				System.out.println("Se ha creado el curso");
+			}else {
+				System.out.println("El nombre del curso no es valido");
+			}
 		}
 		else {
 			System.out.println("El docente no existe");
