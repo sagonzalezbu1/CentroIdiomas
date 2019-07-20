@@ -1,5 +1,5 @@
 cathe patiño;987;cathe@;987
-ingles1
+ingles1-frances1
 0
 VerCursos;Matricular;VerCertificados;VerMisSolicitudes;VerHorario;VerNotas;SolicitarCupo;CerrarSesion
 uno uno;1;uno@;1
