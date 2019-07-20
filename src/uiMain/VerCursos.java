@@ -1,7 +1,7 @@
 package uiMain;
 import gestorAplicacion.Centro.Archivo;
 
-public class CursosDisponibles extends OpcionDeMenu {
+public class VerCursos extends OpcionDeMenu {
 	private String nombre="VerCursos";
 	public String getNombre() {
 		return nombre;

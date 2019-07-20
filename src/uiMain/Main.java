@@ -11,7 +11,7 @@ public class Main {
 		{
 			put("Calificar", new Calificar());
 			put("CrearCurso", new CrearCurso());
-			put("VerCursos", new CursosDisponibles());
+			put("VerCursos", new VerCursos());
 			put("FinalizeCurso", new FinalizeCurso());
 			put("Matricular", new Matricular());
 			put("Registrar", new Registrar());

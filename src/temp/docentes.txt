@@ -1,2 +1,2 @@
-santiago gonzalez;654;sa;654
-Calificar;VerHorario;CursosDisponibles;VerDocentes;VerEstudiantes;CerrarSesion
+Jaime Guzman;654;correoj;654
+Calificar;VerHorario;VerCursos;VerDocentes;VerEstudiantes;CerrarSesion

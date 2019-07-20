@@ -1,2 +1,2 @@
-luis bula;321;lu;321
-CrearCurso;CursosDisponibles;FinalizeCurso;ResponderSolicitudes;VerAdministrativos;VerDocentes;VerEstudiantes;CerrarSesion
+luis bula;321;luis@;321
+CrearCurso;VerCursos;FinalizeCurso;ResponderSolicitudes;VerAdministrativos;VerDocentes;VerEstudiantes;CerrarSesion

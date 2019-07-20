@@ -27,6 +27,6 @@ public class RegistrarEstudiante extends OpcionDeMenu {
 	}
 	
 	public String toString() {
-		return"Registrar estudiante";
+		return"Registrar Estudiante";
 	}
 }
