@@ -18,7 +18,8 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 		//Evalúa cada solicitud
 		for (Solicitud x : aux1) {
 			Curso course = Archivo.CursoDisponibilidad(tipo);
-			System.out.println("Ingrese :\n1 para aceptar\n2 para rechazar\n3 para no responder más solicitudes");
+			System.out.println("Tiene una solicitud de: "+ x.getEstudiante().getCedula());
+			System.out.println("Ingrese: 1 para aceptar, 2 para rechazar, 3 para no responder más solicitudes");
 			int op = entry.nextInt();
 			//Acepta, matricula al estudiante y elimina la solicitud
 			if (op == 1) {
