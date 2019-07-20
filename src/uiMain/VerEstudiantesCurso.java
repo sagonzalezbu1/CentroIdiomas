@@ -16,8 +16,12 @@ public class VerEstudiantesCurso extends OpcionDeMenu {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso del cual quiere ver los estudiantes");
 		String curso = entry.next();
-
-		System.out.println(Archivo.verEstudiantesCurso(curso));
+		Curso c = Archivo.buscarCurso(curso);
+		if (c == null) {
+			System.out.println("\nEste curso no existe.\n");
+		} else {
+			System.out.println(Archivo.verEstudiantesCurso(curso));
+		}
 
 	}
 

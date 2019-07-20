@@ -22,10 +22,10 @@ public class FinalizeCurso extends OpcionDeMenu {
 			}
 		}
 		if (curso == null) {
-			System.out.println("No se encontró el curso");
+			System.out.println("\nNo se encontró el curso\n");
 		} else {
 			curso.finalizeCurso();
-			System.out.println("El curso ha sido eliminado");
+			System.out.println("\nEl curso ha sido eliminado\n");
 		}
 	}
 
