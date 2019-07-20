@@ -24,7 +24,7 @@ public class VerNotas extends OpcionDeMenu {
 			for(Estudiante e : Archivo.getEstudiantes()) {
 				if(e.getCedula()==ced) {
 					for(Curso c : e.getCurso()) {
-						System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).verNotas(c.getNombreCurso()) + "\n");
+						System.out.print(c.getNombreCurso() + ": " + e.verNotas(c.getNombreCurso()) + "\n");
 					}
 					break;
 				}

@@ -33,14 +33,53 @@ public class Matricular extends OpcionDeMenu {
 				System.out.println("No se encontró el curso" + "\n");
 			}
 			else {
-				boolean bool = curso.matricular((Estudiante) (Main.user));
-				//Por último se verifica que haya cupos disponibles
+				boolean bool = false;
+				boolean aux1 = false;
+				//Se verifica si el curso está vacío
+				if(!curso.getEstudiantes().isEmpty()) {
+					for(Estudiante y : curso.getEstudiantes()) {
+						//Se verifica si el estudiante ya está en el curso
+						if(Main.user.equals(y)) {
+							//Sí está
+							System.out.println("Usted ya se encuentra matriculado en este curso.");
+							aux1 = false;
+							break;
+						}
+						else {
+							//No está
+							aux1 = true;
+						}
+					}
+					if(aux1==true) {
+						bool = curso.matricular((Estudiante) (Main.user));
+						//Por último se verifica que haya cupos disponibles
+						if(bool == true) {
+							System.out.println("Usted quedó matriculado");
+						}
+						else {
+							System.out.println("No hay cupos disponibles en este curso");
+						}
+					}
+				}
+				else {
+					bool = curso.matricular((Estudiante) (Main.user));
+					//Por último se verifica que haya cupos disponibles
+					if(bool == true) {
+						System.out.println("Usted quedó matriculado");
+					}
+					else {
+						System.out.println("No hay cupos disponibles en este curso");
+					}
+				}
+				//boolean bool = curso.matricular((Estudiante) (Main.user));
+				
+				/*//Por último se verifica que haya cupos disponibles
 				if(bool == true) {
 					System.out.println("Usted quedó matriculado");
 				}
 				else {
 					System.out.println("No hay cupos disponibles en este curso");
-				}
+				}*/
 			}
 		}
 		else {
