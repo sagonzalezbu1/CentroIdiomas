@@ -86,7 +86,11 @@ public class Estudiante extends Usuario implements Horario {
 	public ArrayList<Certificado> getCertificados() {
 		return misCertificados;
 	}
-
+	
+	public  ArrayList<Solicitud> getSolicitudes(){
+		return misSolicitudes;
+	}
+	
 	// Hashmap de notas del estudiante
 	public HashMap<String, ArrayList<Float>> getNotas() {
 		return misNotas;

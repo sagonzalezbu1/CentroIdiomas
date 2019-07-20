@@ -109,8 +109,11 @@ abstract public class Archivo {
 		}
 	}
 
-	static public void removeSolicitud(String tipo, Estudiante e) {
-		(solicitudes.get(tipo)).remove(e);
+	static public void removeSolicitud(String tipo, Solicitud s) {
+		(solicitudes.get(tipo)).remove(s);
+		if(solicitudes.get(tipo).isEmpty()) {
+			solicitudes.remove(tipo);
+		}
 	}
 
 	static public String verAdministrativos() {
