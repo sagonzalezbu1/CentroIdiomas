@@ -21,7 +21,7 @@ public class RegistrarDocente extends OpcionDeMenu {
 		System.out.println("Esciba el codigo necesario para ser docente: ");
 		String codigo = entrada.next();
 		//Verifica que el código sea correcto
-		if(Archivo.buscarDocente(cc) == null) {
+		if(Archivo.buscarAdministrativo(cc) == null && Archivo.buscarDocente(cc) == null && Archivo.buscarEstudiante(cc) == null && cc != 123) {
 			if (codigo.equals(Docente.getCodigo())) {
 				Docente d = new Docente(nombre + " " + apellido, cc, correo, contraseña);
 			}
@@ -30,7 +30,7 @@ public class RegistrarDocente extends OpcionDeMenu {
 			}
 		}
 		else {
-			System.out.println("Ya se encuentra registrado un Docente con esa cédula");
+			System.out.println("Ya se encuentra registrado un usuario con esa cédula");
 		}
 		
 	}

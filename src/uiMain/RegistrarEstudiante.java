@@ -18,11 +18,11 @@ public class RegistrarEstudiante extends OpcionDeMenu {
 		String correo = entrada.next();
 		System.out.println("Escriba la contraseña que desee: ");
 		String contraseña = entrada.next();
-		if(Archivo.buscarEstudiante(cc) == null) {
+		if(Archivo.buscarAdministrativo(cc) == null && Archivo.buscarDocente(cc) == null && Archivo.buscarEstudiante(cc) == null && cc != 123) {
 			Estudiante e = new Estudiante(nombre + " " + apellido, cc, correo, contraseña);
 		}
 		else {
-			System.out.println("Ya se encuentra registrado un estudiante con esa cédula");
+			System.out.println("Ya se encuentra registrado un usuario con esa cédula");
 		}
 	}
 	
