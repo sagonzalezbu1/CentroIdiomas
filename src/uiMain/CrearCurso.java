@@ -34,7 +34,7 @@ public class CrearCurso extends OpcionDeMenu {
 			Curso busqueda= Archivo.buscarCurso(nombre);
 			if(busqueda==null) {
 				new Curso(nombre,tipo,horario,docente);
-				System.out.println("Se ha creado el curso");
+				System.out.println("\nSe ha creado el curso");
 			}else {
 				System.out.println("El nombre del curso no es valido");
 			}

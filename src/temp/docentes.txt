@@ -1,2 +1,2 @@
 Jaime Guzman;654;correoj;654
-Calificar;VerHorario;VerCursos;VerDocentes;VerEstudiantes;VerEstudiantesCurso;CerrarSesion
+Calificar;VerHorario;VerCursos;VerDocentes;VerTodosLosEstudiantes;VerEstudiantesCurso;CerrarSesion

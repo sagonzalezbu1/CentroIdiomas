@@ -20,6 +20,7 @@ public class RegistrarEstudiante extends OpcionDeMenu {
 		String contraseña = entrada.next();
 		if(Archivo.buscarAdministrativo(cc) == null && Archivo.buscarDocente(cc) == null && Archivo.buscarEstudiante(cc) == null && cc != 123) {
 			Estudiante e = new Estudiante(nombre + " " + apellido, cc, correo, contraseña);
+			System.out.println("\nSe ha registrado exitosamente.\n");
 		}
 		else {
 			System.out.println("Ya se encuentra registrado un usuario con esa cédula");

@@ -24,6 +24,7 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 		if(Archivo.buscarAdministrativo(cc) == null && Archivo.buscarDocente(cc) == null && Archivo.buscarEstudiante(cc) == null && cc != 123) {
 			if(codigo.equals(Administrativo.getCodigo())) {
 				Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
+				System.out.println("\nSe ha registrado exitosamente.\n");
 			}else {
 				System.out.println("Codigo incorrecto");
 			}

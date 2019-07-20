@@ -13,8 +13,8 @@ public class Salir extends OpcionDeMenu {
 		Data.escribirAdministrativos();
 		Data.escribirSolicitudes();
 		Data.escribirCursos();
-		System.exit(0);
 		System.out.println("El programa se ha cerrado.");
+		System.exit(0);
 	}
 	public String toString() {
 		return "Salir del programa";
