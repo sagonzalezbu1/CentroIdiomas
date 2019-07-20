@@ -24,7 +24,7 @@ public class MenuDeConsola {
             System.out.println(cont + ". " + x);
             cont++;
         }
-        System.out.println("¿Qué número de opción desea eliminar del menú?");
+        System.out.println("Ingrese el número de opción desea eliminar del menú: ");
         int i = entry.nextInt();
         Menu.remove(i);
     }
@@ -35,6 +35,7 @@ public class MenuDeConsola {
             System.out.println(cont + ". " + x);
             cont++;
         }
+        System.out.println("Ingrese el número de opción desea ejecutar: ");
         int op= entry.nextInt();
         ejecutarOpcion(op);
     }

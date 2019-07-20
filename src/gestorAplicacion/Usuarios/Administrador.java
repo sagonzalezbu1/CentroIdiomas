@@ -4,9 +4,6 @@ import gestorAplicacion.Centro.Archivo;
 import uiMain.*;
 
 public class Administrador extends Usuario {
-	static long cedula;
-	static String contrasena;
-	
 	//Constructor por defecto de administrador
 	public Administrador(String name, long id, String email, String password) {
 		super(name, id, email, password);	
