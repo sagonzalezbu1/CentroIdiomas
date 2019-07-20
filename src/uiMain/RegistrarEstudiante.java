@@ -18,7 +18,7 @@ public class RegistrarEstudiante extends OpcionDeMenu {
 		String correo = entrada.next();
 		System.out.println("Escriba la contraseña que desee: ");
 		String contraseña = entrada.next();
-		if(Archivo.buscarEstudiante(cc).getCedula() != cc) {
+		if(Archivo.buscarEstudiante(cc) == null) {
 			Estudiante e = new Estudiante(nombre + " " + apellido, cc, correo, contraseña);
 		}
 		else {

@@ -21,7 +21,7 @@ public class RegistrarDocente extends OpcionDeMenu {
 		System.out.println("Esciba el codigo necesario para ser docente: ");
 		String codigo = entrada.next();
 		//Verifica que el código sea correcto
-		if(Archivo.buscarDocente(cc).getCedula() != cc) {
+		if(Archivo.buscarDocente(cc) == null) {
 			if (codigo.equals(Docente.getCodigo())) {
 				Docente d = new Docente(nombre + " " + apellido, cc, correo, contraseña);
 			}

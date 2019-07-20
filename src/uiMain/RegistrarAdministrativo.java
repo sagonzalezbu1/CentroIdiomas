@@ -21,7 +21,7 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 		System.out.println("Esciba el codigo necesario para ser Administrativo: ");
 		String codigo = entrada.next();
 		//Verifica que el código sea correcto
-		if(Archivo.buscarAdministrativo(cc).getCedula() != cc) {
+		if(Archivo.buscarAdministrativo(cc) == null) {
 			if(codigo.equals(Administrativo.getCodigo())) {
 				Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
 			}else {
