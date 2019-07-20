@@ -17,7 +17,7 @@ public class Administrativo extends Usuario {
 		super(name, cedula, correo, clave);
 		//Menu por defecto
 		getMenu().anadirOpcion(Main.funcionalidades.get("CrearCurso"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("FinalizeCurso"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("ResponderSolicitudes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerAdministrativos"));

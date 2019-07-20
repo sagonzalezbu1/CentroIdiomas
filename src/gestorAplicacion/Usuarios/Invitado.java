@@ -9,7 +9,7 @@ public class Invitado extends Usuario {
 		super(name, id, email, password);
 		getMenu().anadirOpcion(new Ingresar());
 		getMenu().anadirOpcion(Main.funcionalidades.get("Registrar"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
 		getMenu().anadirOpcion(new Salir());
 	}
 

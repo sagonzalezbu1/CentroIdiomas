@@ -15,7 +15,7 @@ public class Estudiante extends Usuario implements Horario {
 	public Estudiante(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		//Menu por defecto
-		getMenu().anadirOpcion(Main.funcionalidades.get("CursosDisponibles"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("Matricular"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCertificados"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerMisSolicitudes"));
