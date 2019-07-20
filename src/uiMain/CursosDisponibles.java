@@ -2,7 +2,7 @@ package uiMain;
 import gestorAplicacion.Centro.Archivo;
 
 public class CursosDisponibles extends OpcionDeMenu {
-	private String nombre="CursosDisponibles";
+	private String nombre="VerDisponibles";
 	public String getNombre() {
 		return nombre;
 	}
@@ -12,6 +12,6 @@ public class CursosDisponibles extends OpcionDeMenu {
 	}
 
 	public String toString() {
-		return "Ver cursos disponibles";
+		return "Ver cursos";
 	}
 }

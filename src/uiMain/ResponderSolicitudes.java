@@ -12,7 +12,8 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 	public void ejecutar() {
 		//Se busca la lista de solicitudes de cierto curso
 		Scanner entry = new Scanner(System.in);
-		System.out.println("Ingrese el tipo de la materia que desea aceptar solicitudes: ");
+		System.out.println(Archivo.verSolicitudes());
+		System.out.println("Ingrese el tipo de la materia que desea responder solicitudes: ");
 		String tipo = entry.next();
 		ArrayList<Solicitud> aux1 = Archivo.getSolicitudes().get(tipo);
 		//Evalúa cada solicitud
@@ -29,11 +30,13 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 					course.matricular(x.getEstudiante());
 					Archivo.removeSolicitud(tipo, x.getEstudiante());
 					(x.getEstudiante()).removeSolicitud(tipo);
+					System.out.println("se ha aceptado la solicitud exitosamente.\n");
 				}
 				else {
 					course.matricular(x.getEstudiante());
 					Archivo.removeSolicitud(tipo, x.getEstudiante());
 					(x.getEstudiante()).removeSolicitud(tipo);
+					System.out.println("se ha aceptado la solicitud exitosamente.\n");
 				}
 
 			}
@@ -41,13 +44,15 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 			else if (op == 2) {
 				Archivo.removeSolicitud(tipo, x.getEstudiante());
 				(x.getEstudiante()).removeSolicitud(tipo);
+				System.out.println("se ha rechazado la solicitud exitosamente.\n");
 			}
 			//No responde
 			else {
+				System.out.println("Ha decididono responder mas solicitudes.\n");
 				return;
 			}
 		}
-		System.out.println("No hay mas solicitudes de este tipo");
+		System.out.println("No hay mas solicitudes de este tipo.\n");
 	}
 
 	public String toString() {

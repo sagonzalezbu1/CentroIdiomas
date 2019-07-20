@@ -1,5 +1,6 @@
 package uiMain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import gestorAplicacion.Centro.Archivo;
@@ -31,9 +32,17 @@ public class AddFuncionalidad extends OpcionDeMenu {
 			System.out.println(Archivo.getAdministrador().SystemMenu());
 			System.out.println("Ingrese la funcionalidad que quiere agregar: ");
 			String option = e.next();
+			ArrayList<OpcionDeMenu> menu= y.getMenu().getList();
+			for(OpcionDeMenu op: menu) {
+				if(op.getNombre().equals(option)) {
+					System.out.println("La opcion de menu ya esta disponible para ese usuario.\n");
+					return;
+				}
+			}
 			y.getMenu().anadirOpcion(Main.funcionalidades.get(option));
+			System.out.println("Se ha añadido la opcion sactisfactoriamente.\n");
 		} else {
-			System.out.println("El usuario no esta registrado");
+			System.out.println("El usuario no esta registrado.\n");
 		}
 	}
 

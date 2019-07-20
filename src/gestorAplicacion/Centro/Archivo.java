@@ -141,6 +141,13 @@ abstract public class Archivo {
 		}
 		return ver;
 	}
+	static public String verSolicitudes() {
+		String ver = "";
+		for (String x : solicitudes.keySet()) {
+			ver = ver + x + "\n";
+		}
+		return ver;
+	}
 
 	static public String verEstudiantes() {
 		String ver = "";

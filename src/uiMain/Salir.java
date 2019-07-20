@@ -14,6 +14,7 @@ public class Salir extends OpcionDeMenu {
 		Data.escribirSolicitudes();
 		Data.escribirCursos();
 		System.exit(0);
+		System.out.println("El programa se ha cerrado.");
 	}
 	public String toString() {
 		return "Salir del programa";

@@ -7,7 +7,11 @@ public class VerDocentes extends OpcionDeMenu{
 		return nombre;
 	}
 	public void ejecutar() {
-		System.out.println(Archivo.verDocentes());
+		if (Archivo.verDocentes().equals("")) {
+			System.out.println("No hay docentes registrados.\n");
+		} else {
+			System.out.println(Archivo.verDocentes());
+		}
 	}
 
 	public String toString() {

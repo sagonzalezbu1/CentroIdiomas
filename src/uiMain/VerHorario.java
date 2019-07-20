@@ -27,20 +27,21 @@ public class VerHorario extends OpcionDeMenu {
 			//Busca el usuario y muestra el respectivo horario
 			for (Docente x : Archivo.getDocentes()) {
 				if (x.getCedula() == ID) {
-					System.out.println(x.miHorario());
-					break;
+					System.out.println(x.miHorario()+"\n");
+					return;
 				}
 			}
 			for (Estudiante y : Archivo.getEstudiantes()) {
 				if (y.getCedula() == ID) {
-					System.out.println(y.miHorario());
-					break;
+					System.out.println(y.miHorario()+"\n");
+					return;
 				}
 			}
+			System.out.println("No se ha encontrado ningun usuario.\n");
 		}
 	}
 
 	public String toString() {
-		return "Mi horario";
+		return "Ver horario";
 	}
 }

@@ -16,7 +16,7 @@ public class VerCertificados extends OpcionDeMenu{
 			//Si es estudiante muestra sus certificados
 			String aux = ((Estudiante)Main.user).verCertificados();
 			if(aux.equals("")){
-				System.out.println("usted no tiene certificados");
+				System.out.println("Usted no tiene certificados.\n");
 			}else {
 				System.out.println(aux);
 			}
@@ -26,11 +26,11 @@ public class VerCertificados extends OpcionDeMenu{
 			long ID = entry.nextLong();
 			Estudiante e = Archivo.buscarEstudiante(ID);
 			if(e==null) {
-				System.out.println("Este estudiante no esta registrado");
+				System.out.println("Este estudiante no esta registrado.\n");
 			}else {
 				String aux = e.verCertificados();
 				if(aux.equals("")){
-					System.out.println("Este estudiante no tiene certificados");
+					System.out.println("Este estudiante no tiene certificados.\n");
 				}else {
 					System.out.println(aux);
 				}

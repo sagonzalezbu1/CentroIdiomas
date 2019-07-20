@@ -20,9 +20,10 @@ public class SolicitarCupo extends OpcionDeMenu {
 			String aux = entry.next();
 			if (Archivo.CursoDisponibilidad(aux) == null) {
 				((Estudiante) Main.user).solicitar(aux);
+				System.out.println("Su solicitud ha sido exitosa.\n");
 				return;
 			} else {
-				System.out.println("No puede solicitar. Hay cupos disponibles.");
+				System.out.println("No puede solicitar. Hay cupos disponibles.\n");
 			}
 
 		} else {
@@ -35,12 +36,13 @@ public class SolicitarCupo extends OpcionDeMenu {
 				String aux2 = entry.next();
 				if (Archivo.CursoDisponibilidad(aux2) == null) {
 					x.solicitar(aux2);
+					System.out.println("Su solicitud ha sido exitosa.\n");
 					return;
 				} else {
-					System.out.println("No puede solicitar. Hay cupos disponibles.");
+					System.out.println("No puede solicitar. Hay cupos disponibles.\n");
 				}
 			}else {
-				System.out.println("Estudiante no encontrado");
+				System.out.println("Estudiante no encontrado.\n");
 			}
 		}
 	}

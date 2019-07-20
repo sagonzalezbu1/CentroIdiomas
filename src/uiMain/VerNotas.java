@@ -25,10 +25,11 @@ public class VerNotas extends OpcionDeMenu {
 				if(e.getCedula()==ced) {
 					for(Curso c : e.getCurso()) {
 						System.out.print(c.getNombreCurso() + ": " + e.verNotas(c.getNombreCurso()) + "\n");
+						return;
 					}
-					break;
 				}
 			}
+			System.out.println("El estudiante no se encuentra.\n");
 		}
 	}
 

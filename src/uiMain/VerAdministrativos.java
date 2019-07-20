@@ -7,7 +7,11 @@ public class VerAdministrativos extends OpcionDeMenu {
 		return nombre;
 	}
 	public void ejecutar() {
-		System.out.println(Archivo.verAdministrativos());
+		if (Archivo.verAdministrativos().equals("")) {
+			System.out.println("No hay administrativos registrados.\n");
+		} else {
+			System.out.println(Archivo.verAdministrativos());
+		}
 	}
 
 	public String toString() {
