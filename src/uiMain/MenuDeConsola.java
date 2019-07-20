@@ -35,7 +35,7 @@ public class MenuDeConsola {
             System.out.println(cont + ". " + x);
             cont++;
         }
-        System.out.println("Ingrese el número de la opción que desea ejecutar: ");
+        System.out.println("\nIngrese el número de la opción que desea ejecutar: ");
         int op= entry.nextInt();
         ejecutarOpcion(op);
     }

@@ -99,7 +99,7 @@ public class Estudiante extends Usuario implements Horario {
 		for (Float x : prom) {
 			list += x + "  ";
 		}
-		list += "  Definitiva: " + this.getDefinitiva(nombreM);
+		list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
 		return list;
 	}
 

@@ -2,8 +2,8 @@ package uiMain;
 
 import gestorAplicacion.Centro.Archivo;
 
-public class VerEstudiantes extends OpcionDeMenu {
-	private String nombre = "VerEstudiantes";
+public class VerTodosLosEstudiantes extends OpcionDeMenu {
+	private String nombre = "VerTodosLosEstudiantes";
 
 	public String getNombre() {
 		return nombre;
@@ -18,6 +18,6 @@ public class VerEstudiantes extends OpcionDeMenu {
 	}
 
 	public String toString() {
-		return "Ver estudiantes";
+		return "Ver todos los estudiantes";
 	}
 }

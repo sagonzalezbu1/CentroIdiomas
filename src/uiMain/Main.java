@@ -20,11 +20,12 @@ public class Main {
 			put("VerAdministrativos", new VerAdministrativos());
 			put("VerCertificados", new VerCertificados());
 			put("VerDocentes", new VerDocentes());
-			put("VerEstudiantes", new VerEstudiantes());
+			put("VerTodosLosEstudiantes", new VerTodosLosEstudiantes());
 			put("VerHorario", new VerHorario());
 			put("VerMisSolicitudes", new VerMisSolicitudes());
 			put("VerNotas", new VerNotas());
 			put("CerrarSesion", new CerrarSesion());
+			put("VerEstudiantesCurso", new VerEstudiantesCurso());
 		}
 	};
 	//Usuario por defecto, al que se ingresará siempre que se ejecute el programa

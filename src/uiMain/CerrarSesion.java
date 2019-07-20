@@ -9,6 +9,7 @@ public class CerrarSesion extends OpcionDeMenu {
 	}
 	public void ejecutar() {
 		//Se cierra sesión volviendo al menú de invitado
+		System.out.println("\nSe ha cerrado la sesión.\n");
 		Main.user = new Invitado();
 	}
 	public String toString() {

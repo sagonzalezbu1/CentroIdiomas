@@ -116,45 +116,58 @@ abstract public class Archivo {
 	static public String verAdministrativos() {
 		String ver = "";
 		for (Administrativo x : listaAdministrativos) {
-			ver = ver + x.toString() + "\n";
+			ver += "\n";
+			ver += x.toString() + "\n";
 		}
-		return ver;
+		return "Administrativos:\n" + ver;
 	}
 
 	static public String verCursos() {
 		String ver = "";
 		for (Curso x : listaCursos) {
-			ver = ver + x.toString() + "\n";
+			ver += "\n";
+			ver += x.toString() + "\n";
 		}
 		if (ver.equals("")) {
 			return "No hay cursos disponibles";
 		}
 		else {
-			return ver;
+			return "Cursos:\n" + ver;
 		}
 	}
 
 	static public String verDocentes() {
 		String ver = "";
 		for (Docente x : listaDocentes) {
-			ver = ver + x.toString() + "\n";
+			ver += "\n";
+			ver += x.toString() + "\n";
 		}
-		return ver;
+		return "Docentes:\n" + ver;
 	}
 	static public String verSolicitudes() {
 		String ver = "";
 		for (String x : solicitudes.keySet()) {
-			ver = ver + x + "\n";
+			ver += "\n";
+			ver += x + "\n";
 		}
-		return ver;
+		return "Solicitudes:\n" + ver;
 	}
 
 	static public String verEstudiantes() {
 		String ver = "";
 		for (Estudiante x : listaEstudiantes) {
-			ver = ver + x.toString() + "\n";
+			ver += "\n";
+			ver += x.toString() + "\n";
+		}
+		return "Estudiantes:\n" + ver;
+	}
+	
+	static public String verEstudiantesCurso(String curso) {
+		String ver = "";
+		for (Estudiante x : Archivo.buscarCurso(curso).getEstudiantes()) {
+			ver += "\n";
+			ver += x.toString() + "\n";
 		}
 		return ver;
 	}
-
 }

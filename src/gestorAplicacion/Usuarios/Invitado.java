@@ -22,23 +22,27 @@ public class Invitado extends Usuario {
 	static public void ingresar(long user, String key) {
 		if(user == Archivo.getAdministrador().getCedula() && key.equals(Archivo.getAdministrador().getContrasena())) {
 			Main.user = Archivo.getAdministrador();
+			System.out.println("\nSe ha iniciado sesión.\n");
 			return;
 		}
 		for (Usuario x : Archivo.getEstudiantes()) {
 			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
 				Main.user = x;
+				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
 		}
 		for (Usuario x : Archivo.getDocentes()) {
 			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
 				Main.user = x;
+				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
 		}
 		for (Usuario x : Archivo.getAdministrativos()) {
 			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
 				Main.user = x;
+				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
 		}

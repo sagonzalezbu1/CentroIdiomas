@@ -22,8 +22,9 @@ public class Administrativo extends Usuario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("ResponderSolicitudes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerAdministrativos"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerTodosLosEstudiantes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantesCurso"));
 		Archivo.add(this);
 		
 	}

@@ -14,18 +14,31 @@ public class Calificar extends OpcionDeMenu {
 		Scanner entry =new Scanner(System.in);
 		System.out.println("Introduzca el nombre del grupo al que desea calificar: ");
 		String aux = entry.next();
+		boolean bool = false;
+		
 		for(Curso x: Archivo.getCursos()) {
 			if (x.getNombreCurso().equals(aux)) {
-				for(Estudiante y:x.getEstudiantes()) {
-					long aux2 = y.getCedula();
-					System.out.println("Ingrese la nota del estudiante con ID " + aux2 );
-					float aux3 = entry.nextFloat();
-					y.calificar(aux,aux3);
+				bool = true;
+				System.out.println("Introduzca la cedula del docente que da el curso");
+				long aux4 = entry.nextLong();
+				if(aux4 == x.getDocente().getCedula()) {
+					for(Estudiante y:x.getEstudiantes()) {
+						long aux2 = y.getCedula();
+						System.out.println("Ingrese la nota del estudiante con ID " + aux2 );
+						float aux3 = entry.nextFloat();
+						System.out.println("");
+						y.calificar(aux,aux3);
+					}
 				}
+				else {
+					System.out.println("La cedula del docente no es correcta");
+				}
+				
 			}
-			else {
-				System.out.println("El curso no existe");
-			}
+			
+		}
+		if (bool == false) {
+			System.out.println("El curso no existe");
 		}
 		
 	}
