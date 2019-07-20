@@ -119,7 +119,7 @@ abstract public class Archivo {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
-		return "Administrativos:\n" + ver;
+		return "\nAdministrativos:\n" + ver;
 	}
 
 	static public String verCursos() {
@@ -132,7 +132,7 @@ abstract public class Archivo {
 			return "No hay cursos disponibles";
 		}
 		else {
-			return "Cursos:\n" + ver;
+			return "\nCursos:\n" + ver;
 		}
 	}
 
@@ -142,7 +142,7 @@ abstract public class Archivo {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
-		return "Docentes:\n" + ver;
+		return "\nDocentes:\n" + ver;
 	}
 	static public String verSolicitudes() {
 		String ver = "";
@@ -150,7 +150,7 @@ abstract public class Archivo {
 			ver += "\n";
 			ver += x + "\n";
 		}
-		return "Solicitudes:\n" + ver;
+		return "\nSolicitudes:\n" + ver;
 	}
 
 	static public String verEstudiantes() {
@@ -159,7 +159,7 @@ abstract public class Archivo {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
-		return "Estudiantes:\n" + ver;
+		return "\nEstudiantes:\n" + ver;
 	}
 	
 	static public String verEstudiantesCurso(String curso) {
@@ -168,6 +168,11 @@ abstract public class Archivo {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
-		return ver;
+		if(Archivo.buscarCurso(curso).getEstudiantes().isEmpty()) {
+			return "\nEste curso no tiene estudiantes.\n";
+		}
+		else {
+			return "\nEstudiantes de " + Archivo.buscarCurso(curso) + ":\n" + ver;
+		}
 	}
 }
