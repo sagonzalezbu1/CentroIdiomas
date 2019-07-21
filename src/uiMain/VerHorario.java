@@ -13,6 +13,7 @@ public class VerHorario extends OpcionDeMenu {
 		//Verifica qué tipo de usuario verá el horario
 		if (Main.user instanceof Estudiante) {
 			//Si es estudiante le mostrará su horario
+			System.out.println("");
 			System.out.println(((Estudiante) Main.user).miHorario());
 		}
 		else if (Main.user instanceof Docente) {
@@ -27,17 +28,18 @@ public class VerHorario extends OpcionDeMenu {
 			//Busca el usuario y muestra el respectivo horario
 			for (Docente x : Archivo.getDocentes()) {
 				if (x.getCedula() == ID) {
-					System.out.println(x.miHorario()+"\n");
+					System.out.println(x.miHorario());
 					return;
 				}
 			}
 			for (Estudiante y : Archivo.getEstudiantes()) {
 				if (y.getCedula() == ID) {
-					System.out.println(y.miHorario()+"\n");
+					System.out.println("");
+					System.out.println(y.miHorario());
 					return;
 				}
 			}
-			System.out.println("No se ha encontrado ningun usuario.\n");
+			System.out.println("\nNo se ha encontrado ningun usuario.\n");
 		}
 	}
 

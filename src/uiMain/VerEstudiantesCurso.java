@@ -18,7 +18,7 @@ public class VerEstudiantesCurso extends OpcionDeMenu {
 		String curso = entry.next();
 		Curso c = Archivo.buscarCurso(curso);
 		if (c == null) {
-			System.out.println("\nEste curso no existe.\n");
+			System.out.println("\nEl curso '"+curso+"' no existe.\n");
 		} else {
 			System.out.println(Archivo.verEstudiantesCurso(curso));
 		}

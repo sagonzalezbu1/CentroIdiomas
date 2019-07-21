@@ -31,7 +31,7 @@ public class Matricular extends OpcionDeMenu {
 			}
 			// Luego se verifica que el curso en el que se quiere matricular exista
 			if (b == false) {
-				System.out.println("No se encontró el curso" + "\n");
+				System.out.println("\nEl curso '" +nombre+"' No se encontró.\n");
 			} else {
 				boolean bool = false;
 				boolean aux1 = false;
@@ -53,16 +53,16 @@ public class Matricular extends OpcionDeMenu {
 						bool = curso.matricular((Estudiante) (Main.user));
 						// Por último se verifica que haya cupos disponibles
 						if (bool == true) {
-							System.out.println("Usted quedó matriculado");
+							System.out.println("\nUsted quedó matriculado.\n");
 						} else {
-							System.out.println("No hay cupos disponibles en este curso");
+							System.out.println("\nNo hay cupos disponibles en este curso.\n");
 						}
 					}
 				} else {
 					bool = curso.matricular((Estudiante) (Main.user));
 					// Por último se verifica que haya cupos disponibles
 
-					System.out.println("Usted quedó matriculado");
+					System.out.println("\nUsted quedó matriculado.\n");
 
 				}
 				
@@ -95,17 +95,17 @@ public class Matricular extends OpcionDeMenu {
 					}
 				}
 				if (c == false) {
-					System.out.println("No se encontró el curso" + "\n");
+					System.out.println("\nEl curso '" +nombre+"' No se encontró.\n");
 				} else {
 					boolean bool = curso.matricular((Estudiante) (estudiante));
 					if (bool == true) {
-						System.out.println("El estudiante quedó matriculado");
+						System.out.println("\nEl estudiante quedó matriculado.\n");
 					} else {
-						System.out.println("No hay cupos disponibles en este curso");
+						System.out.println("\nNo hay cupos disponibles en este curso.\n");
 					}
 				}
 			} else {
-				System.out.println("No se encontró el estudiante");
+				System.out.println("No se encontró el estudiante.");
 			}
 		}
 	}

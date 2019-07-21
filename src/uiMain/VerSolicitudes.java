@@ -19,8 +19,9 @@ public class VerSolicitudes extends OpcionDeMenu {
 			// Si es estudiante le mostrará sus solicitudes
 			String aux = ((Estudiante) Main.user).verSolicitudes();
 			if (aux.equals("")) {
-				System.out.println("Usted no tiene solicitudes.\n");
+				System.out.println("\nUsted no tiene solicitudes.\n");
 			} else {
+				System.out.println("");
 				System.out.println(aux+"\n");
 			}
 		} else {
@@ -29,12 +30,13 @@ public class VerSolicitudes extends OpcionDeMenu {
 			long ID = entry.nextLong();
 			Estudiante e = Archivo.buscarEstudiante(ID);
 			if(e==null) {
-				System.out.println("Este estudiante no esta registrado.\n");
+				System.out.println("\nEl estudiante no esta registrado.\n");
 			}else {
 				String aux = e.verSolicitudes();
 				if(aux.equals("")){
-					System.out.println("Este estudiante aun no tiene Solicitudes.\n");
+					System.out.println("\nEl estudiante no tiene Solicitudes.\n");
 				}else {
+					System.out.println("");
 					System.out.println(aux+"\n");
 				}
 			}

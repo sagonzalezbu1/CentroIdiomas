@@ -115,7 +115,7 @@ public class Estudiante extends Usuario implements Horario {
 			aux += "\n";
 		}
 		if (aux.equals("")) {
-			return "Este estudiante aun no tiene horario";
+			return "\nNo tiene cursos inscritos.";
 		} else {
 			return aux;
 		}

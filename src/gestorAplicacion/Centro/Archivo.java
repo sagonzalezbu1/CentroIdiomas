@@ -28,25 +28,25 @@ abstract public class Archivo {
 		listaEstudiantes.add(e);
 	}
 
-	//busca por cedula a las personas y por nombre a los cursos
+	// busca por cedula a las personas y por nombre a los cursos
 	static public Administrativo buscarAdministrativo(long admin) {
 		for (Administrativo x : listaAdministrativos) {
-			if (x.getCedula()==admin) {
+			if (x.getCedula() == admin) {
 				return x;
 			}
 		}
 		return null;
 	}
-	
+
 	static public Docente buscarDocente(long docen) {
 		for (Docente x : listaDocentes) {
-			if (x.getCedula()==docen) {
+			if (x.getCedula() == docen) {
 				return x;
 			}
 		}
 		return null;
 	}
-	
+
 	static public Curso buscarCurso(String curso) {
 		for (Curso x : listaCursos) {
 			if (x.getNombreCurso().equals(curso)) {
@@ -55,14 +55,25 @@ abstract public class Archivo {
 		}
 		return null;
 	}
-	
+
 	static public Estudiante buscarEstudiante(long estud) {
 		for (Estudiante x : listaEstudiantes) {
-			if (x.getCedula()==estud) {
+			if (x.getCedula() == estud) {
 				return x;
 			}
 		}
 		return null;
+	}
+
+	static public Usuario buscarUsuario(long id) {
+		Usuario u = buscarAdministrativo(id);
+		if (u == null) {
+			u = buscarDocente(id);
+			if (u == null) {
+				u = buscarEstudiante(id);
+			}
+		}
+		return u;
 	}
 
 	static public Curso CursoDisponibilidad(String tipo) {
@@ -74,6 +85,7 @@ abstract public class Archivo {
 		}
 		return null;
 	}
+
 	static public Administrador getAdministrador() {
 		return a1;
 	}
@@ -111,7 +123,7 @@ abstract public class Archivo {
 
 	static public void removeSolicitud(String tipo, Solicitud s) {
 		(solicitudes.get(tipo)).remove(s);
-		if(solicitudes.get(tipo).isEmpty()) {
+		if (solicitudes.get(tipo).isEmpty()) {
 			solicitudes.remove(tipo);
 		}
 	}
@@ -132,9 +144,8 @@ abstract public class Archivo {
 			ver += x.toString() + "\n";
 		}
 		if (ver.equals("")) {
-			return "No hay cursos disponibles";
-		}
-		else {
+			return "\nNo hay cursos disponibles\n";
+		} else {
 			return "\nCursos:\n" + ver;
 		}
 	}
@@ -147,6 +158,7 @@ abstract public class Archivo {
 		}
 		return "\nDocentes:\n" + ver;
 	}
+
 	static public String verSolicitudes() {
 		String ver = "";
 		for (String x : solicitudes.keySet()) {
@@ -164,18 +176,17 @@ abstract public class Archivo {
 		}
 		return "\nEstudiantes:\n" + ver;
 	}
-	
+
 	static public String verEstudiantesCurso(String curso) {
 		String ver = "";
 		for (Estudiante x : Archivo.buscarCurso(curso).getEstudiantes()) {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
-		if(Archivo.buscarCurso(curso).getEstudiantes().isEmpty()) {
+		if (Archivo.buscarCurso(curso).getEstudiantes().isEmpty()) {
 			return "\nEste curso no tiene estudiantes.\n";
-		}
-		else {
-			return "\nEstudiantes de " + Archivo.buscarCurso(curso) + ":\n" + ver;
+		} else {
+			return "\nEstudiantes de " + Archivo.buscarCurso(curso).getNombreCurso() + ":\n" + ver;
 		}
 	}
 }

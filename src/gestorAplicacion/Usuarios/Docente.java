@@ -43,11 +43,11 @@ public class Docente extends Usuario implements Horario {
 	public String miHorario() {
 		String aux = "";
 		for (Curso x : misCursos) {
-			aux += "Nombre: " + x.getNombreCurso() + "\n" + "Horario: " + x.getHorarioCurso() + "\n";
-			aux += "\n";
+			aux += "\nNombre: " + x.getNombreCurso() + "\n" + "Horario: " + x.getHorarioCurso();
+			aux +="\n";
 		}
 		if (aux.equals("")) {
-			return "Este docente aun no tiene horario";
+			return "\nNo está dictando ningun curso.\n";
 		} else {
 			return aux;
 		}

@@ -18,14 +18,7 @@ public class MenuDeConsola {
     public void anadirOpcion(OpcionDeMenu option){
         Menu.add(option);
     }
-    public void eliminarOpcion() {
-    	int cont = 0;
-        for (OpcionDeMenu x : Menu) {
-            System.out.println(cont + ". " + x);
-            cont++;
-        }
-        System.out.println("Ingrese el número de la opción que desea eliminar del menú: ");
-        int i = entry.nextInt();
+    public void eliminarOpcion(int i) {
         Menu.remove(i);
     }
     //Ejecución de los menús

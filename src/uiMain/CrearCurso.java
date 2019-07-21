@@ -35,11 +35,11 @@ public class CrearCurso extends OpcionDeMenu {
 				new Curso(nombre,tipo,horario,docente);
 				System.out.println("\nSe ha creado el curso.\n");
 			}else {
-				System.out.println("El nombre del curso no es valido");
+				System.out.println("\nYa existe un curso con ese nombre.\n");
 			}
 		}
 		else {
-			System.out.println("El docente no existe");
+			System.out.println("\nEl docente no existe.\n");
 		}
 	}
 

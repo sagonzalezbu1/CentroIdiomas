@@ -68,7 +68,7 @@ public class Administrador extends Usuario {
 			return aux;
 		}
 		else {
-			return "Usuario no Encontrado";
+			return "\nUsuario no encontrado.\n";
 		}
 		
 		

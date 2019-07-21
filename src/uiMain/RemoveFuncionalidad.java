@@ -29,10 +29,23 @@ public class RemoveFuncionalidad extends OpcionDeMenu {
 		//Se elimina la opción si el usuario existe
 		if (y != null) {
 			MenuDeConsola menu = y.getMenu();
-			menu.eliminarOpcion();
+			int cont = 0;
+	        for (OpcionDeMenu x : menu.getList()) {
+	            System.out.println(cont + ". " + x);
+	            cont++;
+	        }
+	        System.out.println("Ingrese el número de la opción que desea eliminar del menú: ");
+	        int i = e.nextInt();
+	        if(i>=0 && i<menu.getList().size()) {
+	        	menu.eliminarOpcion(i);
+	        	System.out.println("\nLa opcion de menu fue eliminada con exito.\n");
+	        }else {
+	        	System.out.println("\nOpcion invalida.\n");
+	        }
+	        	
 		}
 		else {
-			System.out.println("El usuario no esta registrado");
+			System.out.println("\nEl usuario no esta registrado.\n");
 		}
 	}
 

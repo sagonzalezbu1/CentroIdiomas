@@ -23,17 +23,19 @@ public class VerNotas extends OpcionDeMenu {
 			long ced = entrada.nextLong();
 			for(Estudiante e : Archivo.getEstudiantes()) {
 				if(e.getCedula()==ced) {
+					System.out.println("");
 					for(Curso c : e.getCurso()) {
 						System.out.print(c.getNombreCurso() + ": " + e.verNotas(c.getNombreCurso()) + "\n");
-						return;
 					}
+					System.out.println("");
+					return;
 				}
 			}
-			System.out.println("El estudiante no se encuentra.\n");
+			System.out.println("\nEl estudiante no se encuentra.\n");
 		}
 	}
 
 	public String toString() {
-		return "Mis notas";
+		return "Ver notas";
 	}
 }
