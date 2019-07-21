@@ -12,7 +12,6 @@ public class Administrador extends Usuario {
 		getMenu().anadirOpcion(new RemoveFuncionalidad());
 		getMenu().anadirOpcion(new UserMenu());
 		getMenu().anadirOpcion(new SystemMenu());
-		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("Calificar"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("CrearCurso"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
@@ -26,9 +25,10 @@ public class Administrador extends Usuario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerTodosLosEstudiantes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerMisSolicitudes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerSolicitudes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerNotas"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantesCurso"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
 	}
 
 	// Menu del sistema
