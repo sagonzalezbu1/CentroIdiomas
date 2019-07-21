@@ -19,8 +19,8 @@ public class VerHorario extends OpcionDeMenu {
 			//Si es docente le mostrará su horario
 			System.out.println(((Docente) Main.user).miHorario());
 		}
-		else if (Main.user instanceof Administrativo) {
-			//Si es administrativo preguntará de quién ver el horario
+		else {
+			//Si es administrativo o adminsitrador preguntará de quién ver el horario
 			Scanner entry = new Scanner(System.in);
 			System.out.println("Ingrese la cedula de quien quiere ver el horario: ");
 			long ID = entry.nextLong();

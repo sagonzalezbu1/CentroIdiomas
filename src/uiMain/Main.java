@@ -22,7 +22,7 @@ public class Main {
 			put("VerDocentes", new VerDocentes());
 			put("VerTodosLosEstudiantes", new VerTodosLosEstudiantes());
 			put("VerHorario", new VerHorario());
-			put("VerMisSolicitudes", new VerMisSolicitudes());
+			put("VerSolicitudes", new VerMisSolicitudes());
 			put("VerNotas", new VerNotas());
 			put("CerrarSesion", new CerrarSesion());
 			put("VerEstudiantesCurso", new VerEstudiantesCurso());

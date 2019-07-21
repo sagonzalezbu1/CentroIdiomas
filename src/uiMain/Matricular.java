@@ -6,17 +6,18 @@ import gestorAplicacion.Usuarios.*;
 import java.util.Scanner;
 
 public class Matricular extends OpcionDeMenu {
-	private String nombre="Matricular";
+	private String nombre = "Matricular";
+
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	public void ejecutar() {
-		
+
 		Scanner e = new Scanner(System.in);
-		//Se verifica qué tipo de usuario hace la matrícula
+		// Se verifica qué tipo de usuario hace la matrícula
 		if (Main.user instanceof Estudiante) {
-			//Si es estudiante lo matricula normal
+			// Si es estudiante lo matricula normal
 			System.out.println("Ingrese el nombre del curso: ");
 			String nombre = e.next();
 			boolean b = false;
@@ -28,79 +29,64 @@ public class Matricular extends OpcionDeMenu {
 					break;
 				}
 			}
-			//Luego se verifica que el curso en el que se quiere matricular exista
+			// Luego se verifica que el curso en el que se quiere matricular exista
 			if (b == false) {
 				System.out.println("No se encontró el curso" + "\n");
-			}
-			else {
+			} else {
 				boolean bool = false;
 				boolean aux1 = false;
-				//Se verifica si el curso está vacío
-				if(!curso.getEstudiantes().isEmpty()) {
-					for(Estudiante y : curso.getEstudiantes()) {
-						//Se verifica si el estudiante ya está en el curso
-						if(Main.user.equals(y)) {
-							//Sí está
+				// Se verifica si el curso está vacío
+				if (!curso.getEstudiantes().isEmpty()) {
+					for (Estudiante y : curso.getEstudiantes()) {
+						// Se verifica si el estudiante ya está en el curso
+						if (Main.user.equals(y)) {
+							// Sí está
 							System.out.println("Usted ya se encuentra matriculado en este curso.");
 							aux1 = false;
 							break;
-						}
-						else {
-							//No está
+						} else {
+							// No está
 							aux1 = true;
 						}
 					}
-					if(aux1==true) {
+					if (aux1 == true) {
 						bool = curso.matricular((Estudiante) (Main.user));
-						//Por último se verifica que haya cupos disponibles
-						if(bool == true) {
+						// Por último se verifica que haya cupos disponibles
+						if (bool == true) {
 							System.out.println("Usted quedó matriculado");
-						}
-						else {
+						} else {
 							System.out.println("No hay cupos disponibles en este curso");
 						}
 					}
-				}
-				else {
+				} else {
 					bool = curso.matricular((Estudiante) (Main.user));
-					//Por último se verifica que haya cupos disponibles
-					if(bool == true) {
-						System.out.println("Usted quedó matriculado");
-					}
-					else {
-						System.out.println("No hay cupos disponibles en este curso");
-					}
-				}
-				//boolean bool = curso.matricular((Estudiante) (Main.user));
-				
-				/*//Por último se verifica que haya cupos disponibles
-				if(bool == true) {
+					// Por último se verifica que haya cupos disponibles
+
 					System.out.println("Usted quedó matriculado");
+
 				}
-				else {
-					System.out.println("No hay cupos disponibles en este curso");
-				}*/
+				
 			}
-		}
-		else {
-			//Si es otro, pregunta qué estudiante matricular
+		} else {
+			// Si es otro, pregunta qué estudiante matricular
 			System.out.println("Ingrese la cedula del estudiante a matricular: ");
-			long cedula =e.nextLong();
+			long cedula = e.nextLong();
 			boolean b = false;
 			Estudiante estudiante = null;
+			// Se verifica que el estudiante exista
 			for (Estudiante x : Archivo.getEstudiantes()) {
-				if (x.getCedula()==cedula) {
+				if (x.getCedula() == cedula) {
 					b = true;
 					estudiante = x;
 					break;
 				}
 			}
-			//Se verifica que el estudiante exista
-			if(b=true) {
+			if (b = true) {
 				System.out.println("Ingrese el nombre del curso donde lo quiere matricular: ");
 				String nombre = e.next();
 				boolean c = false;
 				Curso curso = null;
+				// Se verifica que el curso exista
 				for (Curso x : Archivo.getCursos()) {
 					if (x.getNombreCurso().equals(nombre)) {
 						c = true;
@@ -108,21 +94,17 @@ public class Matricular extends OpcionDeMenu {
 						break;
 					}
 				}
-				//Se verifica que el curso exista
 				if (c == false) {
 					System.out.println("No se encontró el curso" + "\n");
-				}
-				else {
+				} else {
 					boolean bool = curso.matricular((Estudiante) (estudiante));
-					if(bool==true) {
+					if (bool == true) {
 						System.out.println("El estudiante quedó matriculado");
-					}
-					else {
+					} else {
 						System.out.println("No hay cupos disponibles en este curso");
 					}
 				}
-			}
-			else {
+			} else {
 				System.out.println("No se encontró el estudiante");
 			}
 		}

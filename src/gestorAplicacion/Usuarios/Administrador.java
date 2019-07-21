@@ -12,7 +12,23 @@ public class Administrador extends Usuario {
 		getMenu().anadirOpcion(new RemoveFuncionalidad());
 		getMenu().anadirOpcion(new UserMenu());
 		getMenu().anadirOpcion(new SystemMenu());
-		getMenu().anadirOpcion(new CerrarSesion());
+		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("Calificar"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("CrearCurso"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("FinalizeCurso"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("Matricular"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("Registrar"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("ResponderSolicitudes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("SolicitarCupo"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerAdministrativos"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerCertificados"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerTodosLosEstudiantes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerMisSolicitudes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerNotas"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantesCurso"));
 	}
 
 	// Menu del sistema
