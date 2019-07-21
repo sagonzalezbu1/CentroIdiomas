@@ -39,8 +39,14 @@ public class AddFuncionalidad extends OpcionDeMenu {
 					return;
 				}
 			}
-			y.getMenu().anadirOpcion(Main.funcionalidades.get(option));
-			System.out.println("Se ha añadido la opcion sactisfactoriamente.\n");
+			if(Main.funcionalidades.get(option)!=null) {
+				y.getMenu().anadirOpcion(Main.funcionalidades.get(option));
+				System.out.println("Se ha añadido la opcion sactisfactoriamente.\n");
+			}
+			else {
+				System.out.println("Opcion invalida.\n");
+			}
+			
 		} else {
 			System.out.println("El usuario no esta registrado.\n");
 		}

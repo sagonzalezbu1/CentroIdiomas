@@ -43,6 +43,6 @@ public class VerSolicitudes extends OpcionDeMenu {
 	}
 
 	public String toString() {
-		return "ver Solicitudes";
+		return "Ver Solicitudes";
 	}
 }
