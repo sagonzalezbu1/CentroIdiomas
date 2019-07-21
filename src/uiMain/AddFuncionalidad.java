@@ -41,7 +41,7 @@ public class AddFuncionalidad extends OpcionDeMenu {
 			}
 			if(Main.funcionalidades.get(option)!=null) {
 				y.getMenu().anadirOpcion(Main.funcionalidades.get(option));
-				System.out.println("Se ha añadido la opcion sactisfactoriamente.\n");
+				System.out.println("Se ha añadido la opcion satisfactoriamente.\n");
 			}
 			else {
 				System.out.println("Opcion invalida.\n");
