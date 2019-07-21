@@ -51,13 +51,31 @@ public class SolicitarCupo extends OpcionDeMenu {
 			Estudiante x= Archivo.buscarEstudiante(aux1);
 			if (x != null) {
 				System.out.println("Ingrese el tipo de la materia a la cual va a solicitar el cupo: ");
-				String aux2 = entry.next();
-				if (Archivo.CursoDisponibilidad(aux2) == null) {
-					x.solicitar(aux2);
+				String aux = entry.next();
+				for(Curso y: x.getCurso()) {
+					if(y.getTipo().equals(aux)) {
+						System.out.println("Usted esta viendo un curso de este tipo, no puede solicitar.\n");
+						return;
+					}
+				}
+				for(Solicitud y: x.getSolicitudes()) {
+					if(y.getTipo().equals(aux)) {
+						System.out.println("Usted ya hizo una solicitud para este tipo, no puede solicitar.\n");
+						return;
+					}
+				}
+				for(Certificado y: x.getCertificados()) {
+					if(y.getNombre().equals(aux)) {
+						System.out.println("Usted ya aprobo una materia para este tipo, no puede solicitar.\n");
+						return;
+					}
+				}
+				if (Archivo.CursoDisponibilidad(aux) == null) {
+					x.solicitar(aux);
 					System.out.println("Su solicitud ha sido exitosa.\n");
 					return;
 				} else {
-					System.out.println("No puede solicitar. Hay cupos disponibles.\n");
+					System.out.println("Hay cupos disponibles, no puede solicitar.\n");
 				}
 			}else {
 				System.out.println("Estudiante no encontrado.\n");
