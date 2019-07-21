@@ -30,6 +30,12 @@ public class SolicitarCupo extends OpcionDeMenu {
 					return;
 				}
 			}
+			for(Certificado x: ((Estudiante)Main.user).getCertificados()) {
+				if(x.getNombre().equals(aux)) {
+					System.out.println("Usted ya aprobo una materia para este tipo, no puede solicitar.\n");
+					return;
+				}
+			}
 			if (Archivo.CursoDisponibilidad(aux) == null) {
 				((Estudiante) Main.user).solicitar(aux);
 				System.out.println("Su solicitud ha sido exitosa.\n");

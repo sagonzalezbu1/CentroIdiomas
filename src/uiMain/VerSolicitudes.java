@@ -5,8 +5,8 @@ import java.util.Scanner;
 import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Usuarios.*;
 
-public class VerMisSolicitudes extends OpcionDeMenu {
-	private String nombre = "VerMisSolicitudes";
+public class VerSolicitudes extends OpcionDeMenu {
+	private String nombre = "VerSolicitudes";
 
 	public String getNombre() {
 		return nombre;

@@ -18,7 +18,7 @@ public class Estudiante extends Usuario implements Horario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("Matricular"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCertificados"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerMisSolicitudes"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("VerSolicitudes"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerNotas"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("SolicitarCupo"));
