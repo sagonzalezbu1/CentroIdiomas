@@ -31,19 +31,11 @@ public class Invitado extends Usuario {
 				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
-			else {
-				System.out.println("\nCédula o contraseña incorrectos.\n");
-				return;
-			}
 		}
 		for (Usuario x : Archivo.getDocentes()) {
 			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
 				Main.user = x;
 				System.out.println("\nSe ha iniciado sesión.\n");
-				return;
-			}
-			else {
-				System.out.println("\nCédula o contraseña incorrectos.\n");
 				return;
 			}
 		}
@@ -53,10 +45,7 @@ public class Invitado extends Usuario {
 				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
-			else {
-				System.out.println("\nCédula o contraseña incorrectos.\n");
-				return;
-			}
 		}
+		System.out.println("\nDatos incorrectos.\n");
 	}
 }

@@ -131,6 +131,7 @@ public class Estudiante extends Usuario implements Horario {
 			}
 		}
 		misCursos.remove(y);
+		misNotas.remove(nombreCurso);
 	}
 
 	// Eliminar solicitud de lista de solicitudes del estudiante
