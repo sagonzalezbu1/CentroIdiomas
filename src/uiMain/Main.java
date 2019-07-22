@@ -28,6 +28,7 @@ public class Main {
 			put("VerEstudiantesCurso", new VerEstudiantesCurso());
 			put("HacerSugerencia", new HacerSugerencia());
 			put("VerSugerencias", new VerSugerencias());
+			put("PromedioCurso", new PromedioCurso());
 		}
 	};
 	//Usuario por defecto, al que se ingresará siempre que se ejecute el programa

@@ -21,8 +21,7 @@ public class Matricular extends OpcionDeMenu {
 			System.out.println("Ingrese el nombre del curso: ");
 			String nombre = e.next();
 			Curso curso = Archivo.buscarCurso(nombre);
-			// Luego se verifica que el curso en el que se quiere matricular
-			// exista
+			// Luego se verifica que el curso en el que se quiere matricular exista
 			if (curso == null) {
 				System.out.println("\nEl curso '" + nombre + "' No se encontró.\n");
 			} else {

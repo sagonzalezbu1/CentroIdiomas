@@ -30,6 +30,7 @@ public class Administrador extends Usuario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantesCurso"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("HacerSugerencia"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerSugerencias"));
+		getMenu().anadirOpcion(Main.funcionalidades.get("PromedioCurso"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
 	}
 
