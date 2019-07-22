@@ -20,7 +20,11 @@ public class Data {
 			while ((linea1 = br.readLine()) != null) {
 				String[] usuario = linea1.split(";");
 				Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo
-																												// Contructor																												// /																												// contructor
+																												// Contructor
+																												// //
+																												// /
+																												// //
+																												// contructor
 				String linea2 = br.readLine();
 				if (!linea2.equals("0")) {
 					String[] cursos = linea2.split("-");
@@ -67,7 +71,7 @@ public class Data {
 			int cont = 0;
 			long cedula = 0;
 			while ((linea = br.readLine()) != null) {
-				if(cont%2==0) {
+				if (cont % 2 == 0) {
 					String[] usuario = linea.split(";");
 					ArrayList<Docente> lista = Archivo.getDocentes();
 					int aux = 0;
@@ -79,18 +83,17 @@ public class Data {
 					if (aux == 0) {
 						cedula = Long.parseLong(usuario[1]);
 						Docente d = new Docente(cedula, usuario[0], usuario[2], usuario[3]); // Segundo
-																													// constructor
+																								// constructor
 					}
-                cont++;
+					cont++;
+				} else {
+					Docente aux2 = Archivo.buscarDocente(cedula);
+					String[] menu = linea.split(";");
+					for (String x : menu) {
+						aux2.getMenu().anadirOpcion(Main.funcionalidades.get(x));
+					}
+					cont++;
 				}
-	        	else {
-	        		Docente aux2 = Archivo.buscarDocente(cedula);
-	        		String [] menu = linea.split(";");
-	        		for(String x : menu) {
-	        			aux2.getMenu().anadirOpcion(Main.funcionalidades.get(x));
-	        		}
-	        		cont++;
-	        		}
 			}
 			br.close();
 		} catch (Exception ex) {
@@ -108,7 +111,7 @@ public class Data {
 			int cont = 0;
 			long cedula = 0;
 			while ((linea = br.readLine()) != null) {
-				if(cont%2==0) {
+				if (cont % 2 == 0) {
 					String[] usuario = linea.split(";");
 					ArrayList<Administrativo> lista = Archivo.getAdministrativos();
 					int aux = 0;
@@ -120,18 +123,17 @@ public class Data {
 					if (aux == 0) {
 						cedula = Long.parseLong(usuario[1]);
 						Administrativo d = new Administrativo(cedula, usuario[0], usuario[2], usuario[3]); // Segundo
-																													// constructor
+																											// constructor
 					}
-                cont++;
+					cont++;
+				} else {
+					Administrativo aux2 = Archivo.buscarAdministrativo(cedula);
+					String[] menu = linea.split(";");
+					for (String x : menu) {
+						aux2.getMenu().anadirOpcion(Main.funcionalidades.get(x));
+					}
+					cont++;
 				}
-	        	else {
-	        		Administrativo aux2 = Archivo.buscarAdministrativo(cedula);
-	        		String [] menu = linea.split(";");
-	        		for(String x : menu) {
-	        			aux2.getMenu().anadirOpcion(Main.funcionalidades.get(x));
-	        		}
-	        		cont++;
-	        		}
 			}
 			br.close();
 		} catch (Exception ex) {
@@ -186,7 +188,7 @@ public class Data {
 					Docente aux3 = Archivo.buscarDocente(aux2);
 					Curso c = new Curso(curso[0], curso[1], curso[2], aux3);
 					// Hasta acá
-					aux3.addCurso(c);	
+					aux3.addCurso(c);
 				}
 
 			}
@@ -194,8 +196,26 @@ public class Data {
 		} catch (Exception ex) {
 			System.out.println("\nError en carga de cursos: " + ex);
 		}
-
 	}
+
+	public static void cargarSugerencias() {
+		try {
+			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
+			File f = new File(direccion + "sugerencias.txt");
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			String linea;
+			while ((linea = br.readLine()) != null) {
+				String[] sugerencia = linea.split("°");
+				Usuario u = Archivo.buscarUsuario(Long.parseLong(sugerencia[0]));
+				Archivo.add(new Sugerencia(u,sugerencia[1]));
+			}
+			br.close();
+		} catch (Exception ex) {
+			System.out.println("\nError en carga de cursos: " + ex);
+		}
+	}
+	
 
 	// ESCRITURA DE ARCHIVOS DE TEXTO
 	public static void escribirEstudiantes() {
@@ -298,7 +318,7 @@ public class Data {
 				linea += a.getCorreo() + ";";
 				linea += a.getContrasena();
 				pw.write(linea + "\n");
-				
+
 				String linea2 = "";
 				ArrayList<OpcionDeMenu> aux = a.getMenu().getList();
 				for (OpcionDeMenu x : aux) {
@@ -356,6 +376,22 @@ public class Data {
 			pw.close();
 		} catch (Exception ex) {
 			System.out.println("Error en escritura de solicitudes: " + ex);
+		}
+	}
+
+	public static void escribirSugerencias() {
+		try {
+			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
+			File f = new File(direccion + "sugerencias.txt");
+			FileWriter fw = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter pw = new PrintWriter(bw);
+			for (Sugerencia s : Archivo.getSugerencias()) {
+				pw.write(s.getUsuario().getCedula() + "°" + s.getMensaje() + "\n");
+			}
+
+		} catch (Exception ex) {
+			System.out.println("Error en escritura de sugerencias: " + ex);
 		}
 	}
 

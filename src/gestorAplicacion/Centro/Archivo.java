@@ -9,8 +9,9 @@ abstract public class Archivo {
 	static private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
 	static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
 	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
-	static private HashMap<String, ArrayList<Solicitud>> solicitudes = new HashMap<>();
+	static private HashMap<String, ArrayList<Solicitud>> solicitudes = new HashMap<String, ArrayList<Solicitud>>();
 	static private Administrador a1 = new Administrador("Jaime Guzman", 123, "admin@cdi.com", "123");
+	static private ArrayList<Sugerencia> listaSugerencias = new ArrayList<Sugerencia>();
 
 	static public void add(Administrativo a) {
 		listaAdministrativos.add(a);
@@ -26,6 +27,10 @@ abstract public class Archivo {
 
 	static public void add(Estudiante e) {
 		listaEstudiantes.add(e);
+	}
+	
+	static public void add(Sugerencia s) {
+		listaSugerencias.add(s);
 	}
 
 	// busca por cedula a las personas y por nombre a los cursos
@@ -109,6 +114,10 @@ abstract public class Archivo {
 	static public HashMap<String, ArrayList<Solicitud>> getSolicitudes() {
 		return solicitudes;
 	}
+	
+	static public ArrayList<Sugerencia> getSugerencias() {
+		return listaSugerencias;
+	}
 
 	static public void removeCurso(String nombre) {
 		Iterator<Curso> I = listaCursos.iterator();
@@ -148,6 +157,14 @@ abstract public class Archivo {
 		} else {
 			return "\nCursos:\n" + ver;
 		}
+	}
+	
+	static public String verSugerencias(){
+		String ver = "";
+		for(Sugerencia x : listaSugerencias){
+			ver+=x.toString()+"\n";
+		}
+		return ver;
 	}
 
 	static public String verDocentes() {

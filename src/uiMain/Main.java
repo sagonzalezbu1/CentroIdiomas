@@ -26,6 +26,8 @@ public class Main {
 			put("VerNotas", new VerNotas());
 			put("CerrarSesion", new CerrarSesion());
 			put("VerEstudiantesCurso", new VerEstudiantesCurso());
+			put("HacerSugerencia", new HacerSugerencia());
+			put("VerSugerencias", new VerSugerencias());
 		}
 	};
 	//Usuario por defecto, al que se ingresará siempre que se ejecute el programa
@@ -39,6 +41,7 @@ public class Main {
 		Data.cargarEstudiantes();
 		Data.cargarAdministrativos();
 		Data.cargarSolicitudes();
+		Data.cargarSugerencias();
 		//Ejecución completa, ejecuta el menú acorde al tipo de usuario
 		while (true) {
 			user.getMenu().lanzarMenu();
