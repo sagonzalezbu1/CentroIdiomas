@@ -38,7 +38,7 @@ public class SolicitarCupo extends OpcionDeMenu {
 			}
 			if (Archivo.CursoDisponibilidad(aux) == null) {
 				((Estudiante) Main.user).solicitar(aux);
-				System.out.println("Su solicitud ha sido exitosa.\n");
+				System.out.println("\nSu solicitud ha sido exitosa.\n");
 				return;
 			} else {
 				System.out.println("Hay cupos disponibles, no puede solicitar.\n");

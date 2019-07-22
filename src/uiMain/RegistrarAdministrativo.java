@@ -26,11 +26,11 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 				Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
 				System.out.println("\nSe ha registrado exitosamente.\n");
 			}else {
-				System.out.println("Codigo incorrecto");
+				System.out.println("\nCodigo incorrecto.\n");
 			}
 		}
 		else {
-			System.out.println("Ya se encuentra registrado un usuario con esa cédula");
+			System.out.println("\nYa se encuentra registrado un usuario con esa cédula.\n");
 		}
 
 	}

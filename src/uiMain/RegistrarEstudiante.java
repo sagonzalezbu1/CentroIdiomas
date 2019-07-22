@@ -23,7 +23,7 @@ public class RegistrarEstudiante extends OpcionDeMenu {
 			System.out.println("\nSe ha registrado exitosamente.\n");
 		}
 		else {
-			System.out.println("Ya se encuentra registrado un usuario con esa cédula");
+			System.out.println("\nYa se encuentra registrado un usuario con esa cédula.\n");
 		}
 	}
 	

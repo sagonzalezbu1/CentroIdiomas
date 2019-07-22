@@ -162,7 +162,6 @@ abstract public class Archivo {
 	static public String verSolicitudes() {
 		String ver = "";
 		for (String x : solicitudes.keySet()) {
-			ver += "\n";
 			ver += x + "\n";
 		}
 		return "\nSolicitudes:\n" + ver;

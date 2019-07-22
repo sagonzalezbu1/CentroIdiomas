@@ -81,7 +81,7 @@ public class Matricular extends OpcionDeMenu {
 					break;
 				}
 			}
-			if (b = true) {
+			if (b == true) {
 				System.out.println("Ingrese el nombre del curso donde lo quiere matricular: ");
 				String nombre = e.next();
 				boolean c = false;
@@ -105,7 +105,7 @@ public class Matricular extends OpcionDeMenu {
 					}
 				}
 			} else {
-				System.out.println("No se encontró el estudiante.");
+				System.out.println("\nNo se encontró el estudiante.\n");
 			}
 		}
 	}

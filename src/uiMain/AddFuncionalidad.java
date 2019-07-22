@@ -35,20 +35,20 @@ public class AddFuncionalidad extends OpcionDeMenu {
 			ArrayList<OpcionDeMenu> menu= y.getMenu().getList();
 			for(OpcionDeMenu op: menu) {
 				if(op.getNombre().equals(option)) {
-					System.out.println("La opcion de menu ya esta disponible para ese usuario.\n");
+					System.out.println("\nLa opcion de menu ya esta disponible para ese usuario.\n");
 					return;
 				}
 			}
 			if(Main.funcionalidades.get(option)!=null) {
 				y.getMenu().anadirOpcion(Main.funcionalidades.get(option));
-				System.out.println("Se ha añadido la opcion satisfactoriamente.\n");
+				System.out.println("\nSe ha añadido la opcion satisfactoriamente.\n");
 			}
 			else {
-				System.out.println("Opcion invalida.\n");
+				System.out.println("\nOpcion invalida.\n");
 			}
 			
 		} else {
-			System.out.println("El usuario no esta registrado.\n");
+			System.out.println("\nEl usuario no esta registrado.\n");
 		}
 	}
 

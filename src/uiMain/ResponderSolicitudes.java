@@ -30,18 +30,18 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 				// Acepta, matricula al estudiante y elimina la solicitud
 				if (op == 1) {
 					if (course == null) {
-						System.out.println("Se creara un curso.");
+						System.out.println("\nSe creara un curso.");
 						(Main.funcionalidades.get("CrearCurso")).ejecutar();
 						course = Archivo.CursoDisponibilidad(tipo);
 						course.matricular(x.getEstudiante());
 						Archivo.removeSolicitud(tipo, x); 
 						(x.getEstudiante()).removeSolicitud(tipo);
-						System.out.println("Se ha aceptado la solicitud exitosamente.\n");
+						System.out.println("\nSe ha aceptado la solicitud exitosamente.\n");
 					} else {
 						course.matricular(x.getEstudiante());
 						 Archivo.removeSolicitud(tipo, x); 
 						 (x.getEstudiante()).removeSolicitud(tipo);
-						System.out.println("Se ha aceptado la solicitud exitosamente.\n");
+						System.out.println("\nSe ha aceptado la solicitud exitosamente.\n");
 					}
 
 				}
@@ -49,11 +49,11 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 				else if (op == 2) {
 					Archivo.removeSolicitud(tipo, x); 
 					(x.getEstudiante()).removeSolicitud(tipo);
-					System.out.println("Se ha rechazado la solicitud exitosamente.\n");
+					System.out.println("\nSe ha rechazado la solicitud exitosamente.\n");
 				}
 				// No responde
 				else {
-					System.out.println("Ha decidido no responder mas solicitudes.\n");
+					System.out.println("\nHa decidido no responder mas solicitudes.\n");
 					return;
 				}
 			}
@@ -62,7 +62,7 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 			System.out.println("No hay solicitudes de este tipo.\n");
 		}
 		}else {
-			System.out.println("No hay solicitudes.\n");
+			System.out.println("\nNo hay solicitudes.\n");
 		}
 
 	}
