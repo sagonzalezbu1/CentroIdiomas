@@ -36,7 +36,7 @@ public class SolicitarCupo extends OpcionDeMenu {
 					return;
 				}
 			}
-			if (Archivo.CursoDisponibilidad(aux) == null) {
+			if (Archivo.cursoDisponibilidad(aux) == null) {
 				((Estudiante) Main.user).solicitar(aux);
 				System.out.println("\nSu solicitud ha sido exitosa.\n");
 				return;
@@ -70,7 +70,7 @@ public class SolicitarCupo extends OpcionDeMenu {
 						return;
 					}
 				}
-				if (Archivo.CursoDisponibilidad(aux) == null) {
+				if (Archivo.cursoDisponibilidad(aux) == null) {
 					x.solicitar(aux);
 					System.out.println("Su solicitud ha sido exitosa.\n");
 					return;

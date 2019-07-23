@@ -22,7 +22,7 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 		// Evalúa cada solicitud
 		if (aux1 != null) {
 			while(aux1.size() > 0) {
-				Curso course = Archivo.CursoDisponibilidad(tipo);
+				Curso course = Archivo.cursoDisponibilidad(tipo);
 				Solicitud x= aux1.get(0);
 				System.out.println("Tiene una solicitud de: " + x.getEstudiante().getCedula());
 				System.out.println("Ingrese: 1 para aceptar, 2 para rechazar, 3 para no responder más solicitudes");
@@ -32,7 +32,7 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 					if (course == null) {
 						System.out.println("\nSe creara un curso.");
 						(Main.funcionalidades.get("CrearCurso")).ejecutar();
-						course = Archivo.CursoDisponibilidad(tipo);
+						course = Archivo.cursoDisponibilidad(tipo);
 						course.matricular(x.getEstudiante());
 						Archivo.removeSolicitud(tipo, x); 
 						(x.getEstudiante()).removeSolicitud(tipo);

@@ -81,7 +81,7 @@ abstract public class Archivo {
 		return u;
 	}
 
-	static public Curso CursoDisponibilidad(String tipo) {
+	static public Curso cursoDisponibilidad(String tipo) {
 		ArrayList<Curso> Cursos = getCursos();
 		for (Curso c : Cursos) {
 			if (c.getTipo().equals(tipo) && c.getCuposDisponibles() > 0) {
