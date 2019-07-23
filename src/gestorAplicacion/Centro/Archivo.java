@@ -153,7 +153,7 @@ abstract public class Archivo {
 			ver += x.toString() + "\n";
 		}
 		if (ver.equals("")) {
-			return "\nNo hay cursos disponibles\n";
+			return "\nNo hay cursos disponibles.\n";
 		} else {
 			return "\nCursos:\n" + ver;
 		}
@@ -162,9 +162,9 @@ abstract public class Archivo {
 	static public String verSugerencias(){
 		String ver = "";
 		for(Sugerencia x : listaSugerencias){
-			ver+=x.toString()+"\n";
+			ver += x.toString() + "\n";
 		}
-		return ver;
+		return "\nSugerencias:\n" + ver;
 	}
 
 	static public String verDocentes() {
