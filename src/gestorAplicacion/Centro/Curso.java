@@ -110,5 +110,10 @@ public class Curso {
 		}
 		return ver;
 	}
-
+	/*Metodo que se ejecuta cuando java ejecuta el garbage collections. Indica que el curso ha sido borrado satisfactoriamente. No recibe ningun parametro
+	  ni retorna nada*/
+	public void finalize() {
+		System.out.println("\nEl curso "+nombre+" ha sido borrado del sistema.\n");
+	}
 }
+

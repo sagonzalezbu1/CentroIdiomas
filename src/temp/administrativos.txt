@@ -1,2 +1,2 @@
-a14 a14;14;14;14
-CrearCurso;VerCursos;FinalizeCurso;ResponderSolicitudes;VerAdministrativos;VerDocentes;VerTodosLosEstudiantes;HacerSugerencia;VerSugerencias;VerEstudiantesCurso;PromedioCurso;CerrarSesion
+AdminCatorce AdminCatorce;14;AdminCatorce@gmail.com;14
+CrearCurso;VerCursos;FinalizeCurso;ResponderSolicitudes;VerAdministrativos;VerDocentes;VerTodosLosEstudiantes;VerCertificados;VerSolicitudes;VerNotas;HacerSugerencia;VerSugerencias;VerEstudiantesCurso;PromedioCurso;CerrarSesion

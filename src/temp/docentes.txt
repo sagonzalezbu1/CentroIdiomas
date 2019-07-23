@@ -1,4 +1,4 @@
-d12 d12;12;12;12
+DocenteDoce DocenteDoce;12;DocenteDoce@gmail.com;12
 Calificar;VerHorario;VerCursos;VerDocentes;VerTodosLosEstudiantes;VerEstudiantesCurso;HacerSugerencia;VerSugerencias;PromedioCurso;CerrarSesion
-d13 d13;13;13;13
+DocenteTrece DocenteTrece;13;DocenteTrece@gmail.com;13
 Calificar;VerHorario;VerCursos;VerDocentes;VerTodosLosEstudiantes;VerEstudiantesCurso;HacerSugerencia;VerSugerencias;PromedioCurso;CerrarSesion

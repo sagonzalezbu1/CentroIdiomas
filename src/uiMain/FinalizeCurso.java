@@ -25,7 +25,7 @@ public class FinalizeCurso extends OpcionDeMenu {
 			System.out.println("\nNo se encontró el curso\n");
 		} else {
 			curso.finalizeCurso();
-			System.out.println("\nEl curso ha sido eliminado\n");
+			System.out.println("\nEl curso ha sido finalizado.\n");
 		}
 	}
 

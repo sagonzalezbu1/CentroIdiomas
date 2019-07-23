@@ -6,7 +6,7 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 public class Main {
-	//Funcionalidades de los menús
+	// Funcionalidades de los menús
 	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>() {
 		{
 			put("Calificar", new Calificar());
@@ -31,21 +31,27 @@ public class Main {
 			put("PromedioCurso", new PromedioCurso());
 		}
 	};
-	//Usuario por defecto, al que se ingresará siempre que se ejecute el programa
+	// Usuario por defecto, al que se ingresará siempre que se ejecute el programa
 	public static Usuario user = new Invitado();
-	
-	//Inicio del programa
+
+	// Inicio del programa
 	public static void main(String[] args) {
-		//Siempre que se inicie el porgrama se cargarán los datos de los archivos de texto a éste
+		// Siempre que se inicie el porgrama se cargarán los datos de los archivos de
+		// texto a éste
 		Data.cargarDocentes();
 		Data.cargarCursos();
 		Data.cargarEstudiantes();
 		Data.cargarAdministrativos();
 		Data.cargarSolicitudes();
 		Data.cargarSugerencias();
-		//Ejecución completa, ejecuta el menú acorde al tipo de usuario
-		while (true) {
-			user.getMenu().lanzarMenu();
+		// Ejecución completa, ejecuta el menú acorde al tipo de usuario
+		try {
+			while (true) {
+				user.getMenu().lanzarMenu();
+			}
+		} catch (Exception ex) {
+			System.out.println("\nHubo algun error en la escritura.\n");
+
 		}
 	}
 }

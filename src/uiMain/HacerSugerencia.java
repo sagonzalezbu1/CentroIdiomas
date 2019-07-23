@@ -17,6 +17,9 @@ public class HacerSugerencia extends OpcionDeMenu {
 		System.out.println("Escriba su sugerencia (en una sola linea): ");
 		String s = e.nextLine();
 		new Sugerencia(Main.user ,s);
+		System.out.println("");
+		System.out.println("Su sugerencia fue enviada con exito.");
+		System.out.println("");
 	}
 	
 	public String toString(){
