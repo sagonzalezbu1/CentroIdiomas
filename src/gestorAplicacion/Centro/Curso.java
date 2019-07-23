@@ -90,5 +90,8 @@ public class Curso {
 		}
 		return ver;
 	}
-
+	
+	public void finalize() {
+		System.out.println("\nEl curso "+nombre+" ha sido borrado del sistema.\n");
+	}
 }
