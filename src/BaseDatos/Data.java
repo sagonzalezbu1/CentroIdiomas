@@ -7,9 +7,13 @@ import gestorAplicacion.Usuarios.*;
 import uiMain.Main;
 import uiMain.OpcionDeMenu;
 
+
+/* La finalidad de la clase Data es lograr la escritura y carga de los archivos de texto en los que se guarda la informacion de nuestro programa.
+ * Para posibles problemas con la lectura y escritura, todos sus metodos se ejecutan en un bloque try - catch */
+
 public class Data {
 
-	// CARGA DE OBJETOS AL PROGRAMA...
+	//cargarEstudiantes se encarga de leer el archivo estudiantes.txt y cargar en memoria a los estudiantes. No recibe ningun  parametro y tampoco retorna nada
 	public static void cargarEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -57,7 +61,7 @@ public class Data {
 			System.out.println("\nError en carga de estudiantes: " + ex);
 		}
 	}
-
+	//cargarDocentes se encarga de leer el archivo docentes.txt y cargar en memoria a los docentes. No recibe ningun  parametro y tampoco retorna nada
 	public static void cargarDocentes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -97,7 +101,7 @@ public class Data {
 			System.out.println("\nError en carga de docentes: " + ex);
 		}
 	}
-
+	//cargarAdministrativos se encarga de leer el archivo administrativos.txt y cargar en memoria a los administrativos. No recibe ningun  parametro y tampoco retorna nada
 	public static void cargarAdministrativos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -138,7 +142,9 @@ public class Data {
 		}
 
 	}
-
+	/*cargarSolicitudes se encarga de leer el archivo solicitudes.txt y cargar en memoria a las solicitudes, estas son realizadas por estudiantes pero dado que
+	 *las trabajamos como otro objeto y tiene conexiones con administrativo, decidimos hacerle un archivo aparte. No recibe ningun  parametro y tampoco 
+	 *retorna nada*/
 	public static void cargarSolicitudes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -164,6 +170,7 @@ public class Data {
 		}
 	}
 
+	//cargarCursos se encarga de leer el archivo cursos.txt y cargar en memoria a los cursos. No recibe ningun  parametro y tampoco retorna nada
 	public static void cargarCursos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -194,7 +201,7 @@ public class Data {
 			System.out.println("\nError en carga de cursos: " + ex);
 		}
 	}
-
+	//cargarSugerencias se encarga de leer el archivo sugerencias.txt y cargar en memoria a las sugerencias. No recibe ningun  parametro y tampoco retorna nada
 	public static void cargarSugerencias() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -217,7 +224,9 @@ public class Data {
 		}
 	}
 
-	// ESCRITURA DE ARCHIVOS DE TEXTO
+	/*escribirEstudiantes se encarga de escribir con formato correcto a los estudiantes en el archivo de texto estudiantes.txt para posteriormente ser leido
+	 * por el metodo cargarEstudiantes. No recibe nada ni retorna nada
+	 */
 	public static void escribirEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -274,7 +283,9 @@ public class Data {
 			System.out.println("Error en escritura de estudiantes: " + ex);
 		}
 	}
-
+	/*escribirDocentes se encarga de escribir con formato correcto a los docentes en el archivo de texto docentes.txt para posteriormente ser leido
+	 * por el metodo cargarDocentes. No recibe nada ni retorna nada
+	 */
 	public static void escribirDocentes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -304,7 +315,9 @@ public class Data {
 			System.out.println("Error en escritura de docentes: " + ex);
 		}
 	}
-
+	/*escribirAdministrativos se encarga de escribir con formato correcto a los administrativos en el archivo de texto administrativos.txt para posteriormente ser leido
+	 * por el metodo cargarAdministrativos. No recibe nada ni retorna nada
+	 */
 	public static void escribirAdministrativos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -335,7 +348,9 @@ public class Data {
 		}
 
 	}
-
+	/*escribirCursos se encarga de escribir con formato correcto a los cursos en el archivo de texto cursos.txt para posteriormente ser leido
+	 * por el metodo cargarCursos. No recibe nada ni retorna nada
+	 */
 	public static void escribirCursos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -357,7 +372,9 @@ public class Data {
 
 		}
 	}
-
+	/*escribirSolicitudes se encarga de escribir con formato correcto a las solicitudes en el archivo de texto solicitudes.txt para posteriormente ser leido
+	 * por el metodo cargarSolicitudes. No recibe nada ni retorna nada
+	 */
 	public static void escribirSolicitudes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
@@ -378,7 +395,9 @@ public class Data {
 			System.out.println("Error en escritura de solicitudes: " + ex);
 		}
 	}
-
+	/*escribirSugerencias se encarga de escribir con formato correcto a las sugerencias en el archivo de texto asugernecias.txt para posteriormente ser leido
+	 * por el metodo cargarSugerencias. No recibe nada ni retorna nada
+	 */
 	public static void escribirSugerencias() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
