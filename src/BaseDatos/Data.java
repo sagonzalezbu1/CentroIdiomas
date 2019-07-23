@@ -21,7 +21,7 @@ public class Data {
 				String[] usuario = linea1.split(";");
 				Estudiante e = new Estudiante(Long.parseLong(usuario[1]), usuario[0], usuario[2], usuario[3]); // Segundo
 																												// Contructor
-																												
+
 				String linea2 = br.readLine();
 				if (!linea2.equals("0")) {
 					String[] cursos = linea2.split("-");
@@ -205,17 +205,17 @@ public class Data {
 			while ((linea = br.readLine()) != null) {
 				String[] sugerencia = linea.split("°");
 				Usuario u = Archivo.buscarUsuario(Long.parseLong(sugerencia[0]));
-				if(u==null){
-					Archivo.add(new Sugerencia(u,sugerencia[1]));
+				if (u != null) {
+					new Sugerencia(u, sugerencia[1]);
+				} else {
+					new Sugerencia(Archivo.getAdministrador(), sugerencia[1]);
 				}
-				Archivo.add(new Sugerencia(main.ad,sugerencia[1]));
 			}
 			br.close();
 		} catch (Exception ex) {
-			System.out.println("\nError en carga de cursos: " + ex);
+			System.out.println("\nError en carga de sugerencias: " + ex);
 		}
 	}
-	
 
 	// ESCRITURA DE ARCHIVOS DE TEXTO
 	public static void escribirEstudiantes() {

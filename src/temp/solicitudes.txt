@@ -1,0 +1,4 @@
+aleman
+2
+latin
+11;1
