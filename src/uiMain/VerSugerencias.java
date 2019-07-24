@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
-
+/* La clase 'VerSugerencias' es donde mostramos a los usuarios el nombre de quien realizo una sugerencia seguido de la sugerencia
+ * que realizo. Esto para cada una de las sugerencias localizadas en 'Archivo'.
+ * 
+ * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerSugerencias. 
+ */
 public class VerSugerencias extends OpcionDeMenu {
 
 	private String nombre = "VerSugerencias";
@@ -15,10 +19,9 @@ public class VerSugerencias extends OpcionDeMenu {
 	
 	public void ejecutar(){
 		String m = Archivo.verSugerencias();
-		if(m.equals("")){
+		if(m.equals("\nSugerencias:\n")){
 			System.out.println("\nNo hay sugerencias.\n");
 		}else{
-			System.out.println("\nlas sugerencias son: \n");
 			System.out.println(m);
 		}
 	}

@@ -3,7 +3,11 @@ package uiMain;
 import java.util.Scanner;
 import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Usuarios.*;
-
+/* La clase 'VerCertificados' es donde mostramos los certificados que tiene hasta el momento un estudiante, si quien lo realiza es de instancia 
+ * diferente de la instancia 'Estudiante'. Por el contrario se mostraran los certificados que tiene el estudiante.
+ * 
+ * En esta clase estamos ejecutando el metodo localizado en 'Estudiante' VerCertificados. 
+ */
 public class VerCertificados extends OpcionDeMenu{
 	private String nombre="VerCertificados";
 	public String getNombre() {

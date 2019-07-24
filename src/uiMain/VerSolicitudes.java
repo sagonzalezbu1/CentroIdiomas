@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 import gestorAplicacion.Centro.Archivo;
 import gestorAplicacion.Usuarios.*;
-
+/* La clase 'VerSolicitudes' es donde mostramos las solicitudes de cupo que ha realizado a un tipo de idioma un estudiante, si quien lo pregunta es de instancia 
+ * diferente la instancia 'Estudiante'. Si por el contrario es un estudiante quien realiza la funcionalidad, se mostrara las solicitudes que él ha hecho.
+ * 
+ * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerSolicitudes. 
+ */
 public class VerSolicitudes extends OpcionDeMenu {
 	private String nombre = "VerSolicitudes";
 

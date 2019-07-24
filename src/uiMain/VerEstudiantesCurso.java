@@ -3,6 +3,11 @@ package uiMain;
 import java.util.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
+/* La clase 'VerEstudiantesCurso' es donde mostramos a los usuarios el nombre y la cedula todos los estudiantes registrados el curso que ha elegido para ver
+ *los estudiantes.
+ * 
+ * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerEstudiantesCurso.
+ */
 
 public class VerEstudiantesCurso extends OpcionDeMenu {
 	private String nombre = "VerEstudiantesCurso";
