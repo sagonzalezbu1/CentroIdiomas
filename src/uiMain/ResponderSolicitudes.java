@@ -2,17 +2,22 @@ package uiMain;
 
 import java.util.*;
 import gestorAplicacion.Centro.*;
-import gestorAplicacion.Usuarios.Estudiante;
+import gestorAplicacion.Usuarios.*;
 
+/*Esta clase es usada por Administrativo para responder a las solicitudes de cupo
+ * que hagan los estudiantes a los cursos que no tengan cupos.*/
 public class ResponderSolicitudes extends OpcionDeMenu {
 	private String nombre = "ResponderSolicitudes";
-
+	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
+	No recibe ningún parámetro*/
 	public String getNombre() {
 		return nombre;
 	}
 
+	/*Se muestran por pantalla las solicitudes disponibles y se da la opción de aceptar, rechazar e ignorar.
+	 * Al aceptar se matricula al estudiante y se elimina la solicitud, al rechazar sólo se elimina la solicitud, 
+	 * y al ignorar sólo se sale de la opción.*/
 	public void ejecutar() {
-		// Se busca la lista de solicitudes de cierto curso
 		Scanner entry = new Scanner(System.in);
 		if(!Archivo.verSolicitudes().equals("\nSolicitudes:\n")) {
 		System.out.println(Archivo.verSolicitudes());
@@ -27,7 +32,6 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 				System.out.println("Tiene una solicitud de: " + x.getEstudiante().getCedula());
 				System.out.println("Ingrese: 1 para aceptar, 2 para rechazar, 3 para no responder más solicitudes");
 				int op = entry.nextInt();
-				// Acepta, matricula al estudiante y elimina la solicitud
 				if (op == 1) {
 					if (course == null) {
 						System.out.println("\nSe creara un curso.");
@@ -45,13 +49,11 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 					}
 
 				}
-				// Rechaza y elimina la solicitud
 				else if (op == 2) {
 					Archivo.removeSolicitud(tipo, x); 
 					(x.getEstudiante()).removeSolicitud(tipo);
 					System.out.println("\nSe ha rechazado la solicitud exitosamente.\n");
 				}
-				// No responde
 				else {
 					System.out.println("\nHa decidido no responder mas solicitudes.\n");
 					return;
@@ -61,12 +63,15 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 		} else {
 			System.out.println("No hay solicitudes de este tipo.\n");
 		}
-		}else {
+		} else {
 			System.out.println("\nNo hay solicitudes.\n");
 		}
 
 	}
 
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Responder solicitudes";
 	}

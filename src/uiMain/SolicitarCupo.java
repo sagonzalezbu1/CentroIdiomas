@@ -4,18 +4,25 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
+/*Esta clase es usada por Estudiante para solicitar cupo a cursos que estén llenos.
+ * 
+ * En esta clase se ejecuta el método solicitar localizado en la clase Estudiante.*/
 public class SolicitarCupo extends OpcionDeMenu {
 	private String nombre = "SolicitarCupo";
-
+	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
+	No recibe ningún parámetro*/
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void ejecutar() {
+		
+		/*Se hacen verificaciones para el buen funcionamiento antes de hacer la solicitud,
+		 * como duplicados en solicitudes, solicitudes a cursos ya cursados o que actualmente
+		 * se están cursando, entre las básicas*/
 		Scanner entry = new Scanner(System.in);
-		// Se verifica qué tipo de usuario hace la solicitud
+		//Se pregunta qué tipo de usuario hace la solicitud
 		if (Main.user instanceof Estudiante) {
-			// Si es estudiante le hace la solicitud normal
 			System.out.println("Ingrese el tipo de la materia a la cual va a solicitar el cupo: ");
 			String aux = entry.next();
 			for(Curso x:((Estudiante)Main.user).getCurso()) {
@@ -45,7 +52,6 @@ public class SolicitarCupo extends OpcionDeMenu {
 			}
 
 		} else {
-			// Si es otro, pregunta a qué estudiante se le va a solicitar
 			System.out.println("Ingrese el ID del estudiante al que va a solicitarle cupo: ");
 			long aux1 = entry.nextLong();
 			Estudiante x= Archivo.buscarEstudiante(aux1);
@@ -83,6 +89,9 @@ public class SolicitarCupo extends OpcionDeMenu {
 		}
 	}
 
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Solicitar Cupo";
 	}

@@ -4,7 +4,7 @@ import java.util.Scanner;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
-/*Esta clase es usada por el Administrativo para finalizar los cursos, algo así
+/*Esta clase es usada por Administrativo para finalizar los cursos, algo así
  * como cerrar el período de calificaciones al acabar el curso.
  * 
  * En esta clase se ejecuta el método finalizeCurso localizado en la clase Curso.*/

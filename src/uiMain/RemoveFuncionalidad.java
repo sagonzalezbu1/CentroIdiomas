@@ -1,16 +1,24 @@
 package uiMain;
 
-import java.util.Scanner;
-import gestorAplicacion.Centro.Archivo;
-import gestorAplicacion.Usuarios.Usuario;
+import java.util.*;
+import gestorAplicacion.Centro.*;
+import gestorAplicacion.Usuarios.*;
 
+/*Esta clase es usada por el Administrador para eliminar funcionalidades a 
+ * los menús de los diferentes usuarios.
+ * 
+ * En esta clase se ejecuta el método eliminarOpcion localizado en la clase MenuDeConsola.*/
 public class RemoveFuncionalidad extends OpcionDeMenu {
+	
+	/*Se hacen las respectivas verificaciones antes de eliminar la funcionalidad,
+	 * como por ejemplo que el usuario sí tenga la funcionalidad,
+	 * que el usuario exista y que la funcionalidad exista.
+	 * No recibe parámetros y no retorna nada*/
 	public void ejecutar() {
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese la cedula del usuario al que desea eliminar una opcion: ");
 		int cc = e.nextInt();
 		Usuario y = null;
-		// Se busca al usuario al que se le eliminará cierta funcionalidad
 		for (Usuario x : Archivo.getEstudiantes()) {
 			if (x.getCedula() == cc) {
 				y = x;
@@ -26,7 +34,6 @@ public class RemoveFuncionalidad extends OpcionDeMenu {
 				y = x;
 			}
 		}
-		// Se elimina la opción si el usuario existe
 		if (y != null) {
 			MenuDeConsola menu = y.getMenu();
 			int cont = 0;
@@ -53,6 +60,9 @@ public class RemoveFuncionalidad extends OpcionDeMenu {
 		}
 	}
 
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Remover funcionalidad";
 	}

@@ -47,7 +47,8 @@ public class Administrador extends Usuario {
 		return aux;
 	}
 
-	//Muestra el menu del Usuario de acuerdo a su tipo, es decir, el menu que tenga ese respectivo usuario en el momento
+	/*Muestra el menu del Usuario de acuerdo a su tipo, es decir, 
+	 * el menu que tenga ese respectivo usuario, en el momento*/
 	public String userSystemMenu(long id) {
 		Usuario user = null;
 		for (Usuario x : Archivo.getEstudiantes()) {

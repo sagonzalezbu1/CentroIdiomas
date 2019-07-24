@@ -4,8 +4,12 @@ import java.util.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
+/*Esta clase es usada por Invitado para crear una cuenta de tipo Administrativo, 
+ * creando un objeto de este tipo con los datos que se ingresen.*/
 public class RegistrarAdministrativo extends OpcionDeMenu {
-	//Registra al administrativo con sus datos
+	
+	/*Se piden los datos necesarios y se ingresan en la creación del objeto, con 
+	 * algunas verificaciones de por medio*/
 	public void ejecutar() {
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Escriba el nombre: ");
@@ -20,7 +24,7 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 		String contraseña = entrada.next();
 		System.out.println("Esciba el codigo necesario para ser Administrativo: ");
 		String codigo = entrada.next();
-		//Verifica que el código sea correcto
+		//Verifica que el código ingresado sea correcto
 		if(Archivo.buscarAdministrativo(cc) == null && Archivo.buscarDocente(cc) == null && Archivo.buscarEstudiante(cc) == null && cc != 123) {
 			if(codigo.equals(Administrativo.getCodigo())) {
 				Administrativo a = new Administrativo(nombre + " " + apellido, cc, correo, contraseña);
@@ -32,8 +36,11 @@ public class RegistrarAdministrativo extends OpcionDeMenu {
 		else {
 			System.out.println("\nYa se encuentra registrado un usuario con esa cédula.\n");
 		}
-
 	}
+	
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return"Registrar Administrativo";
 	}

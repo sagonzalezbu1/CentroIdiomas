@@ -2,30 +2,30 @@ package uiMain;
 
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
+import java.util.*;
 
-import java.util.Scanner;
-
+/*Esta clase es usada por Estudiante para inscribirse a los cursos disponibles.
+ * 
+ * En esta clase se ejecuta el método matricular localizado en la clase Curso.*/
 public class Matricular extends OpcionDeMenu {
 	private String nombre = "Matricular";
-
+	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
+	No recibe ningún parámetro*/
 	public String getNombre() {
 		return nombre;
 	}
-
+	/*Se hacen verificaciones antes de matricular al estudiante*/
 	public void ejecutar() {
-
 		Scanner e = new Scanner(System.in);
-		// Se verifica qué tipo de usuario hace la matrícula
 		if (Main.user instanceof Estudiante) {
-			// Si es estudiante lo matricula normal
 			System.out.println("Ingrese el nombre del curso: ");
 			String nombre = e.next();
 			Curso curso = Archivo.buscarCurso(nombre);
-			// Luego se verifica que el curso en el que se quiere matricular exista
+			//Se verifica que el curso en el que se va a matricular exista
 			if (curso == null) {
 				System.out.println("\nEl curso '" + nombre + "' No se encontró.\n");
 			} else {
-				//Verifica que no haya aprobado un curso de ese tipo
+				//Se verifica que el estudiante no haya aprobado un curso de ese tipo
 				for (Certificado x : ((Estudiante) (Main.user)).getCertificados()) {
 					if ((x.getNombre()).equals(curso.getTipo())) {
 						System.out.println("\nUsted ya aprobo una curso de este tipo.\n");
@@ -39,12 +39,10 @@ public class Matricular extends OpcionDeMenu {
 						return;
 					}
 				}
-				// Se verifica si el curso está vacío
 				if (!curso.getEstudiantes().isEmpty()) {
 					for (Estudiante y : curso.getEstudiantes()) {
 						// Se verifica si el estudiante ya está en el curso
 						if (Main.user.equals(y)) {
-							// Sí está
 							System.out.println("\nUsted ya se encuentra matriculado en este curso.\n");
 							return;
 						}
@@ -61,7 +59,8 @@ public class Matricular extends OpcionDeMenu {
 				}
 			}
 		} else {
-			// Si es otro, pregunta qué estudiante matricular
+			/*Si es un usuario diferente de Estudiante, pregunta qué estudiante 
+			matricular y sigue los mismos pasos de antes*/
 			System.out.println("Ingrese la cedula del estudiante a matricular: ");
 			long cedula = e.nextLong();
 			Estudiante est = Archivo.buscarEstudiante(cedula);
@@ -70,8 +69,7 @@ public class Matricular extends OpcionDeMenu {
 				System.out.println("Ingrese el nombre del curso: ");
 				String nombre = e.next();
 				Curso curso = Archivo.buscarCurso(nombre);
-				// Luego se verifica que el curso en el que se quiere matricular
-				// exista
+				//Se verifica que el curso en el que se va a matricular exista
 				if (curso == null) {
 					System.out.println("\nEl curso '" + nombre + "' No se encontró.\n");
 				} else {
@@ -89,12 +87,11 @@ public class Matricular extends OpcionDeMenu {
 							return;
 						}
 					}
-					// Se verifica si el curso está vacío
+					// Se verifica si el curso no está vacío
 					if (!curso.getEstudiantes().isEmpty()) {
 						for (Estudiante y : curso.getEstudiantes()) {
 							// Se verifica si el estudiante ya está en el curso
 							if (est.equals(y)) {
-								// Sí está
 								System.out.println("\nEl estudiante ya se encuentra matriculado en este curso.\n");
 								return;
 							}
@@ -116,6 +113,9 @@ public class Matricular extends OpcionDeMenu {
 		}
 	}
 
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Matricular";
 	}

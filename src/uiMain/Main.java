@@ -5,8 +5,10 @@ import BaseDatos.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
+/*Esta es la clase principal del programa, donde se ejecuta lo primordial para su
+ * funcionamiento*/
 public class Main {
-	// Funcionalidades de los menús
+	//Se agregan las funcionalidades "principales" de los menús de los usuarios al HashMap general
 	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>() {
 		{
 			put("Calificar", new Calificar());
@@ -31,26 +33,26 @@ public class Main {
 			put("PromedioCurso", new PromedioCurso());
 		}
 	};
-	// Usuario por defecto, al que se ingresará siempre que se ejecute el programa
+	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa
 	public static Usuario user = new Invitado();
 
-	// Inicio del programa
+	//Inicio del programa
 	public static void main(String[] args) {
-		// Siempre que se inicie el porgrama se cargarán los datos de los archivos de
-		// texto a éste
+		/* Siempre que se inicie el porgrama se cargarán los datos de los archivos de 
+		 * texto a éste*/
 		Data.cargarDocentes();
 		Data.cargarCursos();
 		Data.cargarEstudiantes();
 		Data.cargarAdministrativos();
 		Data.cargarSolicitudes();
 		Data.cargarSugerencias();
-		// Ejecución completa, ejecuta el menú acorde al tipo de usuario
 
+		/*Ejecución del menú de (inicialmente) Invitado y luego de 
+		diferentes usuarios a lo largo del programa*/
 		while (true) {
 
 			user.getMenu().lanzarMenu();
 
 		}
-
 	}
 }

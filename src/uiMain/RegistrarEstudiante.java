@@ -1,12 +1,16 @@
 package uiMain;
 
-import java.util.Scanner;
+import java.util.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
+/*Esta clase es usada por Invitado para crear una cuenta de tipo Estudiante, 
+ * creando un objeto de este tipo con los datos que se ingresen.*/
 public class RegistrarEstudiante extends OpcionDeMenu {
+	
+	/*Se piden los datos necesarios y se ingresan en la creación del objeto, con 
+	 * algunas verificaciones de por medio*/
 	public void ejecutar() {
-		//Registra al estudiante con sus datos
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Escriba su nombre: ");
 		String nombre = entrada.next();
@@ -27,6 +31,9 @@ public class RegistrarEstudiante extends OpcionDeMenu {
 		}
 	}
 	
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return"Registrar Estudiante";
 	}

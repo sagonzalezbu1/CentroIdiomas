@@ -9,9 +9,10 @@ import gestorAplicacion.Usuarios.*;
  * 
  * En esta clase se ejecuta el método anadirOpcion localizado en la clase MenuDeConsola.*/
 public class AddFuncionalidad extends OpcionDeMenu {
+	
 	/*Se hacen las respectivas verificaciones antes de agregar la funcionalidad,
 	 * como por ejemplo que la funcionalidad no esté ya en el menú del usuario,
-	 * que el usuario no exista o que la funcionalidad no exista.
+	 * que el usuario exista y que la funcionalidad exista.
 	 * No recibe parámetros y no retorna nada*/
 	public void ejecutar() {
 		Scanner e = new Scanner(System.in);
