@@ -192,7 +192,7 @@ public class Data {
 					Docente aux3 = Archivo.buscarDocente(aux2);
 					Curso c = new Curso(curso[0], curso[1], curso[2], aux3);
 					// Hasta acá
-					aux3.addCurso(c);
+	
 				}
 
 			}

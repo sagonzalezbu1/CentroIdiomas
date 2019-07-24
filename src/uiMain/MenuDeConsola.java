@@ -29,12 +29,16 @@ public class MenuDeConsola {
             cont++;
         }
         System.out.println("\nIngrese el número de la opción que desea ejecutar: ");
-        int op= entry.nextInt();
-        ejecutarOpcion(op);
+        String op= entry.next();
+        try{
+        	ejecutarOpcion(Integer.parseInt(op));
+        }catch(Exception ex) {
+        	System.out.println("\nHubo error en la escritura.\n");
+        }
     }
     //Ejecución de las opciones
     private void ejecutarOpcion(int op) {
-    	Menu.get(op).ejecutar();
+    			Menu.get(op).ejecutar();
     }
     public ArrayList<OpcionDeMenu> getList(){
     	return Menu;

@@ -45,13 +45,12 @@ public class Main {
 		Data.cargarSolicitudes();
 		Data.cargarSugerencias();
 		// Ejecución completa, ejecuta el menú acorde al tipo de usuario
-		try {
-			while (true) {
-				user.getMenu().lanzarMenu();
-			}
-		} catch (Exception ex) {
-			System.out.println("\nHubo algun error en la escritura.\n");
+
+		while (true) {
+
+			user.getMenu().lanzarMenu();
 
 		}
+
 	}
 }

@@ -21,6 +21,7 @@ public class Curso {
 		this.docente = docente;
 		this.tipo = tipo;
 		Archivo.add(this);
+		docente.addCurso(this);
 	}
 
 	/*Este metodo Finaliza un curso, cierrra el periodo de calificaciones, calcula el promedio de cada estudiante y si es mayor o igual a 3.0 los aprueba
