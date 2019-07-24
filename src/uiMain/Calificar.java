@@ -4,15 +4,21 @@ import java.util.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
+/*Esta clase es usada por el Docente para calificar a los estudiantes de 
+ * un cierto curso que esté dictando.
+ * 
+ * En esta clase se ejecuta el método calificar localizado en la clase Estudiante.*/
 public class Calificar extends OpcionDeMenu {
 	private String nombre = "Calificar";
-
+	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
+	No recibe ningún parámetro*/
 	public String getNombre() {
 		return nombre;
 	}
 
+	/*Se hacen las respectivas verificaciones antes de calificar al estudiante,
+	 * como buscar que el estudiante y el curso existan, y luego se ejecuta propiamente*/
 	public void ejecutar() {
-		// Se califica buscando primero el grupo y luego el estudiante
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Introduzca el nombre del grupo al que desea calificar: ");
 		String aux = entry.next();
@@ -40,7 +46,7 @@ public class Calificar extends OpcionDeMenu {
 							System.out.println("");
 							y.calificar(aux, aux3);
 						}
-						System.out.println("ya no quedan estudiantes por calificar.\n");
+						System.out.println("Ya no quedan estudiantes por calificar.\n");
 					}
 				} else {
 					System.out.println("\nLa cedula del docente no es correcta.\n");
@@ -50,11 +56,12 @@ public class Calificar extends OpcionDeMenu {
 		if (bool == false) {
 			System.out.println("\nEl curso '" + aux + "' no existe.\n");
 		}
-
 	}
 
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Calificar Estudiantes";
 	}
-
 }

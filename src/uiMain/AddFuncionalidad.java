@@ -1,13 +1,18 @@
 package uiMain;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import gestorAplicacion.Centro.*;
+import gestorAplicacion.Usuarios.*;
 
-import gestorAplicacion.Centro.Archivo;
-import gestorAplicacion.Usuarios.Administrador;
-import gestorAplicacion.Usuarios.Usuario;
-
+/*Esta clase es usada por el Administrador para agregar funcionalidades a 
+ * los menús de los diferentes usuarios.
+ * 
+ * En esta clase se ejecuta el método anadirOpcion localizado en la clase MenuDeConsola.*/
 public class AddFuncionalidad extends OpcionDeMenu {
+	/*Se hacen las respectivas verificaciones antes de agregar la funcionalidad,
+	 * como por ejemplo que la funcionalidad no esté ya en el menú del usuario,
+	 * que el usuario no exista o que la funcionalidad no exista.
+	 * No recibe parámetros y no retorna nada*/
 	public void ejecutar() {
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese la cedula del usuario al que desea agregar una funcionalidad: ");
@@ -51,9 +56,11 @@ public class AddFuncionalidad extends OpcionDeMenu {
 			System.out.println("\nEl usuario no esta registrado.\n");
 		}
 	}
-
+	
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Agregar funcionalidad";
 	}
-
 }

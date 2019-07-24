@@ -1,16 +1,20 @@
 package uiMain;
 
-import java.util.Scanner;
+import java.util.*;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
+/*Esta clase es usada por el Administrativo para crear nuevos cursos para los estudiantes.
+ * 
+ * En esta clase se crean objetos de tipo Curso y se les asignan sus respectivos atributos.*/
 public class CrearCurso extends OpcionDeMenu {
 	private String nombre="CrearCurso";
 	public String getNombre() {
 		return nombre;
 	}
+	/*Se hacen verificaciones antes de crear el curso, tales como que éste no exista ya, 
+	 * que la información ingresada sea correcta, entre otras cosas, para luego crearlo*/
 	public void ejecutar() {
-		//Se crea el curso pidiendo información de este al usuario
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso: ");
 		String nombre = e.next();
@@ -20,7 +24,6 @@ public class CrearCurso extends OpcionDeMenu {
 		long cc = e.nextLong();
 		Docente docente=null;
 		boolean b = false;
-		//Se verifica que el docente que dictará el curso exista
 		for(Docente x : Archivo.getDocentes()) {
 			if(cc==x.getCedula()) {
 				b=true;
@@ -34,7 +37,7 @@ public class CrearCurso extends OpcionDeMenu {
 			if(busqueda==null) {
 				new Curso(nombre,tipo,horario,docente);
 				System.out.println("\nSe ha creado el curso.\n");
-			}else {
+			} else {
 				System.out.println("\nYa existe un curso con ese nombre.\n");
 			}
 		}
@@ -43,6 +46,9 @@ public class CrearCurso extends OpcionDeMenu {
 		}
 	}
 
+	/*Método toString.
+	 * Retorna un String correspondiente al nombre de la funcionalidad, 
+	 * que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Crear Curso";
 	}
