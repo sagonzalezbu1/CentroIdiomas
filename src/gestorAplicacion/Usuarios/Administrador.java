@@ -3,11 +3,15 @@ package gestorAplicacion.Usuarios;
 import gestorAplicacion.Centro.Archivo;
 import uiMain.*;
 
+/*Esta clase permite la existencia de un Administrador para realizar las tareas "por encima" del programa, 
+ * es decir, manejar las funcionalidades que puedan tener los diferentes usuarios y verificar toda la información
+ * del centro.*/
 public class Administrador extends Usuario {
-	//Constructor por defecto de administrador
+	/*Constructor de administrador para asignar los atributos heredados de Usuario de acuerdo a los
+	* que se le asignan al momento de crearse.*/
 	public Administrador(String name, long id, String email, String password) {
 		super(name, id, email, password);	
-		
+		//Se le añaden todas las funcionalidades del sistema a su menú para así poder manejarlas
 		getMenu().anadirOpcion(new AddFuncionalidad());
 		getMenu().anadirOpcion(new RemoveFuncionalidad());
 		getMenu().anadirOpcion(new UserMenu());
@@ -34,7 +38,7 @@ public class Administrador extends Usuario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
 	}
 
-	// Menu del sistema
+	//Muestra el menu del sistema, es decir, todas las funcionalidades que tiene el programa
 	public String SystemMenu() {
 		String aux = "";
 		for (String x : Main.funcionalidades.keySet()) {
@@ -43,7 +47,7 @@ public class Administrador extends Usuario {
 		return aux;
 	}
 
-	// Menu del Usuario
+	//Muestra el menu del Usuario de acuerdo a su tipo, es decir, el menu que tenga ese respectivo usuario en el momento
 	public String userSystemMenu(long id) {
 		Usuario user = null;
 		for (Usuario x : Archivo.getEstudiantes()) {

@@ -4,18 +4,20 @@ import java.util.*;
 import uiMain.*;
 import gestorAplicacion.Centro.*;
 
+/*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)
+ * de las labores administrativas del centro de idiomas*/
 public class Administrativo extends Usuario {
-	// private ArrayList <Solicitud> misSolicitudes;
+	//Para poder registrarse como Administrativo se necesita un código especial
 	private static final String codigo = "1234";
-
+	//Retorna el código especial para registrarse. No recibe parámetros
 	public static String getCodigo() {
 		return codigo;
 	}
 	
-	//Constructor para creacion de objeto
+	//Constructor usado en la creación de objetos de tipo Administrativo desde el programa
 	public Administrativo(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		//Menu por defecto
+		//Se crea el menu de Administrativo con las funcionalidades por defecto
 		getMenu().anadirOpcion(Main.funcionalidades.get("CrearCurso"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("FinalizeCurso"));
@@ -35,13 +37,15 @@ public class Administrativo extends Usuario {
 		
 	}
 	
-	//Constructor para carga de archivos
+	/*Constructor usado en la creación de objetos de tipo Administrativo desde la carga de 
+	 * los archivos de texto al programa*/
 	public Administrativo(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		Archivo.add(this);
-		//Menu editado
+		/*Aquí tendrá el menu ya sea por defecto o editado, 
+		* dependiendo de si el administrador lo haya editado*/
 	}
-
+	//Retorna la información del administrativo, mostrando su nombre y cédula
 	public String toString() {
 		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}

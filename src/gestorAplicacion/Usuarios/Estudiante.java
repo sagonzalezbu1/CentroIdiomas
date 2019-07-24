@@ -4,17 +4,22 @@ import java.util.*;
 import uiMain.*;
 import gestorAplicacion.Centro.*;
 
+/*Esta clase permite crear objetos de tipo Estudiante, los cuales cumplirán tareas como
+ * hacer solicitudes, matricularse, etc*/
 public class Estudiante extends Usuario implements Horario {
+	//Dependiendo de los datos del estudiante, tendrá uno de tres estados posibles
 	private String estado = "Inactivo";
+	/*Atributos de datos tales como sus certificados, solicitudes, 
+	* cursos inscritos y las notas de estos*/
 	private ArrayList<Certificado> misCertificados = new ArrayList<Certificado>();
 	private ArrayList<Solicitud> misSolicitudes = new ArrayList<Solicitud>();
 	private ArrayList<Curso> misCursos = new ArrayList<Curso>();
 	private HashMap<String, ArrayList<Float>> misNotas = new HashMap<>();
 
-	// Constructor para creacion de objeto
+	//Constructor usado en la creación de objetos de tipo Estudiante desde el programa
 	public Estudiante(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		// Menu por defecto
+		//Se crea el menú de Estudiante con las funcionalidades por defecto
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("Matricular"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("VerCertificados"));
@@ -24,46 +29,59 @@ public class Estudiante extends Usuario implements Horario {
 		getMenu().anadirOpcion(Main.funcionalidades.get("SolicitarCupo"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("HacerSugerencia"));
 		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
-
 		Archivo.add(this);
 
 	}
 
-	// Constructor para carga de archivos
+	/*Constructor usado en la creación de objetos de tipo Estudiante desde la carga de 
+	 * los archivos de texto al programa*/
 	public Estudiante(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		Archivo.add(this);
-		// Menu editado
+		/*Aquí tendrá el menu ya sea por defecto o editado, 
+		* dependiendo de si el administrador lo haya editado*/
 	}
 
-	// Añadir certificado a lista de certicifados del estudiante
+	/*Añade un certificado a lista de certificados del estudiante al momento de 
+	 * finalizar un curso y tener una nota mayor o igual a 3.0.
+	 * Recibe como parámetro un objeto de tipo Certificado y no retorna nada*/
 	public void addCertificado(Certificado certify) {
 		misCertificados.add(certify);
 	}
 
-	// Añadir curso a lista de cursos y al hashmap de notas
+	/*Añade un curso a lista de cursos del estudiante y al hashmap de sus notas 
+	 * junto a un ArrayList vacío, que es donde irán las notas que le pondrá un docente.
+	 * Recibe como parámetro un objeto de tipo Curso y no retorna nada*/
 	public void addCurso(Curso course) {
 		misCursos.add(course);
-		misNotas.put(course.getNombreCurso(), new ArrayList());
+		misNotas.put(course.getNombreCurso(), new ArrayList<>());
 	}
 
-	// Añadir una nota al estudiante (Uso exclusivo en carga de archivos)
+	/*Añade una nota al estudiante en el curso especificado. Es de uso 
+	 * exclusivo para la carga de información de los archivos de texto al programa.
+	 * Recibe como parámetros un objeto de tipo Curso y un float que será la nota.
+	 * No retorna nada*/
 	public void addNota(Curso course, float grade) {
 		misNotas.get(course.getNombreCurso()).add(grade);
 	}
 
-	// Calificar al estudiante
+	/*Usado por los docentes para calificar a los estudiantes en los cursos.
+	 * Recibe como parámetros un String equivalente al nombre del curso y 
+	 * un float equivalente a la nota asignada.
+	 * No retorna nada*/
 	public void calificar(String name, float grade) {
 		ArrayList<Float> itemsList = misNotas.get(name);
 		itemsList.add(grade);
 	}
 
-	// Lista de mis cursos
+	/*Getter de la lista de cursos del estudiante. Retorna el ArrayList 
+	 * de los cursos y no recibe parámetros*/
 	public ArrayList<Curso> getCurso() {
 		return misCursos;
 	}
 
-	// Saber definitiva del estudiante en cierto curso
+	/*Retorna la nota definitiva/acumulada del estudiante en cierto curso.
+	Recibe como parámetro un String equivalente al nombre del curso*/
 	public float getDefinitiva(String name) {
 		ArrayList<Float> prom = misNotas.get(name);
 		float def = 0;
@@ -78,26 +96,30 @@ public class Estudiante extends Usuario implements Horario {
 		}
 	}
 
-	// Estado del estudiante
+	/*Getter del estado del estudiante.
+	 * No recibe parámetros y devuelve un String equivalente al estado*/
 	public String getEstado() {
 		return estado;
 	}
 
-	// Lista de certificados del estudiante
+	//Getter de la lista de certificados del estudiante, retorna esta y no recibe parámetros
 	public ArrayList<Certificado> getCertificados() {
 		return misCertificados;
 	}
 	
+	//Getter de la lista de solicitudes hechas por el estudiante, retorna esta y no recibe parámetros
 	public  ArrayList<Solicitud> getSolicitudes(){
 		return misSolicitudes;
 	}
 	
-	// Hashmap de notas del estudiante
+	/*Getter de las notas del estudiante de todos los cursos en los que esté inscrito.
+	Devuelve el HashMap de estas y no recibe parámetros*/
 	public HashMap<String, ArrayList<Float>> getNotas() {
 		return misNotas;
 	}
 
-	// Ver notas del estudiante con formato correcto
+	/*Retorna un String equivalente a las notas del estudiante en cierto curso, en un formato correcto.
+	 * Recibe como parámetro un String del nombre del curso*/
 	public String verNotas(String nombreM) {
 		ArrayList<Float> prom = misNotas.get(nombreM);
 		String list = " ";
@@ -108,7 +130,9 @@ public class Estudiante extends Usuario implements Horario {
 		return list;
 	}
 
-	// Ver horario del estudiante con formato correcto
+	/*Retorna un String equivalente al horario del estudiante en un formato correcto.
+	 * Implementa el método de la interfaz Horario.
+	 * No recibe parámetros*/
 	public String miHorario() {
 		String aux = "";
 		for (Curso x : misCursos) {
@@ -122,7 +146,9 @@ public class Estudiante extends Usuario implements Horario {
 		}
 	}
 
-	// Eliminar curso de lista de cursos del estudiante
+	/*Método usado por finalizeCurso al momento de cerrarse un curso, 
+	* lo elimina de la lista del estudiante y del HashMap de notas.
+	* Recibe como parámetro un String del nombre del curso*/
 	public void removeCurso(String nombreCurso) {
 		Curso y = null;
 		for (Curso x : misCursos) {
@@ -135,7 +161,9 @@ public class Estudiante extends Usuario implements Horario {
 		misNotas.remove(nombreCurso);
 	}
 
-	// Eliminar solicitud de lista de solicitudes del estudiante
+	/*Método usado por ResponderSolicitudes al momento de responder 
+	 * una solicitud, eliminándola de la lista de solicitudes del estudiante.
+	 * Recibe como parámetro un String con el tipo de la solicitud*/
 	public void removeSolicitud(String tipo) {
 		for (Solicitud s : misSolicitudes) {
 			if ((s.getTipo()).equals(tipo)) {
@@ -144,17 +172,21 @@ public class Estudiante extends Usuario implements Horario {
 			}
 		}
 	}
-
-	// Cambiar estado del estudiante (0 para matricular curso, 1 para finalizar
-	// curso)
+	
+	//Sobrecarga del método setEstado
+	
+	/*Setter del estado del estudiante para el método matricular.
+	* Recibe como parámetro un entero enviado por el método matricular de la clase Curso.
+	* No devuelve nada*/
 	public void setEstado(int status) {
 		if (status == 0) {
 			estado = "Activo";
 		}
 	}
 
-	// Cambiar estado del estudiante (0 para matricular curso, 1 para finalizar
-	// curso)
+	/*Setter del estado del estudiante para el método finalizeCurso.
+	* Recibe como parámetro un entero enviado por el método finalizeCurso de la clase Curso.
+	* No devuelve nada*/
 	public void setEstado(String mater, int status) {
 		if (status == 1) {
 			if (misCursos.size() > 1) {
@@ -170,18 +202,24 @@ public class Estudiante extends Usuario implements Horario {
 		}
 	}
 
-	// Solicitar cupo a un curso
+	/*Crea un objeto de tipo Solicitud y lo agrega a la lista de solicitudes del estudiante.
+	* Recibe como parámetro un String del tipo del curso.
+	* No devuelve nada*/
 	public void solicitar(String type) {
 		Solicitud s = new Solicitud(type, this);
 		misSolicitudes.add(s);
 	}
 
-	// toString del estudiante
+	/*Método toString de Estudiante. Retorna un String de la información del 
+	* estudiante de manera ordenada, es decir, su nombre y cédula.
+	* No recibe parámetros*/
 	public String toString() {
 		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
 
-	// Ver certificados del estudiante con formato correcto
+	/*Retorna un String equivalente a los certificados del estudiante, 
+	* mostrándolos de manera correcta.
+	* No recibe parámetros*/
 	public String verCertificados() {
 		String aux = "";
 		for (Certificado x : misCertificados) {
@@ -191,7 +229,9 @@ public class Estudiante extends Usuario implements Horario {
 
 	}
 
-	// Ver solicitudes del estudiante con formato correcto
+	/*Retorna un String equivalente a las solicitudes hechas por el estudiante, 
+	* mostrándolas de manera correcta.
+	* No recibe parámetros*/
 	public String verSolicitudes() {
 		String aux = "";
 		for (Solicitud x : misSolicitudes) {
