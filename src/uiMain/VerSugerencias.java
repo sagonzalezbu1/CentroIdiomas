@@ -12,11 +12,14 @@ import gestorAplicacion.Usuarios.*;
 public class VerSugerencias extends OpcionDeMenu {
 
 	private String nombre = "VerSugerencias";
-	
+	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro. 
+	 */
 	public String getNombre(){
 		return nombre;
 	}
-	
+	/*En este metodo verificamos si hay sugerencias realizadas por medio de lo que nos devuelve 'verSugerencias'. 
+	 * Si hay sugerencias, las mostramos; sino informamos de ello al usuario. Este metodo no recibe ningun parametro. 
+	 * */
 	public void ejecutar(){
 		String m = Archivo.verSugerencias();
 		if(m.equals("\nSugerencias:\n")){
@@ -25,7 +28,8 @@ public class VerSugerencias extends OpcionDeMenu {
 			System.out.println(m);
 		}
 	}
-	
+	/* Sobreescribimos el metodo de 'Object''toString'
+	 * */
 	public String toString(){
 		return "Ver sugerencias";
 	}

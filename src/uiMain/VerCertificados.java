@@ -10,6 +10,8 @@ import gestorAplicacion.Usuarios.*;
  */
 public class VerCertificados extends OpcionDeMenu{
 	private String nombre="VerCertificados";
+	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro. 
+	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -43,6 +45,8 @@ public class VerCertificados extends OpcionDeMenu{
 			
 		}	
 	}
+	/* Sobreescribimos el metodo de 'Object''toString'
+	 * */
 	public String toString() {
 		return "Ver Certificados";
 	}

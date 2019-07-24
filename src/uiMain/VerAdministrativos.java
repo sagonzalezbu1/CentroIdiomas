@@ -6,6 +6,8 @@ import gestorAplicacion.Centro.Archivo;
  */
 public class VerAdministrativos extends OpcionDeMenu {
 	private String nombre="VerAdministrativos";
+	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro. 
+	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -18,7 +20,8 @@ public class VerAdministrativos extends OpcionDeMenu {
 			System.out.println(Archivo.verAdministrativos());
 		}
 	}
-
+	/* Sobreescribimos el metodo de 'Object''toString'
+	 * */
 	public String toString() {
 		return "Ver administrativos";
 	}

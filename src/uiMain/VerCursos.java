@@ -6,14 +6,17 @@ import gestorAplicacion.Centro.Archivo;
  */
 public class VerCursos extends OpcionDeMenu {
 	private String nombre="VerCursos";
+	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro. 
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+	// En este metodo mostramos los curso si los hay; sino informamos de ello al usuario. Este metodo no recibe ningun parametro.
 	public void ejecutar() {
-		//Muestra por pantalla los cursos con su información (salida del toString)
 		System.out.println(Archivo.verCursos());
 	}
-
+	/* Sobreescribimos el metodo de 'Object''toString'
+	 * */
 	public String toString() {
 		return "Ver cursos";
 	}

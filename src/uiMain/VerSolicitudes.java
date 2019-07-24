@@ -11,16 +11,20 @@ import gestorAplicacion.Usuarios.*;
  */
 public class VerSolicitudes extends OpcionDeMenu {
 	private String nombre = "VerSolicitudes";
-
+	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro. 
+	 */
 	public String getNombre() {
 		return nombre;
 	}
-
+	/* Este metodo verfica que tipo de usuario esta realizando la opcion. Luego de ello procede a:
+	 * si es estudiante, imprime las solicitudes que tiene por medio de el metodo 'verSolicitudes'
+	 * si es de otro tipo de instancia, pide el documento del estudiante al cual quiere ver las solicitudes de cupo que hecho, comprueba que el estudiante este en 'Archivo'
+	 * y de ser afirmativo, muestra las solicitudes de cupo si las tiene, sino notifica que no tiene solicitudes. 
+	 * De caso contrario, avisa que no se encuentra ningun estudiante con ese ID. 
+	 * */
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
-		// Verifica qué tipo de usuario verá solicitudes
 		if (Main.user instanceof Estudiante) {
-			// Si es estudiante le mostrará sus solicitudes
 			String aux = ((Estudiante) Main.user).verSolicitudes();
 			if (aux.equals("")) {
 				System.out.println("\nUsted no tiene solicitudes.\n");
@@ -29,7 +33,6 @@ public class VerSolicitudes extends OpcionDeMenu {
 				System.out.println(aux+"\n");
 			}
 		} else {
-			// Si es otro le preguntará de qué estudiante mostrar las solicitudes
 			System.out.println("Introduzca el ID del estudiante del que quiere ver las solicitudes");
 			long ID = entry.nextLong();
 			Estudiante e = Archivo.buscarEstudiante(ID);
@@ -47,7 +50,8 @@ public class VerSolicitudes extends OpcionDeMenu {
 
 		}
 	}
-
+	/* Sobreescribimos el metodo de 'Object''toString'
+	 * */
 	public String toString() {
 		return "Ver Solicitudes";
 	}

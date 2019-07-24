@@ -10,17 +10,22 @@ import java.util.*;
  */
 public class VerNotas extends OpcionDeMenu {
 	private String nombre="VerNotas";
+	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro. 
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+	/* Este metodo verfica que tipo de usuario esta realizando la opcion. Luego de ello procede a:
+	 * si es estudiante, imprime las notas que tiene por medio de el metodo 'verNotas'
+	 * si es de otro tipo de instancia, pide el documento del estudiante al cual quiere ver las notas que tiene, comprueba que el estudiante este en 'Archivo'
+	 * y de ser afirmativo, notifica las notas. De caso contrario, avisa que no se encuentra ningun estudiante con ese ID. 
+	 * */
 	public void ejecutar() {
-		//Estudiante quiere ver sus notas
 		if(Main.user instanceof Estudiante) {
 			for(Curso c : ((Estudiante) Main.user).getCurso()) {
 				System.out.print(c.getNombreCurso() + ": " + ((Estudiante) Main.user).verNotas(c.getNombreCurso()) + "\n");
 			}
 		}
-		//Usuario que no es Estudiante quiere ver las notas de un estudiante
 		else {
 			Scanner entrada = new Scanner(System.in);
 			System.out.println("Ingrese la cédula del estudiante del que quiere ver las notas: ");
@@ -38,7 +43,8 @@ public class VerNotas extends OpcionDeMenu {
 			System.out.println("\nEl estudiante no se encuentra.\n");
 		}
 	}
-
+	/* Sobreescribimos el metodo de 'Object''toString'
+	 * */
 	public String toString() {
 		return "Ver notas";
 	}
