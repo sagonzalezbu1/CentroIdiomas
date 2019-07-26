@@ -1,5 +1,5 @@
 package uiMain;
-import gestorAplicacion.Centro.Archivo;
+import BaseDatos.Archivo;
 /* La clase 'VerAdministrativos' es donde mostramos a los usuarios el nombre y la cedula todos los administrativos que se encuentren en 'Archivo'.
  * 
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerAdministrativos.

@@ -2,7 +2,7 @@ package uiMain;
 
 import java.util.Scanner;
 
-import gestorAplicacion.Centro.Archivo;
+import BaseDatos.Archivo;
 import gestorAplicacion.Usuarios.*;
 /* La clase 'VerSolicitudes' es donde mostramos las solicitudes de cupo que ha realizado a un tipo de idioma un estudiante, si quien lo pregunta es de instancia 
  * diferente la instancia 'Estudiante'. Si por el contrario es un estudiante quien realiza la funcionalidad, se mostrara las solicitudes que él ha hecho.

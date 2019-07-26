@@ -1,7 +1,10 @@
-package gestorAplicacion.Centro;
+package BaseDatos;
 
 import java.util.*;
 
+import gestorAplicacion.Centro.Curso;
+import gestorAplicacion.Centro.Solicitud;
+import gestorAplicacion.Centro.Sugerencia;
 import gestorAplicacion.Usuarios.*;
 /* La clase Archivo es donde guardamos todos los datos del Centro de Idiomas, lo que leen los metodos de la clase Data se guarda aquí y queda guardado en
  * varias estructuras de datos. Es una clase abstracta ya que no hay objetos de tipo archivo, es uno solo y es global para todo nuestro centro de idiomas

@@ -1,6 +1,8 @@
 package uiMain;
 
 import java.util.Scanner;
+
+import BaseDatos.Archivo;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 

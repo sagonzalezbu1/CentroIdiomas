@@ -1,5 +1,5 @@
 package uiMain;
-import gestorAplicacion.Centro.Archivo;
+import BaseDatos.Archivo;
 /* La clase 'VerCursos' es donde mostramos a los usuarios el nombre, el horario, el docente y la disponibilidad de cupos con los que cuenta los cursos  que se encuentren en 'Archivo'.
  * 
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerCursos.

@@ -4,6 +4,8 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
+import BaseDatos.Archivo;
+
 /*Esta clase es usada por Estudiante para solicitar cupo a cursos que estén llenos.
  * 
  * En esta clase se ejecuta el método solicitar localizado en la clase Estudiante.*/

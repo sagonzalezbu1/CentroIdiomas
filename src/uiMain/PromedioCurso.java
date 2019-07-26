@@ -2,6 +2,8 @@ package uiMain;
 
 import java.text.DecimalFormat;
 import java.util.*;
+
+import BaseDatos.Archivo;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 

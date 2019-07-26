@@ -2,6 +2,7 @@ package gestorAplicacion.Centro;
 
 import java.util.ArrayList;
 
+import BaseDatos.Archivo;
 import gestorAplicacion.Usuarios.Estudiante;
 /*Esta clase permite crear objetos de tipo solicitud. Las solicitudes se hacen con la finalidad de que un estudiante solicite cupo para un tipo de curso,
   Se puede solicitar cupo en un curso de cualquier tipo de idioma, siempre y cuando no queden cupos o no haya cursos creados de dicho idioma*/

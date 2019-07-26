@@ -4,6 +4,8 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
+import BaseDatos.Archivo;
+
 /*Esta clase es usada por Administrador para ver todas las funcionalidades 
  * disponibles de cierto usuario.
  * 

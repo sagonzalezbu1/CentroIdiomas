@@ -2,6 +2,7 @@ package uiMain;
 
 import java.util.Scanner;
 
+import BaseDatos.Archivo;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 /* La clase 'VerSugerencias' es donde mostramos a los usuarios el nombre de quien realizo una sugerencia seguido de la sugerencia

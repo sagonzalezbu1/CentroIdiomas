@@ -1,6 +1,8 @@
 package gestorAplicacion.Usuarios;
 
 import java.util.*;
+
+import BaseDatos.Archivo;
 import uiMain.*;
 import gestorAplicacion.Centro.*;
 

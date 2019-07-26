@@ -4,6 +4,8 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
+import BaseDatos.Archivo;
+
 /*Esta clase es usada por Estudiante para inscribirse a los cursos disponibles.
  * 
  * En esta clase se ejecuta el método matricular localizado en la clase Curso.*/

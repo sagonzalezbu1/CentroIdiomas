@@ -1,5 +1,5 @@
 package uiMain;
-import gestorAplicacion.Centro.Archivo;
+import BaseDatos.Archivo;
 /* La clase 'VerDocentes' es donde mostramos a los usuarios el nombre y la cedula todos los docentes que se encuentren en 'Archivo'.
  * 
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerDocentes.

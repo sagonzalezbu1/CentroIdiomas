@@ -1,6 +1,6 @@
 package uiMain;
 
-import gestorAplicacion.Centro.Archivo;
+import BaseDatos.Archivo;
 /* La clase 'VerTodosLosEstudiantes' es donde mostramos a los usuarios el nombre y la cedula todos los estudiantes que se encuentren en 'Archivo'.
  * 
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerTodosLosEstudiantes.

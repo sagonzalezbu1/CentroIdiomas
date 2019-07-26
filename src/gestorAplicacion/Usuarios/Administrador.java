@@ -1,6 +1,6 @@
 package gestorAplicacion.Usuarios;
 
-import gestorAplicacion.Centro.Archivo;
+import BaseDatos.Archivo;
 import uiMain.*;
 
 /*Esta clase permite la existencia de un Administrador para realizar las tareas "por encima" del programa, 

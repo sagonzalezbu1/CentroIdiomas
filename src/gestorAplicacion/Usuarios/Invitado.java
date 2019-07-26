@@ -1,5 +1,6 @@
 package gestorAplicacion.Usuarios;
 
+import BaseDatos.Archivo;
 import gestorAplicacion.Centro.*;
 import uiMain.*;
 

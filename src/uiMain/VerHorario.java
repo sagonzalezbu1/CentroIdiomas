@@ -4,6 +4,8 @@ import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 import java.util.*;
 
+import BaseDatos.Archivo;
+
 /* La clase 'VerHorario' es donde mostramos el horario que tiene hasta en el momento un estudiante o un docente, si quien lo realiza es de instancia 
  * diferente la instancia 'Estudiante' o 'Docente'. Por el contrario se mostraran wl horario con el que cuenta.
  * 

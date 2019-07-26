@@ -1,6 +1,8 @@
 package uiMain;
 
 import java.util.*;
+
+import BaseDatos.Archivo;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 /* La clase 'VerEstudiantesCurso' es donde mostramos a los usuarios el nombre y la cedula todos los estudiantes registrados el curso que ha elegido para ver

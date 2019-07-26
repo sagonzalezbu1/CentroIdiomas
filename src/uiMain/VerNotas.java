@@ -3,6 +3,8 @@ package uiMain;
 import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 import java.util.*;
+
+import BaseDatos.Archivo;
 /* La clase 'VerNotas' es donde mostramos las notas que tiene hasta el momento y el acumulado de las mismas de un estudiante, si quien lo realiza es de instancia 
  * diferente de la instancia 'Estudiante'. Por el contrario se mostraran las notas que tiene el estudiante y el acumulado de las mismas.
  * 
