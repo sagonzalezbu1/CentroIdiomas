@@ -16,15 +16,17 @@ public class UserMenu extends OpcionDeMenu {
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese el ID de la persona a la cual quiere verle las funcionalidades: ");
-		long aux = entry.nextInt();
-		Usuario u = Archivo.buscarUsuario(aux);
-		String texto = ((Administrador) Main.user).userSystemMenu(aux);
-		if(u!=null) {
-			System.out.println("\nLas opciones de menu de "+u.getNombre()+" cuya cedula es "+aux+" son: \n");
+		long IDuser = entry.nextInt();
+		Usuario usuario = Archivo.buscarUsuario(IDuser);
+		String texto = ((Administrador) Main.user).userSystemMenu(IDuser);
+		
+		if(usuario!=null) {
+			System.out.println("\nLas opciones de menu de "+usuario.getNombre()+" cuya cedula es "+IDuser+" son: \n");
 			System.out.println(texto);
 		}else {
 			System.out.println(texto);
 		}
+		
 	}
 
 	/*Método toString.

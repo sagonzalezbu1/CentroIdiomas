@@ -1,10 +1,8 @@
 package gestorAplicacion.Usuarios;
 
-import java.util.*;
 
 import BaseDatos.Archivo;
 import uiMain.*;
-import gestorAplicacion.Centro.*;
 
 /*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)
  * de las labores administrativas del centro de idiomas*/

@@ -3,7 +3,6 @@ package uiMain;
 import java.util.*;
 
 import BaseDatos.Archivo;
-import gestorAplicacion.Centro.*;
 import gestorAplicacion.Usuarios.*;
 
 /*Esta clase es usada por el Administrador para agregar funcionalidades a 
@@ -20,35 +19,41 @@ public class AddFuncionalidad extends OpcionDeMenu {
 		Scanner e = new Scanner(System.in);
 		System.out.println("Ingrese la cedula del usuario al que desea agregar una funcionalidad: ");
 		int cc = e.nextInt();
-		Usuario y = null;
-		for (Usuario x : Archivo.getEstudiantes()) {
-			if (x.getCedula() == cc) {
-				y = x;
+		Usuario user = null;
+		
+		for (Usuario usuario : Archivo.getEstudiantes()) {
+			if (usuario.getCedula() == cc) {
+				user = usuario;
 			}
 		}
-		for (Usuario x : Archivo.getDocentes()) {
-			if (x.getCedula() == cc) {
-				y = x;
+		
+		for (Usuario usuario : Archivo.getDocentes()) {
+			if (usuario.getCedula() == cc) {
+				user = usuario;
 			}
 		}
-		for (Usuario x : Archivo.getAdministrativos()) {
-			if (x.getCedula() == cc) {
-				y = x;
+		
+		for (Usuario usuario : Archivo.getAdministrativos()) {
+			if (usuario.getCedula() == cc) {
+				user = usuario;
 			}
 		}
-		if (y != null ) {
+		
+		if (user != null ) {
 			System.out.println(Archivo.getAdministrador().SystemMenu());
 			System.out.println("Ingrese la funcionalidad que quiere agregar: ");
 			String option = e.next();
-			ArrayList<OpcionDeMenu> menu= y.getMenu().getList();
-			for(OpcionDeMenu op: menu) {
-				if(op.getNombre().equals(option)) {
+			ArrayList<OpcionDeMenu> menu= user.getMenu().getList();
+			
+			for(OpcionDeMenu opcion: menu) {
+				if(opcion.getNombre().equals(option)) {
 					System.out.println("\nLa opcion de menu ya esta disponible para ese usuario.\n");
 					return;
 				}
 			}
+			
 			if(Main.funcionalidades.get(option)!=null) {
-				y.getMenu().anadirOpcion(Main.funcionalidades.get(option));
+				user.getMenu().anadirOpcion(Main.funcionalidades.get(option));
 				System.out.println("\nSe ha añadido la opcion satisfactoriamente.\n");
 			}
 			else {

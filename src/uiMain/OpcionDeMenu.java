@@ -1,8 +1,5 @@
 package uiMain;
 
-import java.util.Scanner;
-import gestorAplicacion.Usuarios.*;
-
 /*Clase abstracta de la que derivan todas las opciones de menú del sistema.
  * No hay instancias directas de ella sino de sus subclases, es decir, 
  * de cada opción de menú*/
@@ -17,5 +14,7 @@ public abstract class OpcionDeMenu {
 	
 	//Métodos a implementar por todas las subclases, es decir, por todas las opciones de menú
 	public abstract void ejecutar();
+	
 	public abstract String toString();
+	
 }

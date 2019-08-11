@@ -87,9 +87,11 @@ public class Estudiante extends Usuario implements Horario {
 	public float getDefinitiva(String name) {
 		ArrayList<Float> prom = misNotas.get(name);
 		float def = 0;
-		for (Float x : prom) {
-			def += x;
+		
+		for (Float nota : prom) {
+			def += nota;
 		}
+		
 		if (prom.size() == 0) {
 			return 0;
 		} else {
@@ -125,9 +127,11 @@ public class Estudiante extends Usuario implements Horario {
 	public String verNotas(String nombreM) {
 		ArrayList<Float> prom = misNotas.get(nombreM);
 		String list = " ";
-		for (Float x : prom) {
-			list += x + "  ";
+		
+		for (Float nota : prom) {
+			list += nota + "  ";
 		}
+		
 		list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
 		return list;
 	}
@@ -137,10 +141,12 @@ public class Estudiante extends Usuario implements Horario {
 	 * No recibe parámetros*/
 	public String miHorario() {
 		String aux = "";
-		for (Curso x : misCursos) {
-			aux += x + "\n";
+		
+		for (Curso curso : misCursos) {
+			aux += curso + "\n";
 			aux += "\n";
 		}
+		
 		if (aux.equals("")) {
 			return "\nNo tiene cursos inscritos.";
 		} else {
@@ -152,14 +158,16 @@ public class Estudiante extends Usuario implements Horario {
 	* lo elimina de la lista del estudiante y del HashMap de notas.
 	* Recibe como parámetro un String del nombre del curso*/
 	public void removeCurso(String nombreCurso) {
-		Curso y = null;
-		for (Curso x : misCursos) {
-			if (x.getNombreCurso().equals(nombreCurso)) {
-				y=x;
+		Curso curso = null;
+		
+		for (Curso micurso : misCursos) {
+			if (micurso.getNombreCurso().equals(nombreCurso)) {
+				curso=micurso;
 				break;
 			}
 		}
-		misCursos.remove(y);
+		
+		misCursos.remove(curso);
 		misNotas.remove(nombreCurso);
 	}
 
@@ -167,12 +175,14 @@ public class Estudiante extends Usuario implements Horario {
 	 * una solicitud, eliminándola de la lista de solicitudes del estudiante.
 	 * Recibe como parámetro un String con el tipo de la solicitud*/
 	public void removeSolicitud(String tipo) {
-		for (Solicitud s : misSolicitudes) {
-			if ((s.getTipo()).equals(tipo)) {
-				misSolicitudes.remove(s);
+		
+		for (Solicitud solicitud : misSolicitudes) {
+			if ((solicitud.getTipo()).equals(tipo)) {
+				misSolicitudes.remove(solicitud);
 				return;
 			}
 		}
+		
 	}
 	
 	//Sobrecarga del método setEstado
@@ -224,8 +234,8 @@ public class Estudiante extends Usuario implements Horario {
 	* No recibe parámetros*/
 	public String verCertificados() {
 		String aux = "";
-		for (Certificado x : misCertificados) {
-			aux += x + "\n";
+		for (Certificado certificado : misCertificados) {
+			aux += certificado + "\n";
 		}
 		return aux;
 
@@ -236,9 +246,11 @@ public class Estudiante extends Usuario implements Horario {
 	* No recibe parámetros*/
 	public String verSolicitudes() {
 		String aux = "";
-		for (Solicitud x : misSolicitudes) {
-			aux += x + ",";
+		
+		for (Solicitud solicitud : misSolicitudes) {
+			aux += solicitud + ",";
 		}
+		
 		if (!aux.equals("")) {
 			aux = aux.substring(0, aux.length() - 1);
 		}

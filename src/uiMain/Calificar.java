@@ -23,40 +23,50 @@ public class Calificar extends OpcionDeMenu {
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Introduzca el nombre del grupo al que desea calificar: ");
-		String aux = entry.next();
-		boolean bool = false;
+		String cursocalificar = entry.next();
+		boolean existenciacurso = false;
 
-		for (Curso x : Archivo.getCursos()) {
-			if (x.getNombreCurso().equals(aux)) {
-				bool = true;
+		for (Curso curso : Archivo.getCursos()) {
+			
+			if (curso.getNombreCurso().equals(cursocalificar)) {
+				existenciacurso = true;
 				System.out.println("Introduzca la cedula del docente que da el curso: ");
-				long aux4 = entry.nextLong();
-				if (aux4 == x.getDocente().getCedula()) {
-					if (x.getEstudiantes().size() == 0) {
+				long ccdocente = entry.nextLong();
+				if (ccdocente == curso.getDocente().getCedula()) {
+					
+					if (curso.getEstudiantes().size() == 0) {
 						System.out.println("\nEste curso no tiene estudiantes inscritos.\n");
-					} else {
-
-						for (Estudiante y : x.getEstudiantes()) {
-							long aux2 = y.getCedula();
-							System.out.println("Ingrese la nota del estudiante con ID " + aux2
-									+ " (si la nota es un float escribirla con coma): ");
-							float aux3 = entry.nextFloat();
-							while(aux3<0 || aux3>5) {
+					} 
+					else {
+						
+						for (Estudiante estudiante : curso.getEstudiantes()) {
+							long id = estudiante.getCedula();
+							System.out.println("Ingrese la nota del estudiante con ID " + id + " (si la nota es un float escribirla con coma): ");
+							float calificacion = entry.nextFloat();
+							
+							while(calificacion<0 || calificacion>5) {
 								System.out.println("Ingrese una nota valida: ");
-								aux3 = entry.nextFloat();
+								calificacion = entry.nextFloat();
 							}
+							
 							System.out.println("");
-							y.calificar(aux, aux3);
+							estudiante.calificar(cursocalificar, calificacion);
 						}
+						
 						System.out.println("Ya no quedan estudiantes por calificar.\n");
+						
 					}
+					
 				} else {
 					System.out.println("\nLa cedula del docente no es correcta.\n");
 				}
+				
 			}
+			
 		}
-		if (bool == false) {
-			System.out.println("\nEl curso '" + aux + "' no existe.\n");
+		
+		if (existenciacurso == false) {
+			System.out.println("\nEl curso '" + cursocalificar + "' no existe.\n");
 		}
 	}
 

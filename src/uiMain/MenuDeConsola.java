@@ -12,8 +12,7 @@ public class MenuDeConsola {
 	}
 
 	//Submenú de la funcionalidad Registrar
-	public MenuDeConsola(RegistrarEstudiante RegistrarEstudiante, RegistrarDocente RegistrarDocente,
-			RegistrarAdministrativo RegistrarAdministrativo) {
+	public MenuDeConsola(RegistrarEstudiante RegistrarEstudiante, RegistrarDocente RegistrarDocente,RegistrarAdministrativo RegistrarAdministrativo) {
 		Menu.add(RegistrarEstudiante);
 		Menu.add(RegistrarDocente);
 		Menu.add(RegistrarAdministrativo);
@@ -25,35 +24,40 @@ public class MenuDeConsola {
 	public void anadirOpcion(OpcionDeMenu option) {
 		Menu.add(option);
 	}
+	
 	/*Método para que el administrador elimine opciones a los usuarios.
 	 * Recibe como parámetro un entero equivalente al número de la opción a eliminar.
 	 * No retorna nada*/
-	public void eliminarOpcion(int i) {
-		Menu.remove(i);
+	public void eliminarOpcion(int opcion) {
+		Menu.remove(opcion);
 	}
 
 	/*Ejecución de los menús, verificando que las opciones ingresadas sean las correctas.
 	 * No recibe parámetros y no retorna nada*/
 	public void lanzarMenu() {
 		int cont = 0;
-		for (OpcionDeMenu x : Menu) {
-			System.out.println(cont + ". " + x);
+		
+		for (OpcionDeMenu opcion : Menu) {
+			System.out.println(cont + ". " + opcion);
 			cont++;
 		}
+		
 		System.out.println("\nIngrese el número de la opción que desea ejecutar: ");
 		String op = entry.next();
+		
 		try {
 			ejecutarOpcion(Integer.parseInt(op));
 		} catch (Exception ex) {
 			System.out.println("\nHubo error en la escritura.\n");
 		}
+		
 	}
 
 	/*Ejecución de la opción elegida por el usuario.
 	 * Recibe como parámetro un entero equivalente a la opción elegida.
 	 * No retorna nada*/
-	private void ejecutarOpcion(int op) {
-		Menu.get(op).ejecutar();
+	private void ejecutarOpcion(int opcion) {
+		Menu.get(opcion).ejecutar();
 	}
 
 	/*Retorna la lista con el menú del usuario

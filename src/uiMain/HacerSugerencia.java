@@ -11,6 +11,7 @@ import gestorAplicacion.Usuarios.*;
  * les asignan sus respectivos atributos.*/
 public class HacerSugerencia extends OpcionDeMenu {
 	private String nombre = "HacerSugerencia";
+	
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/
 	public String getNombre(){
@@ -19,10 +20,10 @@ public class HacerSugerencia extends OpcionDeMenu {
 	
 	/*Se crea una sugerencia con sus respectivos atributos y datos*/
 	public void ejecutar(){
-		Scanner e = new Scanner(System.in);
+		Scanner entry = new Scanner(System.in);
 		System.out.println("Escriba su sugerencia (en una sola linea): ");
-		String s = e.nextLine();
-		new Sugerencia(Main.user ,s);
+		String sugerencia = entry.nextLine();
+		new Sugerencia(Main.user ,sugerencia);
 		System.out.println("");
 		System.out.println("Su sugerencia fue enviada con exito.");
 		System.out.println("");

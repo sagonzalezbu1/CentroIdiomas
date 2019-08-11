@@ -17,44 +17,51 @@ public class RemoveFuncionalidad extends OpcionDeMenu {
 	 * que el usuario exista y que la funcionalidad exista.
 	 * No recibe parámetros y no retorna nada*/
 	public void ejecutar() {
-		Scanner e = new Scanner(System.in);
+		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese la cedula del usuario al que desea eliminar una opcion: ");
-		int cc = e.nextInt();
-		Usuario y = null;
-		for (Usuario x : Archivo.getEstudiantes()) {
-			if (x.getCedula() == cc) {
-				y = x;
+		int cc = entry.nextInt();
+		Usuario user = null;
+		
+		for (Usuario usuario : Archivo.getEstudiantes()) {
+			if (usuario.getCedula() == cc) {
+				user = usuario;
 			}
 		}
-		for (Usuario x : Archivo.getDocentes()) {
-			if (x.getCedula() == cc) {
-				y = x;
+		
+		for (Usuario usuario : Archivo.getDocentes()) {
+			if (usuario.getCedula() == cc) {
+				user = usuario;
 			}
 		}
-		for (Usuario x : Archivo.getAdministrativos()) {
-			if (x.getCedula() == cc) {
-				y = x;
+		
+		for (Usuario usuario : Archivo.getAdministrativos()) {
+			if (usuario.getCedula() == cc) {
+				user = usuario;
 			}
 		}
-		if (y != null) {
-			MenuDeConsola menu = y.getMenu();
+		
+		if (user != null) {
+			MenuDeConsola menu = user.getMenu();
 			int cont = 0;
-			for (OpcionDeMenu x : menu.getList()) {
-				if (!x.getNombre().equals("CerrarSesion")) {
-					System.out.println("-" + x.getNombre());
+			
+			for (OpcionDeMenu opcion : menu.getList()) {
+				if (!opcion.getNombre().equals("CerrarSesion")) {
+					System.out.println("-" + opcion.getNombre());
 				}
-
 			}
+			
 			System.out.println("Ingrese el nombre de la opción que desea eliminar del menú: ");
-			String i = e.next();
-			for(OpcionDeMenu x : menu.getList()) {
-				if(x.getNombre().equals(i) && !x.getNombre().equals("CerrarSesion")) {
+			String opcioneliminar = entry.next();
+			
+			for(OpcionDeMenu opcion : menu.getList()) {
+				if(opcion.getNombre().equals(opcioneliminar) && !opcion.getNombre().equals("CerrarSesion")) {
 					menu.eliminarOpcion(cont);
 					System.out.println("\nLa opcion de menu fue eliminada con exito.\n");
 					return;
 				}
 				cont++;
 			}
+			
 			System.out.println("\nOpcion invalida.\n");
 
 		} else {

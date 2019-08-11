@@ -17,35 +17,40 @@ public class CrearCurso extends OpcionDeMenu {
 	/*Se hacen verificaciones antes de crear el curso, tales como que éste no exista ya, 
 	 * que la información ingresada sea correcta, entre otras cosas, para luego crearlo*/
 	public void ejecutar() {
-		Scanner e = new Scanner(System.in);
+		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso: ");
-		String nombre = e.next();
+		String nombre = entry.next();
 		System.out.println("Ingrese el horario del curso (dia1-dia2_horainicio-horafinal): ");
-		String horario = e.next();
+		String horario = entry.next();
 		System.out.println("Ingrese la cedula del docente que dará el curso: ");
-		long cc = e.nextLong();
+		long cc = entry.nextLong();
 		Docente docente=null;
-		boolean b = false;
-		for(Docente x : Archivo.getDocentes()) {
-			if(cc==x.getCedula()) {
-				b=true;
-				docente=x;
+		boolean existenciadocente = false;
+		
+		for(Docente doc : Archivo.getDocentes()) {
+			if(cc==doc.getCedula()) {
+				existenciadocente=true;
+				docente=doc;
 			}
 		}
-		if(b==true) {
+		
+		if(existenciadocente==true) {
 			System.out.println("Ingrese el tipo del curso(ingles, aleman, mandarin,...): "); 
-			String tipo = e.next(); 
-			Curso busqueda= Archivo.buscarCurso(nombre);
-			if(busqueda==null) {
+			String tipo = entry.next(); 
+			Curso existenciacurso= Archivo.buscarCurso(nombre);
+			
+			if(existenciacurso==null) {
 				new Curso(nombre,tipo,horario,docente);
 				System.out.println("\nSe ha creado el curso.\n");
 			} else {
 				System.out.println("\nYa existe un curso con ese nombre.\n");
 			}
+			
 		}
 		else {
 			System.out.println("\nEl docente no existe.\n");
 		}
+		
 	}
 
 	/*Método toString.

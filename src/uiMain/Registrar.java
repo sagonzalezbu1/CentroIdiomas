@@ -4,18 +4,18 @@ package uiMain;
  * Estudiante o Docente.*/
 public class Registrar extends OpcionDeMenu {
 	private String nombre="Registrar";
+	//Se crea un submenú para saber qué tipo de usuario se registrará
+	MenuDeConsola menu = new MenuDeConsola(new RegistrarEstudiante(),new RegistrarDocente(),new RegistrarAdministrativo());
+	
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/
 	public String getNombre() {
 		return nombre;
 	}
-	
-	//Se crea un submenú para saber qué tipo de usuario se registrará
-	MenuDeConsola m = new MenuDeConsola(new RegistrarEstudiante(),new RegistrarDocente(),new RegistrarAdministrativo());
-	
+
 	//Se ejecuta el submenú
 	public void ejecutar() {
-		m.lanzarMenu();
+		menu.lanzarMenu();
 	}
 	
 	/*Método toString.
@@ -24,4 +24,5 @@ public class Registrar extends OpcionDeMenu {
 	public String toString() {
 		return "Registrar";
 	}
+	
 }

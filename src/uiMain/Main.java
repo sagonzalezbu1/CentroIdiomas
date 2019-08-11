@@ -49,10 +49,10 @@ public class Main {
 
 		/*Ejecución del menú de (inicialmente) Invitado y luego de 
 		diferentes usuarios a lo largo del programa*/
+		
 		while (true) {
-
 			user.getMenu().lanzarMenu();
-
 		}
+		
 	}
 }

@@ -21,20 +21,22 @@ public class FinalizeCurso extends OpcionDeMenu {
 	 * luego se busca el curso, si se encuentra se cierra el período de 
 	 * calificaciones de este*/
 	public void ejecutar() {
-		Scanner e = new Scanner(System.in);
+		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso que desea finalizar: ");
-		String nombre = e.next();
-		Curso curso = null;
-		for (Curso x : Archivo.getCursos()) {
-			if (x.getNombreCurso().equals(nombre)) {
-				curso = x;
+		String nombre = entry.next();
+		Curso cursofinalizar = null;
+		
+		for (Curso curso : Archivo.getCursos()) {
+			if (curso.getNombreCurso().equals(nombre)) {
+				cursofinalizar = curso;
 				break;
 			}
 		}
-		if (curso == null) {
+		
+		if (cursofinalizar == null) {
 			System.out.println("\nNo se encontró el curso\n");
 		} else {
-			curso.finalizeCurso();
+			cursofinalizar.finalizeCurso();
 			System.out.println("\nEl curso ha sido finalizado.\n");
 		}
 	}

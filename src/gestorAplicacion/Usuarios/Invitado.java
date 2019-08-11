@@ -34,23 +34,23 @@ public class Invitado extends Usuario {
 			System.out.println("\nSe ha iniciado sesión.\n");
 			return;
 		}
-		for (Usuario x : Archivo.getEstudiantes()) {
-			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
-				Main.user = x;
+		for (Usuario usuario : Archivo.getEstudiantes()) {
+			if (usuario.getCedula() == user && (usuario.getContrasena()).equals(key)) {
+				Main.user = usuario;
 				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
 		}
-		for (Usuario x : Archivo.getDocentes()) {
-			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
-				Main.user = x;
+		for (Usuario usuario : Archivo.getDocentes()) {
+			if (usuario.getCedula() == user && (usuario.getContrasena()).equals(key)) {
+				Main.user = usuario;
 				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
 		}
-		for (Usuario x : Archivo.getAdministrativos()) {
-			if (x.getCedula() == user && (x.getContrasena()).equals(key)) {
-				Main.user = x;
+		for (Usuario usuario : Archivo.getAdministrativos()) {
+			if (usuario.getCedula() == user && (usuario.getContrasena()).equals(key)) {
+				Main.user = usuario;
 				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}

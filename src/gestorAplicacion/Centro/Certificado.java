@@ -25,14 +25,17 @@ public class Certificado {
 	public String getNombre() {
 		return nombre;
 	}
+	
 	//Metodo que retorna el estudiante que aprobo el curso al cual corrresponde el certificado. No recibe ningun parametro
 	public Estudiante getAlumno() {
 		return alumno;
 	}
+	
 	//Metodo que retorna el docente que dicataba el curso en el momento en el que el estudiante lo aprobo. No recibe ningun parametro
 	public Docente getDocente() {
 		return docente;
 	}
+	
 	//Metodo que retorna un Float, correspondiente a la nota con la que el estudiante aprobo el curso. No recibe ningun parametro
 	public float getNota() {
 		return nota;

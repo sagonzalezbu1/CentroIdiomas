@@ -10,12 +10,14 @@ public class CerrarSesion extends OpcionDeMenu {
 	public String getNombre() {
 		return nombre;
 	}
+	
 	/*Se "convierte" al usuario registrado en un Invitado, ejecutando 
 	 * el menú de este, creando el "efecto" de cerrar sesión*/
 	public void ejecutar() {
 		System.out.println("\nSe ha cerrado la sesión.\n");
 		Main.user = new Invitado();
 	}
+	
 	/*Método toString.
 	 * Retorna un String correspondiente al nombre de la funcionalidad, 
 	 * que se mostrará por pantalla en el menú*/

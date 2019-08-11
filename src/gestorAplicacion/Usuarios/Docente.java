@@ -55,8 +55,8 @@ public class Docente extends Usuario implements Horario {
 	 * buscándolos en la lista de cada uno. No recibe parámetros*/
 	public String miHorario() {
 		String aux = "";
-		for (Curso x : misCursos) {
-			aux += "\nNombre: " + x.getNombreCurso() + "\n" + "Horario: " + x.getHorarioCurso();
+		for (Curso curso : misCursos) {
+			aux += "\nNombre: " + curso.getNombreCurso() + "\n" + "Horario: " + curso.getHorarioCurso();
 			aux +="\n";
 		}
 		if (aux.equals("")) {
@@ -70,13 +70,14 @@ public class Docente extends Usuario implements Horario {
 	 * No recibe parámetros y no retorna nada*/
 	public void removeCurso(String nombreCurso) {
 		Curso y = null;
-		for (Curso x : misCursos) {
-			if (x.getNombreCurso().equals(nombreCurso)) {
-				y = x;
+		for (Curso curso : misCursos) {
+			if (curso.getNombreCurso().equals(nombreCurso)) {
+				y = curso;
 			}
 		}
 		misCursos.remove(y);
 	}
+	
 	/*Retorna la información del docente de manera correcta, mostrando su nombre y cédula.
 	 * No recibe parámetros*/
 	public String toString() {

@@ -1,9 +1,9 @@
 package gestorAplicacion.Centro;
 
 import java.util.*;
-
 import BaseDatos.Archivo;
 import gestorAplicacion.Usuarios.*;
+
 /*Esta clase permite crear objetos de tipo curso. Los cursos pueden ser de cualquier idioma y tienen un maximo de 10 cupos por curso. Son parte importante
   del centro de idiomas pues contienen a los estudiantes, y si aprueban o no el curso es lo que les otorga a los estudiantes el certificado del idioma */
 public class Curso {
@@ -29,17 +29,20 @@ public class Curso {
 	  y les otorga un certificado. Tambien actualiza el estado del estudiante segun como se encuentre al finalizar el curso (Activo,Inactivo, Egresado)
 	  y luego borra todos los apuntadores que tiene el curso para asi borrarlo definitivamente. No retorna nada, ni recibe ningun parametro*/
 	public void finalizeCurso() {
+		
 		while (alumnos.size() > 0) {
-			Estudiante x = alumnos.get(0);
+			Estudiante estudiante = alumnos.get(0);
 			alumnos.remove(0);
-			float nota = x.getDefinitiva(nombre);
-			if (nota >= 3) {
-				x.setEstado(nombre, 1);
-				x.addCertificado(new Certificado(tipo, x, docente, nota));
-			}
-			x.removeCurso(nombre);
+			float nota = estudiante.getDefinitiva(nombre);
 			
+			if (nota >= 3) {
+				estudiante.setEstado(nombre, 1);
+				estudiante.addCertificado(new Certificado(tipo, estudiante, docente, nota));
+			}
+			
+			estudiante.removeCurso(nombre);
 		}
+		
 		docente.removeCurso(nombre);
 		Archivo.removeCurso(nombre);
 	}
@@ -83,17 +86,17 @@ public class Curso {
 	  lista de cursos del estudiante. Retorna un boolean, cuando es true significa que el estudiante fue matriculado satisfactoriamente, si retorna false
 	  es que no se pudo matricular al estudiante por falta de cupos. Recibe como parametro el estudiante al que se desea matricular en el curso.
 	 */
-	public boolean matricular(Estudiante e) {
+	public boolean matricular(Estudiante estudiante) {
+		
 		if (cupos - alumnos.size() > 0) {
-			alumnos.add(e);
-			e.addCurso(this);
-			e.setEstado(0);
-
+			alumnos.add(estudiante);
+			estudiante.addCurso(this);
+			estudiante.setEstado(0);
 			return true;
 		} else {
 			return false;
-
 		}
+		
 	}
 
 	/*Metodo toString. Retorna un String que contiene el nombre del curso, el horario, el nombre del profesor que dicta el curso y los cupos disponibles.
@@ -107,11 +110,12 @@ public class Curso {
 	  estudiantes que se encuentran matriculados. No recibe ningun parametro*/
 	public String verEstudiantes() {
 		String ver = "";
-		for (Estudiante x : alumnos) {
-			ver += x.toString() + "\n";
+		for (Estudiante estudiante : alumnos) {
+			ver += estudiante.toString() + "\n";
 		}
 		return ver;
 	}
+	
 	/*Metodo que se ejecuta cuando java ejecuta el garbage collections. Indica que el curso ha sido borrado satisfactoriamente. No recibe ningun parametro
 	  ni retorna nada*/
 	public void finalize() {

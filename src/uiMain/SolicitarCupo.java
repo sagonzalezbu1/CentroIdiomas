@@ -9,8 +9,10 @@ import BaseDatos.Archivo;
 /*Esta clase es usada por Estudiante para solicitar cupo a cursos que estén llenos.
  * 
  * En esta clase se ejecuta el método solicitar localizado en la clase Estudiante.*/
+
 public class SolicitarCupo extends OpcionDeMenu {
 	private String nombre = "SolicitarCupo";
+
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/
 	public String getNombre() {
@@ -26,27 +28,31 @@ public class SolicitarCupo extends OpcionDeMenu {
 		//Se pregunta qué tipo de usuario hace la solicitud
 		if (Main.user instanceof Estudiante) {
 			System.out.println("Ingrese el tipo de la materia a la cual va a solicitar el cupo: ");
-			String aux = entry.next();
-			for(Curso x:((Estudiante)Main.user).getCurso()) {
-				if(x.getTipo().equals(aux)) {
+			String tipo = entry.next();
+			
+			for(Curso curso:((Estudiante)Main.user).getCurso()) {
+				if(curso.getTipo().equals(tipo)) {
 					System.out.println("Usted esta viendo un curso de este tipo, no puede solicitar.\n");
 					return;
 				}
 			}
-			for(Solicitud x: ((Estudiante)Main.user).getSolicitudes()) {
-				if(x.getTipo().equals(aux)) {
+			
+			for(Solicitud solicitud: ((Estudiante)Main.user).getSolicitudes()) {
+				if(solicitud.getTipo().equals(tipo)) {
 					System.out.println("Usted ya hizo una solicitud para este tipo, no puede solicitar.\n");
 					return;
 				}
 			}
-			for(Certificado x: ((Estudiante)Main.user).getCertificados()) {
-				if(x.getNombre().equals(aux)) {
+			
+			for(Certificado certificado: ((Estudiante)Main.user).getCertificados()) {
+				if(certificado.getNombre().equals(tipo)) {
 					System.out.println("Usted ya aprobo una materia para este tipo, no puede solicitar.\n");
 					return;
 				}
 			}
-			if (Archivo.cursoDisponibilidad(aux) == null) {
-				((Estudiante) Main.user).solicitar(aux);
+			
+			if (Archivo.cursoDisponibilidad(tipo) == null) {
+				((Estudiante) Main.user).solicitar(tipo);
 				System.out.println("\nSu solicitud ha sido exitosa.\n");
 				return;
 			} else {
@@ -55,40 +61,48 @@ public class SolicitarCupo extends OpcionDeMenu {
 
 		} else {
 			System.out.println("Ingrese el ID del estudiante al que va a solicitarle cupo: ");
-			long aux1 = entry.nextLong();
-			Estudiante x= Archivo.buscarEstudiante(aux1);
-			if (x != null) {
+			long idestu = entry.nextLong();
+			Estudiante estudiante= Archivo.buscarEstudiante(idestu);
+			
+			if (estudiante != null) {
 				System.out.println("Ingrese el tipo de la materia a la cual va a solicitar el cupo: ");
-				String aux = entry.next();
-				for(Curso y: x.getCurso()) {
-					if(y.getTipo().equals(aux)) {
+				String tipo = entry.next();
+				
+				for(Curso y: estudiante.getCurso()) {
+					if(y.getTipo().equals(tipo)) {
 						System.out.println("Usted esta viendo un curso de este tipo, no puede solicitar.\n");
 						return;
 					}
 				}
-				for(Solicitud y: x.getSolicitudes()) {
-					if(y.getTipo().equals(aux)) {
+				
+				for(Solicitud y: estudiante.getSolicitudes()) {
+					if(y.getTipo().equals(tipo)) {
 						System.out.println("Usted ya hizo una solicitud para este tipo, no puede solicitar.\n");
 						return;
 					}
 				}
-				for(Certificado y: x.getCertificados()) {
-					if(y.getNombre().equals(aux)) {
+				
+				for(Certificado y: estudiante.getCertificados()) {
+					if(y.getNombre().equals(tipo)) {
 						System.out.println("Usted ya aprobo una materia para este tipo, no puede solicitar.\n");
 						return;
 					}
 				}
-				if (Archivo.cursoDisponibilidad(aux) == null) {
-					x.solicitar(aux);
+				
+				if (Archivo.cursoDisponibilidad(tipo) == null) {
+					estudiante.solicitar(tipo);
 					System.out.println("Su solicitud ha sido exitosa.\n");
 					return;
 				} else {
 					System.out.println("Hay cupos disponibles, no puede solicitar.\n");
 				}
+				
 			}else {
 				System.out.println("Estudiante no encontrado.\n");
 			}
+			
 		}
+		
 	}
 
 	/*Método toString.

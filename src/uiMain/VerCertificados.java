@@ -11,11 +11,12 @@ import gestorAplicacion.Usuarios.*;
  */
 public class VerCertificados extends OpcionDeMenu{
 	private String nombre="VerCertificados";
-	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro. 
-	 */
+	
+	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro.*/
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		//Verifica qué tipo de usuario verá los certificados
@@ -32,11 +33,12 @@ public class VerCertificados extends OpcionDeMenu{
 		else {
 			System.out.println("Introduzca el ID del estudiante del que quiere ver los certificados");
 			long ID = entry.nextLong();
-			Estudiante e = Archivo.buscarEstudiante(ID);
-			if(e==null) {
+			Estudiante estudiante = Archivo.buscarEstudiante(ID);
+			
+			if(estudiante==null) {
 				System.out.println("\nEste estudiante no esta registrado.\n");
 			}else {
-				String aux = e.verCertificados();
+				String aux = estudiante.verCertificados();
 				if(aux.equals("")){
 					System.out.println("\nEste estudiante no tiene certificados.\n");
 				}else {
@@ -46,8 +48,8 @@ public class VerCertificados extends OpcionDeMenu{
 			
 		}	
 	}
-	/* Sobreescribimos el metodo de 'Object''toString'
-	 * */
+	
+	/* Sobreescribimos el metodo de 'Object''toString'.*/
 	public String toString() {
 		return "Ver Certificados";
 	}

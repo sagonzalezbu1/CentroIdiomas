@@ -41,8 +41,8 @@ public class Administrador extends Usuario {
 	//Muestra el menu del sistema, es decir, todas las funcionalidades que tiene el programa
 	public String SystemMenu() {
 		String aux = "";
-		for (String x : Main.funcionalidades.keySet()) {
-			aux += ("- " + x + "\n");
+		for (String opcion : Main.funcionalidades.keySet()) {
+			aux += ("- " + opcion + "\n");
 		}
 		return aux;
 	}
@@ -51,26 +51,30 @@ public class Administrador extends Usuario {
 	 * el menu que tenga ese respectivo usuario, en el momento*/
 	public String userSystemMenu(long id) {
 		Usuario user = null;
-		for (Usuario x : Archivo.getEstudiantes()) {
-			if (x.getCedula() == id) {
-				user = x;
+		
+		for (Usuario usuario : Archivo.getEstudiantes()) {
+			if (usuario.getCedula() == id) {
+				user = usuario;
 			}
 		}
-		for (Usuario x : Archivo.getDocentes()) {
-			if (x.getCedula() == id) {
-				user = x;
+		
+		for (Usuario usuario : Archivo.getDocentes()) {
+			if (usuario.getCedula() == id) {
+				user = usuario;
 			}
 		}
-		for (Usuario x : Archivo.getAdministrativos()) {
-			if (x.getCedula() == id) {
-				user = x;
+		
+		for (Usuario usuario : Archivo.getAdministrativos()) {
+			if (usuario.getCedula() == id) {
+				user = usuario;
 			}
 		}
+		
 		if(user!=null) {
 			String aux = "";
 			int cont = 0;
-			for (OpcionDeMenu y : user.getMenu().getList()) {
-				aux += (cont + ". " + y + "\n");
+			for (OpcionDeMenu opcion : user.getMenu().getList()) {
+				aux += (cont + ". " + opcion + "\n");
 				cont++;
 			}
 			return aux;
