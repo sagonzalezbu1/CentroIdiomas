@@ -39,24 +39,21 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 				int opcion = entry.nextInt();
 				
 				if (opcion == 1) {
+					
 					if (course == null) {
 						System.out.println("\nSe creara un curso.");
 						(Main.funcionalidades.get("CrearCurso")).ejecutar();
 						course = Archivo.cursoDisponibilidad(tipo);
-						course.matricular(solicitud.getEstudiante());
-						Archivo.removeSolicitud(tipo, solicitud); 
-						(solicitud.getEstudiante()).removeSolicitud(tipo);
+						solicitud.aceptarSolicitud(course);
 						System.out.println("\nSe ha aceptado la solicitud exitosamente.\n");
 					} else {
-						course.matricular(solicitud.getEstudiante());
-						 Archivo.removeSolicitud(tipo, solicitud); 
-						 (solicitud.getEstudiante()).removeSolicitud(tipo);
+						solicitud.aceptarSolicitud(course);
 						System.out.println("\nSe ha aceptado la solicitud exitosamente.\n");
 					}
+					
 				}
 				else if (opcion == 2) {
-					Archivo.removeSolicitud(tipo, solicitud); 
-					(solicitud.getEstudiante()).removeSolicitud(tipo);
+					solicitud.rechazarSolicitud();
 					System.out.println("\nSe ha rechazado la solicitud exitosamente.\n");
 				}
 				
@@ -69,15 +66,14 @@ public class ResponderSolicitudes extends OpcionDeMenu {
 		} else {
 			System.out.println("No hay solicitudes de este tipo.\n");
 		}
-		} else {
+	} else {
 			System.out.println("\nNo hay solicitudes.\n");
 		}
 
 	}
 
 	/*Método toString.
-	 * Retorna un String correspondiente al nombre de la funcionalidad, 
-	 * que se mostrará por pantalla en el menú*/
+	 * Retorna un String correspondiente al nombre de la funcionalidad, que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Responder solicitudes";
 	}

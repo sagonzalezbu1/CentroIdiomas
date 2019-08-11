@@ -26,6 +26,17 @@ public class Solicitud {
 		
 	}
 	
+	public void aceptarSolicitud(Curso course) {
+		course.matricular(this.getEstudiante());
+		Archivo.removeSolicitud(tipo, this); 
+		(this.getEstudiante()).removeSolicitud(tipo);
+	}
+	
+	public void rechazarSolicitud() {
+		Archivo.removeSolicitud(tipo, this); 
+		(this.getEstudiante()).removeSolicitud(tipo);
+	}
+	
 	//Metodo que retorna al estudiante que hizo la solicitud. No recibe ningun parametro
 	public Estudiante getEstudiante() {
 		return estu;
