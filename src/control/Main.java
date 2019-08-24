@@ -9,28 +9,28 @@ import modelo.Usuarios.*;
  * funcionamiento*/
 public class Main {
 	//Se agregan las funcionalidades "principales" de los menús de los usuarios al HashMap general
-	public static HashMap<String, OpcionDeMenu> funcionalidades = new HashMap<String, OpcionDeMenu>() {
+	public static HashMap<String, String> funcionalidades = new HashMap<String,String>() {
 		{
-			put("Calificar", new Calificar());
-			put("CrearCurso", new CrearCurso());
-			put("VerCursos", new VerCursos());
-			put("FinalizeCurso", new FinalizeCurso());
-			put("Matricular", new Matricular());
-			put("Registrar", new Registrar());
-			put("ResponderSolicitudes", new ResponderSolicitudes());
-			put("SolicitarCupo", new SolicitarCupo());
-			put("VerAdministrativos", new VerAdministrativos());
-			put("VerCertificados", new VerCertificados());
-			put("VerDocentes", new VerDocentes());
-			put("VerTodosLosEstudiantes", new VerTodosLosEstudiantes());
-			put("VerHorario", new VerHorario());
-			put("VerSolicitudes", new VerSolicitudes());
-			put("VerNotas", new VerNotas());
-			put("CerrarSesion", new CerrarSesion());
-			put("VerEstudiantesCurso", new VerEstudiantesCurso());
-			put("HacerSugerencia", new HacerSugerencia());
-			put("VerSugerencias", new VerSugerencias());
-			put("PromedioCurso", new PromedioCurso());
+			put("Calificar", "Calificar");
+			put("CrearCurso", "CrearCurso");
+			put("VerCursos", "VerCursos");
+			put("FinalizeCurso", "FinalizeCurso");
+			put("Matricular","Matricular");
+			put("Registrar","Registrar");
+			put("ResponderSolicitudes","ResponderSolicitudes");
+			put("SolicitarCupo", "SolicitarCupo");
+			put("VerAdministrativos", "VerAdministrativos");
+			put("VerCertificados", "VerCertificados");
+			put("VerDocentes","VerDocentes");
+			put("VerTodosLosEstudiantes","VerTodosLosEstudiantes");
+			put("VerHorario", "VerHorario");
+			put("VerSolicitudes", "VerSolicitudes");
+			put("VerNotas", "VerNotas");
+			put("CerrarSesion", "CerrarSesion");
+			put("VerEstudiantesCurso","VerEstudiantesCurso");
+			put("HacerSugerencia", "HacerSugerencia");
+			put("VerSugerencias", "VerSugerencias");
+			put("PromedioCurso","PromedioCurso");
 		}
 	};
 	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa

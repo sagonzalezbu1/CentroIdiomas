@@ -1,5 +1,5 @@
 package modelo.Usuarios;
-
+import java.util.*;
 import control.*;
 
 /*Esta clase permite la recopilación de atributos y métodos comunes para sus clases hijas.
@@ -10,7 +10,7 @@ public abstract class Usuario {
 	private long cedula;
 	private String correo;
 	private String contrasena;
-	private MenuDeConsola menu = new MenuDeConsola();
+	private ArrayList<String> Procesos = new ArrayList<String>();
 
 	/*Constructor que inicializa los atributos con valores entregados por el usuario,
 	 * que son nombre, cédula, correo y contraseña*/
@@ -47,8 +47,12 @@ public abstract class Usuario {
 
 	/*Getter del menú, retorna un objeto de tipo MenuDeConsola correspondiente al menu del usuario.
 	* No recibe parámetros*/
-	public MenuDeConsola getMenu() {
+	/*public MenuDeConsola getMenu() {
 		return menu;
+	}*/
+	
+	public 	ArrayList<String> getProcesos(){
+		return Procesos;
 	}
 	
 	/*Setter del nombre, asigna el nombre al objeto.

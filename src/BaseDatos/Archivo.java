@@ -17,7 +17,7 @@ abstract public class Archivo {
 	static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
 	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 	static private HashMap<String, ArrayList<Solicitud>> solicitudes = new HashMap<String, ArrayList<Solicitud>>();
-	static private Administrador a1 = new Administrador("Jaime Guzman", 123, "admin@cdi.com", "123");
+	static private Administrador Admin = new Administrador("Jaime Guzman", 123, "admin@cdi.com", "123");
 	static private ArrayList<Sugerencia> listaSugerencias = new ArrayList<Sugerencia>();
 
     //El metodo add esta sobrecargado, el añadira a la lista correspondiente segun el tipo de dato que reciba
@@ -110,7 +110,7 @@ abstract public class Archivo {
 	
     //Metodo que retorna al administrador del sistema, no recibe nada como parametro
 	static public Administrador getAdministrador() {
-		return a1;
+		return Admin;
 	}
 	//Metodo que retorna la lista de administrativos, no recibe nada como parametro
 	static public ArrayList<Administrativo> getAdministrativos() {

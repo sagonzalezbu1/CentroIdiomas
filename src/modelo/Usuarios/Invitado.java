@@ -12,10 +12,10 @@ public class Invitado extends Usuario {
 	public Invitado(String name, long id, String email, String password) {
 		super(name, id, email, password);
 		//Se crea el menu de Invitado con las funcionalidades por defecto
-		getMenu().anadirOpcion(new Ingresar());
-		getMenu().anadirOpcion(Main.funcionalidades.get("Registrar"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
-		getMenu().anadirOpcion(new Salir());
+		getProcesos().add("Ingresar");
+		getProcesos().add(Main.funcionalidades.get("Registrar"));
+		getProcesos().add(Main.funcionalidades.get("VerCursos"));
+		getProcesos().add("Salir");
 	}
 
 	//Constructor por defecto de Invitado

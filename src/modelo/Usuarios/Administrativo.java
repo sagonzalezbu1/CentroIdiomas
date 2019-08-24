@@ -18,21 +18,21 @@ public class Administrativo extends Usuario {
 	public Administrativo(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		//Se crea el menu de Administrativo con las funcionalidades por defecto
-		getMenu().anadirOpcion(Main.funcionalidades.get("CrearCurso"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("FinalizeCurso"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("ResponderSolicitudes"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerAdministrativos"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerDocentes"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerTodosLosEstudiantes"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerCertificados"));		
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerSolicitudes"));		
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerNotas"));		
-		getMenu().anadirOpcion(Main.funcionalidades.get("HacerSugerencia"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerSugerencias"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerEstudiantesCurso"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("PromedioCurso"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
+		getProcesos().add(Main.funcionalidades.get("CrearCurso"));
+		getProcesos().add(Main.funcionalidades.get("VerCursos"));
+		getProcesos().add(Main.funcionalidades.get("FinalizeCurso"));
+		getProcesos().add(Main.funcionalidades.get("ResponderSolicitudes"));
+		getProcesos().add(Main.funcionalidades.get("VerAdministrativos"));
+		getProcesos().add(Main.funcionalidades.get("VerDocentes"));
+		getProcesos().add(Main.funcionalidades.get("VerTodosLosEstudiantes"));
+		getProcesos().add(Main.funcionalidades.get("VerCertificados"));		
+		getProcesos().add(Main.funcionalidades.get("VerSolicitudes"));		
+		getProcesos().add(Main.funcionalidades.get("VerNotas"));		
+		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
+		getProcesos().add(Main.funcionalidades.get("VerSugerencias"));
+		getProcesos().add(Main.funcionalidades.get("VerEstudiantesCurso"));
+		getProcesos().add(Main.funcionalidades.get("PromedioCurso"));
+		getProcesos().add(Main.funcionalidades.get("CerrarSesion"));
 		Archivo.add(this);
 		
 	}
