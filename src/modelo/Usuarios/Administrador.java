@@ -2,6 +2,7 @@ package modelo.Usuarios;
 
 import BaseDatos.Archivo;
 import control.*;
+import modelo.excepciones.*;
 
 /*Esta clase permite la existencia de un Administrador para realizar las tareas "por encima" del programa, 
  * es decir, manejar las funcionalidades que puedan tener los diferentes usuarios y verificar toda la información
@@ -83,6 +84,14 @@ public class Administrador extends Usuario {
 			return "\nUsuario no encontrado.\n";
 		}
 		
-		
+	}
+	public String verSolicitudesEstudiante(long CC) {
+		try {
+			return (Archivo.buscarEstudiante(CC)).verSolicitudes();
+		}catch(noExisteEstudiante e){
+			return "No existe estudiante";
+		}catch(noHaySolicitudes e) {
+			return "No hay Solicitudes";
+		}
 	}
 }

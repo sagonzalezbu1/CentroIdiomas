@@ -5,6 +5,7 @@ import java.util.*;
 import BaseDatos.Archivo;
 import control.*;
 import modelo.Centro.*;
+import modelo.excepciones.*;
 
 /*Esta clase permite crear objetos de tipo Estudiante, los cuales cumplirán tareas como
  * hacer solicitudes, matricularse, etc*/
@@ -244,7 +245,7 @@ public class Estudiante extends Usuario implements Horario {
 	/*Retorna un String equivalente a las solicitudes hechas por el estudiante, 
 	* mostrándolas de manera correcta.
 	* No recibe parámetros*/
-	public String verSolicitudes() {
+	public String verSolicitudes() throws noHaySolicitudes {
 		String aux = "";
 		
 		for (Solicitud solicitud : misSolicitudes) {
@@ -253,7 +254,10 @@ public class Estudiante extends Usuario implements Horario {
 		
 		if (!aux.equals("")) {
 			aux = aux.substring(0, aux.length() - 1);
+			return aux;
+		}else {
+			throw new noHaySolicitudes();
 		}
-		return aux;
+		
 	}
 }

@@ -6,6 +6,7 @@ import modelo.Centro.Curso;
 import modelo.Centro.Solicitud;
 import modelo.Centro.Sugerencia;
 import modelo.Usuarios.*;
+import modelo.excepciones.*;
 /* La clase Archivo es donde guardamos todos los datos del Centro de Idiomas, lo que leen los metodos de la clase Data se guarda aquí y queda guardado en
  * varias estructuras de datos. Es una clase abstracta ya que no hay objetos de tipo archivo, es uno solo y es global para todo nuestro centro de idiomas
  * 
@@ -76,13 +77,13 @@ abstract public class Archivo {
 	}
 	/*Busca un estudiante en la lista de estudiantes por su cedula, recibe como parametro la cedula del estudiante a encontrar y retorna el estudiante
 	  en caso de que lo encuentre, si no lo encuentra retornara null*/
-	static public Estudiante buscarEstudiante(long estud) {
+	static public Estudiante buscarEstudiante(long estud) throws noExisteEstudiante {
 		for (Estudiante x : listaEstudiantes) {
 			if (x.getCedula() == estud) {
 				return x;
 			}
 		}
-		return null;
+		throw new noExisteEstudiante();
 	}
 	/*Busca un usuario en las lista de estudiante,docente y administrativo por su cedula, recibe como parametro la cedula del usaurio a encontrar y retorna
       el usuario en caso de que lo encuentre, si no lo encuentra retornara null*/
