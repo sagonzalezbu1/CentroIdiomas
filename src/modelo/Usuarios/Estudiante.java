@@ -23,15 +23,15 @@ public class Estudiante extends Usuario implements Horario {
 	public Estudiante(String name, long cedula, String correo, String clave) {
 		super(name, cedula, correo, clave);
 		//Se crea el menú de Estudiante con las funcionalidades por defecto
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerCursos"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("Matricular"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerCertificados"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerSolicitudes"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerHorario"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("VerNotas"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("SolicitarCupo"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("HacerSugerencia"));
-		getMenu().anadirOpcion(Main.funcionalidades.get("CerrarSesion"));
+		getProcesos().add(Main.funcionalidades.get("VerCursos"));
+		getProcesos().add(Main.funcionalidades.get("Matricular"));
+		getProcesos().add(Main.funcionalidades.get("VerCertificados"));
+		getProcesos().add(Main.funcionalidades.get("VerSolicitudes"));
+		getProcesos().add(Main.funcionalidades.get("VerHorario"));
+		getProcesos().add(Main.funcionalidades.get("VerNotas"));
+		getProcesos().add(Main.funcionalidades.get("SolicitarCupo"));
+		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
+		getProcesos().add(Main.funcionalidades.get("CerrarSesion"));
 		Archivo.add(this);
 
 	}
