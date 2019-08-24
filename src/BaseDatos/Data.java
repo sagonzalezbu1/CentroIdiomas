@@ -2,10 +2,11 @@ package BaseDatos;
 
 import java.io.*;
 import java.util.*;
-import gestorAplicacion.Centro.*;
-import gestorAplicacion.Usuarios.*;
-import uiMain.Main;
-import uiMain.OpcionDeMenu;
+
+import control.Main;
+import control.OpcionDeMenu;
+import modelo.Centro.*;
+import modelo.Usuarios.*;
 
 
 /* La finalidad de la clase Data es lograr la escritura y carga de los archivos de texto en los que se guarda la informacion de nuestro programa.
