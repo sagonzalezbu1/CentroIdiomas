@@ -18,8 +18,8 @@ import control.Main;
 
 public class ventanaLogin extends JFrame {
 	private JButton entrar;
-	private JTextField cedula;
-	private JTextField contrasena;
+	private JTextField T2;
+	private JTextField T3;
 	private JLabel texto1;
 	private JLabel texto2;
 
@@ -43,12 +43,13 @@ public class ventanaLogin extends JFrame {
 		JButton B1 = new JButton("Haga clic para ver fotos");
 		JButton B2 = new JButton("Administrador");
 		JButton B3 = new JButton("Usuario Comun");
+		B3.addActionListener(new ControlIngresar());
 		JButton B4 = new JButton("Salir");
 		
 		JTextArea T0 = new JTextArea("",10,20);
 		JScrollPane T1 = new JScrollPane(T0);
-		JTextField T2 = new JTextField(8);
-		JTextField T3 = new JTextField(8);
+		T2 = new JTextField(8);
+		T3 = new JTextField(8);
 		
 		//Hagamos el panel izquierdo (P1)
 		
@@ -102,14 +103,14 @@ public class ventanaLogin extends JFrame {
 
 	public long getCedula() {
 		try {
-			return Long.parseLong(cedula.getText());
+			return Long.parseLong(T2.getText());
 		} catch (NumberFormatException e) {
 			return 0;
 		}
 	}
 
 	public String getContrasena() {
-		return contrasena.getText();
+		return T3.getText();
 	}
 	
 	public void ingresar() {

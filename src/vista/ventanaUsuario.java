@@ -14,9 +14,10 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	private JTextField curso =  new JTextField(20);
 	private JLabel texto1;
 	private JButton aceptar = new JButton("aceptar");
-
+	private static String nombreUsuario="";
+	
 	public ventanaUsuario() {
-		super("Menu de usuario");
+		super(nombreUsuario);
 		addControladores();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -33,7 +34,8 @@ public class ventanaUsuario extends JFrame implements Botonera {
 
 	}
 	
-	public void ingresar(ArrayList<String>  opmenu) {
+	public void ingresar(ArrayList<String>  opmenu, String nombre) {
+		this.setTitle(nombre);
 		for(String boton: opmenu) {
 			menu.add((Botonera.botones).get(boton));
 		}

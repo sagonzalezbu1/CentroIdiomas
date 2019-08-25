@@ -11,13 +11,13 @@ import modelo.Usuarios.*;
  * En esta clase se ejecuta el método ingresar localizado en la clase Invitado.*/
 public class ControlIngresar implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
-		if(evento.getActionCommand().equals("entrar")) {
+		if(evento.getActionCommand().equals("Usuario Comun")) {
 			long cedula =  Main.ventanaLogin.getCedula();
 			String contraseña = Main.ventanaLogin.getContrasena();
 			String mensaje= Archivo.ingresarUsuario(cedula, contraseña);
 			if(mensaje.equals("Se ha iniciado sesion.")) {
 			Main.ventanaLogin.ingresar();
-			Main.ventanaUsuario.ingresar(Main.user.getProcesos());
+			Main.ventanaUsuario.ingresar(Main.user.getProcesos(),Main.user.getNombre());
 			}else {
 				Main.ventanaLogin.borrar(mensaje);
 			}
