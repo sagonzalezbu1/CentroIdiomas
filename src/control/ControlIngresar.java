@@ -14,8 +14,7 @@ public class ControlIngresar implements ActionListener {
 		if(evento.getActionCommand().equals("entrar")) {
 			long cedula =  Main.ventana1.getCedula();
 			String contraseña = Main.ventana1.getContrasena();
-			System.out.println(Archivo.ingresarUsuario(cedula, contraseña));
-			
+			Archivo.ingresarUsuario(cedula, contraseña);
 			Main.ventana1.setVisible(false);
 			Main.ventana2.setVisible(true);
 			
