@@ -109,7 +109,7 @@ public class Estudiante extends Usuario implements Horario {
 	 * Retorna la nota definitiva/acumulada del estudiante en cierto curso. Recibe
 	 * como parámetro un String equivalente al nombre del curso
 	 */
-	public float getDefinitiva(String name) {
+	public float getDefinitiva(String name) throws noHayNotas {
 		ArrayList<Float> prom = misNotas.get(name);
 		float def = 0;
 
@@ -118,7 +118,7 @@ public class Estudiante extends Usuario implements Horario {
 		}
 
 		if (prom.size() == 0) {
-			return 0;
+			throw new noHayNotas();
 		} else {
 			def /= prom.size();
 			return def;
@@ -360,44 +360,5 @@ public class Estudiante extends Usuario implements Horario {
 				return "Hay cupos disponibles, no puede solicitar.\n";
 			}
 		}
-	}
-
-	public String matricularEstudiante(long CC, String nombrecurso) {
-		Estudiante est = null;
-		Curso curso = null;
-		try {
-			est = Archivo.buscarEstudiante(CC);
-			curso = Archivo.buscarCurso(nombrecurso);
-
-			for (Certificado certificado : est.getCertificados()) {
-				if ((certificado.getNombre()).equals(curso.getTipo())) {
-					return "Usted ya aprobo una curso de este tipo.";
-				}
-			}
-			for (Solicitud solicitud : est.getSolicitudes()) {
-				if ((solicitud.getTipo()).equals(curso.getTipo())) {
-					return "Usted ya tiene una solicitud de este tipo.";
-				}
-			}
-			for (Estudiante estudiante : curso.getEstudiantes()) {
-				if (est.equals(estudiante)) {
-					return "El estudiante ya se encuentra matriculado en este curso.";
-				}
-			}
-			if (curso.getCuposDisponibles() > 0) {
-				curso.matricular(est);
-				return "El estudiante quedó matriculado.";
-			} else {
-				return "No hay cupos disponibles en este curso.";
-			}
-		} catch (noExisteEstudiante excepcion) {
-			return "No existe estudiante.";
-		} catch (noExisteCurso exception) {
-			return "No existe el curso.";
-		} catch (noHayEstudiantes excepcion) {
-			curso.matricular(est);
-			return "El estudiante quedó matriculado.";
-		}
-
 	}
 }

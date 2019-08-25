@@ -1,6 +1,7 @@
 package modelo.Centro;
 
 import BaseDatos.Archivo;
+import control.Main;
 import modelo.Usuarios.*;
 
 /*Esta clase permite crear objetos de tipo sugerencia. Las sugerencias inicialmente pueden ser hechas por docentes y estudiantes, estan van dirigidas a los 
@@ -31,6 +32,11 @@ public class Sugerencia {
 	  que este dejo*/
 	public String toString() {
 		return "El Usuario " + usuario.getNombre() + " con cedula " + usuario.getCedula()+ " ha hecho la siguiente sugerencia: " + mensaje;
+	}
+	
+	public String hacerSugerencia(Usuario usuario , String sugerencia) {
+		new Sugerencia(usuario ,sugerencia);
+		return "Su sugerencia fue enviada con exito.";
 	}
 
 }
