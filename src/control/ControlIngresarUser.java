@@ -9,7 +9,7 @@ import modelo.Usuarios.*;
 /*Esta clase es usada por todos los usuarios para ingresar a sus respectivas cuentas.
  * 
  * En esta clase se ejecuta el método ingresar localizado en la clase Invitado.*/
-public class ControlIngresar implements ActionListener {
+public class ControlIngresarUser implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 		if(evento.getActionCommand().equals("Usuario Comun")) {
 			long cedula =  Main.ventanaLogin.getCedula();

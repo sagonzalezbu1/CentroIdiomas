@@ -28,6 +28,10 @@ public interface Botonera {
 			put("HacerSugerencia", new HacerSugerencia());
 			put("VerSugerencias", new VerSugerencias());
 			put("PromedioCurso", new PromedioCurso());
+			put("AddFuncionalidad", new AddFuncionalidad());
+			put("RemoveFuncionalidad", new RemoveFuncionalidad());
+			put("UserMenu", new UserMenu());
+			put("SystemMenu", new SystemMenu());
 		}
 	};
 	public static HashMap<String, JMenuItem> botones = new HashMap<String, JMenuItem>() {
@@ -52,6 +56,10 @@ public interface Botonera {
 			put("HacerSugerencia", new JMenuItem("HacerSugerencia"));
 			put("VerSugerencias", new JMenuItem("VerSugerencias"));
 			put("PromedioCurso", new JMenuItem("PromedioCurso"));
+			put("AddFuncionalidad", new JMenuItem("AddFuncionalidad"));
+			put("RemoveFuncionalidad", new JMenuItem("RemoveFuncionalidad"));
+			put("UserMenu", new JMenuItem("UserMenu"));
+			put("SystemMenu", new JMenuItem("SystemMenu"));
 		}
 	};
 }

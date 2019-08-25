@@ -13,7 +13,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import control.ControlIngresar;
+import control.ControlIngresarAdmin;
+import control.ControlIngresarUser;
 import control.Main;
 
 public class ventanaLogin extends JFrame {
@@ -42,8 +43,9 @@ public class ventanaLogin extends JFrame {
 		
 		JButton B1 = new JButton("Haga clic para ver fotos");
 		JButton B2 = new JButton("Administrador");
+		B2.addActionListener(new ControlIngresarAdmin());
 		JButton B3 = new JButton("Usuario Comun");
-		B3.addActionListener(new ControlIngresar());
+		B3.addActionListener(new ControlIngresarUser());
 		JButton B4 = new JButton("Salir");
 		
 		JTextArea T0 = new JTextArea("",10,20);
@@ -118,7 +120,7 @@ public class ventanaLogin extends JFrame {
 	}
 	
 	public void borrar(String alert) {
-		JOptionPane.showMessageDialog(null, alert, "Error al iniciar seccion" , JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, alert, "Error al iniciar sesion" , JOptionPane.WARNING_MESSAGE);
 		T3.setText(null);
 		T2.setText(null);
 	}

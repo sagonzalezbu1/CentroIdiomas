@@ -448,19 +448,26 @@ abstract public class Archivo {
 			return "Clave Incorrecta.";
 		}
 	}
-	static public void verificarAdministrativo(long cc, String pass) throws noExisteAdministrativo, loginInvalido{
-		if(Archivo.buscarAdministrativo(cc).getContrasena().equals(pass)) {
+	static public Administrador buscarAdministrador(long cc) throws noExisteAdministrador{
+		if(Archivo.getAdministrador().getCedula() == cc) {
+			return Archivo.getAdministrador();
+		}
+		throw new noExisteAdministrador();
+	}
+	static public void verificarAdministrador(long cc, String pass) throws noExisteAdministrador, loginInvalido{
+		if(Archivo.buscarAdministrador(cc).getContrasena().equals(pass)) {
 			return;
 		}
 		throw new loginInvalido();
 	}
-	static public String IngresarAdmin(long cc, String pass) {
+	static public String ingresarAdmin(long cc, String pass) {
 		try {
-			Archivo.buscarAdministrativo(cc);
-			Archivo.verificarAdministrativo(cc,pass);
+			Usuario usuario = Archivo.buscarAdministrador(cc);
+			Archivo.verificarAdministrador(cc,pass);
+			Main.user = usuario;
 			return "Se ha iniciado sesion.";
 		}
-		catch (noExisteAdministrativo exception1){
+		catch (noExisteAdministrador exception1){
 			return "Usuario Incorrecto.";
 		}
 		catch (loginInvalido exception2) {
