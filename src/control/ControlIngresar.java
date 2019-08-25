@@ -12,12 +12,15 @@ import modelo.Usuarios.*;
 public class ControlIngresar implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 		if(evento.getActionCommand().equals("entrar")) {
-			long cedula =  Main.ventana1.getCedula();
-			String contraseña = Main.ventana1.getContrasena();
-			Archivo.ingresarUsuario(cedula, contraseña);
-			Main.ventana1.setVisible(false);
-			Main.ventana2.setVisible(true);
-			
+			long cedula =  Main.ventanaLogin.getCedula();
+			String contraseña = Main.ventanaLogin.getContrasena();
+			String mensaje= Archivo.ingresarUsuario(cedula, contraseña);
+			if(mensaje.equals("Se ha iniciado sesion.")) {
+			Main.ventanaLogin.ingresar();
+			Main.ventanaUsuario.ingresar(Main.user.getProcesos());
+			}else {
+				Main.ventanaLogin.borrar(mensaje);
+			}
 		}
 	}
 

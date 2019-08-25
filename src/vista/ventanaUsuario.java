@@ -2,16 +2,12 @@ package vista;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
-
+import java.util.ArrayList;
 import javax.swing.*;
 
-public class ventanaUsuario extends JFrame {
+public class ventanaUsuario extends JFrame implements Botonera {
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("Opciones de menu");
-	private JMenuItem verEstudiantes = new JMenuItem("verEstudiantes");;
-	private JMenuItem cerrarSeccion = new JMenuItem("cerrarSesion");
-	private JMenuItem verSugerencias = new JMenuItem("verSugerencias");
-	private JMenuItem promedioCurso = new JMenuItem("promedioCurso");
 	public static JPanel panelPrincipal = new JPanel();
 	private JTextField curso =  new JTextField(20);
 	private JLabel texto1;
@@ -19,12 +15,9 @@ public class ventanaUsuario extends JFrame {
 
 	public ventanaUsuario() {
 		super("Menu de usuario");
+		addControladores();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menuBar.add(menu);
-		menu.add(cerrarSeccion);
-		menu.add(promedioCurso);
-		menu.add(verSugerencias);
-		menu.add(verEstudiantes);
 		setJMenuBar(menuBar);
 		getContentPane().add(panelPrincipal);
 		panelPrincipal.setBackground(Color.black);
@@ -33,22 +26,15 @@ public class ventanaUsuario extends JFrame {
 		setLocationRelativeTo(null);
 
 	}
-
+	
+	public void ingresar(ArrayList<String>  opmenu) {
+		for(String boton: opmenu) {
+			menu.add((Botonera.botones).get(boton));
+		}
+		this.setVisible(true);
+	}
 	public void setControlador(ActionListener c) {
-		verEstudiantes.addActionListener(c);
-		cerrarSeccion.addActionListener(c);
-		verSugerencias.addActionListener(c);
-		promedioCurso.addActionListener(c);
-		promedioCurso.addActionListener(c);
 		aceptar.addActionListener(c);
-	}
-
-	public void ponerBotones() {
-		menu.add(verSugerencias);
-	}
-
-	public void quitarBotones() {
-		menu.remove(verSugerencias);
 	}
 
 	public void promedioCurso() {
@@ -74,6 +60,13 @@ public class ventanaUsuario extends JFrame {
 	
 	public String getCurso() {
 		return curso.getText();
+	}
+	public void addControladores() {
+		for(JMenuItem boton: (Botonera.botones).values()) {
+			for(ActionListener controladores: (Botonera.controladores).values()) {
+				boton.addActionListener(controladores);
+			}
+		}
 	}
 
 }
