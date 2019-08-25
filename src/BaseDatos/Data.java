@@ -15,6 +15,24 @@ public class Data {
 
 	// cargarEstudiantes se encarga de leer el archivo estudiantes.txt y cargar en
 	// memoria a los estudiantes. No recibe ningun parametro y tampoco retorna nada
+	
+	public static void cargarDatos() {
+		cargarDocentes();
+		cargarCursos();
+		cargarEstudiantes();
+		cargarAdministrativos();
+		cargarSolicitudes();
+		cargarSugerencias();
+	}
+	public static void guardarDatos() {
+		escribirDocentes();
+		escribirEstudiantes();
+		escribirAdministrativos();
+		escribirSolicitudes();
+		escribirCursos();
+		escribirSugerencias();
+	}
+	
 	public static void cargarEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";

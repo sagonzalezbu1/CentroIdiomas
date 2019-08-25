@@ -5,6 +5,7 @@ import java.util.Scanner;
 import BaseDatos.Archivo;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
+import modelo.excepciones.noHayNotas;
 
 /*Esta clase es usada por Administrativo para finalizar los cursos, algo así
  * como cerrar el período de calificaciones al acabar el curso.
@@ -17,9 +18,11 @@ public class FinalizeCurso extends OpcionDeMenu {
 	public String getNombre() {
 		return nombre;
 	}
+	
 	/*Se verifica que los datos para la ejecución del método sean correctos, 
 	 * luego se busca el curso, si se encuentra se cierra el período de 
 	 * calificaciones de este*/
+	
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese el nombre del curso que desea finalizar: ");

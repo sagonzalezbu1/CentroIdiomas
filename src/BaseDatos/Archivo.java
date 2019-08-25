@@ -37,7 +37,12 @@ abstract public class Archivo {
 		}
 
 	}
-
+	
+	static public void salir() {
+		Data.guardarDatos();
+		System.exit(0);
+	}
+	
 	static public String verNotasEstudiante(long CC) {
 		try {
 			Estudiante estudiante = Archivo.buscarEstudiante(CC);
