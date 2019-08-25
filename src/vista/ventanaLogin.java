@@ -3,15 +3,9 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 import control.ControlIngresarAdmin;
 import control.ControlIngresarUser;
@@ -29,6 +23,8 @@ public class ventanaLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel Frame = new JPanel();
 		Frame.setLayout(new BorderLayout(10, 10));
+		
+		//Paneles principales
 		JPanel P1 = new JPanel();
 		JPanel P2 = new JPanel();
 		JPanel P3 = new JPanel();
@@ -36,22 +32,41 @@ public class ventanaLogin extends JFrame {
 		JPanel P5 = new JPanel();
 		JPanel P6 = new JPanel();
 		
+		//Labels Principales
 		JLabel L1 = new JLabel("Bienvenido al CDI");
 		JLabel L2 = new JLabel("Ingrese su codigo de usuario y su clave:");
 		JLabel L3 = new JLabel("Codigo de Usuario");
 		JLabel L4 = new JLabel("Clave");
 		
+		//Botones Principales
 		JButton B1 = new JButton("Haga clic para ver fotos");
-		JButton B2 = new JButton("Administrador");
-		B2.addActionListener(new ControlIngresarAdmin());
+		JButton B2 = new JButton("Administrador");	
 		JButton B3 = new JButton("Usuario Comun");
-		B3.addActionListener(new ControlIngresarUser());
 		JButton B4 = new JButton("Salir");
 		
-		JTextArea T0 = new JTextArea("",10,20);
+		
+		//Textos Principales
+		JTextArea T0 = new JTextArea("xD",10,20);
+		T0.setEditable(false);
 		JScrollPane T1 = new JScrollPane(T0);
 		T2 = new JTextField(8);
 		T3 = new JTextField(8);
+		
+		//Action listeners
+		
+		B2.addActionListener(new ControlIngresarAdmin());
+		B3.addActionListener(new ControlIngresarUser());
+		L1.addMouseListener(
+		    new MouseAdapter(){
+				public void mouseEntered(MouseEvent arg0) {
+	                L1.setForeground((Color.BLUE));
+	            }
+	            public void mouseExited(MouseEvent e) {
+	            	L1.setForeground((Color.BLACK));
+	            }
+		    }
+		    );
+				
 		
 		//Hagamos el panel izquierdo (P1)
 		
