@@ -5,6 +5,7 @@ import java.util.*;
 import BaseDatos.Archivo;
 import control.*;
 import modelo.Centro.*;
+import modelo.excepciones.*;
 
 /*Esta clase permite crear objetos de tipo Docente, los cuales cumplirán tareas como
  * calificar a los estudiantes de los cursos que estén dictando*/
@@ -53,14 +54,15 @@ public class Docente extends Usuario implements Horario {
 
 	/*Retorna el horario de los cursos que dicta el docente, 
 	 * buscándolos en la lista de cada uno. No recibe parámetros*/
-	public String miHorario() {
+	public String miHorario() throws noHayHorario{
 		String aux = "";
 		for (Curso curso : misCursos) {
 			aux += "\nNombre: " + curso.getNombreCurso() + "\n" + "Horario: " + curso.getHorarioCurso();
 			aux +="\n";
 		}
+		
 		if (aux.equals("")) {
-			return "\nNo está dictando ningun curso.\n";
+			throw new noHayHorario();
 		} else {
 			return aux;
 		}

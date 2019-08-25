@@ -95,12 +95,14 @@ public class Estudiante extends Usuario implements Horario {
 	 * Getter de la lista de cursos del estudiante. Retorna el ArrayList de los
 	 * cursos y no recibe parámetros
 	 */
-	public ArrayList<Curso> getCurso() throws noHayCursos {
+	public ArrayList<Curso> getCursos() throws noHayCursos {
+		
 		if (misCursos.isEmpty() == false) {
 			return misCursos;
 		} else {
 			throw new noHayCursos();
 		}
+		
 	}
 
 	/*
@@ -171,14 +173,15 @@ public class Estudiante extends Usuario implements Horario {
 	 * Retorna un String equivalente al horario del estudiante en un formato
 	 * correcto. Implementa el método de la interfaz Horario. No recibe parámetros
 	 */
-	public String miHorario(){
+	public String miHorario() throws noHayHorario {
 		String aux = "";
 		for (Curso curso : misCursos) {
 			aux += curso + "\n";
 			aux += "\n";
 		}
+		
 		if (aux.equals("")) {
-			return 
+			throw new noHayHorario();
 		} else {
 			return aux;
 		}
@@ -302,5 +305,58 @@ public class Estudiante extends Usuario implements Horario {
 			throw new noHaySolicitudes();
 		}
 
+	}
+
+	public String solicitarCupo(long CC, String tipo) {
+		Estudiante estudiante=null;
+		try {
+			estudiante= Archivo.buscarEstudiante(CC);
+			
+			for (Curso curso : estudiante.getCurso()) {
+				if (curso.getTipo().equals(tipo)) {
+					return "Usted esta viendo un curso de este tipo, no puede solicitar.";
+				}
+			}
+
+			for (Solicitud solicitud : estudiante.getSolicitudes()) {
+				if (solicitud.getTipo().equals(tipo)) {
+					return "Usted ya hizo una solicitud para este tipo, no puede solicitar.";
+				}
+			}
+
+			for (Certificado certificado : estudiante.getCertificados()) {
+				if (certificado.getNombre().equals(tipo)) {
+					return "Usted ya aprobo una materia para este tipo, no puede solicitar.";
+				}
+			}
+
+			if (Archivo.cursoDisponibilidad(tipo) == null) {
+				estudiante.solicitar(tipo);
+				return "Su solicitud ha sido exitosa.";
+			} else {
+				return "Hay cupos disponibles, no puede solicitar.\n";
+			}
+		} catch (noExisteEstudiante e) {
+			return "No hay estudiante.";
+		}catch(noHayCursos c) {
+			for (Solicitud solicitud : estudiante.getSolicitudes()) {
+				if (solicitud.getTipo().equals(tipo)) {
+					return "Usted ya hizo una solicitud para este tipo, no puede solicitar.";
+				}
+			}
+
+			for (Certificado certificado : estudiante.getCertificados()) {
+				if (certificado.getNombre().equals(tipo)) {
+					return "Usted ya aprobo una materia para este tipo, no puede solicitar.";
+				}
+			}
+
+			if (Archivo.cursoDisponibilidad(tipo) == null) {
+				estudiante.solicitar(tipo);
+				return "Su solicitud ha sido exitosa.";
+			} else {
+				return "Hay cupos disponibles, no puede solicitar.\n";
+			}
+		}
 	}
 }

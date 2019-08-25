@@ -9,47 +9,64 @@ import modelo.Usuarios.Estudiante;
 public class Solicitud {
 	private Estudiante estu;
 	private String tipo;
-	
-	/*Constructor de solicitud. Las solicitudes tienen al estudiante que la realiza y un String que contiene el tipo de curso al cual solicita el 
-	  estudiante. Cuando se crea una solicitud esta inmediatamente se añade a  la lista correspondiente del hashmap de archivo, si esa lista aun no existe,
-	  se crea automaticamente antes de agregar la solicitud */
+
+	/*
+	 * Constructor de solicitud. Las solicitudes tienen al estudiante que la realiza
+	 * y un String que contiene el tipo de curso al cual solicita el estudiante.
+	 * Cuando se crea una solicitud esta inmediatamente se añade a la lista
+	 * correspondiente del hashmap de archivo, si esa lista aun no existe, se crea
+	 * automaticamente antes de agregar la solicitud
+	 */
 	public Solicitud(String tipo, Estudiante estudiante) {
 		this.tipo = tipo;
-		estu= estudiante;
-		
+		estu = estudiante;
+
 		if (Archivo.getSolicitudes().containsKey(tipo)) {
 			(Archivo.getSolicitudes().get(tipo)).add(this);
 		} else {
 			Archivo.getSolicitudes().put(tipo, new ArrayList<>());
 			(Archivo.getSolicitudes().get(tipo)).add(this);
 		}
-		
+
 	}
-	
-	public void aceptarSolicitud(Curso course) {
-		course.matricular(this.getEstudiante());
-		Archivo.removeSolicitud(tipo, this); 
-		(this.getEstudiante()).removeSolicitud(tipo);
+
+	public void aceptarSolicitud(long CC, Curso curso) {
+		try {
+		Estudiante estudiante= Archivo.buscarEstudiante(CC);
+		Curso course = Archivo.cursoDisponibilidad(tipo);
+		if (course == null) {
+
+		} else {
+			course.matricular(this.getEstudiante());
+			Archivo.removeSolicitud(tipo, this);
+			(this.getEstudiante()).removeSolicitud(tipo);
+		}
+		}catch(){
+			
+		}
 	}
-	
+
 	public void rechazarSolicitud() {
-		Archivo.removeSolicitud(tipo, this); 
+		Archivo.removeSolicitud(tipo, this);
 		(this.getEstudiante()).removeSolicitud(tipo);
 	}
-	
-	//Metodo que retorna al estudiante que hizo la solicitud. No recibe ningun parametro
+
+	// Metodo que retorna al estudiante que hizo la solicitud. No recibe ningun
+	// parametro
 	public Estudiante getEstudiante() {
 		return estu;
 	}
 
-	//Metodo que retorna un String que contiene el tipo de la solicitud. No recibe ningun parametro
+	// Metodo que retorna un String que contiene el tipo de la solicitud. No recibe
+	// ningun parametro
 	public String getTipo() {
 		return tipo;
 	}
 
-	//Metodo toString. Retorna un String con formato correcto que contiene el tipo de la solicitud. No recibe ningun parametro.
+	// Metodo toString. Retorna un String con formato correcto que contiene el tipo
+	// de la solicitud. No recibe ningun parametro.
 	public String toString() {
 		return tipo;
 	}
-	
+
 }

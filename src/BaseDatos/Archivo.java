@@ -35,20 +35,21 @@ abstract public class Archivo {
 		} catch (noHaySolicitudes e) {
 			return "No hay Solicitudes";
 		}
+		
 	}
 
-	static public String verNotasEstudiate(long CC) {
+	static public String verNotasEstudiante(long CC) {
 		try {
 			Estudiante estudiante = Archivo.buscarEstudiante(CC);
 			String notas = "";
-			for (Curso curso : estudiante.getCurso()) {
+			for (Curso curso : estudiante.getCursos()) {
 				notas += curso.getNombreCurso() + ": " + estudiante.verNotas(curso.getNombreCurso()) + "\n";
 			}
 			return notas;
 		} catch (noExisteEstudiante e) {
-			return "No existe estudiante";
+			return "No existe estudiante.";
 		} catch (noHayCursos e) {
-			return "No tiene materias inscritas";
+			return "No tiene materias inscritas.";
 		}
 	}
 
@@ -57,8 +58,17 @@ abstract public class Archivo {
 			return (Archivo.buscarEstudiante(CC)).miHorario();
 		} catch (noExisteEstudiante e) {
 			return "No existe estudiante";
-		} catch (noHayCursos e) {
-			return "No tiene cursos inscritos";
+		}  catch (noHayHorario c) {
+			return "El horario de este estudiante esta vacio.";
+		}
+	}
+	static public String verHorarioDocente(long CC) {
+		try {
+			return (Archivo.buscarDocente(CC)).miHorario();
+		} catch (noExisteDocente e) {
+			return "No existe docente.";
+		} catch (noHayHorario c) {
+			return "El horario de este docente esta vacio.";
 		}
 	}
 
@@ -109,13 +119,13 @@ abstract public class Archivo {
 	 * la cedula del docente a encontrar y retorna el docente en caso de que lo
 	 * encuentre, si no lo encuentra retornara null
 	 */
-	static public Docente buscarDocente(long docen) {
+	static public Docente buscarDocente(long docen) throws noExisteDocente {
 		for (Docente x : listaDocentes) {
 			if (x.getCedula() == docen) {
 				return x;
 			}
 		}
-		return null;
+		throw new noExisteDocente();
 	}
 
 	/*
@@ -256,9 +266,9 @@ abstract public class Archivo {
 			ver += x.toString() + "\n";
 		}
 		if (ver.equals("")) {
-			return "\nAdministrativos:\n" + ver;
+			return "No hay administrativos.";
 		} else {
-			return "\nCursos:\n" + ver;
+			return "Administrativos:\n" + ver;
 		}
 	}
 
@@ -277,7 +287,7 @@ abstract public class Archivo {
 		if (ver.equals("")) {
 			return "No hay cursos disponibles.";
 		} else {
-			return "\nCursos:\n" + ver;
+			return "Cursos:\n" + ver;
 		}
 	}
 
@@ -288,15 +298,18 @@ abstract public class Archivo {
 	 * escribio en esta de todas las sugerencias
 	 */
 	static public String verSugerencias() {
+		
 		String ver = "";
 		for (Sugerencia x : listaSugerencias) {
 			ver += x.toString() + "\n";
 		}
+		
 		if (!ver.equals("")) {
-			return "\nSugerencias:\n" + ver;
+			return "Sugerencias:\n" + ver;
 		} else {
 			return "No hay sugerencias.";
 		}
+		
 	}
 
 	/*
@@ -305,11 +318,13 @@ abstract public class Archivo {
 	 * nombre y cedula de todos los docentes
 	 */
 	static public String verDocentes() {
+		
 		String ver = "";
 		for (Docente x : listaDocentes) {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
+		
 		if (!ver.equals("")) {
 			return "\nDocentes:\n" + ver;
 		} else {
@@ -326,9 +341,11 @@ abstract public class Archivo {
 	 */
 	static public String verSolicitudes() {
 		String ver = "";
+		
 		for (String x : solicitudes.keySet()) {
 			ver += x + "\n";
 		}
+		
 		if (!ver.equals("")) {
 			return "\nSolicitudes:\n" + ver;
 		} else {
@@ -348,11 +365,13 @@ abstract public class Archivo {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
+		
 		if (!ver.equals("")) {
 			return "\nEstudiantes:\n" + ver;
 		} else {
 			return "No hay estudiantes.";
 		}
+		
 	}
 
 	/*
@@ -372,7 +391,7 @@ abstract public class Archivo {
 		} else if (Archivo.buscarCurso(curso).getEstudiantes().isEmpty()) {
 			return "No hay estudiantes.";
 		} else {
-			return "\nEstudiantes de " + Archivo.buscarCurso(curso).getNombreCurso() + ":\n" + ver;
+			return "Estudiantes de " + curso + ":\n" + ver;
 		}
 	}
 }
