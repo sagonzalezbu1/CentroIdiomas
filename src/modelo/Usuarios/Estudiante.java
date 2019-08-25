@@ -361,4 +361,43 @@ public class Estudiante extends Usuario implements Horario {
 			}
 		}
 	}
+
+	public String matricularEstudiante(long CC, String nombrecurso) {
+		Estudiante est = null;
+		Curso curso = null;
+		try {
+			est = Archivo.buscarEstudiante(CC);
+			curso = Archivo.buscarCurso(nombrecurso);
+
+			for (Certificado certificado : est.getCertificados()) {
+				if ((certificado.getNombre()).equals(curso.getTipo())) {
+					return "Usted ya aprobo una curso de este tipo.";
+				}
+			}
+			for (Solicitud solicitud : est.getSolicitudes()) {
+				if ((solicitud.getTipo()).equals(curso.getTipo())) {
+					return "Usted ya tiene una solicitud de este tipo.";
+				}
+			}
+			for (Estudiante estudiante : curso.getEstudiantes()) {
+				if (est.equals(estudiante)) {
+					return "El estudiante ya se encuentra matriculado en este curso.";
+				}
+			}
+			if (curso.getCuposDisponibles() > 0) {
+				curso.matricular(est);
+				return "El estudiante quedó matriculado.";
+			} else {
+				return "No hay cupos disponibles en este curso.";
+			}
+		} catch (noExisteEstudiante excepcion) {
+			return "No existe estudiante.";
+		} catch (noExisteCurso exception) {
+			return "No existe el curso.";
+		} catch (noHayEstudiantes excepcion) {
+			curso.matricular(est);
+			return "El estudiante quedó matriculado.";
+		}
+
+	}
 }

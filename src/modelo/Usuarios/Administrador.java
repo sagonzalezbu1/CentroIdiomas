@@ -91,6 +91,24 @@ public class Administrador extends Usuario {
 		}
 	}
 	
+	public String addFuncioalidad(long CC, String opcion) {
+		try {
+			Usuario user = Archivo.buscarUsuario(CC);
+			ArrayList<String> menu = user.getProcesos();
+
+			for (String op : menu) {
+				if (op.equals(opcion) && !op.equals("CerrarSesion")) {
+					menu.add(op);
+					return "La opcion de menu fue añadida con exito.";
+				}
+			}
+			return "Opcion invalida.";
+
+		} catch (noExisteUsuario excepcion) {
+			return "El usuario no esta registrado.";
+		}
+	}
+	
 	public String registrarAdministrativo(String name, String apellido, long CC, String correo, String pass, String codigo) {
 		try {
 			Usuario user=Archivo.buscarUsuario(CC);
