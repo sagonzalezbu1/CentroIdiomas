@@ -2,6 +2,7 @@ package BaseDatos;
 
 import java.util.*;
 
+import control.Main;
 import modelo.Centro.Curso;
 import modelo.Centro.Solicitud;
 import modelo.Centro.Sugerencia;
@@ -432,10 +433,11 @@ abstract public class Archivo {
 		}
 		throw new loginInvalido();
 	}
-	static public String IngresarUsuario(long cc, String pass){
+	static public String ingresarUsuario(long cc, String pass){
 		try {
-			Archivo.buscarUsuario(cc);
+			Usuario usuario = Archivo.buscarUsuario(cc);
 			Archivo.verificarUsuario(cc, pass);
+			Main.user=usuario;
 			return "Se ha iniciado sesion.";
 		}
 		catch(noExisteUsuario exception1){

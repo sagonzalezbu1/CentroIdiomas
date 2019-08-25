@@ -5,6 +5,7 @@ import BaseDatos.*;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 import vista.ventanaLogin;
+import vista.ventanaUsuario;
 
 /*Esta es la clase principal del programa, donde se ejecuta lo primordial para su
  * funcionamiento*/
@@ -36,6 +37,8 @@ public class Main {
 	};
 	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa
 	public static Usuario user = new Invitado();
+	public static ventanaLogin ventana1 = new ventanaLogin();
+	public static ventanaUsuario ventana2 = new ventanaUsuario();
 
 	//Inicio del programa
 	public static void main(String[] args) {

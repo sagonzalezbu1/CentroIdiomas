@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import control.ControlIngresar;
+
 public class ventanaLogin extends JFrame {
 	private JButton entrar;
 	private JTextField cedula;
@@ -32,6 +34,7 @@ public class ventanaLogin extends JFrame {
 		derecho.add(cedula);
 		derecho.add(contrasena);
 		entrar = new JButton("entrar");
+		entrar.addActionListener(new ControlIngresar());
 		panelPrincipal.add(izquierdo, BorderLayout.WEST);
 		panelPrincipal.add(derecho, BorderLayout.EAST);
 		panelPrincipal.add(entrar, BorderLayout.SOUTH);
