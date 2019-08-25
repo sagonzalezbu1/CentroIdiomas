@@ -7,12 +7,14 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import control.ControlIngresar;
+import control.Main;
 
 public class ventanaLogin extends JFrame {
 	private JButton entrar;
@@ -95,7 +97,28 @@ public class ventanaLogin extends JFrame {
 		setVisible(true);
 		pack();
 		setLocationRelativeTo(null);
-		
-		
+
+	}
+
+	public long getCedula() {
+		try {
+			return Long.parseLong(cedula.getText());
+		} catch (NumberFormatException e) {
+			return 0;
+		}
+	}
+
+	public String getContrasena() {
+		return contrasena.getText();
+	}
+	
+	public void ingresar() {
+		Main.ventanaLogin.setVisible(false);
+	}
+	
+	public void borrar(String alert) {
+		JOptionPane.showMessageDialog(null, alert, "Error al iniciar seccion" , JOptionPane.WARNING_MESSAGE);
+		contrasena.setText(null);
+		cedula.setText(null);
 	}
 }
