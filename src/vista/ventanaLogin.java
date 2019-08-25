@@ -1,14 +1,10 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
-import control.ControlIngresarAdmin;
-import control.ControlIngresarUser;
+import control.*;
 import control.Main;
 
 public class ventanaLogin extends JFrame {
@@ -56,6 +52,7 @@ public class ventanaLogin extends JFrame {
 		
 		B2.addActionListener(new ControlIngresarAdmin());
 		B3.addActionListener(new ControlIngresarUser());
+		B4.addActionListener(new ControlSalir());
 		L1.addMouseListener(
 		    new MouseAdapter(){
 				public void mouseEntered(MouseEvent arg0) {
