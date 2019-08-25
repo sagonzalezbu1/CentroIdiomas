@@ -54,7 +54,7 @@ public class Curso {
 			}
 			prom = prom / (course.getEstudiantes()).size();
 			DecimalFormat f = new DecimalFormat("#.00");
-			System.out.println("\nEl promedio del curso es: " + f.format(prom) + "\n");
+			return("El promedio del curso es: " + f.format(prom) + "\n");
 
 		} catch (noExisteCurso excepcion) {
 			return "No existe el curso.";

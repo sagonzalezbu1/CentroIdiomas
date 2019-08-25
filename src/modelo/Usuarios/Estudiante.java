@@ -164,9 +164,12 @@ public class Estudiante extends Usuario implements Horario {
 		for (Float nota : prom) {
 			list += nota + "  ";
 		}
-
-		list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
-		return list;
+		try {
+			list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
+			return list;
+		}catch(noHayNotas excepcion){
+			return "El estudiante no tiene notas.";
+		}
 	}
 
 	/*
@@ -245,10 +248,14 @@ public class Estudiante extends Usuario implements Horario {
 			if (misCursos.size() > 1) {
 				estado = "Activo";
 			} else {
-				float aux = this.getDefinitiva(mater);
+				try{
+					float aux = this.getDefinitiva(mater);
 				if (aux >= 3.0) {
 					estado = "Egresado";
 				} else {
+					estado = "Inactivo";
+				}
+				}catch(noHayNotas exception) {
 					estado = "Inactivo";
 				}
 			}

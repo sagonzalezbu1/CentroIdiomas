@@ -4,6 +4,7 @@ import java.util.*;
 import BaseDatos.*;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
+import vista.ventanaLogin;
 
 /*Esta es la clase principal del programa, donde se ejecuta lo primordial para su
  * funcionamiento*/
@@ -50,9 +51,6 @@ public class Main {
 		/*Ejecución del menú de (inicialmente) Invitado y luego de 
 		diferentes usuarios a lo largo del programa*/
 		
-		while (true) {
-			user.getMenu().lanzarMenu();
-		}
-		
+				
 	}
 }

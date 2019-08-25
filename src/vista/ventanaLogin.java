@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import uiMain.*;
 
 public class ventanaLogin extends JFrame {
 	private JButton entrar;
@@ -17,7 +16,7 @@ public class ventanaLogin extends JFrame {
 	private JLabel texto1;
 	private JLabel texto2;
 
-	public VentanaUno() {
+	public ventanaLogin() {
 		super("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panelPrincipal = new JPanel();
@@ -37,7 +36,7 @@ public class ventanaLogin extends JFrame {
 		panelPrincipal.add(derecho, BorderLayout.EAST);
 		panelPrincipal.add(entrar, BorderLayout.SOUTH);
 		getContentPane().add(panelPrincipal);
-		setVisible(false);
+		setVisible(true);
 		setSize(500,500);
 		setLocationRelativeTo(null);
 
@@ -61,11 +60,6 @@ public class ventanaLogin extends JFrame {
 		contrasena.setText(null);
 		cedula.setText(null);
 		
-	}
-
-	public void setControlador(Ingresar c) {
-		entrar.addActionListener(c);
-
 	}
 	
 }
