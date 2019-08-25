@@ -7,7 +7,9 @@ import javax.swing.*;
 
 public class ventanaUsuario extends JFrame implements Botonera {
 	private JMenuBar menuBar = new JMenuBar();
+	private JMenu archivo= new JMenu("Archivo");
 	private JMenu menu = new JMenu("Opciones de menu");
+	private JMenu ayuda= new JMenu("Ayuda");
 	public static JPanel panelPrincipal = new JPanel();
 	private JTextField curso =  new JTextField(20);
 	private JLabel texto1;
@@ -17,7 +19,11 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		super("Menu de usuario");
 		addControladores();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		menuBar.add(archivo);
 		menuBar.add(menu);
+		menuBar.add(ayuda);
+		
 		setJMenuBar(menuBar);
 		getContentPane().add(panelPrincipal);
 		panelPrincipal.setBackground(Color.black);
