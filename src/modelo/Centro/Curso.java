@@ -3,7 +3,7 @@ package modelo.Centro;
 import java.util.*;
 import BaseDatos.Archivo;
 import modelo.Usuarios.*;
-import modelo.excepciones.noHayEstudiantes;
+import modelo.excepciones.*;
 
 /*Esta clase permite crear objetos de tipo curso. Los cursos pueden ser de cualquier idioma y tienen un maximo de 10 cupos por curso. Son parte importante
   del centro de idiomas pues contienen a los estudiantes, y si aprueban o no el curso es lo que les otorga a los estudiantes el certificado del idioma */
@@ -126,6 +126,22 @@ public class Curso {
 	  ni retorna nada*/
 	public void finalize() {
 		System.out.println("\nEl curso "+nombre+" ha sido borrado del sistema.\n");
+	}
+	
+	public String crearCurso(String nombre, String horario,long docente, String tipo) {
+		
+		try {
+			Curso curso= Archivo.buscarCurso(nombre);
+			return "Ya existe un curso con ese nombre.";
+		}catch(noExisteCurso excepcion) {
+			try {
+			Docente docen= Archivo.buscarDocente(docente);
+			new Curso(nombre,tipo,horario,docen);
+			return "El curso se ha creado exitosamente.";
+			}catch(noExisteDocente excecion) {
+				return "No existe docente.";
+			}
+		}
 	}
 }
 
