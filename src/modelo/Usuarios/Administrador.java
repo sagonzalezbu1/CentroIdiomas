@@ -12,8 +12,8 @@ public class Administrador extends Usuario {
 	 * Constructor de administrador para asignar los atributos heredados de Usuario
 	 * de acuerdo a los que se le asignan al momento de crearse.
 	 */
-	public Administrador(String name, long id, String email, String password) {
-		super(name, id, email, password);
+	public Administrador() {
+		super("Jaime Guzman", (long)123, "admin@cdi.com", "123");
 		// Se le añaden todas las funcionalidades del sistema a su menú para así poder
 		// manejarlas
 		getProcesos().add("AddFuncionalidad");
@@ -57,27 +57,8 @@ public class Administrador extends Usuario {
 	 * ese respectivo usuario, en el momento
 	 */
 	public String userSystemMenu(long id) {
-		Usuario user = null;
-
-		for (Usuario usuario : Archivo.getEstudiantes()) {
-			if (usuario.getCedula() == id) {
-				user = usuario;
-			}
-		}
-
-		for (Usuario usuario : Archivo.getDocentes()) {
-			if (usuario.getCedula() == id) {
-				user = usuario;
-			}
-		}
-
-		for (Usuario usuario : Archivo.getAdministrativos()) {
-			if (usuario.getCedula() == id) {
-				user = usuario;
-			}
-		}
-
-		if (user != null) {
+		try {
+			Usuario user = Archivo.buscarUsuario(id);
 			String aux = "";
 			int cont = 0;
 			for (String opcion : user.getProcesos()) {
@@ -85,9 +66,9 @@ public class Administrador extends Usuario {
 				cont++;
 			}
 			return aux;
-		} else {
-			return "\nUsuario no encontrado.\n";
+		} catch (noExisteUsuario excepcion) {
+			return "No existe el usuario.";
 		}
-
 	}
+
 }

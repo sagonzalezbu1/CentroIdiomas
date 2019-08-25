@@ -3,6 +3,7 @@ package modelo.Centro;
 import java.util.*;
 import BaseDatos.Archivo;
 import modelo.Usuarios.*;
+import modelo.excepciones.noHayEstudiantes;
 
 /*Esta clase permite crear objetos de tipo curso. Los cursos pueden ser de cualquier idioma y tienen un maximo de 10 cupos por curso. Son parte importante
   del centro de idiomas pues contienen a los estudiantes, y si aprueban o no el curso es lo que les otorga a los estudiantes el certificado del idioma */
@@ -58,8 +59,13 @@ public class Curso {
 	}
 
 	//Metodo que retorna la lista de los estudiantes matriculados en el curso. No recibe ningun parametro
-	public ArrayList<Estudiante> getEstudiantes() {
-		return alumnos;
+	public ArrayList<Estudiante> getEstudiantes() throws noHayEstudiantes {
+		if(!alumnos.isEmpty()) {
+			return alumnos;
+		}else {
+			throw new noHayEstudiantes();
+		}
+		
 	}
 
 	//Metodo que retorna el docente asignado al curso. No recibe ningun parametro
