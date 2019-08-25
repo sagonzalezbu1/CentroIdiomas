@@ -30,12 +30,12 @@ abstract public class Archivo {
 	static public String verSolicitudesEstudiante(long CC) {
 		try {
 			return (Archivo.buscarEstudiante(CC)).verSolicitudes();
-		} catch (noExisteEstudiante e) {
+		} catch (noExisteEstudiante excepcion) {
 			return "No existe estudiante";
-		} catch (noHaySolicitudes e) {
+		} catch (noHaySolicitudes excepcion) {
 			return "No hay Solicitudes";
 		}
-		
+
 	}
 
 	static public String verNotasEstudiante(long CC) {
@@ -46,9 +46,9 @@ abstract public class Archivo {
 				notas += curso.getNombreCurso() + ": " + estudiante.verNotas(curso.getNombreCurso()) + "\n";
 			}
 			return notas;
-		} catch (noExisteEstudiante e) {
+		} catch (noExisteEstudiante excepcion) {
 			return "No existe estudiante.";
-		} catch (noHayCursos e) {
+		} catch (noHayCursos excepcion) {
 			return "No tiene materias inscritas.";
 		}
 	}
@@ -56,20 +56,34 @@ abstract public class Archivo {
 	static public String verHorarioEstudiante(long CC) {
 		try {
 			return (Archivo.buscarEstudiante(CC)).miHorario();
-		} catch (noExisteEstudiante e) {
+		} catch (noExisteEstudiante excepcion) {
 			return "No existe estudiante";
-		}  catch (noHayHorario c) {
+		} catch (noHayHorario excepcion) {
 			return "El horario de este estudiante esta vacio.";
 		}
 	}
+
 	static public String verHorarioDocente(long CC) {
 		try {
 			return (Archivo.buscarDocente(CC)).miHorario();
-		} catch (noExisteDocente e) {
+		} catch (noExisteDocente excepcion) {
 			return "No existe docente.";
-		} catch (noHayHorario c) {
+		} catch (noHayHorario excepcion) {
 			return "El horario de este docente esta vacio.";
 		}
+	}
+
+	static public String verCertificadosEstudiante(long CC) {
+		try {
+			Estudiante estudiante = Archivo.buscarEstudiante(CC);
+			String aux = estudiante.verCertificados();
+			return aux;
+		} catch (noExisteEstudiante excepcion) {
+			return "No existe estudiante";
+		} catch (noHayCertificados excepcion) {
+			return "No tiene certificados.";
+		}
+
 	}
 
 	static public void add(Administrativo a) {
@@ -105,13 +119,13 @@ abstract public class Archivo {
 	 * como parametro la cedula del adminitrativo a encontrar y retorna el
 	 * administrativo en caso de que lo encuentre, si no lo encuentra retornara null
 	 */
-	static public Administrativo buscarAdministrativo(long admin) {
+	static public Administrativo buscarAdministrativo(long admin) throws noExistenAdministrativo{
 		for (Administrativo x : listaAdministrativos) {
 			if (x.getCedula() == admin) {
 				return x;
 			}
 		}
-		return null;
+		throw new noExistenAdministrativo();
 	}
 
 	/*
@@ -298,18 +312,18 @@ abstract public class Archivo {
 	 * escribio en esta de todas las sugerencias
 	 */
 	static public String verSugerencias() {
-		
+
 		String ver = "";
 		for (Sugerencia x : listaSugerencias) {
 			ver += x.toString() + "\n";
 		}
-		
+
 		if (!ver.equals("")) {
 			return "Sugerencias:\n" + ver;
 		} else {
 			return "No hay sugerencias.";
 		}
-		
+
 	}
 
 	/*
@@ -318,13 +332,13 @@ abstract public class Archivo {
 	 * nombre y cedula de todos los docentes
 	 */
 	static public String verDocentes() {
-		
+
 		String ver = "";
 		for (Docente x : listaDocentes) {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
-		
+
 		if (!ver.equals("")) {
 			return "\nDocentes:\n" + ver;
 		} else {
@@ -341,17 +355,17 @@ abstract public class Archivo {
 	 */
 	static public String verSolicitudes() {
 		String ver = "";
-		
+
 		for (String x : solicitudes.keySet()) {
 			ver += x + "\n";
 		}
-		
+
 		if (!ver.equals("")) {
 			return "\nSolicitudes:\n" + ver;
 		} else {
 			return "No hay solicitudes.";
 		}
-		
+
 	}
 
 	/*
@@ -365,13 +379,13 @@ abstract public class Archivo {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
-		
+
 		if (!ver.equals("")) {
 			return "\nEstudiantes:\n" + ver;
 		} else {
 			return "No hay estudiantes.";
 		}
-		
+
 	}
 
 	/*

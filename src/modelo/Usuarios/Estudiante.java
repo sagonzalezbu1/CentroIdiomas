@@ -96,13 +96,13 @@ public class Estudiante extends Usuario implements Horario {
 	 * cursos y no recibe parámetros
 	 */
 	public ArrayList<Curso> getCursos() throws noHayCursos {
-		
+
 		if (misCursos.isEmpty() == false) {
 			return misCursos;
 		} else {
 			throw new noHayCursos();
 		}
-		
+
 	}
 
 	/*
@@ -179,7 +179,7 @@ public class Estudiante extends Usuario implements Horario {
 			aux += curso + "\n";
 			aux += "\n";
 		}
-		
+
 		if (aux.equals("")) {
 			throw new noHayHorario();
 		} else {
@@ -278,13 +278,16 @@ public class Estudiante extends Usuario implements Horario {
 	 * Retorna un String equivalente a los certificados del estudiante, mostrándolos
 	 * de manera correcta. No recibe parámetros
 	 */
-	public String verCertificados() {
+	public String verCertificados() throws noHayCertificados {
 		String aux = "";
 		for (Certificado certificado : misCertificados) {
 			aux += certificado + "\n";
 		}
-		return aux;
-
+		if (aux.equals("")) {
+			throw new noHayCertificados();
+		} else {
+			return aux;
+		}
 	}
 
 	/*
@@ -308,11 +311,10 @@ public class Estudiante extends Usuario implements Horario {
 	}
 
 	public String solicitarCupo(long CC, String tipo) {
-		Estudiante estudiante=null;
+		Estudiante estudiante = null;
 		try {
-			estudiante= Archivo.buscarEstudiante(CC);
-			
-			for (Curso curso : estudiante.getCurso()) {
+			estudiante = Archivo.buscarEstudiante(CC);
+			for (Curso curso : estudiante.getCursos()) {
 				if (curso.getTipo().equals(tipo)) {
 					return "Usted esta viendo un curso de este tipo, no puede solicitar.";
 				}
@@ -338,7 +340,7 @@ public class Estudiante extends Usuario implements Horario {
 			}
 		} catch (noExisteEstudiante e) {
 			return "No hay estudiante.";
-		}catch(noHayCursos c) {
+		} catch (noHayCursos c) {
 			for (Solicitud solicitud : estudiante.getSolicitudes()) {
 				if (solicitud.getTipo().equals(tipo)) {
 					return "Usted ya hizo una solicitud para este tipo, no puede solicitar.";
