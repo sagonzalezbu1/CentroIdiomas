@@ -119,7 +119,7 @@ public class ventanaLogin extends JFrame {
 	
 	public void borrar(String alert) {
 		JOptionPane.showMessageDialog(null, alert, "Error al iniciar seccion" , JOptionPane.WARNING_MESSAGE);
-		contrasena.setText(null);
-		cedula.setText(null);
+		T3.setText(null);
+		T2.setText(null);
 	}
 }
