@@ -421,4 +421,43 @@ abstract public class Archivo {
 		}
 
 	}
+	static public void verificarUsuario(long cc, String pass) throws noExisteUsuario, loginInvalido {
+		if(Archivo.buscarUsuario(cc).getContrasena().equals(pass) && cc!= 123){
+			return;
+		}
+		throw new loginInvalido();
+	}
+	static public String IngresarUsuario(long cc, String pass){
+		try {
+			Archivo.buscarUsuario(cc);
+			Archivo.verificarUsuario(cc, pass);
+			return "Se ha iniciado sesion.";
+		}
+		catch(noExisteUsuario exception1){
+			return "Usuario Incorrecto";
+			
+		}
+		catch(loginInvalido exception2) {
+			return "Clave Incorrecta.";
+		}
+	}
+	static public void verificarAdministrativo(long cc, String pass) throws noExisteAdministrativo, loginInvalido{
+		if(Archivo.buscarAdministrativo(cc).getContrasena().equals(pass)) {
+			return;
+		}
+		throw new loginInvalido();
+	}
+	static public String IngresarAdmin(long cc, String pass) {
+		try {
+			Archivo.buscarAdministrativo(cc);
+			Archivo.verificarAdministrativo(cc,pass);
+			return "Se ha iniciado sesion.";
+		}
+		catch (noExisteAdministrativo exception1){
+			return "Usuario Incorrecto.";
+		}
+		catch (loginInvalido exception2) {
+			return "Clave Incorrecta.";
+		}
+	}
 }
