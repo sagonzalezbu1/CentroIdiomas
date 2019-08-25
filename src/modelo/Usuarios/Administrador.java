@@ -1,5 +1,7 @@
 package modelo.Usuarios;
 
+import java.util.ArrayList;
+
 import BaseDatos.Archivo;
 import control.*;
 import modelo.excepciones.*;
@@ -68,6 +70,64 @@ public class Administrador extends Usuario {
 			return aux;
 		} catch (noExisteUsuario excepcion) {
 			return "No existe el usuario.";
+		}
+	}
+
+	public String removerFuncioalidad(long CC, String opcion) {
+		try {
+			Usuario user = Archivo.buscarUsuario(CC);
+			ArrayList<String> menu = user.getProcesos();
+
+			for (String op : menu) {
+				if (op.equals(opcion) && !op.equals("CerrarSesion")) {
+					menu.remove(op);
+					return "La opcion de menu fue eliminada con exito.";
+				}
+			}
+			return "Opcion invalida.";
+
+		} catch (noExisteUsuario excepcion) {
+			return "El usuario no esta registrado.";
+		}
+	}
+	
+	public String registrarAdministrativo(String name, String apellido, long CC, String correo, String pass, String codigo) {
+		try {
+			Usuario user=Archivo.buscarUsuario(CC);
+			return "Ya se encuentra registrado un usuario.";
+		}catch(noExisteUsuario excepcion) {
+			if(codigo.equals("1234")) {
+				new Administrativo(name + " " + apellido, CC, correo, pass);
+				return "Se ha registrado el administrativo exitosamente.";
+			}else {
+				return "Codigo incorrecto.";
+			}
+		}
+		
+	}
+
+	public String registrarDocente(String name, String apellido, long CC, String correo, String pass, String codigo) {
+		try {
+			Usuario user=Archivo.buscarUsuario(CC);
+			return "Ya se encuentra registrado un usuario.";
+		}catch(noExisteUsuario excepcion) {
+			if(codigo.equals("0000")) {
+				new Docente(name + " " + apellido, CC, correo, pass);
+				return "Se ha registrado el docente exitosamente.";
+			}else {
+				return "Codigo incorrecto.";
+			}
+		}
+		
+	}
+
+	public String registrarEstudiante(String name, String apellido, long CC, String correo, String pass) {
+		try {
+			Usuario user=Archivo.buscarUsuario(CC);
+			return "Ya se encuentra registrado un usuario.";
+		}catch(noExisteUsuario excepcion) {
+			new Estudiante(name + " " + apellido, CC, correo, pass);
+			return "Se ha registrado el estudiante exitosamente.";
 		}
 	}
 

@@ -30,9 +30,9 @@ abstract public class Archivo {
 	static public String verSolicitudesEstudiante(long CC) {
 		try {
 			return (Archivo.buscarEstudiante(CC)).verSolicitudes();
-		} catch (noExisteEstudiante e) {
+		} catch (noExisteEstudiante excepcion) {
 			return "No existe estudiante";
-		} catch (noHaySolicitudes e) {
+		} catch (noHaySolicitudes excepcion) {
 			return "No hay Solicitudes";
 		}
 
@@ -46,9 +46,9 @@ abstract public class Archivo {
 				notas += curso.getNombreCurso() + ": " + estudiante.verNotas(curso.getNombreCurso()) + "\n";
 			}
 			return notas;
-		} catch (noExisteEstudiante e) {
+		} catch (noExisteEstudiante excepcion) {
 			return "No existe estudiante.";
-		} catch (noHayCursos e) {
+		} catch (noHayCursos excepcion) {
 			return "No tiene materias inscritas.";
 		}
 	}
@@ -56,9 +56,10 @@ abstract public class Archivo {
 	static public String verHorarioEstudiante(long CC) {
 		try {
 			return (Archivo.buscarEstudiante(CC)).miHorario();
-		} catch (noExisteEstudiante e) {
+		} catch (noExisteEstudiante excepcion) {
 			return "No existe estudiante";
-		} catch (noHayHorario c) {
+
+		} catch (noHayHorario excepcion) {
 			return "El horario de este estudiante esta vacio.";
 		}
 	}
@@ -66,11 +67,24 @@ abstract public class Archivo {
 	static public String verHorarioDocente(long CC) {
 		try {
 			return (Archivo.buscarDocente(CC)).miHorario();
-		} catch (noExisteDocente e) {
+		} catch (noExisteDocente excepcion) {
 			return "No existe docente.";
-		} catch (noHayHorario c) {
+		} catch (noHayHorario excepcion) {
 			return "El horario de este docente esta vacio.";
 		}
+	}
+
+	static public String verCertificadosEstudiante(long CC) {
+		try {
+			Estudiante estudiante = Archivo.buscarEstudiante(CC);
+			String aux = estudiante.verCertificados();
+			return aux;
+		} catch (noExisteEstudiante excepcion) {
+			return "No existe estudiante";
+		} catch (noHayCertificados excepcion) {
+			return "No tiene certificados.";
+		}
+
 	}
 
 	static public void add(Administrativo a) {
@@ -106,13 +120,16 @@ abstract public class Archivo {
 	 * como parametro la cedula del adminitrativo a encontrar y retorna el
 	 * administrativo en caso de que lo encuentre, si no lo encuentra retornara null
 	 */
+
 	static public Administrativo buscarAdministrativo(long admin) throws noExisteAdministrativo {
 		for (Administrativo x : listaAdministrativos) {
 			if (x.getCedula() == admin) {
 				return x;
 			}
 		}
+
 		throw new noExisteAdministrativo();
+
 	}
 
 	/*
