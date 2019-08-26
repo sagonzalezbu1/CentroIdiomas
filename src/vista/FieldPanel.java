@@ -11,7 +11,6 @@ import javax.swing.JTextField;
 
 public class FieldPanel extends JPanel {
 
-	String[] criteriosArray;
 	private String tituloCriterios;
 	private String[] criteriosArray;
 	private String tituloValores;
@@ -91,7 +90,7 @@ public class FieldPanel extends JPanel {
 				return textos[i].getText();
 			}
 		}
-		return "No se encontrï¿½ criterio";
+		return "No se encontró criterio";
 		
 	}
 
