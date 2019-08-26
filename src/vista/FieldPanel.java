@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class FieldPanel extends JPanel {
@@ -29,7 +30,10 @@ public class FieldPanel extends JPanel {
 	
 
 	public FieldPanel() {
-		
+		this.setLayout(new BorderLayout());
+		detalle.setLayout(new BorderLayout());
+		this.add(detalle,BorderLayout.NORTH);
+		this.add(formulario,BorderLayout.CENTER);
 	}
 	
 	public FieldPanel(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
@@ -97,7 +101,6 @@ public class FieldPanel extends JPanel {
 		
 		this.add(detalle,BorderLayout.NORTH);
 		this.add(formulario,BorderLayout.CENTER);
-		this.setSize(500, 500);
 	}
 
 	public void setControlador(ActionListener control) {
@@ -115,12 +118,21 @@ public class FieldPanel extends JPanel {
 		
 	}
 	
+	public void borrar() {
+		for(JTextField text : textos) {
+			text.setText(null);
+		}
+	}
+	
 	public void nombre(String nombre) {
 		detalle.add(new JLabel(nombre),BorderLayout.NORTH);
 	}
 	
 	public void descripcion(String descripcion) {
 		detalle.add(new JLabel(descripcion),BorderLayout.SOUTH);
+	}
+	public void formulario(JTextArea text) {
+		formulario.add(text);
 	}
 
 }

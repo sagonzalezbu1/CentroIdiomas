@@ -47,7 +47,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		panelPrincipal= new FieldPanel();
 		JTextArea texto = new JTextArea(text);
 		texto.setEditable(false);
-		panelPrincipal.add(texto);
+		panelPrincipal.formulario(texto);
 		getContentPane().removeAll();
 		getContentPane().add(panelPrincipal);
 		pack();

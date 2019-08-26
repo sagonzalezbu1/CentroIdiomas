@@ -18,6 +18,9 @@ public class VerNotasEstudiantePanel implements ActionListener {
 				JOptionPane.showMessageDialog(null, e, "Error al iniciar sesion" , JOptionPane.WARNING_MESSAGE);
 			}
 		}
+		if(evento.getActionCommand().equals("Borrar")) {
+			Main.ventanaUsuario.getPanelP().borrar();
+		}
 
 	}
 }
