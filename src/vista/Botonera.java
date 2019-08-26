@@ -34,6 +34,7 @@ public interface Botonera {
 			put("SystemMenu", new SystemMenu());
 		}
 	};
+	
 	public static HashMap<String, JMenuItem> botones = new HashMap<String, JMenuItem>() {
 		{
 			put("Calificar", new JMenuItem("Calificar"));
@@ -62,4 +63,16 @@ public interface Botonera {
 			put("SystemMenu", new JMenuItem("SystemMenu"));
 		}
 	};
+	
+	public static void addControladores() {
+		for (String boton : botones.keySet()) {
+			for (String controlador : controladores.keySet()) {
+				if (boton.equals(controlador)) {
+					botones.get(boton).addActionListener(controladores.get(controlador));
+					break;
+				}
+			}
+
+		}
+	}
 }
