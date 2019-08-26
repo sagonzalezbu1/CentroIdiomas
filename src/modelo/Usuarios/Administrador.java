@@ -20,7 +20,7 @@ public class Administrador extends Usuario {
 		// manejarlas
 		getProcesos().add("AddFuncionalidad");
 		getProcesos().add("RemoveFuncionalidad");
-		getProcesos().add("UserMenu");
+		getProcesos().add("VerMenuUsuario");
 		getProcesos().add("SystemMenu");
 		getProcesos().add(Main.funcionalidades.get("Calificar"));
 		getProcesos().add(Main.funcionalidades.get("CrearCurso"));
@@ -34,9 +34,9 @@ public class Administrador extends Usuario {
 		getProcesos().add(Main.funcionalidades.get("VerCertificados"));
 		getProcesos().add(Main.funcionalidades.get("VerDocentes"));
 		getProcesos().add(Main.funcionalidades.get("VerTodosLosEstudiantes"));
-		getProcesos().add(Main.funcionalidades.get("VerHorario"));
+		getProcesos().add(Main.funcionalidades.get("VerHorarioDocente"));
 		getProcesos().add(Main.funcionalidades.get("VerSolicitudes"));
-		getProcesos().add(Main.funcionalidades.get("VerNotas"));
+		getProcesos().add(Main.funcionalidades.get("VerNotasEstudiante"));
 		getProcesos().add(Main.funcionalidades.get("VerEstudiantesCurso"));
 		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
 		getProcesos().add(Main.funcionalidades.get("VerSugerencias"));

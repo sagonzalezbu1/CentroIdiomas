@@ -1,26 +1,38 @@
 package control;
 
-import java.util.*;
-import BaseDatos.Archivo;
-import modelo.Usuarios.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /* La clase 'VerHorario' es donde mostramos el horario que tiene hasta en el momento un estudiante o un docente, si quien lo realiza es de instancia 
  * diferente la instancia 'Estudiante' o 'Docente'. Por el contrario se mostraran wl horario con el que cuenta.
  * En esta clase estamos ejecutando el metodo localizado en 'Estudiante' o 'Docente' VerHorario.*/
-public class VerHorario extends OpcionDeMenu {
+public class VerHorarioDocente implements ActionListener {
 	private String nombre = "VerHorario";
 	
 	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro.*/
 	public String getNombre() {
 		return nombre;
 	}
+	
+	public void actionPerformed(ActionEvent evento) {
 
+		if (evento.getActionCommand().equals("VerHorarioDocente")) {
+			String tituloCriterios="Criterio";
+			String tituloValores="Valor";
+			String[] criterios= {"Cedula del docente: "};
+			String[] valores = {"Ingrese La cedula del docente"};
+			boolean[] habilitado= {true};
+			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
+		}
+
+	}
+	
 	/* Este metodo verfica que tipo de usuario esta realizando la opcion. luego de ello procede a:
 	 * si es estudiante, imprime el horario que tiene por medio de el metodo 'miHorario'
 	 * si es docente, imprime el horario que tiene por medio de el metodo 'miHorario'
 	 * si es de otro tipo de instancia, pide el documento del usuario(estudiante o docente) al cual quiere ver el horario que tiene, compruebe que este en 'Archivo'
 	 * y de ser afirmativo, comunica el horario. De caso contrario, avisa que no se encuentra ningun usuario (estudiante o docente) con ese ID.*/
-	public void ejecutar() {
+	/*public void ejecutar() {
 		
 		if (Main.user instanceof Estudiante) {
 			System.out.println("");
@@ -50,7 +62,7 @@ public class VerHorario extends OpcionDeMenu {
 			System.out.println("\nNo se ha encontrado ningun usuario.\n");
 		
 		}
-	}
+	}*/
 	
 	/* Sobreescribimos el metodo de 'Object''toString'. */
 	public String toString() {

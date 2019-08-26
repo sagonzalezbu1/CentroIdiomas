@@ -1,13 +1,12 @@
 package control;
 
-import java.util.Scanner;
-import BaseDatos.Archivo;
-import modelo.Usuarios.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /* La clase 'VerSolicitudes' es donde mostramos las solicitudes de cupo que ha realizado a un tipo de idioma un estudiante, si quien lo pregunta es de instancia 
  * diferente la instancia 'Estudiante'. Si por el contrario es un estudiante quien realiza la funcionalidad, se mostrara las solicitudes que él ha hecho.
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerSolicitudes. */
-public class VerSolicitudes extends OpcionDeMenu {
+public class VerSolicitudes implements ActionListener {
 	private String nombre = "VerSolicitudes";
 	
 	/*Este metodo retorna el nombre que tiene la opcion de menu. Ademas sobreescribimos el metodo de 'OpcionDeMenu'. Este metodo no recibe ningun parametro.*/
@@ -15,12 +14,26 @@ public class VerSolicitudes extends OpcionDeMenu {
 		return nombre;
 	}
 	
+	public void actionPerformed(ActionEvent evento) {
+
+		if (evento.getActionCommand().equals("VerSolicitudes")) {
+			String tituloCriterios="Criterio";
+			String tituloValores="Valor";
+			String[] criterios= {"Cedula del estudiante: "};
+			String[] valores = {"Ingrese La cedula del estudiante"};
+			boolean[] habilitado= {true};
+			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
+
+		}
+
+	}
+	
 	/* Este metodo verfica que tipo de usuario esta realizando la opcion. Luego de ello procede a:
 	 * si es estudiante, imprime las solicitudes que tiene por medio de el metodo 'verSolicitudes'
 	 * si es de otro tipo de instancia, pide el documento del estudiante al cual quiere ver las solicitudes de cupo que hecho, comprueba que el estudiante este en 'Archivo'
 	 * y de ser afirmativo, muestra las solicitudes de cupo si las tiene, sino notifica que no tiene solicitudes. 
 	 * De caso contrario, avisa que no se encuentra ningun estudiante con ese ID. */
-	public void ejecutar() {
+	/*public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		
 		if (Main.user instanceof Estudiante) {
@@ -51,7 +64,7 @@ public class VerSolicitudes extends OpcionDeMenu {
 			}
 		}
 		
-	}
+	}*/
 	/* Sobreescribimos el metodo de 'Object''toString'
 	 * */
 	public String toString() {

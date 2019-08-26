@@ -20,9 +20,9 @@ public interface Botonera {
 			put("VerCertificados", new VerCertificados());
 			put("VerDocentes", new VerDocentes());
 			put("VerTodosLosEstudiantes", new VerTodosLosEstudiantes());
-			put("VerHorario", new VerHorario());
+			put("VerHorarioDocente", new VerHorarioDocente());
 			put("VerSolicitudes", new VerSolicitudes());
-			put("VerNotas", new VerNotas());
+			put("VerNotasEstudiante", new VerNotasEstudiante());
 			put("CerrarSesion", new CerrarSesion());
 			put("VerEstudiantesCurso", new VerEstudiantesCurso());
 			put("HacerSugerencia", new HacerSugerencia());
@@ -30,7 +30,7 @@ public interface Botonera {
 			put("PromedioCurso", new PromedioCurso());
 			put("AddFuncionalidad", new AddFuncionalidad());
 			put("RemoveFuncionalidad", new RemoveFuncionalidad());
-			put("UserMenu", new UserMenu());
+			put("VerMenuUsuario", new VerMenuUsuario());
 			put("SystemMenu", new SystemMenu());
 		}
 	};
@@ -49,9 +49,9 @@ public interface Botonera {
 			put("VerCertificados", new JMenuItem("VerCertificados"));
 			put("VerDocentes", new JMenuItem("VerDocentes"));
 			put("VerTodosLosEstudiantes", new JMenuItem("VerTodosLosEstudiantes"));
-			put("VerHorario",new JMenuItem("VerHorario"));
+			put("VerHorarioDocente",new JMenuItem("VerHorarioDocente"));
 			put("VerSolicitudes", new JMenuItem("VerSolicitudes"));
-			put("VerNotas", new JMenuItem("VerNotas"));
+			put("VerNotasEstudiante", new JMenuItem("VerNotasEstudiante"));
 			put("CerrarSesion", new JMenuItem("CerrarSesion"));
 			put("VerEstudiantesCurso", new JMenuItem("VerEstudiantesCurso"));
 			put("HacerSugerencia", new JMenuItem("HacerSugerencia"));
@@ -59,7 +59,7 @@ public interface Botonera {
 			put("PromedioCurso", new JMenuItem("PromedioCurso"));
 			put("AddFuncionalidad", new JMenuItem("AddFuncionalidad"));
 			put("RemoveFuncionalidad", new JMenuItem("RemoveFuncionalidad"));
-			put("UserMenu", new JMenuItem("UserMenu"));
+			put("VerMenuUsuario", new JMenuItem("VerMenuUsuario"));
 			put("SystemMenu", new JMenuItem("SystemMenu"));
 		}
 	};

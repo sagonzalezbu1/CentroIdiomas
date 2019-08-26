@@ -25,9 +25,9 @@ public class Main {
 			put("VerCertificados", "VerCertificados");
 			put("VerDocentes","VerDocentes");
 			put("VerTodosLosEstudiantes","VerTodosLosEstudiantes");
-			put("VerHorario", "VerHorario");
+			put("VerHorarioDocente", "VerHorarioDocente");
 			put("VerSolicitudes", "VerSolicitudes");
-			put("VerNotas", "VerNotas");
+			put("VerNotasEstudiante", "VerNotasEstudiante");
 			put("CerrarSesion", "CerrarSesion");
 			put("VerEstudiantesCurso","VerEstudiantesCurso");
 			put("HacerSugerencia", "HacerSugerencia");
