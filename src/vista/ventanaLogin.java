@@ -3,6 +3,8 @@ package vista;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import control.*;
 
 public class ventanaLogin extends JFrame {
@@ -133,7 +135,8 @@ public class ventanaLogin extends JFrame {
 		Frame.add(P2, BorderLayout.EAST);
 		
 		//Lanzamos la ventana
-		
+		Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		Frame.setBorder(padding);
 		getContentPane().add(Frame);	
 		setVisible(true);
 		pack();

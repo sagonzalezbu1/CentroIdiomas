@@ -12,30 +12,24 @@ import modelo.Usuarios.*;
 public class ControlIngresarUser implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 
-		if(evento.getActionCommand().equals("entrar")) {
-			long cedula =  Main.ventanaLogin.getCedula();
+		if (evento.getActionCommand().equals("Usuario Comun")) {
+			long cedula = Main.ventanaLogin.getCedula();
 			String contraseña = Main.ventanaLogin.getContrasena();
-			Archivo.ingresarUsuario(cedula, contraseña);
-			Main.ventanaLogin.setVisible(false);
-			Main.ventanaUsuario.setVisible(true);
-			
-		if(evento.getActionCommand().equals("Usuario Comun")) {
-			long cedula =  Main.ventanaLogin.getCedula();
-			String contraseña = Main.ventanaLogin.getContrasena();
-			String mensaje= Archivo.ingresarUsuario(cedula, contraseña);
-			if(mensaje.equals("Se ha iniciado sesion.")) {
-			Main.ventanaLogin.ingresar();
-			Main.ventanaUsuario.ingresar(Main.user.getProcesos(),Main.user.getNombre());
-			}else {
+			String mensaje = Archivo.ingresarUsuario(cedula, contraseña);
+			if (mensaje.equals("Se ha iniciado sesion.")) {
+				Main.ventanaLogin.ingresar();
+				Main.ventanaUsuario.ingresar(Main.user.getProcesos(), Main.user.getNombre());
+			} else {
 				Main.ventanaLogin.borrar(mensaje);
 			}
 
 		}
 	}
 
-	
-	/*Se inicia sesión con los datos del usuario, es decir, se ejecuta el menú del
-	* respectivo usuario*/
+	/*
+	 * Se inicia sesión con los datos del usuario, es decir, se ejecuta el menú del
+	 * respectivo usuario
+	 */
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Ingrese su cedula:");
@@ -44,10 +38,11 @@ public class ControlIngresarUser implements ActionListener {
 		String pass = entry.next();
 		Invitado.ingresar(cc, pass);
 	}
-	
-	/*Método toString.
-	 * Retorna un String correspondiente al nombre de la funcionalidad, 
-	 * que se mostrará por pantalla en el menú*/
+
+	/*
+	 * Método toString. Retorna un String correspondiente al nombre de la
+	 * funcionalidad, que se mostrará por pantalla en el menú
+	 */
 	public String toString() {
 		return "Ingresar";
 	}
