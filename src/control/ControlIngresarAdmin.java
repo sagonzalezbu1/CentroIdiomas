@@ -16,11 +16,13 @@ public class ControlIngresarAdmin implements ActionListener {
 				long cedula = Main.ventanaLogin.getCedula();
 				String contraseña = Main.ventanaLogin.getContrasena();
 				mensaje = Archivo.ingresarAdmin(cedula, contraseña);
+				
 				if (cedula == -1 || contraseña.equals("")) {
 					throw new Excepcion1();
 				}else if(!mensaje.equals("Se ha iniciado sesion.")) {
 					throw new loginInvalido();
 				}
+				
 				Main.ventanaLogin.ingresar();
 				Main.ventanaUsuario.ingresar(Main.user.getProcesos(), Main.user.getNombre());
 

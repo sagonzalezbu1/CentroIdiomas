@@ -16,7 +16,7 @@ public interface Botonera {
 			put("Matricular", new MatricularEstudianteMenu());
 			put("Registrar", new RegistrarMenu());
 			put("ResponderSolicitudes", new ResponderSolicitudesMenu());
-			put("SolicitarCupo", new SolicitarCupoEstudianteMenu());
+			put("SolicitarCupoEstudiante", new SolicitarCupoEstudianteMenu());
 			put("VerAdministrativos", new VerAdministrativosMenu());
 			put("VerCertificados", new VerCertificadosEstudianteMenu());
 			put("VerDocentes", new VerDocentesMenu());
@@ -33,6 +33,12 @@ public interface Botonera {
 			put("RemoveFuncionalidad", new RemoveFuncionalidadMenu());
 			put("VerMenuUsuario", new VerMenuUsuarioMenu());
 			put("SystemMenu", new SystemMenu());
+			put("MisNotas", new MisNotasMenu());
+			put("MisSolicitudes", new MisSolicitudesMenu());
+			put("MisCertificados", new MisCertificadosMenu());
+			put("MiMatricula", new MiMatriculaMenu());
+			put("VerHorarioEstudiante", new VerHorarioEstudianteMenu());
+			put("SolicitarCupo", new SolicitarCupoMenu());
 		}
 	};
 	
@@ -45,7 +51,7 @@ public interface Botonera {
 			put("Matricular", new JMenuItem("Matricular"));
 			put("Registrar", new JMenuItem("Registrar"));
 			put("ResponderSolicitudes", new JMenuItem("ResponderSolicitudes"));
-			put("SolicitarCupo", new JMenuItem("SolicitarCupo"));
+			put("SolicitarCupoEstudiante", new JMenuItem("SolicitarCupoEstudiante"));
 			put("VerAdministrativos", new JMenuItem("VerAdministrativos"));
 			put("VerCertificados", new JMenuItem("VerCertificados"));
 			put("VerDocentes", new JMenuItem("VerDocentes"));
@@ -62,6 +68,12 @@ public interface Botonera {
 			put("RemoveFuncionalidad", new JMenuItem("RemoveFuncionalidad"));
 			put("VerMenuUsuario", new JMenuItem("VerMenuUsuario"));
 			put("SystemMenu", new JMenuItem("SystemMenu"));
+			put("MisNotas", new JMenuItem("MisNotas"));
+			put("MisSolicitudes", new JMenuItem("MisSolicitudes"));
+			put("MisCertificados", new JMenuItem("MisCertificados"));
+			put("MiMatricula", new JMenuItem("MiMatricula"));
+			put("VerHorarioEstudiante", new JMenuItem("VerHorarioEstudiante"));
+			put("SolicitarCupo", new JMenuItem("SolicitarCupo"));
 		}
 	};
 	
