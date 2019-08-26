@@ -1,8 +1,7 @@
 package modelo.excepciones;
 
-public class noExisteAdministrador extends Exception{
+public class noExisteAdministrador extends ErrorModelo{
 	public noExisteAdministrador() {
-		super("No existe administrador");
-
+		super("NoExisteAdministrador");
 	}
 }

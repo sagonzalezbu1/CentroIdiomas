@@ -1,7 +1,7 @@
 package modelo.excepciones;
 
-public class noExisteAdministrativo extends Exception{
+public class noExisteAdministrativo extends ErrorModelo{
 	public noExisteAdministrativo() {
-		super("No existe administrativo");
+		super("NoExisteAdministrativo");
 	}
 }

@@ -1,7 +1,7 @@
 package modelo.excepciones;
 
-public class noHaySolicitudes extends Exception {
+public class noHaySolicitudes extends ErrorModelo {
 	public noHaySolicitudes() {
-		super("No hay solicitudes");
+		super("NoHaySolicitudes");
 	}
 }

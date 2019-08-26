@@ -1,7 +1,7 @@
 package modelo.excepciones;
 
-public class noHayHorario extends Exception {
+public class noHayHorario extends ErrorModelo {
 	public noHayHorario() {
-		super("No hay horario");
+		super("NoHayHorario");
 	}
 }
