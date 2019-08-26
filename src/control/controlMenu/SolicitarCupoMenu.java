@@ -1,18 +1,15 @@
-package control;
+package control.controlMenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 
-import BaseDatos.Archivo;
-import modelo.Centro.*;
-import modelo.Usuarios.*;
+import control.Main;
 
 /*Esta clase es usada por Estudiante para solicitar cupo a cursos que estén llenos.
  * 
  * En esta clase se ejecuta el método solicitar localizado en la clase Estudiante.*/
 
-public class SolicitarCupo implements ActionListener {
+public class SolicitarCupoMenu implements ActionListener {
 	
 	public void actionPerformed(ActionEvent evento) {
 
