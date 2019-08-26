@@ -11,7 +11,7 @@ public class VerTodosLosEstudiantesMenu implements ActionListener {
 	
 	public void actionPerformed(ActionEvent evento) {
 
-		if (evento.getActionCommand().equals("VerTodosLosEstudiante")) {
+		if (evento.getActionCommand().equals("VerTodosLosEstudiantes")) {
 			String Estudiantes= Archivo.verEstudiantes();
 			Main.ventanaUsuario.ver(Estudiantes);
 		}

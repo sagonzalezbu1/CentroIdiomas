@@ -44,10 +44,12 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	}
 	
 	public void ver(String text) {
-		panelPrincipal.removeAll();
+		panelPrincipal= new FieldPanel();
 		JTextArea texto = new JTextArea(text);
 		texto.setEditable(false);
 		panelPrincipal.add(texto);
+		getContentPane().removeAll();
+		getContentPane().add(panelPrincipal);
 		pack();
 	}
 
