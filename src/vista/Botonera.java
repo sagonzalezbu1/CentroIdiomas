@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import control.*;
-import controlMenu.*;
+import control.controlMenu.*;
 
 public interface Botonera {
 	public static HashMap<String, ActionListener> controladores = new HashMap<String, ActionListener>() {
@@ -16,7 +16,7 @@ public interface Botonera {
 			put("Matricular", new Matricular());
 			put("Registrar", new Registrar());
 			put("ResponderSolicitudes", new ResponderSolicitudes());
-			put("SolicitarCupo", new SolicitarCupo());
+			put("SolicitarCupo", new SolicitarCupoMenu());
 			put("VerAdministrativos", new VerAdministrativosMenu());
 			put("VerCertificados", new VerCertificadosMenu());
 			put("VerDocentes", new VerDocentesMenu());
