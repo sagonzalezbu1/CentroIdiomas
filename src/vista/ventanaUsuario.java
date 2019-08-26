@@ -19,6 +19,7 @@ public class ventanaUsuario extends JFrame implements Botonera{
 	public ventanaUsuario() {
 		super("");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Botonera.addControladores();
 		menuBar.add(archivoM);
 		menuBar.add(procesosM);
 		menuBar.add(ayudaM);
