@@ -23,7 +23,7 @@ public class ControlCrearCurso implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 		if(evento.getActionCommand().equals("CrearCurso")) {
 			String tituloCriterios = "Criterio";
-			String[] criteriosArray = {"Nombre","Tipo","Profesor","Horario"};
+			String[] criteriosArray = {"Nombre del curso:","Tipo del curso:","Profesor del curso:","Horario del curso:"};
 			String tituloValores = "Valores";
 			String[] valoresArray = {null,null,null,null};
 			boolean[] habilitado = {true,true,true,true};
