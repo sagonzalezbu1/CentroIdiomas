@@ -2,7 +2,6 @@ package control.controlMenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import control.Main;
 
 /* La clase 'VerHorario' es donde mostramos el horario que tiene hasta en el momento un estudiante o un docente, si quien lo realiza es de instancia 
@@ -19,6 +18,7 @@ public class VerHorarioDocenteMenu implements ActionListener {
 			String[] valores = {""};
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
+			Main.ventanaUsuario.getPanelP().setControlador(new VerHorarioEstudiante());
 		}
 
 	}
