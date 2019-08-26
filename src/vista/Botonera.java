@@ -4,33 +4,34 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import control.*;
+import controlMenu.*;
 
 public interface Botonera {
 	public static HashMap<String, ActionListener> controladores = new HashMap<String, ActionListener>() {
 		{
 			put("Calificar", new Calificar());
 			put("CrearCurso", new ControlCrearCurso());
-			put("VerCursos", new VerCursos());
+			put("VerCursos", new VerCursosMenu());
 			put("FinalizeCurso", new FinalizeCurso());
 			put("Matricular", new Matricular());
 			put("Registrar", new Registrar());
 			put("ResponderSolicitudes", new ResponderSolicitudes());
 			put("SolicitarCupo", new SolicitarCupo());
-			put("VerAdministrativos", new VerAdministrativos());
-			put("VerCertificados", new VerCertificados());
-			put("VerDocentes", new VerDocentes());
-			put("VerTodosLosEstudiantes", new VerTodosLosEstudiantes());
-			put("VerHorarioDocente", new VerHorarioDocente());
-			put("VerSolicitudes", new VerSolicitudes());
-			put("VerNotasEstudiante", new VerNotasEstudiante());
+			put("VerAdministrativos", new VerAdministrativosMenu());
+			put("VerCertificados", new VerCertificadosMenu());
+			put("VerDocentes", new VerDocentesMenu());
+			put("VerTodosLosEstudiantes", new VerTodosLosEstudiantesMenu());
+			put("VerHorarioDocente", new VerHorarioDocenteMenu());
+			put("VerSolicitudes", new VerSolicitudesMenu());
+			put("VerNotasEstudiante", new VerNotasEstudianteMenu());
 			put("CerrarSesion", new CerrarSesion());
-			put("VerEstudiantesCurso", new VerEstudiantesCurso());
+			put("VerEstudiantesCurso", new VerEstudiantesCursoMenu());
 			put("HacerSugerencia", new HacerSugerencia());
-			put("VerSugerencias", new VerSugerencias());
+			put("VerSugerencias", new VerSugerenciasMenu());
 			put("PromedioCurso", new PromedioCurso());
 			put("AddFuncionalidad", new AddFuncionalidad());
 			put("RemoveFuncionalidad", new RemoveFuncionalidad());
-			put("VerMenuUsuario", new VerMenuUsuario());
+			put("VerMenuUsuario", new VerMenuUsuarioMenu());
 			put("SystemMenu", new SystemMenu());
 		}
 	};
