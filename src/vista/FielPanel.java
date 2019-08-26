@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Formulario extends JPanel {
+public class FielPanel extends JPanel {
 
 	String tituloCriterios;
 	String[] criteriosArray;
@@ -20,8 +20,7 @@ public class Formulario extends JPanel {
 	JButton aceptar;
 	JButton borrar;
 
-	public Formulario(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
-			boolean[] habilitado) {
+	public FielPanel(String tituloCriterios, String[] criterios, String tituloValores, String[] valores, boolean[] habilitado) {
 
 		this.tituloCriterios = tituloCriterios;
 		this.criteriosArray = criterios;
