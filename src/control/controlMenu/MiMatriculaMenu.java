@@ -1,5 +1,5 @@
 package control.controlMenu;
 
-public class SolicitarCupoMenu {
+public class MiMatriculaMenu {
 
 }

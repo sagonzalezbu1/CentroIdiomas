@@ -1,13 +1,14 @@
-package control;
+package control.controlMenu;
 
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.OpcionDeMenu;
 import modelo.Centro.*;
 
 /*Esta clase es usada por Administrativo para responder a las solicitudes de cupo
  * que hagan los estudiantes a los cursos que no tengan cupos.*/
-public class ResponderSolicitudes extends OpcionDeMenu {
+public class ResponderSolicitudesMenu extends OpcionDeMenu {
 	private String nombre = "ResponderSolicitudes";
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/

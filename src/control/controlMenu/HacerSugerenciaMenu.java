@@ -1,7 +1,8 @@
-package control;
+package control.controlMenu;
 
 import java.util.*;
 
+import control.OpcionDeMenu;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 
@@ -10,7 +11,7 @@ import modelo.Usuarios.*;
  * 
  * En esta clase se crean objetos de tipo Sugerencia y se 
  * les asignan sus respectivos atributos.*/
-public class HacerSugerencia extends OpcionDeMenu {
+public class HacerSugerenciaMenu extends OpcionDeMenu {
 	private String nombre = "HacerSugerencia";
 	
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.

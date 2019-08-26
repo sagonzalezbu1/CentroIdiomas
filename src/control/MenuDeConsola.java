@@ -2,6 +2,10 @@ package control;
 
 import java.util.*;
 
+import control.controlMenu.RegistrarAdministrativoMenu;
+import control.controlMenu.RegistrarDocenteMenu;
+import control.controlMenu.RegistrarEstudianteMenu;
+
 /*Esta clase es usada para gestionar los menús de los usuarios, tanto mostrarlos como 
  * permitir que Administrador los modifique.*/
 public class MenuDeConsola {
@@ -12,10 +16,10 @@ public class MenuDeConsola {
 	}
 
 	//Submenú de la funcionalidad Registrar
-	public MenuDeConsola(RegistrarEstudiante RegistrarEstudiante, RegistrarDocente RegistrarDocente,RegistrarAdministrativo RegistrarAdministrativo) {
-		Menu.add(RegistrarEstudiante);
-		Menu.add(RegistrarDocente);
-		Menu.add(RegistrarAdministrativo);
+	public MenuDeConsola(RegistrarEstudianteMenu RegistrarEstudianteMenu, RegistrarDocenteMenu RegistrarDocenteMenu,RegistrarAdministrativoMenu RegistrarAdministrativoMenu) {
+		Menu.add(RegistrarEstudianteMenu);
+		Menu.add(RegistrarDocenteMenu);
+		Menu.add(RegistrarAdministrativoMenu);
 	}
 
 	/*Método para que el administrador agregue opciones a los usuarios

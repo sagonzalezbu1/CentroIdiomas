@@ -1,15 +1,16 @@
-package control;
+package control.controlMenu;
 
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.OpcionDeMenu;
 import modelo.Usuarios.*;
 
 /*Esta clase es usada por el Administrador para agregar funcionalidades a 
  * los menús de los diferentes usuarios.
  * 
  * En esta clase se ejecuta el método anadirOpcion localizado en la clase MenuDeConsola.*/
-public class AddFuncionalidad extends OpcionDeMenu {
+public class AddFuncionalidadMenu extends OpcionDeMenu {
 	
 	/*Se hacen las respectivas verificaciones antes de agregar la funcionalidad,
 	 * como por ejemplo que la funcionalidad no esté ya en el menú del usuario,

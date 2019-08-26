@@ -1,8 +1,9 @@
-package control;
+package control.controlMenu;
 
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.OpcionDeMenu;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 
@@ -10,7 +11,7 @@ import modelo.Usuarios.*;
  * un cierto curso que esté dictando.
  * 
  * En esta clase se ejecuta el método calificar localizado en la clase Estudiante.*/
-public class Calificar extends OpcionDeMenu {
+public class CalificarMenu extends OpcionDeMenu {
 	private String nombre = "Calificar";
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/

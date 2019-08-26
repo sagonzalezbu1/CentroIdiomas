@@ -1,15 +1,16 @@
-package control;
+package control.controlMenu;
 
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.OpcionDeMenu;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 
 /*Esta clase es usada por Estudiante para inscribirse a los cursos disponibles.
  * 
  * En esta clase se ejecuta el método matricular localizado en la clase Curso.*/
-public class Matricular extends OpcionDeMenu {
+public class MatricularEstudianteMenu extends OpcionDeMenu {
 	private String nombre = "Matricular";
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/

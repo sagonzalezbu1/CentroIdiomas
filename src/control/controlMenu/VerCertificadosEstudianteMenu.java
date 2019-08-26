@@ -9,7 +9,7 @@ import control.Main;
  * 
  * En esta clase estamos ejecutando el metodo localizado en 'Estudiante' VerCertificados. 
  */
-public class VerCertificadosMenu implements ActionListener{
+public class VerCertificadosEstudianteMenu implements ActionListener{
 	private String nombre="VerCertificados";
 	
 	public void actionPerformed(ActionEvent evento) {

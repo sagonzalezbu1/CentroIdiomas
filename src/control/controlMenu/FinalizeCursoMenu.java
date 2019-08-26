@@ -1,8 +1,9 @@
-package control;
+package control.controlMenu;
 
 import java.util.Scanner;
 
 import BaseDatos.Archivo;
+import control.OpcionDeMenu;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 import modelo.excepciones.noHayNotas;
@@ -11,7 +12,7 @@ import modelo.excepciones.noHayNotas;
  * como cerrar el período de calificaciones al acabar el curso.
  * 
  * En esta clase se ejecuta el método finalizeCurso localizado en la clase Curso.*/
-public class FinalizeCurso extends OpcionDeMenu {
+public class FinalizeCursoMenu extends OpcionDeMenu {
 	private String nombre="FinalizeCurso";
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/

@@ -1,14 +1,15 @@
-package control;
+package control.controlMenu;
 
 import java.text.DecimalFormat;
 import java.util.*;
 import BaseDatos.Archivo;
+import control.OpcionDeMenu;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 
 /*Esta clase es usada por Administrativo y Docente para ver el promedio de las notas de 
  * los estudiantes de cierto curso.*/
-public class PromedioCurso extends OpcionDeMenu {
+public class PromedioCursoMenu extends OpcionDeMenu {
 	private String nombre = "PromedioCurso";
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/

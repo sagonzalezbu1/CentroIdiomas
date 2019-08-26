@@ -1,8 +1,9 @@
-package control;
+package control.controlMenu;
 
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.OpcionDeMenu;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 
@@ -10,7 +11,7 @@ import modelo.Usuarios.*;
  * los menús de los diferentes usuarios.
  * 
  * En esta clase se ejecuta el método eliminarOpcion localizado en la clase MenuDeConsola.*/
-public class RemoveFuncionalidad extends OpcionDeMenu {
+public class RemoveFuncionalidadMenu extends OpcionDeMenu {
 	
 	/*Se hacen las respectivas verificaciones antes de eliminar la funcionalidad,
 	 * como por ejemplo que el usuario sí tenga la funcionalidad,

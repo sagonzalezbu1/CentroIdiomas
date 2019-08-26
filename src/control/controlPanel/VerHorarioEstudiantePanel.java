@@ -1,0 +1,14 @@
+package control.controlPanel;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class VerHorarioEstudiantePanel implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
