@@ -1,9 +1,8 @@
 
 package modelo.excepciones;
 
-public class noExisteCurso extends Exception {
+public class noExisteCurso extends ErrorModelo {
 	public noExisteCurso() {
-
-		super("No exite Docente");
+		super("NoExisteDocente");
 	}
 }

@@ -1,7 +1,7 @@
 package modelo.excepciones;
 
-public class noHayCertificados extends Exception{
+public class noHayCertificados extends ErrorModelo{
 	public noHayCertificados() {
-		super("No hay certificados");
+		super("NoHayCertificados");
 	}
 }

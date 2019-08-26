@@ -1,7 +1,9 @@
 package modelo.excepciones;
 
-public class loginInvalido extends Exception{
+public class loginInvalido extends ErrorModelo{
+	
 	public loginInvalido() {
-		super("Login Invalido");
+		super("LoginInvalido");
 	}
+	
 }
