@@ -13,7 +13,7 @@ public class VerSugerencias implements ActionListener {
 
 		if (evento.getActionCommand().equals("VerSugerencias")) {
 			String sugerencia = Archivo.verSugerencias();
-			Main.ventanaUsuario.Ver(sugerencia);
+			Main.ventanaUsuario.ver(sugerencia);
 		}
 
 	}

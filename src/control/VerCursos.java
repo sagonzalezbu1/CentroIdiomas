@@ -12,7 +12,7 @@ public class VerCursos implements ActionListener {
 		
 		if(evento.getActionCommand().equals("VerCursos")) {
 			String cursos= Archivo.verCursos();
-			Main.ventanaUsuario.Ver(cursos);
+			Main.ventanaUsuario.ver(cursos);
 		}
 		
 	}

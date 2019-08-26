@@ -13,7 +13,7 @@ public void actionPerformed(ActionEvent evento) {
 		
 		if(evento.getActionCommand().equals("VerAdministrativos")) {
 			String adm= Archivo.verAdministrativos();
-			Main.ventanaUsuario.Ver(adm);
+			Main.ventanaUsuario.ver(adm);
 		}
 		
 	}

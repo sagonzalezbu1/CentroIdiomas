@@ -12,7 +12,7 @@ public class VerDocentes implements ActionListener{
 		
 		if(evento.getActionCommand().equals("VerDocentes")) {
 			String docentes= Archivo.verDocentes();
-			Main.ventanaUsuario.Ver(docentes);
+			Main.ventanaUsuario.ver(docentes);
 		}
 		
 	}
