@@ -1,5 +1,5 @@
 package control.controlMenu;
-
+import control.*;
 import control.OpcionDeMenu;
 
 /*Esta clase es usada por Invitado para crear una cuenta de otro tipo, ya sea Administrativo,
