@@ -204,6 +204,22 @@ abstract public class Archivo {
 
 		}
 	}
+	
+	static public Usuario buscarUser(long id) throws noExisteUsuario{
+		try {
+			return buscarAdministrativo(id);
+		} catch (noExisteAdministrativo excepcion1) {
+			try {
+				return buscarDocente(id);
+			} catch (noExisteDocente excepcion2) {
+				try {
+					return buscarEstudiante(id);
+				} catch (noExisteEstudiante excepcion3) {
+					throw new noExisteUsuario();
+				}
+			}
+		}
+	}
 
 	/*
 	 * Busca si hay un curso con cupos disponibles, como parametro recibe el tipo
@@ -428,14 +444,14 @@ abstract public class Archivo {
 
 	}
 	static public void verificarUsuario(long cc, String pass) throws noExisteUsuario, loginInvalido {
-		if(Archivo.buscarUsuario(cc).getContrasena().equals(pass) && cc!= 123){
+		if(Archivo.buscarUsuario(cc).getContrasena().equals(pass)){
 			return;
 		}
 		throw new loginInvalido();
 	}
 	static public String ingresarUsuario(long cc, String pass){
 		try {
-			Usuario usuario = Archivo.buscarUsuario(cc);
+			Usuario usuario = Archivo.buscarUser(cc);
 			Archivo.verificarUsuario(cc, pass);
 			Main.user=usuario;
 			return "Se ha iniciado sesion.";

@@ -15,6 +15,8 @@ public class ventanaLogin extends JFrame {
 	private JPanel P4;
 	private JPanel P5;
 	private JPanel P6;
+	private JPanel P7; 
+	private JPanel P8; 
 	
 	private JLabel L1;
 	private JLabel L2;
@@ -47,6 +49,8 @@ public class ventanaLogin extends JFrame {
 		P4 = new JPanel();
 		P5 = new JPanel();
 		P6 = new JPanel();
+		P7 = new JPanel(new BorderLayout(10,10));
+		P8 = new JPanel(new GridLayout(2,2,10,10));
 		
 		//Labels Principales
 		L1 = new JLabel("Bienvenido al CDI");
@@ -110,16 +114,10 @@ public class ventanaLogin extends JFrame {
 		P5.add(T1, BorderLayout.NORTH);
 		P6.setLayout(new BorderLayout(10,10));
 		
-		JPanel P7 = new JPanel(new BorderLayout(10,10));
+	
 		P7.add(B2,BorderLayout.WEST);
 		P7.add(B3,BorderLayout.EAST);
-		P7.add(L2, BorderLayout.SOUTH);
-		
-		JPanel P8 = new JPanel(new GridLayout(2,2,10,10));
-		P8.add(L3);
-		P8.add(T2);
-		P8.add(L4);
-		P8.add(T3);
+	
 		
 		JPanel P9 = new JPanel(new BorderLayout(10,10));
 		P9.add(P8,BorderLayout.CENTER);
@@ -171,6 +169,32 @@ public class ventanaLogin extends JFrame {
 		imagen = new ImageIcon(nombreImagen);
 		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
 		B1.setIcon(icono);
+		pack();
+	}
+	public void ingresarAdmin() {
+		P7.add(L2, BorderLayout.SOUTH);
+		P8.add(L3);
+		P8.add(T2);
+		P8.add(L4);
+		P8.add(T3);
+		
+		B3.setText("Usuario Comun");
+		B3.setActionCommand("Usuario Comun");
+		B2.setText("Administrador Complete y Nuevamente Clic");
+		B2.setActionCommand("AdministradorLogin");
+		pack();
+	}
+	public void ingresarUser() {
+		P7.add(L2, BorderLayout.SOUTH);
+		P8.add(L3);
+		P8.add(T2);
+		P8.add(L4);
+		P8.add(T3);
+		
+		B3.setText("Usuario Comun Complete y Nuevamente Clic");
+		B3.setActionCommand("Usuario ComunLogin");
+		B2.setText("Administrador");
+		B2.setActionCommand("Administrador");
 		pack();
 	}
 }

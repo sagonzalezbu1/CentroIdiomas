@@ -7,15 +7,17 @@ import modelo.Usuarios.*;
 
 public class ControlIngresarAdmin implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
-		if(evento.getActionCommand().equals("Administrador")) {
-			long cedula =  Main.ventanaLogin.getCedula();
+		if (evento.getActionCommand().equals("Administrador")) {
+			Main.ventanaLogin.ingresarAdmin();
+		}
+		if (evento.getActionCommand().equals("AdministradorLogin")) {
+			long cedula = Main.ventanaLogin.getCedula();
 			String contraseña = Main.ventanaLogin.getContrasena();
-			String mensaje= Archivo.ingresarAdmin(cedula, contraseña);
-			if(mensaje.equals("Se ha iniciado sesion.")) {
+			String mensaje = Archivo.ingresarAdmin(cedula, contraseña);
+			if (mensaje.equals("Se ha iniciado sesion.")) {
 				Main.ventanaLogin.ingresar();
-				Main.ventanaUsuario.ingresar(Main.user.getProcesos(),Main.user.getNombre());
-			}
-			else {
+				Main.ventanaUsuario.ingresar(Main.user.getProcesos(), Main.user.getNombre());
+			} else {
 				Main.ventanaLogin.borrar(mensaje);
 			}
 		}
