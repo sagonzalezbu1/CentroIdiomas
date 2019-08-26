@@ -33,14 +33,14 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		setLocationRelativeTo(null);
 		}
 
-	public void verNotasEstudiante(String[] criterios, String[] valores, boolean[] habilitado){
+	public void formulario(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
+			boolean[] habilitado){
 		panelPrincipal.removeAll();
 		panelPrincipal.setBackground(Color.BLACK);
-		FielPanel form= new FielPanel("Ver notas estudiante", criterios, "", valores, habilitado);
-		
-		panelPrincipal.add(form);
+		FieldPanel panelP= new FieldPanel(tituloCriterios,criterios,tituloValores,valores,habilitado);
+		panelPrincipal.add(panelP);
 	}
-
+	
 	public void ver(String text) {
 		panelPrincipal.removeAll();
 		JTextArea texto = new JTextArea(text);
