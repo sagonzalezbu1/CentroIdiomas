@@ -1,3 +1,4 @@
+
 package vista;
 
 import java.awt.*;
@@ -7,51 +8,31 @@ import javax.swing.*;
 
 public class ventanaUsuario extends JFrame implements Botonera{
 	private JMenuBar menuBar = new JMenuBar();
-	private JMenu archivo = new JMenu("Archivo");
-	private JMenu menu = new JMenu("Opciones de menu");
-	private JMenu ayuda = new JMenu("Ayuda");
-	public static JPanel panelPrincipal = new JPanel();
-	private JTextField curso = new JTextField(20);
-	private JLabel texto1;
-	private JButton aceptar = new JButton("aceptar");
-	private static String nombreUsuario = "";
-
+	private JMenu archivoM = new JMenu("Archivo");
+	private JMenu procesosM = new JMenu("Procesos y Consultas");
+	private JMenu ayudaM = new JMenu("Ayuda");
+	private JMenuItem usuarioMI = new JMenuItem("Usuario");
+	private JMenuItem salirMI = new JMenuItem("Salir");
+	private JMenuItem acercaDeMI = new JMenuItem("Acerca de");
+	private JPanel panelPrincipal = new JPanel();
+    private JLabel texto1;
+    private JTextField curso = new JTextField(20);
+    private JButton aceptar = new JButton("aceptar");
 	public ventanaUsuario() {
-		super(nombreUsuario);
-		Botonera.addControladores();
+		super("");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		menuBar.add(archivo);
-		menuBar.add(menu);
-		menuBar.add(ayuda);
-
+		menuBar.add(archivoM);
+		menuBar.add(procesosM);
+		menuBar.add(ayudaM);
+		archivoM.add(usuarioMI);
+		archivoM.add(salirMI);
+		ayudaM.add(acercaDeMI);
 		setJMenuBar(menuBar);
 		getContentPane().add(panelPrincipal);
-		panelPrincipal.setBackground(Color.black);
+		panelPrincipal.setBackground(Color.white);
 		setVisible(false);
 		setSize(500, 500);
 		setLocationRelativeTo(null);
-
-	}
-
-	public void ingresar(ArrayList<String> opmenu, String nombre) {
-		this.setTitle(nombre);
-		for (String op : opmenu) {
-			menu.add((Botonera.botones).get(op));
-		}
-		this.setVisible(true);
-	}
-
-	public void Ver(String tex) {
-		panelPrincipal.removeAll();
-		JTextArea texto= new JTextArea(tex);
-		texto.setEditable(false);
-		panelPrincipal.add(texto);
-		pack();
-	}
-
-	public void setControlador(ActionListener c) {
-		aceptar.addActionListener(c);
 	}
 
 	public void promedioCurso() {
@@ -77,6 +58,22 @@ public class ventanaUsuario extends JFrame implements Botonera{
 
 	public String getCurso() {
 		return curso.getText();
+	}
+
+	public void ver(String text) {
+		JTextArea texto = new JTextArea(text);
+		texto.setEditable(false);
+		panelPrincipal.add(texto);
+		pack();
+	}
+	
+
+	public void ingresar(ArrayList<String> opcionMenu, String nombre) {
+		this.setTitle("Usuario"+nombre);
+		for(String opcion : opcionMenu) {
+			procesosM.add((Botonera.botones).get(opcion));
+		}
+		this.setVisible(true);
 	}
 
 }
