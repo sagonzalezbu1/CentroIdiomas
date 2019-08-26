@@ -6,12 +6,29 @@ import javax.swing.*;
 import control.*;
 
 public class ventanaLogin extends JFrame {
-	private JButton entrar;
+	
+	private JPanel P1;
+	private JPanel P2;
+	private JPanel P3;
+	private JPanel P4;
+	private JPanel P5;
+	private JPanel P6;
+	
+	private JLabel L1;
+	private JLabel L2;
+	private JLabel L3;
+	private JLabel L4;
+	
+	private JButton B1;
+	private JButton B2;
+	private JButton B3;
+	private JButton B4;
+
+	private JTextArea T0;
+	private JScrollPane T1;
 	private JTextField T2;
 	private JTextField T3;
-	private JLabel texto1;
-	private JLabel texto2;
-	private JButton B1;
+
 	private ImageIcon imagen;
 	private Icon icono;
 
@@ -22,31 +39,33 @@ public class ventanaLogin extends JFrame {
 		Frame.setLayout(new BorderLayout(10, 10));
 		
 		//Paneles principales
-		JPanel P1 = new JPanel();
-		JPanel P2 = new JPanel();
-		JPanel P3 = new JPanel();
-		JPanel P4 = new JPanel();
-		JPanel P5 = new JPanel();
-		JPanel P6 = new JPanel();
+		P1 = new JPanel();
+		P2 = new JPanel();
+		P3 = new JPanel();
+		P4 = new JPanel();
+		P5 = new JPanel();
+		P6 = new JPanel();
 		
 		//Labels Principales
-		JLabel L1 = new JLabel("Bienvenido al CDI");
-		JLabel L2 = new JLabel("Ingrese su codigo de usuario y su clave:");
-		JLabel L3 = new JLabel("Codigo de Usuario");
-		JLabel L4 = new JLabel("Clave");
+		L1 = new JLabel("Bienvenido al CDI");
+		L2 = new JLabel("Ingrese su codigo de usuario y su clave:");
+		L3 = new JLabel("Codigo de Usuario");
+		L4 = new JLabel("Clave");
 		
 		//Botones Principales
-		B1 = new JButton();
+
+		B1 = new JButton("Haga clic para ver fotos");
+		B2 = new JButton("Administrador");	
+		B3 = new JButton("Usuario Comun");
+		B4 = new JButton("Salir");
+
+		//Imagen del Boton 1
 		B1.setBounds(0, 0, 200, 200);
 		imagen = new ImageIcon("imagenTexto.png");
 		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
 		B1.setIcon(icono);
-		B1.addActionListener(new ControlImagen());
-
-		JButton B2 = new JButton("Administrador");	
-		JButton B3 = new JButton("Usuario Comun");
-		JButton B4 = new JButton("Salir");
 		
+	
 		
 		//Textos Principales
 		JTextArea T0 = new JTextArea("xD",10,20);
@@ -56,7 +75,7 @@ public class ventanaLogin extends JFrame {
 		T3 = new JTextField(8);
 		
 		//Action listeners
-		
+		B1.addActionListener(new ControlImagen());
 		B2.addActionListener(new ControlIngresarAdmin());
 		B3.addActionListener(new ControlIngresarUser());
 		B4.addActionListener(new ControlSalir());
