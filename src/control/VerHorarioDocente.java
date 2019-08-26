@@ -20,7 +20,7 @@ public class VerHorarioDocente implements ActionListener {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Cedula del docente: "};
-			String[] valores = {"Ingrese La cedula del docente"};
+			String[] valores = {""};
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 		}

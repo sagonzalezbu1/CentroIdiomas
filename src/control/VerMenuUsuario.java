@@ -15,7 +15,7 @@ public class VerMenuUsuario implements ActionListener {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Cedula del usuario: "};
-			String[] valores = {"Ingrese La cedula del usuario"};
+			String[] valores = {""};
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 		}

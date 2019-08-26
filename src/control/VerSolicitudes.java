@@ -20,7 +20,7 @@ public class VerSolicitudes implements ActionListener {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Cedula del estudiante: "};
-			String[] valores = {"Ingrese La cedula del estudiante"};
+			String[] valores = {""};
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 

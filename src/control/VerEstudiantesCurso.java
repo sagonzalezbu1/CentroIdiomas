@@ -14,7 +14,7 @@ public class VerEstudiantesCurso implements ActionListener {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Nombre del curso: "};
-			String[] valores = {"Ingrese el nombre del curso"};
+			String[] valores = {""};
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 		}
