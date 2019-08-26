@@ -54,12 +54,12 @@ public class ventanaLogin extends JFrame {
 		
 		//Botones Principales
 
-		B1 = new JButton("Haga clic para ver fotos");
 		B2 = new JButton("Administrador");	
 		B3 = new JButton("Usuario Comun");
 		B4 = new JButton("Salir");
 
 		//Imagen del Boton 1
+		B1 = new JButton();	
 		B1.setBounds(0, 0, 200, 200);
 		imagen = new ImageIcon("imagenTexto.png");
 		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
