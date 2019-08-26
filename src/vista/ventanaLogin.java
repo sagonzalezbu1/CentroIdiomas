@@ -86,7 +86,7 @@ public class ventanaLogin extends JFrame {
 		B1.addActionListener(new ControlImagen());
 		B2.addActionListener(new ControlIngresarAdmin());
 		B3.addActionListener(new ControlIngresarUser());
-		B4.addActionListener(new ControlSalir());
+		B4.addMouseListener(new ControlSalir());
 		L1.addMouseListener(new ControlBienvenida());
 				
 		
@@ -150,7 +150,9 @@ public class ventanaLogin extends JFrame {
 	public void ingresar() {
 		Main.ventanaLogin.setVisible(false);
 	}
-	
+	public int salir() {
+		return JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?", "Esta proximo a salir del programa", JOptionPane.YES_NO_OPTION);
+	}
 	public void borrar(String alert) {
 		JOptionPane.showMessageDialog(null, alert, "Error al iniciar sesion" , JOptionPane.WARNING_MESSAGE);
 		T3.setText(null);

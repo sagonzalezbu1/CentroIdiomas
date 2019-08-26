@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class ControlBienvenida implements MouseListener{
-	public void mouseEntered(MouseEvent eento1) {
+	public void mouseEntered(MouseEvent evento1) {
         Main.ventanaLogin.getL1().setForeground((Color.BLUE));
     }
     public void mouseExited(MouseEvent evento2) {
