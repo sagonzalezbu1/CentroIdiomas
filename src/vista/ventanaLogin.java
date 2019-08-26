@@ -168,5 +168,6 @@ public class ventanaLogin extends JFrame {
 		imagen = new ImageIcon(nombreImagen);
 		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
 		B1.setIcon(icono);
+		pack();
 	}
 }
