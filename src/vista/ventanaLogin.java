@@ -3,9 +3,7 @@ package vista;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
 import control.*;
-import control.Main;
 
 public class ventanaLogin extends JFrame {
 	private JButton entrar;
@@ -13,6 +11,9 @@ public class ventanaLogin extends JFrame {
 	private JTextField T3;
 	private JLabel texto1;
 	private JLabel texto2;
+	private JButton B1;
+	private ImageIcon imagen;
+	private Icon icono;
 
 	public ventanaLogin() {
 		super("Login");
@@ -35,7 +36,13 @@ public class ventanaLogin extends JFrame {
 		JLabel L4 = new JLabel("Clave");
 		
 		//Botones Principales
-		JButton B1 = new JButton("Haga clic para ver fotos");
+		B1 = new JButton();
+		B1.setBounds(0, 0, 200, 200);
+		imagen = new ImageIcon("imagenTexto.png");
+		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
+		B1.setIcon(icono);
+		B1.addActionListener(new ControlImagen());
+
 		JButton B2 = new JButton("Administrador");	
 		JButton B3 = new JButton("Usuario Comun");
 		JButton B4 = new JButton("Salir");
@@ -135,5 +142,12 @@ public class ventanaLogin extends JFrame {
 		JOptionPane.showMessageDialog(null, alert, "Error al iniciar sesion" , JOptionPane.WARNING_MESSAGE);
 		T3.setText(null);
 		T2.setText(null);
+	}
+	
+	public void cambiarImagen(String nombreImagen) {
+		B1.setBounds(0, 0, 200, 200);
+		imagen = new ImageIcon(nombreImagen);
+		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
+		B1.setIcon(icono);
 	}
 }
