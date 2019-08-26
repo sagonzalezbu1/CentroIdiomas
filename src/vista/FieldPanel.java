@@ -1,7 +1,9 @@
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -19,6 +21,12 @@ public class FieldPanel extends JPanel {
 	private JTextField[] textos;
 	private JButton aceptar;
 	private JButton borrar;
+	private JPanel nombreProceso = new JPanel();
+	private JPanel detalleProceso = new JPanel();
+	private JPanel detalle = new JPanel();
+	
+	private JPanel formulario = new JPanel();
+	
 
 	public FieldPanel() {
 		
@@ -26,13 +34,14 @@ public class FieldPanel extends JPanel {
 	
 	public FieldPanel(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
 			boolean[] habilitado) {
-
+		this.setLayout(new BorderLayout());
+		detalle.setLayout(new BorderLayout());
 		this.tituloCriterios = tituloCriterios;
 		this.criteriosArray = criterios;
 		this.tituloValores = tituloValores;
 		this.valoresArray = valores;
 		this.habilitado = habilitado;
-		this.setLayout(new GridBagLayout());
+		formulario.setLayout(new GridBagLayout());
 		textos = new JTextField[criterios.length];
 		GridBagConstraints constraints = new GridBagConstraints();
 		;
@@ -42,14 +51,14 @@ public class FieldPanel extends JPanel {
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		this.add(jlabel, constraints);
+		formulario.add(jlabel, constraints);
 		
 		jlabel = new JLabel(tituloValores);
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		this.add(jlabel, constraints);
+		formulario.add(jlabel, constraints);
 		
 		for (int i = 0; i < criterios.length; i++) {
 
@@ -58,7 +67,7 @@ public class FieldPanel extends JPanel {
 			constraints.gridy = i + 1;
 			constraints.gridwidth = 1;
 			constraints.gridheight = 1;
-			this.add(jlabel, constraints);
+			formulario.add(jlabel, constraints);
 
 			textos[i] = new JTextField(valoresArray[i],10);
 			if (!habilitado[i]) {
@@ -68,7 +77,7 @@ public class FieldPanel extends JPanel {
 			constraints.gridy = i + 1;
 			constraints.gridwidth = 1;
 			constraints.gridheight = 1;
-			this.add(textos[i], constraints);
+			formulario.add(textos[i], constraints);
 
 		}
 
@@ -77,14 +86,18 @@ public class FieldPanel extends JPanel {
 		constraints.gridy = criterios.length + 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		this.add(aceptar,constraints);
+		formulario.add(aceptar,constraints);
 
 		borrar = new JButton("Borrar");
 		constraints.gridx = 1;
 		constraints.gridy = criterios.length + 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-		this.add(borrar,constraints);
+		formulario.add(borrar,constraints);
+		
+		this.add(detalle,BorderLayout.NORTH);
+		this.add(formulario,BorderLayout.CENTER);
+		this.setSize(500, 500);
 	}
 
 	public void setControlador(ActionListener control) {
@@ -100,6 +113,14 @@ public class FieldPanel extends JPanel {
 		}
 		return "No se encontró criterio";
 		
+	}
+	
+	public void nombre(String nombre) {
+		detalle.add(new JLabel(nombre),BorderLayout.NORTH);
+	}
+	
+	public void descripcion(String descripcion) {
+		detalle.add(new JLabel(descripcion),BorderLayout.SOUTH);
 	}
 
 }

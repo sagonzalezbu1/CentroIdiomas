@@ -13,7 +13,6 @@ public class VerNotasEstudiantePanel implements ActionListener {
 		if(evento.getActionCommand().equals("Aceptar")) {
 			String cedula = Main.ventanaUsuario.getPanelP().getValue("Cedula del estudiante: ");
 			try{
-				System.out.println("Hola");
 				Main.ventanaUsuario.ver(Archivo.verNotasEstudiante(Long.parseLong(cedula)));
 			}catch(Exception e) {
 				JOptionPane.showMessageDialog(null, e, "Error al iniciar sesion" , JOptionPane.WARNING_MESSAGE);
