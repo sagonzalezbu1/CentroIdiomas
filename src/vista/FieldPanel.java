@@ -38,13 +38,15 @@ public class FieldPanel extends JPanel {
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-
+		this.add(jlabel, constraints);
+		
 		jlabel = new JLabel(tituloValores);
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
-
+		this.add(jlabel, constraints);
+		
 		for (int i = 0; i < criterios.length; i++) {
 
 			jlabel = new JLabel(criteriosArray[i]);
