@@ -13,7 +13,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	private JMenuItem usuarioMI = new JMenuItem("Usuario");
 	private JMenuItem salirMI = new JMenuItem("Salir");
 	private JMenuItem acercaDeMI = new JMenuItem("Acerca de");
-	private JPanel panelPrincipal = new JPanel();
+	private FieldPanel panelPrincipal = new FieldPanel();
 
 	public ventanaUsuario() {
 		super("");
@@ -37,8 +37,9 @@ public class ventanaUsuario extends JFrame implements Botonera {
 			boolean[] habilitado){
 		panelPrincipal.removeAll();
 		panelPrincipal.setBackground(Color.white);
-		FieldPanel panelP= new FieldPanel(tituloCriterios,criterios,tituloValores,valores,habilitado);
-		panelPrincipal.add(panelP);
+		panelPrincipal= new FieldPanel(tituloCriterios,criterios,tituloValores,valores,habilitado);
+		getContentPane().removeAll();
+		getContentPane().add(panelPrincipal);
 		pack();
 	}
 	
@@ -56,6 +57,10 @@ public class ventanaUsuario extends JFrame implements Botonera {
 			procesosM.add((Botonera.botones).get(opcion));
 		}
 		this.setVisible(true);
+	}
+	
+	public FieldPanel getPanelP() {
+		return panelPrincipal;
 	}
 
 }

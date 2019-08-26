@@ -20,6 +20,10 @@ public class FieldPanel extends JPanel {
 	private JButton aceptar;
 	private JButton borrar;
 
+	public FieldPanel() {
+		
+	}
+	
 	public FieldPanel(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
 			boolean[] habilitado) {
 
