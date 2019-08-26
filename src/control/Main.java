@@ -37,8 +37,8 @@ public class Main {
 	};
 	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa
 	public static Usuario user = new Invitado();
-	public static ventanaLogin ventana1 = new ventanaLogin();
-	public static ventanaUsuario ventana2 = new ventanaUsuario();
+	public static ventanaLogin ventanaLogin = new ventanaLogin();
+	public static ventanaUsuario ventanaUsuario = new ventanaUsuario();
 
 	//Inicio del programa
 	public static void main(String[] args) {
@@ -50,6 +50,7 @@ public class Main {
 		Data.cargarAdministrativos();
 		Data.cargarSolicitudes();
 		Data.cargarSugerencias();
+		
 
 		/*Ejecución del menú de (inicialmente) Invitado y luego de 
 		diferentes usuarios a lo largo del programa*/
