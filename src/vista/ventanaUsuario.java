@@ -4,10 +4,9 @@ package vista;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.*;
 
-public class ventanaUsuario extends JFrame {
+public class ventanaUsuario extends JFrame implements Botonera {
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu archivoM = new JMenu("Archivo");
 	private JMenu procesosM = new JMenu("Procesos y Consultas");
@@ -17,12 +16,16 @@ public class ventanaUsuario extends JFrame {
 	private JMenuItem acercaDeMI = new JMenuItem("Acerca de");
 	private JPanel panelPrincipal = new JPanel();
 
+
 	public ventanaUsuario() {
-		super("Menu de usuario");
+		super("");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menuBar.add(archivoM);
 		menuBar.add(procesosM);
 		menuBar.add(ayudaM);
+		archivoM.add(usuarioMI);
+		archivoM.add(salirMI);
+		ayudaM.add(acercaDeMI);
 		setJMenuBar(menuBar);
 		getContentPane().add(panelPrincipal);
 		panelPrincipal.setBackground(Color.white);
@@ -32,17 +35,19 @@ public class ventanaUsuario extends JFrame {
 	}
 
 	public void ver(String text) {
-		panelPrincipal.removeAll();
 		JTextArea texto = new JTextArea(text);
 		texto.setEditable(false);
 		panelPrincipal.add(texto);
 		pack();
 	}
 	
+
 	public void ingresar(ArrayList<String> opcionMenu, String nombre) {
-		this.setTitle(nombre);
+		this.setTitle("Usuario"+nombre);
 		for(String opcion : opcionMenu) {
-			procesosM.add(Botonera.botones).get(opcion);
+			procesosM.add((Botonera.botones).get(opcion));
 		}
+		this.setVisible(true);
 	}
+
 }

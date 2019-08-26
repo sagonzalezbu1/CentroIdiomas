@@ -40,6 +40,7 @@ public class Main {
 	public static ventanaLogin ventanaLogin = new ventanaLogin();
 	public static ventanaUsuario ventanaUsuario = new ventanaUsuario();
 
+
 	//Inicio del programa
 	public static void main(String[] args) {
 		/* Siempre que se inicie el porgrama se cargarán los datos de los archivos de 
