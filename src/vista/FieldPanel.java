@@ -54,7 +54,7 @@ public class FieldPanel extends JPanel {
 			constraints.gridheight = 1;
 			this.add(jlabel, constraints);
 
-			textos[i] = new JTextField(valoresArray[i]);
+			textos[i] = new JTextField(valoresArray[i],10);
 			if (!habilitado[i]) {
 				textos[i].setEditable(false);
 			}
@@ -71,12 +71,14 @@ public class FieldPanel extends JPanel {
 		constraints.gridy = criterios.length + 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
+		this.add(aceptar,constraints);
 
 		borrar = new JButton("Borrar");
 		constraints.gridx = 1;
 		constraints.gridy = criterios.length + 1;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
+		this.add(borrar,constraints);
 	}
 
 	public void setControlador(ActionListener control) {

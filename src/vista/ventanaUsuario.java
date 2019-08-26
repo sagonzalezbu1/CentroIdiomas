@@ -36,9 +36,10 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	public void formulario(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
 			boolean[] habilitado){
 		panelPrincipal.removeAll();
-		panelPrincipal.setBackground(Color.BLACK);
+		panelPrincipal.setBackground(Color.white);
 		FieldPanel panelP= new FieldPanel(tituloCriterios,criterios,tituloValores,valores,habilitado);
 		panelPrincipal.add(panelP);
+		pack();
 	}
 	
 	public void ver(String text) {
