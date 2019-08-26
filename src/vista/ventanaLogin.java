@@ -3,9 +3,7 @@ package vista;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
 import control.*;
-import control.Main;
 
 public class ventanaLogin extends JFrame {
 	
@@ -31,6 +29,8 @@ public class ventanaLogin extends JFrame {
 	private JTextField T2;
 	private JTextField T3;
 
+	private ImageIcon imagen;
+	private Icon icono;
 
 	public ventanaLogin() {
 		super("Login");
@@ -53,11 +53,19 @@ public class ventanaLogin extends JFrame {
 		L4 = new JLabel("Clave");
 		
 		//Botones Principales
+
 		B1 = new JButton("Haga clic para ver fotos");
 		B2 = new JButton("Administrador");	
 		B3 = new JButton("Usuario Comun");
 		B4 = new JButton("Salir");
+
+		//Imagen del Boton 1
+		B1.setBounds(0, 0, 200, 200);
+		imagen = new ImageIcon("imagenTexto.png");
+		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
+		B1.setIcon(icono);
 		
+	
 		
 		//Textos Principales
 		JTextArea T0 = new JTextArea("xD",10,20);
@@ -67,6 +75,7 @@ public class ventanaLogin extends JFrame {
 		T3 = new JTextField(8);
 		
 		//Action listeners
+		B1.addActionListener(new ControlImagen());
 		B2.addActionListener(new ControlIngresarAdmin());
 		B3.addActionListener(new ControlIngresarUser());
 		B4.addActionListener(new ControlSalir());
@@ -152,5 +161,12 @@ public class ventanaLogin extends JFrame {
 		JOptionPane.showMessageDialog(null, alert, "Error al iniciar sesion" , JOptionPane.WARNING_MESSAGE);
 		T3.setText(null);
 		T2.setText(null);
+	}
+	
+	public void cambiarImagen(String nombreImagen) {
+		B1.setBounds(0, 0, 200, 200);
+		imagen = new ImageIcon(nombreImagen);
+		icono = new ImageIcon(imagen.getImage().getScaledInstance(B1.getWidth(), B1.getHeight(), Image.SCALE_DEFAULT));
+		B1.setIcon(icono);
 	}
 }
