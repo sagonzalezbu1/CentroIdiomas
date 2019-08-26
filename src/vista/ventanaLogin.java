@@ -74,7 +74,9 @@ public class ventanaLogin extends JFrame {
 	
 		
 		//Textos Principales
-		JTextArea T0 = new JTextArea("xD",10,20);
+		JTextArea T0 = new JTextArea("En este programa se puede llevar a cabo la administracion de un centro de idiomas, queremos gestionar los principales procesos que puedan necesitar estudiantes, docentes y administrativos para un correcto funcionamiento del centro; además de facilitar la realización de estos procesos dentro del centro, para evitar trámites enredados o tediosos, pudiendo manejar prácticamente todo lo necesario desde este. Programa diseñado por Santiago Bustamante, Catherin Patiño, David Perez y Luis Suarez",10,20);
+		//T0.setSize(20,20);
+		T0.setLineWrap(true);
 		T0.setEditable(false);
 		JScrollPane T1 = new JScrollPane(T0);
 		T2 = new JTextField(8);
@@ -85,16 +87,7 @@ public class ventanaLogin extends JFrame {
 		B2.addActionListener(new ControlIngresarAdmin());
 		B3.addActionListener(new ControlIngresarUser());
 		B4.addActionListener(new ControlSalir());
-		L1.addMouseListener(
-		    new MouseAdapter(){
-				public void mouseEntered(MouseEvent arg0) {
-	                L1.setForeground((Color.BLUE));
-	            }
-	            public void mouseExited(MouseEvent e) {
-	            	L1.setForeground((Color.BLACK));
-	            }
-		    }
-		    );
+		L1.addMouseListener(new ControlBienvenida());
 				
 		
 		//Hagamos el panel izquierdo (P1)
@@ -196,5 +189,8 @@ public class ventanaLogin extends JFrame {
 		B2.setText("Administrador");
 		B2.setActionCommand("Administrador");
 		pack();
+	}
+	public JLabel getL1() {
+		return L1;
 	}
 }
