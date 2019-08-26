@@ -144,6 +144,11 @@ public class ventanaLogin extends JFrame {
 
 	public long getCedula() {
 		try {
+			
+			if(T2.getText().equals("")) {
+				return -1;
+			}
+			
 			return Long.parseLong(T2.getText());
 		} catch (NumberFormatException e) {
 			return 0;

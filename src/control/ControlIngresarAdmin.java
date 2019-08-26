@@ -1,9 +1,9 @@
 package control;
 
 import java.awt.event.*;
-import java.util.*;
 import BaseDatos.Archivo;
-import modelo.Usuarios.*;
+import modelo.excepciones.Excepcion1;
+import modelo.excepciones.loginInvalido;
 
 public class ControlIngresarAdmin implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
@@ -11,15 +11,25 @@ public class ControlIngresarAdmin implements ActionListener {
 			Main.ventanaLogin.ingresarAdmin();
 		}
 		if (evento.getActionCommand().equals("AdministradorLogin")) {
-			long cedula = Main.ventanaLogin.getCedula();
-			String contraseña = Main.ventanaLogin.getContrasena();
-			String mensaje = Archivo.ingresarAdmin(cedula, contraseña);
-			if (mensaje.equals("Se ha iniciado sesion.")) {
+			String mensaje="";
+			try {
+				long cedula = Main.ventanaLogin.getCedula();
+				String contraseña = Main.ventanaLogin.getContrasena();
+				mensaje = Archivo.ingresarAdmin(cedula, contraseña);
+				if (cedula == -1 || contraseña.equals("")) {
+					throw new Excepcion1();
+				}else if(!mensaje.equals("Se ha iniciado sesion.")) {
+					throw new loginInvalido();
+				}
 				Main.ventanaLogin.ingresar();
 				Main.ventanaUsuario.ingresar(Main.user.getProcesos(), Main.user.getNombre());
-			} else {
+
+			} catch (Excepcion1 excepcion) {
+				Main.ventanaLogin.borrar("Campos vacios");
+			} catch(loginInvalido exception) {
 				Main.ventanaLogin.borrar(mensaje);
 			}
+
 		}
 	}
 
