@@ -444,7 +444,7 @@ abstract public class Archivo {
 
 	}
 	static public void verificarUsuario(long cc, String pass) throws noExisteUsuario, loginInvalido {
-		if(Archivo.buscarUsuario(cc).getContrasena().equals(pass)){
+		if(Archivo.buscarUser	(cc).getContrasena().equals(pass)){
 			return;
 		}
 		throw new loginInvalido();
