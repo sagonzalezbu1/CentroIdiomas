@@ -13,6 +13,7 @@ public class SolicitarCupoPanel implements ActionListener {
 			String solicitud = ((Estudiante)(Main.user)).solicitarCupo(Main.user.getCedula(), tipo);
 			
 			JOptionPane.showMessageDialog(null, solicitud, "Aviso" , JOptionPane.WARNING_MESSAGE);
+			Main.ventanaUsuario.getPanelP().borrar();
 
 		}
 		else if(evento.getActionCommand().equals("Borrar")) {
