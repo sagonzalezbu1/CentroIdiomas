@@ -1,14 +1,24 @@
 package control.controlMenu;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+
+import BaseDatos.*;
+import control.Main;
+import modelo.excepciones.*;
 
 public class MisNotasMenu implements ActionListener {
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
+	public void actionPerformed(ActionEvent evento) {
+		
+		if(evento.getActionCommand().equals("MisNotas")) {
+			try {
+				String notas= Archivo.verNotasEstudiante(Main.user.getCedula());
+				Main.ventanaUsuario.ver(notas);
+			} catch(EstudianteSinCursos excepcion) {
+				Main.ventanaUsuario.Popup(excepcion.getMessage());
+			} catch (NoExisteEstudiante excepcion) {
+				Main.ventanaUsuario.Popup(excepcion.getMessage());
+			}
+		}
 	}
-
 }

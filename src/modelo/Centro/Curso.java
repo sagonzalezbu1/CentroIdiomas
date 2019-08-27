@@ -42,27 +42,17 @@ public class Curso {
 	 */
 
 	static public String promedioCurso(String curso) throws NoExisteCurso, NoHayEstudiantes, NoHayNotas {
-		try {
-			Curso course = Archivo.buscarCurso(curso);
 
-			double prom = 0;
-
-			for (Estudiante estudiante : course.getEstudiantes()) {
-				prom += estudiante.getDefinitiva(curso);
-			}
-			prom = prom / (course.getEstudiantes()).size();
-			DecimalFormat f = new DecimalFormat("#.00");
-			return("El promedio del curso es: " + f.format(prom) + "\n");
-
-		} catch (NoExisteCurso excepcion) {
-			return "No existe el curso.";
-		} catch (NoHayEstudiantes excepcion) {
-			return "No hay estudiantes en el curso.";
-		} catch (NoHayNotas excepcion) {
-			return "El curso no tiene notas.";
+		Curso course = Archivo.buscarCurso(curso);
+		double prom = 0;
+		for (Estudiante estudiante : course.getEstudiantes()) {
+			prom += estudiante.getDefinitiva(curso);
 		}
+		prom = prom / (course.getEstudiantes()).size();
+		DecimalFormat f = new DecimalFormat("#.00");
+		return("El promedio del curso es: " + f.format(prom) + "\n");
 	}
-
+	
 	public void finalizeCurso() {
 
 		while (alumnos.size() > 0) {

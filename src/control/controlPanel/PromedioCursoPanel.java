@@ -22,5 +22,8 @@ public class PromedioCursoPanel implements ActionListener {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			}
 		}
+		else if(evento.getActionCommand().equals("Borrar") ) {
+			Main.ventanaUsuario.getPanelP().borrar();
+		}
 	}
 }
