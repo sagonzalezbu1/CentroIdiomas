@@ -27,7 +27,9 @@ public class Administrador extends Usuario {
 		getProcesos().add(Main.funcionalidades.get("VerCursos"));
 		getProcesos().add(Main.funcionalidades.get("FinalizeCurso"));
 		getProcesos().add(Main.funcionalidades.get("MatricularEstudiante"));
-		getProcesos().add(Main.funcionalidades.get("Registrar"));
+		getProcesos().add(Main.funcionalidades.get("RegistrarEstudiante"));
+		getProcesos().add(Main.funcionalidades.get("RegistrarDocente"));
+		getProcesos().add(Main.funcionalidades.get("RegistrarAdministrativo"));
 		getProcesos().add(Main.funcionalidades.get("ResponderSolicitudes"));
 		getProcesos().add(Main.funcionalidades.get("SolicitarCupoEstudiante"));
 		getProcesos().add(Main.funcionalidades.get("VerAdministrativos"));
