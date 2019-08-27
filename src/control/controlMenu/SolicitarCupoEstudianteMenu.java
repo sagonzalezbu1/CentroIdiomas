@@ -19,8 +19,8 @@ public class SolicitarCupoEstudianteMenu implements ActionListener {
 			String tituloCriterios = "Criterio";
 			String[] criteriosArray = {"Cedula del Estudiante: ","Tipo del curso: "};
 			String tituloValores = "Valores";
-			String[] valoresArray = {null,null,null,null};
-			boolean[] habilitado = {true,true,true,true};
+			String[] valoresArray = {null,null};
+			boolean[] habilitado = {true,true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criteriosArray, tituloValores, valoresArray, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new SolicitarCupoEstudiantePanel());
 			Main.ventanaUsuario.getPanelP().descripcion("Permite solicitar cupo para un estudiante a cursos no disponibles");

@@ -91,6 +91,6 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		JOptionPane.showMessageDialog(null, error, "Error" , JOptionPane.WARNING_MESSAGE);
 	}
 	public void Popup2(String mensaje) {
-		JOptionPane.showMessageDialog(null, mensaje, "Aviso" , JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, mensaje, "Aviso" , JOptionPane.INFORMATION_MESSAGE);
 	}
 }

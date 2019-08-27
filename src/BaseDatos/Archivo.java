@@ -460,4 +460,23 @@ abstract public class Archivo {
 			return "Clave Incorrecta.";
 		}
 	}
+
+	static public String registrarAministrativo(String nombre, String apellido, long cedula, String correo,String contraseña, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+		try {
+			if (cedula == 123 || Archivo.buscarAdministrativo(cedula) instanceof Administrativo) {
+				//return ("Ya se encuentra registrado un usuario con esa cédula.");
+				throw new UsuarioRegistrado();
+			}
+			else {
+				return "";
+			}
+		} catch (NoExisteAdministrativo exception) {
+			if (codigo.equals(Administrativo.getCodigo())) {
+				new Administrativo(nombre + " " + apellido, cedula, correo, contraseña);
+				return "Se ha registrado exitosamente.";
+			} else {
+				throw new CodigoIncorrecto();
+			}
+		}
+	}
 }

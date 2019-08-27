@@ -79,7 +79,10 @@ public class ventanaLogin extends JFrame {
 	
 		
 		//Textos Principales
-		JTextArea T0 = new JTextArea("En este programa se puede llevar a cabo la administracion de un centro de idiomas, queremos gestionar los principales procesos que puedan necesitar estudiantes, docentes y administrativos para un correcto funcionamiento del centro; además de facilitar la realización de estos procesos dentro del centro, para evitar trámites enredados o tediosos, pudiendo manejar prácticamente todo lo necesario desde este. Programa diseñado por Santiago Bustamante, Catherin Patiño, David Perez y Luis Suarez",10,20);
+		JTextArea T0 = new JTextArea("El objetivo de este proyecto es el de presentar un programa que administre un centro de idiomas, desde las matrículas hasta la entrega de certificados, pasando por las calificaciones de cada estudiante en los diferentes cursos que se ofrezcan.\r\n" + 
+				"Dentro del programa, queremos gestionar las principales acciones o procesos que puedan necesitar estudiantes, docentes y administrativos para un correcto funcionamiento del centro; además de facilitar la realización de estos procesos dentro del centro, para evitar trámites enredados o tediosos, pudiendo manejar prácticamente todo lo necesario desde este.\r\n" + 
+				"Sabemos lo importante que es hoy en día un sistema que gestione adecuadamente la información de una institución educativa (universidad, colegio, etc), por lo que quisimos dedicarnos a algo no tan convencional como lo es un centro de idiomas y crear dicho sistema para manejar desde allí lo más importante para éste.\r\n" + 
+				"Programa diseñado por Santiago Bustamante, Catherin Patiño, David Perez y Luis Suarez",10,20);
 		//T0.setSize(20,20);
 		T0.setLineWrap(true);
 		T0.setEditable(false);
