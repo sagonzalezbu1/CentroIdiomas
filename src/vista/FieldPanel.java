@@ -1,16 +1,19 @@
 package vista;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class FieldPanel extends JPanel {
 
@@ -22,39 +25,47 @@ public class FieldPanel extends JPanel {
 	private JTextField[] textos;
 	private JButton aceptar;
 	private JButton borrar;
-	private JPanel nombreProceso = new JPanel();
-	private JPanel detalleProceso = new JPanel();
 	private JPanel detalle = new JPanel();
-	
 	private JPanel formulario = new JPanel();
 	
 
 	public FieldPanel() {
-		this.setLayout(new BorderLayout());
-		detalle.setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout(4,4));
+		this.setBackground(Color.white);
+		detalle.setLayout(new BorderLayout(6,6));
+		detalle.setBackground(Color.white);
+		formulario.setBackground(Color.white);		
+		Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		this.setBorder(padding);
 		this.add(detalle,BorderLayout.NORTH);
 		this.add(formulario,BorderLayout.CENTER);
 	}
 	
 	public FieldPanel(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
 			boolean[] habilitado) {
-		this.setLayout(new BorderLayout());
-		detalle.setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout(4,4));
+		this.setBackground(Color.white);
+		detalle.setLayout(new BorderLayout(6,6));
+		detalle.setBackground(Color.white);
+		formulario.setLayout(new GridBagLayout());
+		formulario.setBackground(Color.white);
+		Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		this.setBorder(padding);
 		this.tituloCriterios = tituloCriterios;
 		this.criteriosArray = criterios;
 		this.tituloValores = tituloValores;
 		this.valoresArray = valores;
 		this.habilitado = habilitado;
-		formulario.setLayout(new GridBagLayout());
 		textos = new JTextField[criterios.length];
 		GridBagConstraints constraints = new GridBagConstraints();
-		;
 
 		JLabel jlabel = new JLabel(tituloCriterios);
 		constraints.gridx = 0;
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
+		Border borde = BorderFactory.createLineBorder(Color.blue, 1);
+		jlabel.setBorder(borde);
 		formulario.add(jlabel, constraints);
 		
 		jlabel = new JLabel(tituloValores);
@@ -62,13 +73,16 @@ public class FieldPanel extends JPanel {
 		constraints.gridy = 0;
 		constraints.gridwidth = 1;
 		constraints.gridheight = 1;
+		borde = BorderFactory.createLineBorder(Color.blue, 1);
+		jlabel.setBorder(borde);
 		formulario.add(jlabel, constraints);
 		
 		for (int i = 0; i < criterios.length; i++) {
 
 			jlabel = new JLabel(criteriosArray[i]);
+			jlabel.setHorizontalAlignment(JLabel.CENTER);
 			constraints.gridx = 0;
-			constraints.gridy = i + 1;
+			constraints.gridy = i +1;
 			constraints.gridwidth = 1;
 			constraints.gridheight = 1;
 			formulario.add(jlabel, constraints);
@@ -125,13 +139,23 @@ public class FieldPanel extends JPanel {
 	}
 	
 	public void nombre(String nombre) {
-		detalle.add(new JLabel(nombre),BorderLayout.NORTH);
+		JLabel text = new JLabel(nombre);
+		text.setHorizontalAlignment(JLabel.CENTER);
+		Border borde = BorderFactory.createLineBorder(Color.blue, 1);
+		text.setBorder(borde);
+		detalle.add(text,BorderLayout.NORTH);
 	}
 	
 	public void descripcion(String descripcion) {
-		detalle.add(new JLabel(descripcion),BorderLayout.SOUTH);
+		JTextArea text = new JTextArea(descripcion);
+		text.setEditable(false);
+		Border borde = BorderFactory.createLineBorder(Color.blue, 1);
+		text.setBorder(borde);
+		detalle.add(text,BorderLayout.SOUTH);
 	}
 	public void formulario(JTextArea text) {
+		Border borde = BorderFactory.createLineBorder(Color.GRAY, 1);
+		text.setBorder(borde);
 		formulario.add(text);
 	}
 
