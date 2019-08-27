@@ -13,8 +13,11 @@ public class HacerSugerenciaPanel implements ActionListener {
 		if(evento.getActionCommand().equals("Aceptar")) {
 			try {
 				Usuario Usuario = Main.user;
-				String sugerencia = Main.ventanaUsuario.getPanelP().getValue("Escriba la sugerencia: ");
-				Main.ventanaUsuario.ver(Sugerencia.hacerSugerencia(Usuario, sugerencia));
+				String textoSugerencia = Main.ventanaUsuario.getPanelP().getValue("Escriba la sugerencia: ");
+				String sugerencia = Sugerencia.hacerSugerencia(Usuario, textoSugerencia);
+				
+				Main.ventanaUsuario.Popup2(sugerencia);
+				
 			} catch(CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			}

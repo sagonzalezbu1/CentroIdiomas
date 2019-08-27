@@ -16,10 +16,10 @@ public class HacerSugerenciaMenu implements ActionListener {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Escriba la sugerencia: "};
-			String[] valores = {""};
+			String[] valores = {null};
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
-			Main.ventanaUsuario.getPanelP().setControlador(new VerNotasEstudiantePanel());
+			Main.ventanaUsuario.getPanelP().setControlador(new HacerSugerenciaPanel());
 			Main.ventanaUsuario.getPanelP().nombre("Hacer una sugerencia");
 			Main.ventanaUsuario.getPanelP().descripcion("Permite escribir una sugerencia acerca del funcionamiento del programa.");
 			Main.ventanaUsuario.pack();
