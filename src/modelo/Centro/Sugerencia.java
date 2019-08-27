@@ -34,7 +34,7 @@ public class Sugerencia {
 		return "El Usuario " + usuario.getNombre() + " con cedula " + usuario.getCedula()+ " ha hecho la siguiente sugerencia: " + mensaje;
 	}
 	
-	public String hacerSugerencia(Usuario usuario , String sugerencia) {
+	static public String hacerSugerencia(Usuario usuario , String sugerencia) {
 		new Sugerencia(usuario ,sugerencia);
 		return "Su sugerencia fue enviada con exito.";
 	}
