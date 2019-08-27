@@ -25,7 +25,7 @@ public class HacerSugerenciaMenu extends OpcionDeMenu {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Escriba su sugerencia (en una sola linea): ");
 		String sugerencia = entry.nextLine();
-		new Sugerencia(Main.user ,sugerencia);
+		new Sugerencia(Main2.user ,sugerencia);
 		System.out.println("");
 		System.out.println("Su sugerencia fue enviada con exito.");
 		System.out.println("");

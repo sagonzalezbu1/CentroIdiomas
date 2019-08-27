@@ -1,4 +1,4 @@
-package control;
+package control.controlMenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,13 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import BaseDatos.Archivo;
+import control.Main;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 
 /*Esta clase es usada por el Administrativo para crear nuevos cursos para los estudiantes.
  * 
  * En esta clase se crean objetos de tipo Curso y se les asignan sus respectivos atributos.*/
-public class ControlCrearCurso implements ActionListener {
+public class CrearCursoMenu implements ActionListener {
 	private String nombre="CrearCurso";
 	public String getNombre() {
 		return nombre;

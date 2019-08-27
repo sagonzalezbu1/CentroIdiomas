@@ -21,7 +21,7 @@ public class MatricularEstudianteMenu extends OpcionDeMenu {
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		
-		if (Main.user instanceof Estudiante) {
+		if (Main2.user instanceof Estudiante) {
 			System.out.println("Ingrese el nombre del curso: ");
 			String nombre = entry.next();
 			Curso curso = Archivo.buscarCurso(nombre);
@@ -32,7 +32,7 @@ public class MatricularEstudianteMenu extends OpcionDeMenu {
 			} else {
 				
 				//Se verifica que el estudiante no haya aprobado un curso de ese tipo
-				for (Certificado certificado : ((Estudiante) (Main.user)).getCertificados()) {
+				for (Certificado certificado : ((Estudiante) (Main2.user)).getCertificados()) {
 					if ((certificado.getNombre()).equals(curso.getTipo())) {
 						System.out.println("\nUsted ya aprobo una curso de este tipo.\n");
 						return;
@@ -40,7 +40,7 @@ public class MatricularEstudianteMenu extends OpcionDeMenu {
 				}
 				
 				//Verfica que no tenga solicitudes de ese tipo
-				for (Solicitud solicitud : ((Estudiante) (Main.user)).getSolicitudes()) {
+				for (Solicitud solicitud : ((Estudiante) (Main2.user)).getSolicitudes()) {
 					if ((solicitud.getTipo()).equals(curso.getTipo())) {
 						System.out.println("\nUsted ya tiene una solicitud de este tipo.\n");
 						return;
@@ -51,21 +51,21 @@ public class MatricularEstudianteMenu extends OpcionDeMenu {
 					
 					for (Estudiante estudiante : curso.getEstudiantes()) {
 						// Se verifica si el estudiante ya está en el curso
-						if (Main.user.equals(estudiante)) {
+						if (Main2.user.equals(estudiante)) {
 							System.out.println("\nUsted ya se encuentra matriculado en este curso.\n");
 							return;
 						}
 					}
 					
 					if (curso.getCuposDisponibles() > 0) {
-						curso.matricular((Estudiante) (Main.user));
+						curso.matricular((Estudiante) (Main2.user));
 						System.out.println("\nUsted quedó matriculado.\n");
 					} else {
 						System.out.println("\nNo hay cupos disponibles en este curso.\n");
 					}
 					
 				} else {
-					curso.matricular((Estudiante) (Main.user));
+					curso.matricular((Estudiante) (Main2.user));
 					System.out.println("\nUsted quedó matriculado.\n");
 				}
 			}

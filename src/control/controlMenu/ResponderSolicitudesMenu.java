@@ -43,7 +43,7 @@ public class ResponderSolicitudesMenu extends OpcionDeMenu {
 					
 					if (course == null) {
 						System.out.println("\nSe creara un curso.");
-						(Main.funcionalidades.get("CrearCurso")).ejecutar();
+						(Main2.funcionalidades.get("CrearCurso")).ejecutar();
 						course = Archivo.cursoDisponibilidad(tipo);
 						solicitud.aceptarSolicitud(course);
 						System.out.println("\nSe ha aceptado la solicitud exitosamente.\n");
