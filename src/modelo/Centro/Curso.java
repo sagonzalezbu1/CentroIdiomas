@@ -32,6 +32,40 @@ public class Curso {
 		docente.addCurso(this);
 	}
 
+	static public String MatricularEstudiante(long cc, String name) throws NoExisteCurso, NoExisteEstudiante, NoHayCupos,
+			CursoYaInscrito, EstudianteConCertificado, SolicitudYaHecha, NoHayEstudiantes {
+		Estudiante est = Archivo.buscarEstudiante(cc);
+		Curso curso = Archivo.buscarCurso(name);
+		for (Certificado certificado : est.getCertificados()) {
+			if ((certificado.getNombre()).equals(curso.getTipo())) {
+				throw new EstudianteConCertificado();
+			}
+		}
+		for (Solicitud solicitud : est.getSolicitudes()) {
+			if ((solicitud.getTipo()).equals(curso.getTipo())) {
+				throw new SolicitudYaHecha();
+			}
+		}
+		if (!curso.getEstudiantes().isEmpty()) {
+
+			for (Estudiante estudiante : curso.getEstudiantes()) {
+				// Se verifica si el estudiante ya está en el curso
+				if (est.equals(estudiante)) {
+					throw new CursoYaInscrito();
+				}
+			}
+
+			if (curso.getCuposDisponibles() > 0) {
+				curso.matricular(est);
+				return ("El estudiante quedó matriculado.");
+			} else {
+				throw new NoHayCupos();
+			}
+
+		}
+		return "";
+	}
+
 	/*
 	 * Este metodo Finaliza un curso, cierrra el periodo de calificaciones, calcula
 	 * el promedio de cada estudiante y si es mayor o igual a 3.0 los aprueba y les
@@ -50,38 +84,37 @@ public class Curso {
 		}
 		prom = prom / (course.getEstudiantes()).size();
 		DecimalFormat f = new DecimalFormat("#.00");
-		return("El promedio del curso es: " + f.format(prom) + "\n");
+		return ("El promedio del curso es: " + f.format(prom) + "\n");
 	}
-	
+
 	public void finalizeCurso() {
 
 		while (alumnos.size() > 0) {
 			Estudiante estudiante = alumnos.get(0);
 			alumnos.remove(0);
-			try{
+			try {
 				float nota = estudiante.getDefinitiva(nombre);
 				if (nota >= 3) {
 					estudiante.setEstado(nombre, 1);
 					estudiante.addCertificado(new Certificado(tipo, estudiante, docente, nota));
 				}
 				estudiante.removeCurso(nombre);
-			}catch(NoHayNotas excepcion){
+			} catch (NoHayNotas excepcion) {
 				estudiante.removeCurso(nombre);
 			}
 
-			
 		}
 
 		docente.removeCurso(nombre);
 		Archivo.removeCurso(nombre);
 	}
-	
-	public String finalizarCurso (String nombre) {
+
+	public String finalizarCurso(String nombre) {
 		try {
-			Curso curso = Archivo.buscarCurso(nombre); 
+			Curso curso = Archivo.buscarCurso(nombre);
 			curso.finalizeCurso();
 			return "El curso ha sido finalizado.";
-		}catch(NoExisteCurso excepcion){
+		} catch (NoExisteCurso excepcion) {
 			return "No existe el curso.";
 		}
 	}
