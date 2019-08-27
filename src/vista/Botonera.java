@@ -14,10 +14,10 @@ public interface Botonera {
 			put("VerCursos", new VerCursosMenu());
 			put("FinalizeCurso", new FinalizeCursoMenu());
 			put("MatricularEstudiante", new MatricularEstudianteMenu());
-			put("RegistrarEstudiantes", new RegistrarEstudianteMenu());
+			put("RegistrarEstudiante", new RegistrarEstudianteMenu());
 			put("RegistrarDocente", new RegistrarDocenteMenu());
 			put("RegistrarAdministrativo", new RegistrarAdministrativoMenu());
-			put("Registrar", new RegistrarMenu());
+			//put("Registrar", new RegistrarMenu());
 			put("ResponderSolicitudes", new ResponderSolicitudesMenu());
 			put("SolicitarCupoEstudiante", new SolicitarCupoEstudianteMenu());
 			put("VerAdministrativos", new VerAdministrativosMenu());
