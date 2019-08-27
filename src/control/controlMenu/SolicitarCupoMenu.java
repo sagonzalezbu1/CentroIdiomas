@@ -17,6 +17,7 @@ public class SolicitarCupoMenu implements ActionListener{
 			Main.ventanaUsuario.getPanelP().descripcion("Permite solicitar cupo a cursos no disponibles");
 			Main.ventanaUsuario.getPanelP().nombre("Solicitar cupo");
 			Main.ventanaUsuario.pack();
+			
 		}
 	}
 }
