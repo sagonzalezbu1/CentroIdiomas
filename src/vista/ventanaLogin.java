@@ -159,6 +159,8 @@ public class ventanaLogin extends JFrame {
 	
 	public void ingresar() {
 		Main.ventanaLogin.setVisible(false);
+		T2.setText(null);
+		T3.setText(null);
 	}
 	public int salir() {
 		return JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?", "Esta proximo a salir del programa", JOptionPane.YES_NO_OPTION);

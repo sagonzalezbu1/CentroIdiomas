@@ -1,5 +1,7 @@
 package control.controlMenu;
 
+import java.awt.event.ActionEvent;
+
 import control.Main;
 import control.OpcionDeMenu;
 import modelo.Usuarios.*;
@@ -11,6 +13,13 @@ public class CerrarSesionMenu extends OpcionDeMenu {
 	No recibe ningún parámetro*/
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public void actionPerformed(ActionEvent evento) {
+		if(evento.getActionCommand().equals("Salir")) {
+			Main.ventanaUsuario.setVisible(false);;
+			Main.ventanaLogin.setVisible(true);
+		}
 	}
 	
 	/*Se "convierte" al usuario registrado en un Invitado, ejecutando 

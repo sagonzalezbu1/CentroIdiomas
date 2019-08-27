@@ -73,22 +73,19 @@ public class Administrador extends Usuario {
 
 	}
 
-	public String removerFuncioalidad(long CC, String opcion) {
-		try {
-			Usuario user = Archivo.buscarUsuario(CC);
-			ArrayList<String> menu = user.getProcesos();
+	public String removerFuncionalidad(long CC, String opcion) throws NoExisteUsuario, FuncionalidadIncorrecta {
 
-			for (String op : menu) {
-				if (op.equals(opcion) && !op.equals("CerrarSesion")) {
-					menu.remove(op);
-					return "La opcion de menu fue eliminada con exito.";
-				}
+		Usuario user = Archivo.buscarUsuario(CC);
+		ArrayList<String> menu = user.getProcesos();
+
+		for (String op : menu) {
+			if (op.equals(opcion) && !op.equals("CerrarSesion")) {
+				menu.remove(op);
+				return "La opcion de menu fue eliminada con exito.";
 			}
-			return "Opcion invalida.";
-
-		} catch (NoExisteUsuario excepcion) {
-			return "El usuario no esta registrado.";
 		}
+		throw new FuncionalidadIncorrecta();
+
 	}
 
 	public String addFuncioalidad(long CC, String opcion) {

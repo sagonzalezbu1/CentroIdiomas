@@ -14,10 +14,10 @@ public class RemoveFuncionalidadMenu implements ActionListener {
 	
 	public void actionPerformed(ActionEvent evento) {
 
-		if (evento.getActionCommand().equals("RemoverFuncionalidad")) {
+		if (evento.getActionCommand().equals("RemoveFuncionalidad")) {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
-			String[] criterios= {"Cedula del estudiante:","Nombre de la funcionalidad:"};
+			String[] criterios= {"Cedula del usuario: ","Nombre de la funcionalidad: "};
 			String[] valores = {null,null};
 			boolean[] habilitado= {true,true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);

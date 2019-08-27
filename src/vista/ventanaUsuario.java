@@ -5,6 +5,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
+import control.controlMenu.CerrarSesionMenu;
+
 public class ventanaUsuario extends JFrame implements Botonera {
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu archivoM = new JMenu("Archivo");
@@ -31,6 +33,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		setVisible(false);
 		setSize(500, 500);
 		setLocationRelativeTo(null);
+		salirMI.addActionListener(new CerrarSesionMenu());
 		}
 
 	public void formulario(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
@@ -54,6 +57,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	public void ingresar(ArrayList<String> opcionMenu, String nombre) {
 		this.setTitle("Usuario: " + nombre);
 		int cont = 0;
+		procesosM.removeAll();
 		for (String opcion : opcionMenu) {
 			if(opcion.equals("RegistrarEstudiante") ||opcion.equals("RegistrarDocente") || opcion.equals("RegistrarAdministrativo")){
 				if (cont == 0) {
