@@ -509,4 +509,10 @@ abstract public class Archivo {
 			return "Se ha registrado exitosamente";
 		}
 	}
+	static public String FinalizeCurso(String nombreCurso) throws NoExisteCurso{
+			Curso cursofinalizar = null;
+			cursofinalizar = Archivo.buscarCurso(nombreCurso);
+			cursofinalizar.finalizeCurso();
+			return "El curso ha sido finalizado";	
+	}
 }
