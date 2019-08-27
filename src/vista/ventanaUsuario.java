@@ -4,8 +4,8 @@ package vista;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import control.controlMenu.*;
 
-import control.controlMenu.CerrarSesionMenu;
 
 public class ventanaUsuario extends JFrame implements Botonera {
 	private JMenuBar menuBar = new JMenuBar();
@@ -27,6 +27,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		archivoM.add(usuarioMI);
 		archivoM.add(salirMI);
 		ayudaM.add(acercaDeMI);
+		acercaDeMI.addActionListener(new AyudaMenu());
 		setJMenuBar(menuBar);
 		getContentPane().add(panelPrincipal);	
 		panelPrincipal.setBackground(Color.white);
