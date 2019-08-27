@@ -11,6 +11,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -30,25 +31,31 @@ public class FieldPanel extends JPanel {
 	
 
 	public FieldPanel() {
-		this.setLayout(new BorderLayout(4,4));
-		this.setBackground(Color.white);
+		
 		detalle.setLayout(new BorderLayout(6,6));
 		detalle.setBackground(Color.white);
+		
 		formulario.setBackground(Color.white);		
+		
 		Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		this.setLayout(new BorderLayout(4,4));
+		this.setBackground(Color.white);
 		this.setBorder(padding);
 		this.add(detalle,BorderLayout.NORTH);
-		this.add(formulario,BorderLayout.CENTER);
+		this.add(formulario,BorderLayout.CENTER);                                                                                                              
 	}
 	
 	public FieldPanel(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
 			boolean[] habilitado) {
-		this.setLayout(new BorderLayout(4,4));
-		this.setBackground(Color.white);
+		
 		detalle.setLayout(new BorderLayout(6,6));
 		detalle.setBackground(Color.white);
+		
 		formulario.setLayout(new GridBagLayout());
 		formulario.setBackground(Color.white);
+		
+		this.setLayout(new BorderLayout(4,4));
+		this.setBackground(Color.white);
 		Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		this.setBorder(padding);
 		this.tituloCriterios = tituloCriterios;
@@ -57,6 +64,7 @@ public class FieldPanel extends JPanel {
 		this.valoresArray = valores;
 		this.habilitado = habilitado;
 		textos = new JTextField[criterios.length];
+		
 		GridBagConstraints constraints = new GridBagConstraints();
 
 		JLabel jlabel = new JLabel(tituloCriterios);
@@ -153,10 +161,15 @@ public class FieldPanel extends JPanel {
 		text.setBorder(borde);
 		detalle.add(text,BorderLayout.SOUTH);
 	}
-	public void formulario(JTextArea text) {
+	public void formulario(String text) {
+		JTextArea texto = new JTextArea(text,20,30);
+		texto.setEditable(false);
+		texto.setLineWrap(true);
+		JScrollPane T1 = new JScrollPane(texto);
 		Border borde = BorderFactory.createLineBorder(Color.GRAY, 1);
-		text.setBorder(borde);
-		formulario.add(text);
+		texto.setBorder(borde);
+		formulario.removeAll();
+		formulario.add(T1);
 	}
 
 }
