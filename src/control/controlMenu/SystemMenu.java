@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
 import control.Main;
+import modelo.Usuarios.Administrador;
+import modelo.excepciones.NoExisteAdministrador;
 
 
 /*Esta clase es usada por Administrador para ver todas las funcionalidades 
@@ -17,8 +19,8 @@ public class SystemMenu implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 
 		if (evento.getActionCommand().equals("SystemMenu")) {
-			String Funciones= Archivo.getAdministrador().SystemMenu();
-			Main.ventanaUsuario.ver(Funciones);
+				String Funciones= (new Administrador()).SystemMenu();
+				Main.ventanaUsuario.ver(Funciones);
 		}
 
 	}

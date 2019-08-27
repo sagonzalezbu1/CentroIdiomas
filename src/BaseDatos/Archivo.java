@@ -58,16 +58,11 @@ abstract public class Archivo {
 
 	}
 
-	static public String verCertificadosEstudiante(long CC) {
-		try {
-			Estudiante estudiante = Archivo.buscarEstudiante(CC);
-			String aux = estudiante.verCertificados();
-			return aux;
-		} catch (NoExisteEstudiante excepcion) {
-			return "No existe estudiante";
-		} catch (NoHayCertificados excepcion) {
-			return "No tiene certificados.";
-		}
+	static public String verCertificadosEstudiante(long CC) throws NoExisteEstudiante, NoHayCertificados {
+
+		Estudiante estudiante = Archivo.buscarEstudiante(CC);
+		String aux = estudiante.verCertificados();
+		return aux;
 
 	}
 
@@ -286,14 +281,14 @@ abstract public class Archivo {
 	 * recibe ningun parametro. Retorna un String con formato correcto que contiene
 	 * al nombre y cedula de todos los administrativos
 	 */
-	static public String verAdministrativos() {
+	static public String verAdministrativos() throws NoHayAdministrativos {
 		String ver = "";
 		for (Administrativo x : listaAdministrativos) {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
 		if (ver.equals("")) {
-			return "No hay administrativos.";
+			throw new NoHayAdministrativos();
 		} else {
 			return "Administrativos:\n" + ver;
 		}
@@ -305,14 +300,14 @@ abstract public class Archivo {
 	 * nombre, horario, docente, y cupos disponibles de todos los cursos que no
 	 * hayan sido finalizados
 	 */
-	static public String verCursos() {
+	static public String verCursos() throws NoHayCursos {
 		String ver = "";
 		for (Curso x : listaCursos) {
 			ver += "\n";
 			ver += x.toString() + "\n";
 		}
 		if (ver.equals("")) {
-			return "No hay cursos disponibles.";
+			throw new NoHayCursos();
 		} else {
 			return "Cursos:\n" + ver;
 		}
@@ -345,7 +340,7 @@ abstract public class Archivo {
 	 * ningun parametro. Retorna un String con formato correcto que contiene al
 	 * nombre y cedula de todos los docentes
 	 */
-	static public String verDocentes() {
+	static public String verDocentes() throws NoHayDocentes {
 
 		String ver = "";
 		for (Docente x : listaDocentes) {
@@ -356,7 +351,7 @@ abstract public class Archivo {
 		if (!ver.equals("")) {
 			return "\nDocentes:\n" + ver;
 		} else {
-			return "No hay docentes.";
+			throw new NoHayDocentes();
 		}
 
 	}
