@@ -1,12 +1,10 @@
 package modelo.Centro;
 
-import java.text.DecimalFormat;
+import java.text.*;
 import java.util.*;
-import BaseDatos.Archivo;
+import BaseDatos.*;
 import modelo.Usuarios.*;
-import modelo.excepciones.NoExisteCurso;
-import modelo.excepciones.NoHayEstudiantes;
-import modelo.excepciones.NoHayNotas;
+import modelo.excepciones.*;
 
 /*Esta clase permite crear objetos de tipo curso. Los cursos pueden ser de cualquier idioma y tienen un maximo de 10 cupos por curso. Son parte importante
   del centro de idiomas pues contienen a los estudiantes, y si aprueban o no el curso es lo que les otorga a los estudiantes el certificado del idioma */
@@ -43,7 +41,7 @@ public class Curso {
 	 * No retorna nada, ni recibe ningun parametro
 	 */
 
-	public String promedioCurso(String curso) {
+	static public String promedioCurso(String curso) throws NoExisteCurso, NoHayEstudiantes, NoHayNotas {
 		try {
 			Curso course = Archivo.buscarCurso(curso);
 

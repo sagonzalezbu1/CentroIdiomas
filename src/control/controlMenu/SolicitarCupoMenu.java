@@ -1,8 +1,8 @@
 package control.controlMenu;
-import java.awt.event.*;
 
-import control.Main;
-import control.controlPanel.SolicitarCupoPanel;
+import java.awt.event.*;
+import control.*;
+import control.controlPanel.*;
 
 /*En esta clase se ejecutan las acciones necesarias para que un usuario pueda solicitar
  * cupo a cursos que ya están llenos*/
