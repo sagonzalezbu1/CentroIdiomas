@@ -479,4 +479,21 @@ abstract public class Archivo {
 			}
 		}
 	}
+	static public String registrarDocente(String nombre, String apellido, long cedula, String correo,String contraseña, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+		try {
+			if (cedula == 123 || Archivo.buscarDocente(cedula) instanceof Docente) {
+				throw new UsuarioRegistrado();
+			}
+			else {
+				return "";
+			}
+		} catch (NoExisteDocente exception) {
+			if (codigo.equals(Docente.getCodigo())) {
+				new Docente(nombre + " " + apellido, cedula, correo, contraseña);
+				return "Se ha registrado exitosamente.";
+			} else {
+				throw new CodigoIncorrecto();
+			}
+		}
+	}
 }
