@@ -50,38 +50,37 @@ public class Curso {
 		}
 		prom = prom / (course.getEstudiantes()).size();
 		DecimalFormat f = new DecimalFormat("#.00");
-		return("El promedio del curso es: " + f.format(prom) + "\n");
+		return ("El promedio del curso es: " + f.format(prom) + "\n");
 	}
-	
+
 	public void finalizeCurso() {
 
 		while (alumnos.size() > 0) {
 			Estudiante estudiante = alumnos.get(0);
 			alumnos.remove(0);
-			try{
+			try {
 				float nota = estudiante.getDefinitiva(nombre);
 				if (nota >= 3) {
 					estudiante.setEstado(nombre, 1);
 					estudiante.addCertificado(new Certificado(tipo, estudiante, docente, nota));
 				}
 				estudiante.removeCurso(nombre);
-			}catch(NoHayNotas excepcion){
+			} catch (NoHayNotas excepcion) {
 				estudiante.removeCurso(nombre);
 			}
 
-			
 		}
 
 		docente.removeCurso(nombre);
 		Archivo.removeCurso(nombre);
 	}
-	
-	public String finalizarCurso (String nombre) {
+
+	public String finalizarCurso(String nombre) {
 		try {
-			Curso curso = Archivo.buscarCurso(nombre); 
+			Curso curso = Archivo.buscarCurso(nombre);
 			curso.finalizeCurso();
 			return "El curso ha sido finalizado.";
-		}catch(NoExisteCurso excepcion){
+		} catch (NoExisteCurso excepcion) {
 			return "No existe el curso.";
 		}
 	}
