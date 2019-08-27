@@ -1,6 +1,8 @@
-package control;
+package control.controlLogin;
 
 import java.awt.event.*;
+
+import control.Main;
 
 public class ControlImagen implements ActionListener {
 	int contador = 0;

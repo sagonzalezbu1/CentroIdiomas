@@ -3,9 +3,8 @@ import java.awt.event.*;
 
 import javax.swing.JOptionPane;
 
-import modelo.Usuarios.*;
-
 import control.Main;
+import modelo.Usuarios.*;
 public class SolicitarCupoPanel implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 		if(evento.getActionCommand().equals("Aceptar")) {

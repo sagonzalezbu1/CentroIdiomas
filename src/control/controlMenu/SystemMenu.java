@@ -1,8 +1,10 @@
-package control;
+package control.controlMenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import BaseDatos.Archivo;
+import control.Main;
 
 
 /*Esta clase es usada por Administrador para ver todas las funcionalidades 

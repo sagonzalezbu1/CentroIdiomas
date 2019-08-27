@@ -6,6 +6,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 import control.*;
+import control.controlLogin.ControlBienvenida;
+import control.controlLogin.ControlImagen;
+import control.controlLogin.ControlIngresarAdmin;
+import control.controlLogin.ControlIngresarUser;
+import control.controlLogin.ControlSalir;
 
 public class ventanaLogin extends JFrame {
 	

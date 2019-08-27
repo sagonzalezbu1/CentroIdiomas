@@ -1,9 +1,10 @@
-package control;
+package control.controlLogin;
 
 import java.awt.event.*;
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.Main;
 import modelo.Usuarios.*;
 import modelo.excepciones.Excepcion2;
 import modelo.excepciones.loginInvalido;

@@ -1,9 +1,11 @@
-package control;
+package control.controlMenu;
 
+import control.Main;
+import control.OpcionDeMenu;
 import modelo.Usuarios.*;
 
 /*Esta clase es usada por todos los usuarios para volver al menú de Invitado*/
-public class CerrarSesion extends OpcionDeMenu {
+public class CerrarSesionMenu extends OpcionDeMenu {
 	private String nombre="CerrarSesion";
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
 	No recibe ningún parámetro*/

@@ -10,7 +10,7 @@ public interface Botonera {
 	public static HashMap<String, ActionListener> controladores = new HashMap<String, ActionListener>() {
 		{
 			put("Calificar", new CalificarMenu());
-			put("CrearCurso", new ControlCrearCurso());
+			put("CrearCurso", new CrearCursoMenu());
 			put("VerCursos", new VerCursosMenu());
 			put("FinalizeCurso", new FinalizeCursoMenu());
 			put("MatricularEstudiante", new MatricularEstudianteMenu());
@@ -27,7 +27,7 @@ public interface Botonera {
 			put("VerHorarioDocente", new VerHorarioDocenteMenu());
 			put("VerSolicitudesEstudiante", new VerSolicitudesEstudianteMenu());
 			put("VerNotasEstudiante", new VerNotasEstudianteMenu());
-			put("CerrarSesion", new CerrarSesion());
+			put("CerrarSesion", new CerrarSesionMenu());
 			put("VerEstudiantesCurso", new VerEstudiantesCursoMenu());
 			put("HacerSugerencia", new HacerSugerenciaMenu());
 			put("VerSugerencias", new VerSugerenciasMenu());

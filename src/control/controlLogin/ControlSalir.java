@@ -1,8 +1,9 @@
-package control;
+package control.controlLogin;
 import java.awt.*;
 import java.awt.event.*;
 
 import BaseDatos.Data;
+import control.Main;
 
 public class ControlSalir implements MouseListener{
 	public void mouseEntered(MouseEvent eento1) {
