@@ -55,8 +55,21 @@ public class ventanaUsuario extends JFrame implements Botonera {
 
 	public void ingresar(ArrayList<String> opcionMenu, String nombre) {
 		this.setTitle("Usuario: " + nombre);
+		int cont = 0;
 		for (String opcion : opcionMenu) {
-			procesosM.add((Botonera.botones).get(opcion));
+			if(opcion.equals("RegistrarEstudiante") ||opcion.equals("RegistrarDocente") || opcion.equals("RegistrarAdministrativo")){
+				if (cont == 0) {
+					cont++;
+					JMenu register = new JMenu("Registar");
+					register.add((Botonera.botones).get("RegistrarEstudiante"));	
+					register.add((Botonera.botones).get("RegistrarDocente"));
+					register.add((Botonera.botones).get("RegistrarAdministrativo"));	
+					procesosM.add(register);
+				}		
+			}
+			else {
+				procesosM.add((Botonera.botones).get(opcion));				
+			}
 		}
 		this.setVisible(true);
 	}
@@ -67,5 +80,4 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	public void Popup(String error) {
 		JOptionPane.showMessageDialog(null, error, "Error" , JOptionPane.WARNING_MESSAGE);
 	}
-
 }

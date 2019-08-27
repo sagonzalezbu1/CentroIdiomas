@@ -25,8 +25,7 @@ public class SolicitarCupoEstudianteMenu implements ActionListener {
 			Main.ventanaUsuario.getPanelP().setControlador(new SolicitarCupoEstudiantePanel());
 			Main.ventanaUsuario.getPanelP().descripcion("Permite solicitar cupo para un estudiante a cursos no disponibles");
 			Main.ventanaUsuario.getPanelP().nombre("Solicitar cupo para Estudiante");
-			Main.ventanaUsuario.pack();
-			
+			Main.ventanaUsuario.pack();			
 		}
 	}
 }

@@ -18,7 +18,9 @@ public class Main {
 			put("VerCursos", "VerCursos");
 			put("FinalizeCurso", "FinalizeCurso");
 			put("MatricularEstudiante","MatricularEstudiante");
-			put("Registrar","Registrar");
+			put("RegistrarEstudiante","RegistrarEstudiante");
+			put("RegistrarDocente","RegistrarDocente");
+			put("RegistrarAdministrativo","RegistrarAdministrativo");
 			put("ResponderSolicitudes","ResponderSolicitudes");
 			put("SolicitarCupo", "SolicitarCupo");
 			put("SolicitarCupoEstudiante", "SolicitarCupoEstudiante");
