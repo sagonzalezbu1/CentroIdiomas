@@ -7,10 +7,10 @@ public class ControlImagen implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 		contador++;
 		if(contador==1) {
-			Main.ventanaLogin.cambiarImagen("imagen1.png");
+			Main.ventanaLogin.cambiarImagen("foto1.jpeg");
 		}
 		else if(contador==2) {
-			Main.ventanaLogin.cambiarImagen("imagen2.jpeg");
+			Main.ventanaLogin.cambiarImagen("foto2.jpeg");
 		}
 		else if(contador==3) {
 			contador = 0;
