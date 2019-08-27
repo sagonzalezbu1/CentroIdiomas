@@ -17,6 +17,7 @@ public class HacerSugerenciaPanel implements ActionListener {
 				String sugerencia = Sugerencia.hacerSugerencia(Usuario, textoSugerencia);
 				
 				Main.ventanaUsuario.Popup2(sugerencia);
+				Main.ventanaUsuario.setPanelP();
 				
 			} catch(CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());

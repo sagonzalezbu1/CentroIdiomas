@@ -14,8 +14,10 @@ public class SolicitarCupoEstudiantePanel implements ActionListener {
 				String cc = Main.ventanaUsuario.getPanelP().getValue("Cedula del Estudiante: ");
 				String tipo = Main.ventanaUsuario.getPanelP().getValue("Tipo del curso: ");
 				String solicitud = Archivo.buscarEstudiante(Long.parseLong(cc)).solicitarCupo(Long.parseLong(cc), tipo);
+				
 				Main.ventanaUsuario.Popup2(solicitud);
-				// Main.ventanaUsuario.getPanelP().borrar();
+				Main.ventanaUsuario.setPanelP();
+				
 			} catch (CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			} catch (NoExisteEstudiante excepcion) {
