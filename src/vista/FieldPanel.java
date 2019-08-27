@@ -135,7 +135,7 @@ public class FieldPanel extends JPanel {
 	public String getValue(String criterio) throws CampoVacio{
 		for (int i = 0; i < criteriosArray.length; i++) {
 			if (criteriosArray[i].equals(criterio)) {
-				if(textos[i].getText()!=null) {
+				if(!textos[i].getText().equals("")) {
 					return textos[i].getText();
 				}else {
 					throw new CampoVacio();

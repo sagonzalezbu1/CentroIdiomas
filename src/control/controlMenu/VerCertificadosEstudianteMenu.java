@@ -14,7 +14,7 @@ public class VerCertificadosEstudianteMenu implements ActionListener{
 	
 	public void actionPerformed(ActionEvent evento) {
 
-		if (evento.getActionCommand().equals("VerCertificados")) {
+		if (evento.getActionCommand().equals("VerCertificadosEstudiante")) {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Cedula del estudiante: "};

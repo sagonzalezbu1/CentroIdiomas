@@ -21,7 +21,8 @@ public class VerEstudiantesCursoMenu implements ActionListener {
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new VerEstudiantesCursoPanel());
 			Main.ventanaUsuario.getPanelP().nombre("Ver estudiantes de un curso");
-			Main.ventanaUsuario.getPanelP().descripcion("aqui va una descripcion");
+			Main.ventanaUsuario.getPanelP().descripcion("Aqui podra ver los estudiantes de un curso en especifico");
+			Main.ventanaUsuario.pack();
 		}
 
 	}

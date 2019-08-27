@@ -7,21 +7,27 @@ import javax.swing.JOptionPane;
 
 import BaseDatos.Archivo;
 import control.Main;
+import modelo.excepciones.CampoVacio;
+import modelo.excepciones.NoExisteCurso;
+import modelo.excepciones.NoHayEstudiantes;
 
 public class VerEstudiantesCursoPanel implements ActionListener {
 
 	public void actionPerformed(ActionEvent evento) {
-		if(evento.getActionCommand().equals("Aceptar")) {
-			String nombre = Main.ventanaUsuario.getPanelP().getValue("Nombre del curso: ");
-			try{
+		if (evento.getActionCommand().equals("Aceptar")) {
+			try {
+				String nombre = Main.ventanaUsuario.getPanelP().getValue("Nombre del curso: ");
 				Main.ventanaUsuario.ver(Archivo.verEstudiantesCurso(nombre));
-			}catch(Exception e) {
-				
-				JOptionPane.showMessageDialog(null, e, "Error en la entrada de datos" , JOptionPane.WARNING_MESSAGE);
+			} catch (CampoVacio excepcion) {
+				Main.ventanaUsuario.Popup(excepcion.getMessage());
+			} catch (NoExisteCurso excepcion) {
+				Main.ventanaUsuario.Popup(excepcion.getMessage());
+			} catch (NoHayEstudiantes excepcion) {
+				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			}
-		}else if(evento.getActionCommand().equals("Borrar")){
+		} else if (evento.getActionCommand().equals("Borrar")) {
 			Main.ventanaUsuario.getPanelP().borrar();
 		}
 	}
-	
+
 }

@@ -10,7 +10,7 @@ public class VerHorarioEstudianteMenu implements ActionListener {
 	
 	public void actionPerformed(ActionEvent evento) {
 		
-		if (evento.getActionCommand().equals("VerHorarioDocente")) {
+		if (evento.getActionCommand().equals("VerHorarioEstudiante")) {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Cedula del estudiante: "};
@@ -19,7 +19,8 @@ public class VerHorarioEstudianteMenu implements ActionListener {
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new VerHorarioEstudiantePanel());
 			Main.ventanaUsuario.getPanelP().nombre("Ver horario del estudiante");
-			Main.ventanaUsuario.getPanelP().descripcion("Aqui podra ver el horario del docente del cual coloque su cedula. Recuerde no poner puntos ni espacios.");
+			Main.ventanaUsuario.getPanelP().descripcion("Aqui podra ver el horario del Estudiante del cual coloque su cedula");
+			Main.ventanaUsuario.pack();
 		}
 		
 	}

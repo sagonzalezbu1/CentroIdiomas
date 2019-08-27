@@ -37,6 +37,7 @@ public class Administrador extends Usuario {
 		getProcesos().add(Main.funcionalidades.get("VerDocentes"));
 		getProcesos().add(Main.funcionalidades.get("VerTodosLosEstudiantes"));
 		getProcesos().add(Main.funcionalidades.get("VerHorarioDocente"));
+		getProcesos().add(Main.funcionalidades.get("VerHorarioEstudiante"));
 		getProcesos().add(Main.funcionalidades.get("VerSolicitudesEstudiante"));
 		getProcesos().add(Main.funcionalidades.get("VerNotasEstudiante"));
 		getProcesos().add(Main.funcionalidades.get("VerEstudiantesCurso"));

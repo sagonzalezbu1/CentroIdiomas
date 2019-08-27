@@ -32,6 +32,7 @@ public class Main {
 			put("VerDocentes","VerDocentes");
 			put("VerTodosLosEstudiantes","VerTodosLosEstudiantes");
 			put("VerHorarioDocente", "VerHorarioDocente");
+			put("VerHorarioEstudiante", "VerHorarioEstudiante");
 			put("VerSolicitudesEstudiante", "VerSolicitudesEstudiante");
 			put("MisSolicitudes", "MisSolicitudes");
 			put("VerNotasEstudiante", "VerNotasEstudiante");
