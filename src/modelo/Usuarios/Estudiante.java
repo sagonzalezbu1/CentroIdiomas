@@ -164,7 +164,11 @@ public class Estudiante extends Usuario implements Horario {
 		for (Float nota : prom) {
 			list += nota + "  ";
 		}
-		list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
+		try{
+			list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
+		}catch(NoHayNotas excepcion) {
+			list += "  Nota acumulada: " + 0;
+		}list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
 		return list;
 
 	}

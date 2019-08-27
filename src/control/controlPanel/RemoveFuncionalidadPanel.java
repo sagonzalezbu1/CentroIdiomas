@@ -8,6 +8,8 @@ import modelo.Usuarios.Administrador;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.FuncionalidadIncorrecta;
 import modelo.excepciones.NoExisteUsuario;
+import vista.FieldPanel;
+import vista.ventanaUsuario;
 
 public class RemoveFuncionalidadPanel implements ActionListener {
 
@@ -18,6 +20,7 @@ public class RemoveFuncionalidadPanel implements ActionListener {
 				String funcionalidad = Main.ventanaUsuario.getPanelP().getValue("Nombre de la funcionalidad: ");
 				String mensaje = (new Administrador()).removerFuncionalidad(Long.parseLong(cedula), funcionalidad);
 				Main.ventanaUsuario.Popup2(mensaje);
+				//Main.ventanaUsuario.setPanelP();
 
 			} catch (CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());

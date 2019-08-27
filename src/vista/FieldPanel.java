@@ -37,8 +37,8 @@ public class FieldPanel extends JPanel {
 		detalle.setLayout(new BorderLayout(6,6));
 		detalle.setBackground(Color.white);
 		
-		formulario.setBackground(Color.white);		
-		
+		formulario.setBackground(Color.white);
+		this.formulario("Hola, Bienvenido.");
 		Border padding = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		this.setLayout(new BorderLayout(4,4));
 		this.setBackground(Color.white);
@@ -170,14 +170,18 @@ public class FieldPanel extends JPanel {
 		detalle.add(scroll,BorderLayout.SOUTH);
 	}
 	public void formulario(String text) {
-		JTextArea texto = new JTextArea(text,20,40);
+		JTextArea texto = new JTextArea(text,10,10);
 		texto.setEditable(false);
 		texto.setLineWrap(true);
 		JScrollPane scroll = new JScrollPane(texto);
 		Border borde = BorderFactory.createLineBorder(Color.GRAY, 1);
 		texto.setBorder(borde);
 		formulario.removeAll();
-		formulario.add(scroll);
+		formulario.setLayout(new BorderLayout());
+		GridBagConstraints cons = new GridBagConstraints();
+		cons.weightx = 1.0;
+		cons.weighty = 1.0;
+		formulario.add(scroll,BorderLayout.CENTER);
 	}
-
+	
 }

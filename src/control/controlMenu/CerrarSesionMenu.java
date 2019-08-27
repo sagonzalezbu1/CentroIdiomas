@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import control.Main;
 import control.OpcionDeMenu;
 import modelo.Usuarios.*;
+import vista.FieldPanel;
+import vista.ventanaUsuario;
 
 /*Esta clase es usada por todos los usuarios para volver al menú de Invitado*/
 public class CerrarSesionMenu extends OpcionDeMenu {
@@ -19,6 +21,8 @@ public class CerrarSesionMenu extends OpcionDeMenu {
 		if(evento.getActionCommand().equals("Salir")) {
 			Main.ventanaUsuario.setVisible(false);;
 			Main.ventanaLogin.setVisible(true);
+			Main.ventanaUsuario = new ventanaUsuario();
+
 		}
 	}
 	
