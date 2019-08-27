@@ -1,7 +1,6 @@
 package modelo.Usuarios;
 
 import java.util.*;
-
 import BaseDatos.Archivo;
 import control.*;
 import modelo.Centro.*;
@@ -109,7 +108,7 @@ public class Estudiante extends Usuario implements Horario {
 	 * Retorna la nota definitiva/acumulada del estudiante en cierto curso. Recibe
 	 * como parámetro un String equivalente al nombre del curso
 	 */
-	public float getDefinitiva(String name) {
+	public float getDefinitiva(String name) throws NoHayNotas{
 		ArrayList<Float> prom = misNotas.get(name);
 		float def = 0;
 
@@ -118,7 +117,7 @@ public class Estudiante extends Usuario implements Horario {
 		}
 
 		if (prom.size() == 0) {
-			return 0;
+			throw new NoHayNotas();
 		} else {
 			def /= prom.size();
 			return def;
