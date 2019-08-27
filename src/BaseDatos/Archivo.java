@@ -461,7 +461,7 @@ abstract public class Archivo {
 		}
 	}
 
-	static public String registrarAministrativo(String nombre, String apellido, long cedula, String correo,String contraseña, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+	static public String registrarAministrativo(String nombre, String apellido, long cedula, String correo,String contrasena, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
 		try {
 			if (cedula == 123 || Archivo.buscarAdministrativo(cedula) instanceof Administrativo) {
 				//return ("Ya se encuentra registrado un usuario con esa cédula.");
@@ -472,14 +472,14 @@ abstract public class Archivo {
 			}
 		} catch (NoExisteAdministrativo exception) {
 			if (codigo.equals(Administrativo.getCodigo())) {
-				new Administrativo(nombre + " " + apellido, cedula, correo, contraseña);
+				new Administrativo(nombre + " " + apellido, cedula, correo, contrasena);
 				return "Se ha registrado exitosamente.";
 			} else {
 				throw new CodigoIncorrecto();
 			}
 		}
 	}
-	static public String registrarDocente(String nombre, String apellido, long cedula, String correo,String contraseña, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+	static public String registrarDocente(String nombre, String apellido, long cedula, String correo,String contrasena, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
 		try {
 			if (cedula == 123 || Archivo.buscarDocente(cedula) instanceof Docente) {
 				throw new UsuarioRegistrado();
@@ -489,11 +489,24 @@ abstract public class Archivo {
 			}
 		} catch (NoExisteDocente exception) {
 			if (codigo.equals(Docente.getCodigo())) {
-				new Docente(nombre + " " + apellido, cedula, correo, contraseña);
+				new Docente(nombre + " " + apellido, cedula, correo, contrasena);
 				return "Se ha registrado exitosamente.";
 			} else {
 				throw new CodigoIncorrecto();
 			}
+		}
+	}
+	static public String registrarEstudiante(String nombre, String apellido, long cedula, String correo,String contrasena) throws UsuarioRegistrado{
+		try {
+			if (cedula == 123 || Archivo.buscarEstudiante(cedula) instanceof Estudiante) {
+				throw new UsuarioRegistrado();
+			}
+			else {
+				return "";
+			}
+		} catch (NoExisteEstudiante exception) {
+			new Docente(nombre + " " + apellido, cedula, correo, contrasena);
+			return "Se ha registrado exitosamente";
 		}
 	}
 }
