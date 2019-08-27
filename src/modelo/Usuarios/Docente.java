@@ -54,7 +54,7 @@ public class Docente extends Usuario implements Horario {
 
 	/*Retorna el horario de los cursos que dicta el docente, 
 	 * buscándolos en la lista de cada uno. No recibe parámetros*/
-	public String miHorario() throws noHayHorario{
+	public String miHorario() throws NoHayHorario{
 		String aux = "";
 		for (Curso curso : misCursos) {
 			aux += "\nNombre: " + curso.getNombreCurso() + "\n" + "Horario: " + curso.getHorarioCurso();
@@ -62,7 +62,7 @@ public class Docente extends Usuario implements Horario {
 		}
 		
 		if (aux.equals("")) {
-			throw new noHayHorario();
+			throw new NoHayHorario();
 		} else {
 			return aux;
 		}

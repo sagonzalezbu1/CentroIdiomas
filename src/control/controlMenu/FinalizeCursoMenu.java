@@ -6,7 +6,7 @@ import BaseDatos.Archivo;
 import control.OpcionDeMenu;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
-import modelo.excepciones.noHayNotas;
+import modelo.excepciones.NoHayNotas;
 
 /*Esta clase es usada por Administrativo para finalizar los cursos, algo así
  * como cerrar el período de calificaciones al acabar el curso.

@@ -4,9 +4,9 @@ import java.text.DecimalFormat;
 import java.util.*;
 import BaseDatos.Archivo;
 import modelo.Usuarios.*;
-import modelo.excepciones.noExisteCurso;
-import modelo.excepciones.noHayEstudiantes;
-import modelo.excepciones.noHayNotas;
+import modelo.excepciones.NoExisteCurso;
+import modelo.excepciones.NoHayEstudiantes;
+import modelo.excepciones.NoHayNotas;
 
 /*Esta clase permite crear objetos de tipo curso. Los cursos pueden ser de cualquier idioma y tienen un maximo de 10 cupos por curso. Son parte importante
   del centro de idiomas pues contienen a los estudiantes, y si aprueban o no el curso es lo que les otorga a los estudiantes el certificado del idioma */
@@ -56,11 +56,11 @@ public class Curso {
 			DecimalFormat f = new DecimalFormat("#.00");
 			return("El promedio del curso es: " + f.format(prom) + "\n");
 
-		} catch (noExisteCurso excepcion) {
+		} catch (NoExisteCurso excepcion) {
 			return "No existe el curso.";
-		} catch (noHayEstudiantes excepcion) {
+		} catch (NoHayEstudiantes excepcion) {
 			return "No hay estudiantes en el curso.";
-		} catch (noHayNotas excepcion) {
+		} catch (NoHayNotas excepcion) {
 			return "El curso no tiene notas.";
 		}
 	}
@@ -77,7 +77,7 @@ public class Curso {
 					estudiante.addCertificado(new Certificado(tipo, estudiante, docente, nota));
 				}
 				estudiante.removeCurso(nombre);
-			}catch(noHayNotas excepcion){
+			}catch(NoHayNotas excepcion){
 				estudiante.removeCurso(nombre);
 			}
 
@@ -93,7 +93,7 @@ public class Curso {
 			Curso curso = Archivo.buscarCurso(nombre); 
 			curso.finalizeCurso();
 			return "El curso ha sido finalizado.";
-		}catch(noExisteCurso excepcion){
+		}catch(NoExisteCurso excepcion){
 			return "No existe el curso.";
 		}
 	}
@@ -112,11 +112,11 @@ public class Curso {
 
 	// Metodo que retorna la lista de los estudiantes matriculados en el curso. No
 	// recibe ningun parametro
-	public ArrayList<Estudiante> getEstudiantes() throws noHayEstudiantes {
+	public ArrayList<Estudiante> getEstudiantes() throws NoHayEstudiantes {
 		if (!alumnos.isEmpty()) {
 			return alumnos;
 		} else {
-			throw new noHayEstudiantes();
+			throw new NoHayEstudiantes();
 		}
 
 	}

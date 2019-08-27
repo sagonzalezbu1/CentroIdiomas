@@ -18,7 +18,7 @@ public class VerMenuUsuarioMenu implements ActionListener {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
 			String[] criterios= {"Cedula del usuario: "};
-			String[] valores = {""};
+			String[] valores = {null};
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new VerMenuUsuarioPanel());

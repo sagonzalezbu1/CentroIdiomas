@@ -16,6 +16,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import modelo.excepciones.CampoVacio;
+
 public class FieldPanel extends JPanel {
 
 	private String tituloCriterios;
@@ -130,10 +132,14 @@ public class FieldPanel extends JPanel {
 		borrar.addActionListener(control);
 	}
 
-	public String getValue(String criterio) {
+	public String getValue(String criterio) throws CampoVacio{
 		for (int i = 0; i < criteriosArray.length; i++) {
 			if (criteriosArray[i].equals(criterio)) {
-				return textos[i].getText();
+				if(textos[i].getText()!=null) {
+					return textos[i].getText();
+				}else {
+					throw new CampoVacio();
+				}
 			}
 		}
 		return "No se encontró criterio";
@@ -155,21 +161,23 @@ public class FieldPanel extends JPanel {
 	}
 	
 	public void descripcion(String descripcion) {
-		JTextArea text = new JTextArea(descripcion);
+		JTextArea text = new JTextArea(descripcion,2,40);
 		text.setEditable(false);
+		text.setLineWrap(true);
+		JScrollPane scroll = new JScrollPane(text);
 		Border borde = BorderFactory.createLineBorder(Color.blue, 1);
 		text.setBorder(borde);
-		detalle.add(text,BorderLayout.SOUTH);
+		detalle.add(scroll,BorderLayout.SOUTH);
 	}
 	public void formulario(String text) {
-		JTextArea texto = new JTextArea(text,20,30);
+		JTextArea texto = new JTextArea(text,20,40);
 		texto.setEditable(false);
 		texto.setLineWrap(true);
-		JScrollPane T1 = new JScrollPane(texto);
+		JScrollPane scroll = new JScrollPane(texto);
 		Border borde = BorderFactory.createLineBorder(Color.GRAY, 1);
 		texto.setBorder(borde);
 		formulario.removeAll();
-		formulario.add(T1);
+		formulario.add(scroll);
 	}
 
 }

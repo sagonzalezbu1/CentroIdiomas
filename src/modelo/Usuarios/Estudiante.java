@@ -95,12 +95,12 @@ public class Estudiante extends Usuario implements Horario {
 	 * Getter de la lista de cursos del estudiante. Retorna el ArrayList de los
 	 * cursos y no recibe parámetros
 	 */
-	public ArrayList<Curso> getCursos() throws noHayCursos {
+	public ArrayList<Curso> getCursos() throws EstudianteSinCursos {
 
 		if (misCursos.isEmpty() == false) {
 			return misCursos;
 		} else {
-			throw new noHayCursos();
+			throw new EstudianteSinCursos();
 		}
 
 	}
@@ -109,7 +109,7 @@ public class Estudiante extends Usuario implements Horario {
 	 * Retorna la nota definitiva/acumulada del estudiante en cierto curso. Recibe
 	 * como parámetro un String equivalente al nombre del curso
 	 */
-	public float getDefinitiva(String name) throws noHayNotas {
+	public float getDefinitiva(String name) {
 		ArrayList<Float> prom = misNotas.get(name);
 		float def = 0;
 
@@ -118,7 +118,7 @@ public class Estudiante extends Usuario implements Horario {
 		}
 
 		if (prom.size() == 0) {
-			throw new noHayNotas();
+			return 0;
 		} else {
 			def /= prom.size();
 			return def;
@@ -164,19 +164,16 @@ public class Estudiante extends Usuario implements Horario {
 		for (Float nota : prom) {
 			list += nota + "  ";
 		}
-		try {
-			list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
-			return list;
-		}catch(noHayNotas excepcion){
-			return "El estudiante no tiene notas.";
-		}
+		list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
+		return list;
+
 	}
 
 	/*
 	 * Retorna un String equivalente al horario del estudiante en un formato
 	 * correcto. Implementa el método de la interfaz Horario. No recibe parámetros
 	 */
-	public String miHorario() throws noHayHorario {
+	public String miHorario() throws NoHayHorario {
 		String aux = "";
 		for (Curso curso : misCursos) {
 			aux += curso + "\n";
@@ -184,7 +181,7 @@ public class Estudiante extends Usuario implements Horario {
 		}
 
 		if (aux.equals("")) {
-			throw new noHayHorario();
+			throw new NoHayHorario();
 		} else {
 			return aux;
 		}
@@ -248,16 +245,13 @@ public class Estudiante extends Usuario implements Horario {
 			if (misCursos.size() > 1) {
 				estado = "Activo";
 			} else {
-				try{
-					float aux = this.getDefinitiva(mater);
+				float aux = this.getDefinitiva(mater);
 				if (aux >= 3.0) {
 					estado = "Egresado";
 				} else {
 					estado = "Inactivo";
 				}
-				}catch(noHayNotas exception) {
-					estado = "Inactivo";
-				}
+
 			}
 		}
 	}
@@ -285,13 +279,13 @@ public class Estudiante extends Usuario implements Horario {
 	 * Retorna un String equivalente a los certificados del estudiante, mostrándolos
 	 * de manera correcta. No recibe parámetros
 	 */
-	public String verCertificados() throws noHayCertificados {
+	public String verCertificados() throws NoHayCertificados {
 		String aux = "";
 		for (Certificado certificado : misCertificados) {
 			aux += certificado + "\n";
 		}
 		if (aux.equals("")) {
-			throw new noHayCertificados();
+			throw new NoHayCertificados();
 		} else {
 			return aux;
 		}
@@ -301,7 +295,7 @@ public class Estudiante extends Usuario implements Horario {
 	 * Retorna un String equivalente a las solicitudes hechas por el estudiante,
 	 * mostrándolas de manera correcta. No recibe parámetros
 	 */
-	public String verSolicitudes() throws noHaySolicitudes {
+	public String verSolicitudes() throws NoHaySolicitudes {
 		String aux = "";
 
 		for (Solicitud solicitud : misSolicitudes) {
@@ -312,7 +306,7 @@ public class Estudiante extends Usuario implements Horario {
 			aux = aux.substring(0, aux.length() - 1);
 			return aux;
 		} else {
-			throw new noHaySolicitudes();
+			throw new NoHaySolicitudes();
 		}
 
 	}
@@ -345,9 +339,9 @@ public class Estudiante extends Usuario implements Horario {
 			} else {
 				return "Hay cupos disponibles, no puede solicitar.\n";
 			}
-		} catch (noExisteEstudiante e) {
+		} catch (NoExisteEstudiante e) {
 			return "No hay estudiante.";
-		} catch (noHayCursos c) {
+		} catch (NoHayCursos c) {
 			for (Solicitud solicitud : estudiante.getSolicitudes()) {
 				if (solicitud.getTipo().equals(tipo)) {
 					return "Usted ya hizo una solicitud para este tipo, no puede solicitar.";

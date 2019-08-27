@@ -21,8 +21,9 @@ public class VerNotasEstudianteMenu implements ActionListener {
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new VerNotasEstudiantePanel());
-			Main.ventanaUsuario.getPanelP().nombre("Ver notas del estudiante");
-			Main.ventanaUsuario.getPanelP().descripcion("aqui va una descripcion");
+			Main.ventanaUsuario.getPanelP().nombre("Ver notas de un estudiante");
+			Main.ventanaUsuario.getPanelP().descripcion("Recibe la cedula de un estudiante y luego muestra las notas que tiene este estudiante");
+			Main.ventanaUsuario.pack();
 		}
 
 	}

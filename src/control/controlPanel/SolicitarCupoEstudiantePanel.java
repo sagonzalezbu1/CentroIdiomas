@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import BaseDatos.Archivo;
 import control.Main;
-import modelo.excepciones.noExisteEstudiante;
+import modelo.excepciones.NoExisteEstudiante;
 
 public class SolicitarCupoEstudiantePanel implements ActionListener {
 	
@@ -21,7 +21,7 @@ public class SolicitarCupoEstudiantePanel implements ActionListener {
 				Main.ventanaUsuario.getPanelP().borrar();
 			}
 		}
-		catch(noExisteEstudiante exception) {
+		catch(NoExisteEstudiante exception) {
 			Main.ventanaUsuario.Popup("Estudiante no encontrado");
 			Main.ventanaUsuario.getPanelP().borrar();
 		}

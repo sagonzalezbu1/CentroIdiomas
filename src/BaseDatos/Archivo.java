@@ -28,14 +28,9 @@ abstract public class Archivo {
 
 	// Añade un administrativo a la lista de administrativos, recibe como parametro
 	// un administrativo y no retorna nada
-	static public String verSolicitudesEstudiante(long CC) {
-		try {
-			return (Archivo.buscarEstudiante(CC)).verSolicitudes();
-		} catch (noExisteEstudiante excepcion) {
-			return "No existe estudiante";
-		} catch (noHaySolicitudes excepcion) {
-			return "No hay Solicitudes";
-		}
+	static public String verSolicitudesEstudiante(long CC) throws NoHaySolicitudes,NoExisteEstudiante{
+		return (Archivo.buscarEstudiante(CC)).verSolicitudes();
+		
 
 	}
 	
@@ -44,28 +39,23 @@ abstract public class Archivo {
 		System.exit(0);
 	}
 	
-	static public String verNotasEstudiante(long CC) {
-		try {
+	static public String verNotasEstudiante(long CC) throws NoExisteEstudiante,EstudianteSinCursos {
 			Estudiante estudiante = Archivo.buscarEstudiante(CC);
 			String notas = "";
 			for (Curso curso : estudiante.getCursos()) {
 				notas += curso.getNombreCurso() + ": " + estudiante.verNotas(curso.getNombreCurso()) + "\n";
 			}
 			return notas;
-		} catch (noExisteEstudiante excepcion) {
-			return "No existe estudiante.";
-		} catch (noHayCursos excepcion) {
-			return "No tiene materias inscritas.";
-		}
+		
 	}
 
 	static public String verHorarioEstudiante(long CC) {
 		try {
 			return (Archivo.buscarEstudiante(CC)).miHorario();
-		} catch (noExisteEstudiante excepcion) {
+		} catch (NoExisteEstudiante excepcion) {
 			return "No existe estudiante";
 
-		} catch (noHayHorario excepcion) {
+		} catch (NoHayHorario excepcion) {
 			return "El horario de este estudiante esta vacio.";
 		}
 	}
@@ -73,9 +63,9 @@ abstract public class Archivo {
 	static public String verHorarioDocente(long CC) {
 		try {
 			return (Archivo.buscarDocente(CC)).miHorario();
-		} catch (noExisteDocente excepcion) {
+		} catch (NoExisteDocente excepcion) {
 			return "No existe docente.";
-		} catch (noHayHorario excepcion) {
+		} catch (NoHayHorario excepcion) {
 			return "El horario de este docente esta vacio.";
 		}
 	}
@@ -85,9 +75,9 @@ abstract public class Archivo {
 			Estudiante estudiante = Archivo.buscarEstudiante(CC);
 			String aux = estudiante.verCertificados();
 			return aux;
-		} catch (noExisteEstudiante excepcion) {
+		} catch (NoExisteEstudiante excepcion) {
 			return "No existe estudiante";
-		} catch (noHayCertificados excepcion) {
+		} catch (NoHayCertificados excepcion) {
 			return "No tiene certificados.";
 		}
 
@@ -127,14 +117,14 @@ abstract public class Archivo {
 	 * administrativo en caso de que lo encuentre, si no lo encuentra retornara null
 	 */
 
-	static public Administrativo buscarAdministrativo(long admin) throws noExisteAdministrativo {
+	static public Administrativo buscarAdministrativo(long admin) throws NoExisteAdministrativo {
 		for (Administrativo x : listaAdministrativos) {
 			if (x.getCedula() == admin) {
 				return x;
 			}
 		}
 
-		throw new noExisteAdministrativo();
+		throw new NoExisteAdministrativo();
 
 	}
 
@@ -143,13 +133,13 @@ abstract public class Archivo {
 	 * la cedula del docente a encontrar y retorna el docente en caso de que lo
 	 * encuentre, si no lo encuentra retornara null
 	 */
-	static public Docente buscarDocente(long docen) throws noExisteDocente {
+	static public Docente buscarDocente(long docen) throws NoExisteDocente {
 		for (Docente x : listaDocentes) {
 			if (x.getCedula() == docen) {
 				return x;
 			}
 		}
-		throw new noExisteDocente();
+		throw new NoExisteDocente();
 	}
 
 	/*
@@ -157,13 +147,13 @@ abstract public class Archivo {
 	 * nombre del curso a encontrar y retorna el curso en caso de que lo encuentre,
 	 * si no lo encuentra retornara null
 	 */
-	static public Curso buscarCurso(String curso) throws noExisteCurso {
+	static public Curso buscarCurso(String curso) throws NoExisteCurso {
 		for (Curso x : listaCursos) {
 			if (x.getNombreCurso().equals(curso)) {
 				return x;
 			}
 		}
-		throw new noExisteCurso();
+		throw new NoExisteCurso();
 	}
 
 	/*
@@ -171,13 +161,13 @@ abstract public class Archivo {
 	 * parametro la cedula del estudiante a encontrar y retorna el estudiante en
 	 * caso de que lo encuentre, si no lo encuentra retornara null
 	 */
-	static public Estudiante buscarEstudiante(long estud) throws noExisteEstudiante {
+	static public Estudiante buscarEstudiante(long estud) throws NoExisteEstudiante {
 		for (Estudiante x : listaEstudiantes) {
 			if (x.getCedula() == estud) {
 				return x;
 			}
 		}
-		throw new noExisteEstudiante();
+		throw new NoExisteEstudiante();
 	}
 
 	/*
@@ -185,37 +175,37 @@ abstract public class Archivo {
 	 * cedula, recibe como parametro la cedula del usaurio a encontrar y retorna el
 	 * usuario en caso de que lo encuentre, si no lo encuentra retornara null
 	 */
-	static public Usuario buscarUsuario(long id) throws noExisteUsuario{
+	static public Usuario buscarUsuario(long id) throws NoExisteUsuario{
 		try {
 			if(id==123) {
 				return new Administrador();
 			}
 			return buscarAdministrativo(id);
-		} catch (noExisteAdministrativo excepcion1) {
+		} catch (NoExisteAdministrativo excepcion1) {
 			try {
 				return buscarDocente(id);
-			} catch (noExisteDocente excepcion2) {
+			} catch (NoExisteDocente excepcion2) {
 				try {
 					return buscarEstudiante(id);
-				} catch (noExisteEstudiante excepcion3) {
-					throw new noExisteUsuario();
+				} catch (NoExisteEstudiante excepcion3) {
+					throw new NoExisteUsuario();
 				}
 			}
 
 		}
 	}
 	
-	static public Usuario buscarUser(long id) throws noExisteUsuario{
+	static public Usuario buscarUser(long id) throws NoExisteUsuario{
 		try {
 			return buscarAdministrativo(id);
-		} catch (noExisteAdministrativo excepcion1) {
+		} catch (NoExisteAdministrativo excepcion1) {
 			try {
 				return buscarDocente(id);
-			} catch (noExisteDocente excepcion2) {
+			} catch (NoExisteDocente excepcion2) {
 				try {
 					return buscarEstudiante(id);
-				} catch (noExisteEstudiante excepcion3) {
-					throw new noExisteUsuario();
+				} catch (NoExisteEstudiante excepcion3) {
+					throw new NoExisteUsuario();
 				}
 			}
 		}
@@ -346,17 +336,18 @@ abstract public class Archivo {
 	 * nombre y cedula de quien hizo la sugerencia acompañado del mensaje que
 	 * escribio en esta de todas las sugerencias
 	 */
-	static public String verSugerencias() {
+	static public String verSugerencias() throws NoHaySugerencias{
 
 		String ver = "";
 		for (Sugerencia x : listaSugerencias) {
+			ver+= "\n";
 			ver += x.toString() + "\n";
 		}
 
 		if (!ver.equals("")) {
 			return "Sugerencias:\n" + ver;
 		} else {
-			return "No hay sugerencias.";
+			throw new NoHaySugerencias();
 		}
 
 	}
@@ -408,7 +399,7 @@ abstract public class Archivo {
 	 * ningun parametro. Retorna un String con formato correcto que contiene al
 	 * nombre y cedula de todos los estudiantes
 	 */
-	static public String verEstudiantes() {
+	static public String verEstudiantes() throws NoHayEstudiantes{
 		String ver = "";
 		for (Estudiante x : listaEstudiantes) {
 			ver += "\n";
@@ -418,7 +409,7 @@ abstract public class Archivo {
 		if (!ver.equals("")) {
 			return "\nEstudiantes:\n" + ver;
 		} else {
-			return "No hay estudiantes.";
+			throw new NoHayEstudiantes();
 		}
 
 	}
@@ -436,18 +427,18 @@ abstract public class Archivo {
 				ver += x.toString() + "\n";
 			}
 			return ver;
-		} catch (noExisteCurso excepcion) {
+		} catch (NoExisteCurso excepcion) {
 			return "No existe el curso.";
-		} catch (noHayEstudiantes excepcion) {
+		} catch (NoHayEstudiantes excepcion) {
 			return "No hay Estudiantes en el curso.";
 		}
 
 	}
-	static public void verificarUsuario(long cc, String pass) throws noExisteUsuario, loginInvalido {
+	static public void verificarUsuario(long cc, String pass) throws NoExisteUsuario, LoginInvalido {
 		if(Archivo.buscarUser	(cc).getContrasena().equals(pass)){
 			return;
 		}
-		throw new loginInvalido();
+		throw new LoginInvalido();
 	}
 	static public String ingresarUsuario(long cc, String pass){
 		try {
@@ -456,25 +447,25 @@ abstract public class Archivo {
 			Main.user=usuario;
 			return "Se ha iniciado sesion.";
 		}
-		catch(noExisteUsuario exception1){
+		catch(NoExisteUsuario exception1){
 			return "Usuario Incorrecto";
 			
 		}
-		catch(loginInvalido exception2) {
+		catch(LoginInvalido exception2) {
 			return "Clave Incorrecta.";
 		}
 	}
-	static public Administrador buscarAdministrador(long cc) throws noExisteAdministrador{
+	static public Administrador buscarAdministrador(long cc) throws NoExisteAdministrador{
 		if(Archivo.getAdministrador().getCedula() == cc) {
 			return Archivo.getAdministrador();
 		}
-		throw new noExisteAdministrador();
+		throw new NoExisteAdministrador();
 	}
-	static public void verificarAdministrador(long cc, String pass) throws noExisteAdministrador, loginInvalido{
+	static public void verificarAdministrador(long cc, String pass) throws NoExisteAdministrador, LoginInvalido{
 		if(Archivo.buscarAdministrador(cc).getContrasena().equals(pass)) {
 			return;
 		}
-		throw new loginInvalido();
+		throw new LoginInvalido();
 	}
 	static public String ingresarAdmin(long cc, String pass) {
 		try {
@@ -483,10 +474,10 @@ abstract public class Archivo {
 			Main.user = usuario;
 			return "Se ha iniciado sesion.";
 		}
-		catch (noExisteAdministrador exception1){
+		catch (NoExisteAdministrador exception1){
 			return "Usuario Incorrecto.";
 		}
-		catch (loginInvalido exception2) {
+		catch (LoginInvalido exception2) {
 			return "Clave Incorrecta.";
 		}
 	}

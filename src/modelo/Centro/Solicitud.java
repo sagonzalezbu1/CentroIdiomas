@@ -3,7 +3,7 @@ package modelo.Centro;
 import java.util.ArrayList;
 import BaseDatos.Archivo;
 import modelo.Usuarios.Estudiante;
-import modelo.excepciones.noExisteEstudiante;
+import modelo.excepciones.NoExisteEstudiante;
 
 /*Esta clase permite crear objetos de tipo solicitud. Las solicitudes se hacen con la finalidad de que un estudiante solicite cupo para un tipo de curso,
   Se puede solicitar cupo en un curso de cualquier tipo de idioma, siempre y cuando no queden cupos o no haya cursos creados de dicho idioma*/
@@ -43,7 +43,7 @@ public class Solicitud {
 			(this.getEstudiante()).removeSolicitud(tipo);
 			return "";
 		}
-		}catch(noExisteEstudiante excepcion){
+		}catch(NoExisteEstudiante excepcion){
 			return "No existe estudiante.";
 		}
 	}

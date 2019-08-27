@@ -7,7 +7,7 @@ import BaseDatos.Archivo;
 import control.Main;
 import modelo.Usuarios.*;
 import modelo.excepciones.Excepcion2;
-import modelo.excepciones.loginInvalido;
+import modelo.excepciones.LoginInvalido;
 
 /*Esta clase es usada por todos los usuarios para ingresar a sus respectivas cuentas.
  * 
@@ -28,13 +28,13 @@ public class ControlIngresarUser implements ActionListener {
 				if (cedula == -1 || contraseña.equals("")) {
 					throw new Excepcion2();
 				} else if (!mensaje.equals("Se ha iniciado sesion.")) {
-					throw new loginInvalido();
+					throw new LoginInvalido();
 				}
 				Main.ventanaLogin.ingresar();
 				Main.ventanaUsuario.ingresar(Main.user.getProcesos(), Main.user.getNombre());
 			} catch (Excepcion2 excepcion) {
 				Main.ventanaLogin.borrar("Campos vacios");
-			} catch (loginInvalido exception) {
+			} catch (LoginInvalido exception) {
 				Main.ventanaLogin.borrar(mensaje);
 			}
 

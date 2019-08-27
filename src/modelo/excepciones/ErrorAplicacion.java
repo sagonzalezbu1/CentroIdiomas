@@ -6,7 +6,7 @@ public class ErrorAplicacion extends Exception {
 		super("Error en la aplicacion");
 	}
 	public ErrorAplicacion(String mensaje){
-		super("Manejo de errores de la Aplicación: "+mensaje);
+		super("Manejo de errores de la Aplicación: " + mensaje);
 	}
 
 }

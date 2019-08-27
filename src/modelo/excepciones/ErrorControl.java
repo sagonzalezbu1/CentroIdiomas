@@ -6,6 +6,6 @@ public class ErrorControl extends ErrorAplicacion {
 		super("Error en la control");
 	}
 	public ErrorControl(String mensaje){
-		super("ErrorControl."+mensaje);
+		super("ErrorControl."+ mensaje);
 	}
 }
