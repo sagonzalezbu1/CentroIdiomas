@@ -33,7 +33,7 @@ public class ControlIngresarUser implements ActionListener {
 				Main.ventanaLogin.ingresar();
 				Main.ventanaUsuario.ingresar(Main.user.getProcesos(), Main.user.getNombre());
 			} catch (Excepcion2 excepcion) {
-				Main.ventanaLogin.borrar("Campos vacios");
+				Main.ventanaLogin.borrar(excepcion.getMessage());
 			} catch (LoginInvalido exception) {
 				Main.ventanaLogin.borrar(mensaje);
 			}
