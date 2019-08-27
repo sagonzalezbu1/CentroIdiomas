@@ -167,7 +167,7 @@ public class Estudiante extends Usuario implements Horario {
 			list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
 		}catch(NoHayNotas excepcion) {
 			list += "  Nota acumulada: " + 0;
-		}list += "  Nota acumulada: " + this.getDefinitiva(nombreM);
+		}
 		return list;
 
 	}
@@ -248,7 +248,12 @@ public class Estudiante extends Usuario implements Horario {
 			if (misCursos.size() > 1) {
 				estado = "Activo";
 			} else {
-				float aux = this.getDefinitiva(mater);
+				float aux;
+				try{
+					aux = this.getDefinitiva(mater);
+				}catch(NoHayNotas excepcion) {
+					aux = 0;
+				}
 				if (aux >= 3.0) {
 					estado = "Egresado";
 				} else {
