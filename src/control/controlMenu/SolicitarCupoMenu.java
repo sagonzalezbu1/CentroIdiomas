@@ -4,6 +4,9 @@ import java.awt.event.*;
 import control.Main;
 import control.controlPanel.SolicitarCupoPanel;
 
+/*En esta clase se ejecutan las acciones necesarias para que un usuario pueda solicitar
+ * cupo a cursos que ya están llenos*/
+
 public class SolicitarCupoMenu implements ActionListener{
 	public void actionPerformed(ActionEvent evento) {
 		if(evento.getActionCommand().equals("SolicitarCupo")) {
