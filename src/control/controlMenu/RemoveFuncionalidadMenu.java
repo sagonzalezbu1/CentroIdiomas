@@ -23,7 +23,7 @@ public class RemoveFuncionalidadMenu implements ActionListener {
 			boolean[] habilitado = { true, true };
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new RemoveFuncionalidadPanel());
-			//Main.ventanaUsuario.setPanelP();
+
 		}
 	}
 

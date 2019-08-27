@@ -31,7 +31,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		getContentPane().add(panelPrincipal);	
 		panelPrincipal.setBackground(Color.white);
 		setVisible(false);
-		setSize(500, 500);
+		setSize(600, 250);
 		setLocationRelativeTo(null);
 		salirMI.addActionListener(new CerrarSesionMenu());
 		}
@@ -81,6 +81,8 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	}
 	public void setPanelP() {
 		panelPrincipal = new FieldPanel();
+		getContentPane().removeAll();;
+		getContentPane().add(panelPrincipal);
 		this.setVisible(false);
 		this.setVisible(true);
 	}

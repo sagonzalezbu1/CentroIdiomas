@@ -170,7 +170,7 @@ public class FieldPanel extends JPanel {
 		detalle.add(scroll,BorderLayout.SOUTH);
 	}
 	public void formulario(String text) {
-		JTextArea texto = new JTextArea(text,10,10);
+		JTextArea texto = new JTextArea(text,15,60);
 		texto.setEditable(false);
 		texto.setLineWrap(true);
 		JScrollPane scroll = new JScrollPane(texto);
