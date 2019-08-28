@@ -220,4 +220,16 @@ public class Curso {
 	public void finalize() {
 		System.out.println("\nEl curso " + nombre + " ha sido borrado del sistema.\n");
 	}
+	static public String crearCurso(String name, String tipo, long profesor, String horario) throws NoExisteCurso, NoExisteDocente, CursoExistente {
+		Curso curso = null;
+		try {
+			curso = Archivo.buscarCurso(name);
+			throw new CursoExistente();
+		} catch(NoExisteCurso excepcion) {
+			Docente docente = null;
+			docente = Archivo.buscarDocente(profesor);
+			Curso nuevoCurso = new Curso(name, tipo, horario, docente);
+			return "Se ha creado el curso.";
+		}
+	}
 }
