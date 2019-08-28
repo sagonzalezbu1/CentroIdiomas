@@ -22,136 +22,59 @@ abstract public class Archivo {
 	// El metodo add esta sobrecargado, el añadira a la lista correspondiente segun
 	// el tipo de dato que reciba
 
-	// Añade un administrativo a la lista de administrativos, recibe como parametro
-	// un administrativo y no retorna nada
+	
 	
 
-	static public void salir() {
-		Data.guardarDatos();
-		System.exit(0);
-	}
+	
 	
 
-	// Añade un curso a la lista de cursos, recibe como parametro un curso y no
-	// retorna nada
+	
 	
 
-	// Añade un docente a la lista de docentes, recibe como parametro un docente y
-	// no retorna nada
+	
 	
 
-	// Añade un estudiante a la lista de estudiantes, recibe como parametro un
-	// estudiante y no retorna nada
+	
 	
 
-	// Añade una sugernecia a la lista de sugerencias, recibe como parametro una
-	// sugerencia y no retorna nada
 	
-
-	/*
-	 * Busca un administrativo en la lista de administrativos por su cedula, recibe
-	 * como parametro la cedula del adminitrativo a encontrar y retorna el
-	 * administrativo en caso de que lo encuentre, si no lo encuentra retornara null
-	 */
-
-	
-
-	/*
-	 * Busca un docente en la lista de docentes por su cedula, recibe como parametro
-	 * la cedula del docente a encontrar y retorna el docente en caso de que lo
-	 * encuentre, si no lo encuentra retornara null
-	 */
-	
-
-	/*
-	 * Busca un curso en la lista de cursos por su nombre, recibe como parametro el
-	 * nombre del curso a encontrar y retorna el curso en caso de que lo encuentre,
-	 * si no lo encuentra retornara null
-	 */
-	
-
-	/*
-	 * Busca un estudiante en la lista de estudiantes por su cedula, recibe como
-	 * parametro la cedula del estudiante a encontrar y retorna el estudiante en
-	 * caso de que lo encuentre, si no lo encuentra retornara null
-	 */
-	
-
-	/*
-	 * Busca un usuario en las lista de estudiante,docente y administrativo por su
-	 * cedula, recibe como parametro la cedula del usaurio a encontrar y retorna el
-	 * usuario en caso de que lo encuentre, si no lo encuentra retornara null
-	 */
 	
 
 	
 
-	/*
-	 * Busca si hay un curso con cupos disponibles, como parametro recibe el tipo
-	 * del curso, y retornara el primer curso que encuentre con cupos disponibles
-	 * del tipo que se le especifico, en caso de no haber cursos disponibles de ese
-	 * tipo, retornara null
-	 */
-	static public Curso cursoDisponibilidad(String tipo) {
-		ArrayList<Curso> Cursos = getCursos();
-		for (Curso c : Cursos) {
-			if (c.getTipo().equals(tipo) && c.getCuposDisponibles() > 0) {
-				return c;
-			}
-		}
-		return null;
-	}
+	
 
-	// Metodo que retorna al administrador del sistema, no recibe nada como
-	// parametro
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+
+	
+	
+
+	
 	
 
 	// Metodo que retorna la lista de administrativos, no recibe nada como parametro
 	
 
-	/*
-	 * Permite ver a todos los estudiantes que se encuentren matriculados en algun
-	 * curso. Recibe como parametros un String con el nombre del curso. Retorna un
-	 * String con formato correcto que contiene los nombres y y las cedulas de todos
-	 * los estudiantes matriculados en dicho curso
-	 */
-	static public String verEstudiantesCurso(String curso) throws NoExisteCurso, NoHayEstudiantes {
+	/
+	
 
-		String ver = "";
-		for (Estudiante x : Archivo.buscarCurso(curso).getEstudiantes()) {
-			ver += x.toString() + "\n";
-		}
-		return ver;
+	
 
-	}
+	
 
-	static public void verificarUsuario(long cc, String pass) throws NoExisteUsuario, LoginInvalido {
-		if (Archivo.buscarUser(cc).getContrasena().equals(pass)) {
-			return;
-		}
-		throw new LoginInvalido();
-	}
-
-	static public String ingresarUsuario(long cc, String pass) {
-		try {
-			Usuario usuario = Archivo.buscarUser(cc);
-			Archivo.verificarUsuario(cc, pass);
-			Main.user = usuario;
-			return "Se ha iniciado sesion.";
-		} catch (NoExisteUsuario exception1) {
-			return "Usuario Incorrecto";
-
-		} catch (LoginInvalido exception2) {
-			return "Clave Incorrecta.";
-		}
-	}
-
-	static public Administrador buscarAdministrador(long cc) throws NoExisteAdministrador {
-		if (Archivo.getAdministrador().getCedula() == cc) {
-			return Archivo.getAdministrador();
-		}
-		throw new NoExisteAdministrador();
-	}
+	
 
 	static public void verificarAdministrador(long cc, String pass) throws NoExisteAdministrador, LoginInvalido {
 		if (Archivo.buscarAdministrador(cc).getContrasena().equals(pass)) {

@@ -107,10 +107,19 @@ public class Estudiante extends Usuario implements Horario {
 
 	}
 	
+	
+	// Añade un estudiante a la lista de estudiantes, recibe como parametro un
+		// estudiante y no retorna nada
 	static public void add(Estudiante e) {
 		listaEstudiantes.add(e);
 	}
 	
+	
+	/*
+	 * Busca un estudiante en la lista de estudiantes por su cedula, recibe como
+	 * parametro la cedula del estudiante a encontrar y retorna el estudiante en
+	 * caso de que lo encuentre, si no lo encuentra retornara null
+	 */
 	static public Estudiante buscarEstudiante(long estud) throws NoExisteEstudiante {
 		for (Estudiante x : listaEstudiantes) {
 			if (x.getCedula() == estud) {
@@ -387,7 +396,7 @@ public class Estudiante extends Usuario implements Horario {
 			}
 		}
 	
-		if (Archivo.cursoDisponibilidad(tipo) == null) {
+		if (Curso.cursoDisponibilidad(tipo) == null) {
 			estudiante.solicitar(tipo);
 			return "Su solicitud ha sido exitosa.";
 		} else {
