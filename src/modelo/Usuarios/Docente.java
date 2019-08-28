@@ -32,7 +32,6 @@ public class Docente extends Usuario implements Horario {
 		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
 		getProcesos().add(Main.funcionalidades.get("VerSugerencias"));
 		getProcesos().add(Main.funcionalidades.get("PromedioCurso"));
-		getProcesos().add(Main.funcionalidades.get("CerrarSesion"));
 		Archivo.add(this);
 
 	}

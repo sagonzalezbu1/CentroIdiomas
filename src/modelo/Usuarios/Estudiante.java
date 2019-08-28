@@ -33,7 +33,6 @@ public class Estudiante extends Usuario implements Horario {
 		getProcesos().add(Main.funcionalidades.get("VerNotas"));
 		getProcesos().add(Main.funcionalidades.get("SolicitarCupo"));
 		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
-		getProcesos().add(Main.funcionalidades.get("CerrarSesion"));
 		Archivo.add(this);
 
 	}

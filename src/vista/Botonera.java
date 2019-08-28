@@ -17,7 +17,6 @@ public interface Botonera {
 			put("RegistrarEstudiante", new RegistrarEstudianteMenu());
 			put("RegistrarDocente", new RegistrarDocenteMenu());
 			put("RegistrarAdministrativo", new RegistrarAdministrativoMenu());
-			//put("Registrar", new RegistrarMenu());
 			put("ResponderSolicitudes", new ResponderSolicitudesMenu());
 			put("SolicitarCupoEstudiante", new SolicitarCupoEstudianteMenu());
 			put("VerAdministrativos", new VerAdministrativosMenu());
@@ -27,7 +26,6 @@ public interface Botonera {
 			put("VerHorarioDocente", new VerHorarioDocenteMenu());
 			put("VerSolicitudesEstudiante", new VerSolicitudesEstudianteMenu());
 			put("VerNotasEstudiante", new VerNotasEstudianteMenu());
-			put("CerrarSesion", new CerrarSesionMenu());
 			put("VerEstudiantesCurso", new VerEstudiantesCursoMenu());
 			put("HacerSugerencia", new HacerSugerenciaMenu());
 			put("VerSugerencias", new VerSugerenciasMenu());
@@ -64,7 +62,6 @@ public interface Botonera {
 			put("VerHorarioDocente",new JMenuItem("VerHorarioDocente"));
 			put("VerSolicitudesEstudiante", new JMenuItem("VerSolicitudesEstudiante"));
 			put("VerNotasEstudiante", new JMenuItem("VerNotasEstudiante"));
-			put("CerrarSesion", new JMenuItem("CerrarSesion"));
 			put("VerEstudiantesCurso", new JMenuItem("VerEstudiantesCurso"));
 			put("HacerSugerencia", new JMenuItem("HacerSugerencia"));
 			put("VerSugerencias", new JMenuItem("VerSugerencias"));

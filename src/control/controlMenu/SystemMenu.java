@@ -22,7 +22,7 @@ public class SystemMenu implements ActionListener {
 				String Funciones= (new Administrador()).SystemMenu();
 				Main.ventanaUsuario.ver(Funciones);
 				Main.ventanaUsuario.getPanelP().nombre("Ver funcionalidades del sistema");
-				Main.ventanaUsuario.getPanelP().descripcion("Imprime las funcionalidades que tenemos en el sistemas.");
+				Main.ventanaUsuario.getPanelP().descripcion("Imprime las funcionalidades que tenemos en el sistema.");
 				Main.ventanaUsuario.pack();
 		}
 
