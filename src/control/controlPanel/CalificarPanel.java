@@ -23,9 +23,11 @@ public class CalificarPanel implements ActionListener {
 				long cedula = Long.parseLong(Main.ventanaUsuario.getPanelP().getValue("Cedula del docente que da el curso: "));	
 				Archivo.PreCalificar(curso, cedula);
 				for(Estudiante x : (ArrayList<Estudiante>)Archivo.buscarCurso(curso).getEstudiantes()) {
-					String respuesta = JOptionPane.showInputDialog(null, "Ingrese La nota del estudiante" + x.getCedula(), "Calificacion",JOptionPane.INFORMATION_MESSAGE);
-					x.calificar(curso, Float.parseFloat(respuesta));
-				}	
+					Float respuesta = Main.ventanaUsuario.calificar("Ingrese la nota de " + x.getCedula());
+					x.calificar(curso,respuesta);
+				}
+				Main.ventanaUsuario.Popup2("Se ha calificado con exito a los estudiantes de " + curso);
+				Main.ventanaUsuario.setPanelP();
 			}
 			catch(CampoVacio exception1) {
 				Main.ventanaUsuario.Popup(exception1.getMessage());

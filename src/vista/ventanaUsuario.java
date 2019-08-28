@@ -4,6 +4,8 @@ package vista;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+
+import control.Main;
 import control.controlMenu.*;
 
 
@@ -94,5 +96,37 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	}
 	public void Popup2(String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje, "Aviso" , JOptionPane.INFORMATION_MESSAGE);
+	}
+	public Float calificar(String notade) {
+		Object[] options1 = { "Aceptar", "Poner 0"};
+
+		JPanel panel = new JPanel();
+		panel.add(new JLabel(notade));
+		JTextField textField = new JTextField(10);
+		panel.add(textField);
+
+		int result = JOptionPane.showOptionDialog(null, panel, "Calificacion", JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE, null, options1, null);
+		if (result == 0) {
+			try {
+				if(textField.getText().equals("")) {
+					textField.setText("0");
+					return Float.parseFloat((textField.getText()));
+				}
+				else {
+					if(Float.parseFloat(textField.getText())>= 0 || Float.parseFloat(textField.getText())<= 5);
+					return Float.parseFloat((textField.getText()));
+				}
+			}
+			catch(NumberFormatException exception) {
+				textField.setText("0");
+				return Float.parseFloat((textField.getText()));
+			}
+				
+		}
+		else /*(result == 1)*/ {
+			textField.setText("0");
+			return Float.parseFloat((textField.getText()));
+		}
+		//return null;
 	}
 }
