@@ -309,4 +309,16 @@ public class Administrador extends Usuario {
 	public String[] getFuncionalidadesAdministrativos() {
 		return funcionalidadesAdministrativos;
 	}
+	static public String ingresarAdmin(long cc, String pass) {
+		try {
+			Usuario usuario = Archivo.buscarAdministrador(cc);
+			Administrador.verificarAdministrador(cc, pass);
+			Main.user = usuario;
+			return "Se ha iniciado sesion.";
+		} catch (NoExisteAdministrador exception1) {
+			return "Usuario Incorrecto.";
+		} catch (LoginInvalido exception2) {
+			return "Clave Incorrecta.";
+		}
+	}
 }

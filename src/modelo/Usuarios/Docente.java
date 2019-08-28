@@ -131,4 +131,38 @@ public class Docente extends Usuario implements Horario {
 	static public ArrayList<Docente> getDocentes() {
 		return listaDocentes;
 	}
+	
+	static public boolean DocenteCorrecto(String curso, long cedula) throws NoExisteCurso, DocenteIncorrecto {
+		if (Curso.buscarCurso(curso).getDocente().getCedula() == cedula) {
+			return true;
+		} else {
+			throw new DocenteIncorrecto();
+		}
+	}
+	
+	static public void PreCalificar(String curso, long cedula) throws NoExisteCurso, DocenteIncorrecto, NoHayEstudiantes {
+		Curso cursocalificar = null;
+		cursocalificar = Curso.buscarCurso(curso);
+		DocenteCorrecto(curso, cedula);
+		if (cursocalificar.getEstudiantes().size() == 0) {
+			throw new NoHayEstudiantes();
+		}
+	}
+	static public String registrarDocente(String nombre, String apellido, long cedula, String correo, String contrasena,
+			String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+		try {
+			if (cedula == 123 || Docente.buscarDocente(cedula) instanceof Docente) {
+				throw new UsuarioRegistrado();
+			} else {
+				return "";
+			}
+		} catch (NoExisteDocente exception) {
+			if (codigo.equals(Docente.getCodigo())) {
+				new Docente(nombre + " " + apellido, cedula, correo, contrasena);
+				return "Se ha registrado exitosamente.";
+			} else {
+				throw new CodigoIncorrecto();
+			}
+		}
+	}
 }
