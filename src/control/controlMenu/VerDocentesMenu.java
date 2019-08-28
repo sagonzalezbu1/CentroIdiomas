@@ -16,6 +16,9 @@ public class VerDocentesMenu implements ActionListener{
 			try{
 				String docentes= Archivo.verDocentes();
 				Main .ventanaUsuario.ver(docentes);
+				Main.ventanaUsuario.getPanelP().nombre("Ver docentes");
+				Main.ventanaUsuario.getPanelP().descripcion("Imprime el nombre y la cedula los docentes que estan registrados en el curso");
+				Main.ventanaUsuario.pack();
 			}catch(NoHayDocentes excepcion){
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			}

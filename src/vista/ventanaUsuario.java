@@ -27,7 +27,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		archivoM.add(usuarioMI);
 		archivoM.add(salirMI);
 		ayudaM.add(acercaDeMI);
-		acercaDeMI.addActionListener(new AyudaMenu());
+		acercaDeMI.addActionListener(new AcercaDe());
 		usuarioMI.addActionListener(new UsuarioMenu());
 		setJMenuBar(menuBar);
 		getContentPane().add(panelPrincipal);	

@@ -29,6 +29,9 @@ public class CrearCursoMenu implements ActionListener {
 			String[] valoresArray = {null,null,null,null};
 			boolean[] habilitado = {true,true,true,true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criteriosArray, tituloValores, valoresArray, habilitado);
+			Main.ventanaUsuario.getPanelP().nombre("Crear curso");
+			Main.ventanaUsuario.getPanelP().descripcion("Crea un nuevo curso");
+			Main.ventanaUsuario.pack();
 		}
 	}
 	/*Se hacen verificaciones antes de crear el curso, tales como que éste no exista ya, 
