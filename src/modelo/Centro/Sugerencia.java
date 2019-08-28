@@ -1,5 +1,7 @@
 package modelo.Centro;
 
+import java.util.ArrayList;
+
 import BaseDatos.Archivo;
 import control.Main;
 import modelo.Usuarios.*;
@@ -7,6 +9,9 @@ import modelo.Usuarios.*;
 /*Esta clase permite crear objetos de tipo sugerencia. Las sugerencias inicialmente pueden ser hechas por docentes y estudiantes, estan van dirigidas a los 
   administrativos. Tienen el usuario que las realiza y un String (mensaje) que contenga cosas que se deben mejorar del sistema*/
 public class Sugerencia {
+	
+	static private ArrayList<Sugerencia> listaSugerencias = new ArrayList<Sugerencia>();
+	
 	private Usuario usuario;
 	private String mensaje;
 

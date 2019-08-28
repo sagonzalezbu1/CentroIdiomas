@@ -9,6 +9,9 @@ import modelo.excepciones.*;
 /*Esta clase permite crear objetos de tipo Estudiante, los cuales cumplirán tareas como
  * hacer solicitudes, matricularse, etc*/
 public class Estudiante extends Usuario implements Horario {
+	
+	static private ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();
+	
 	// Dependiendo de los datos del estudiante, tendrá uno de tres estados posibles
 	private String estado = "Inactivo";
 	/*

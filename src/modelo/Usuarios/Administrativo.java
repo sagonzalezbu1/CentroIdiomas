@@ -1,11 +1,16 @@
 package modelo.Usuarios;
 
+import java.util.ArrayList;
+
 import BaseDatos.*;
 import control.*;
 
 /*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)
  * de las labores administrativas del centro de idiomas*/
 public class Administrativo extends Usuario {
+	
+	static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
+	
 	//Para poder registrarse como Administrativo se necesita un código especial
 	private static final String codigo = "1234";
 	//Retorna el código especial para registrarse. No recibe parámetros

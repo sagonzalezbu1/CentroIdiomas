@@ -1,6 +1,8 @@
 package modelo.Centro;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import BaseDatos.Archivo;
 import modelo.Usuarios.Estudiante;
 import modelo.excepciones.NoExisteEstudiante;
@@ -9,6 +11,9 @@ import modelo.excepciones.NoHayDisponibilidad;
 /*Esta clase permite crear objetos de tipo solicitud. Las solicitudes se hacen con la finalidad de que un estudiante solicite cupo para un tipo de curso,
   Se puede solicitar cupo en un curso de cualquier tipo de idioma, siempre y cuando no queden cupos o no haya cursos creados de dicho idioma*/
 public class Solicitud {
+	
+	static private HashMap<String, ArrayList<Solicitud>> solicitudes = new HashMap<String, ArrayList<Solicitud>>();
+	
 	private Estudiante estu;
 	private String tipo;
 

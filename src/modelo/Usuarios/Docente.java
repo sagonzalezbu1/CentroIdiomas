@@ -10,6 +10,9 @@ import modelo.excepciones.*;
 /*Esta clase permite crear objetos de tipo Docente, los cuales cumplirán tareas como
  * calificar a los estudiantes de los cursos que estén dictando*/
 public class Docente extends Usuario implements Horario {
+	
+	static private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
+	
 	//Lista de los cursos que dicta el docente
 	private ArrayList<Curso> misCursos = new ArrayList<>();
 	//Para poder registrarse como Docente se necesita un código especial

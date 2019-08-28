@@ -17,13 +17,13 @@ import modelo.excepciones.*;
  * En esta clase estan implementados metodos de busqueda de usuarios, solicitudes y sugerencias, los cuales se utilizaran en las demas clases que lo necesiten.
  */
 abstract public class Archivo {
-	static private ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();
-	static private ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
-	static private ArrayList<Administrativo> listaAdministrativos = new ArrayList<Administrativo>();
-	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
-	static private HashMap<String, ArrayList<Solicitud>> solicitudes = new HashMap<String, ArrayList<Solicitud>>();
-	static private Administrador Admin = new Administrador();
-	static private ArrayList<Sugerencia> listaSugerencias = new ArrayList<Sugerencia>();
+	
+	
+	
+	
+	
+	
+	
 
 	// El metodo add esta sobrecargado, el añadira a la lista correspondiente segun
 	// el tipo de dato que reciba

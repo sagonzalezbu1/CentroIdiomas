@@ -9,6 +9,9 @@ import modelo.excepciones.*;
 /*Esta clase permite crear objetos de tipo curso. Los cursos pueden ser de cualquier idioma y tienen un maximo de 10 cupos por curso. Son parte importante
   del centro de idiomas pues contienen a los estudiantes, y si aprueban o no el curso es lo que les otorga a los estudiantes el certificado del idioma */
 public class Curso {
+	
+	static private ArrayList<Curso> listaCursos = new ArrayList<Curso>();
+	
 	final String nombre;
 	private String tipo;
 	private String horario;
