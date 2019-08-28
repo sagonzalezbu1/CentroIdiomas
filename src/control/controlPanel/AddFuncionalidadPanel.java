@@ -19,7 +19,7 @@ public class AddFuncionalidadPanel implements ActionListener {
 			Main.ventanaUsuario.Popup2(mensaje);
 			Main.ventanaUsuario.setPanelP();
 			}catch(CampoVacio excepcion) {
-				Main.ventanaUsuario.Popup2("Campo vacio");
+				Main.ventanaUsuario.Popup2(excepcion.getMessage());
 			}
 		}else if(evento.getActionCommand().equals("Borrar")) {
 			Main.ventanaUsuario.getPanelP().borrar();
