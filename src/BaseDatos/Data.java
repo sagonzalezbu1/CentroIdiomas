@@ -51,7 +51,7 @@ public class Data {
 
 					for (String course : cursos) {
 						String[] array = course.split(";");
-						Curso curso = Archivo.buscarCurso(array[0]);
+						Curso curso = Curso.buscarCurso(array[0]);
 						curso.matricular(estudiante);
 
 						for (int i = 1; i < array.length; i++) {
@@ -69,7 +69,7 @@ public class Data {
 
 					for (String certificado : certificados) {
 						String[] array = certificado.split(";");
-						Docente docente = Archivo.buscarDocente(Long.parseLong(array[2]));
+						Docente docente = Docente.buscarDocente(Long.parseLong(array[2]));
 						float nota = Float.parseFloat(array[3]);
 						estudiante.addCertificado(new Certificado(array[0], estudiante, docente, nota));
 					}
@@ -108,7 +108,7 @@ public class Data {
 
 				if (cont % 2 == 0) {
 					String[] usuario = linea.split(";");
-					ArrayList<Docente> lista = Archivo.getDocentes();
+					ArrayList<Docente> lista = Docente.getDocentes();
 					int aux = 0;
 
 					for (Docente docente : lista) {
@@ -124,7 +124,7 @@ public class Data {
 
 					cont++;
 				} else {
-					Docente docente = Archivo.buscarDocente(cedula);
+					Docente docente = Docente.buscarDocente(cedula);
 					String[] menu = linea.split(";");
 					for (String opcion : menu) {
 						docente.getProcesos().add(Main.funcionalidades.get(opcion));
@@ -156,7 +156,7 @@ public class Data {
 
 				if (cont % 2 == 0) {
 					String[] usuario = linea.split(";");
-					ArrayList<Administrativo> administrativos = Archivo.getAdministrativos();
+					ArrayList<Administrativo> administrativos = Administrativo.getAdministrativos();
 					int aux = 0;
 
 					for (Administrativo administrativo : administrativos) {
@@ -172,7 +172,7 @@ public class Data {
 
 					cont++;
 				} else {
-					Administrativo administrativo = Archivo.buscarAdministrativo(cedula);
+					Administrativo administrativo = Administrativo.buscarAdministrativo(cedula);
 					String[] menu = linea.split(";");
 
 					for (String opcion : menu) {
@@ -203,7 +203,7 @@ public class Data {
 			File file = new File(direccion + "solicitudes.txt");
 			FileReader filer = new FileReader(file);
 			BufferedReader br = new BufferedReader(filer);
-			ArrayList<Estudiante> estudiantes = Archivo.getEstudiantes();
+			ArrayList<Estudiante> estudiantes = Estudiante.getEstudiantes();
 			String key;
 
 			while ((key = br.readLine()) != null) {
@@ -243,7 +243,7 @@ public class Data {
 
 			while ((linea = br.readLine()) != null) {
 				String[] curso = linea.split(";");
-				ArrayList<Curso> cursos = Archivo.getCursos();
+				ArrayList<Curso> cursos = Curso.getCursos();
 				int aux = 0;
 
 				for (Curso course : cursos) {
@@ -254,7 +254,7 @@ public class Data {
 
 				if (aux == 0) {
 					long aux2 = Long.parseLong(curso[3]);
-					Docente docente = Archivo.buscarDocente(aux2);
+					Docente docente = Docente.buscarDocente(aux2);
 					new Curso(curso[0], curso[1], curso[2], docente);
 					// Hasta acá
 				}
@@ -279,12 +279,12 @@ public class Data {
 
 			while ((linea = br.readLine()) != null) {
 				String[] sugerencia = linea.split("°");
-				Usuario usuario = Archivo.buscarUsuario(Long.parseLong(sugerencia[0]));
+				Usuario usuario = Administrador.buscarUsuario(Long.parseLong(sugerencia[0]));
 
 				if (usuario != null) {
 					new Sugerencia(usuario, sugerencia[1]);
 				} else {
-					new Sugerencia(Archivo.getAdministrador(), sugerencia[1]);
+					new Sugerencia(Main.admin, sugerencia[1]);
 				}
 
 			}
@@ -309,7 +309,7 @@ public class Data {
 			BufferedWriter bw = new BufferedWriter(filew);
 			PrintWriter pw = new PrintWriter(bw);
 
-			for (Estudiante estudiante : Archivo.getEstudiantes()) {
+			for (Estudiante estudiante : Estudiante.getEstudiantes()) {
 				String linea = estudiante.getNombre() + ";";
 				linea += estudiante.getCedula() + ";";
 				linea += estudiante.getCorreo() + ";";
@@ -385,7 +385,7 @@ public class Data {
 			BufferedWriter bw = new BufferedWriter(filew);
 			PrintWriter pw = new PrintWriter(bw);
 
-			for (Docente docente : Archivo.getDocentes()) {
+			for (Docente docente : Docente.getDocentes()) {
 				String linea1 = "";
 				linea1 += docente.getNombre() + ";";
 				linea1 += docente.getCedula() + ";";
@@ -424,7 +424,7 @@ public class Data {
 			FileWriter filew = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(filew);
 			PrintWriter pw = new PrintWriter(bw);
-			for (Administrativo admnistrativo : Archivo.getAdministrativos()) {
+			for (Administrativo admnistrativo : Administrativo.getAdministrativos()) {
 				String linea = admnistrativo.getNombre() + ";";
 				linea += admnistrativo.getCedula() + ";";
 				linea += admnistrativo.getCorreo() + ";";
@@ -462,7 +462,7 @@ public class Data {
 			BufferedWriter bw = new BufferedWriter(filew);
 			PrintWriter pw = new PrintWriter(bw);
 
-			for (Curso curso : Archivo.getCursos()) {
+			for (Curso curso : Curso.getCursos()) {
 				String linea1 = curso.getNombreCurso() + ";";
 				linea1 += curso.getTipo() + ";";
 				linea1 += curso.getHorarioCurso() + ";";
@@ -491,10 +491,10 @@ public class Data {
 			BufferedWriter bw = new BufferedWriter(filew);
 			PrintWriter pw = new PrintWriter(bw);
 
-			for (String key : (Archivo.getSolicitudes()).keySet()) {
+			for (String key : (Solicitud.getSolicitudes()).keySet()) {
 				String linea = key + "\n";
 
-				for (Solicitud value : (Archivo.getSolicitudes()).get(key)) {
+				for (Solicitud value : (Solicitud.getSolicitudes()).get(key)) {
 					linea += value.getEstudiante().getCedula() + ";";
 				}
 
@@ -523,7 +523,7 @@ public class Data {
 			BufferedWriter bw = new BufferedWriter(filew);
 			PrintWriter pw = new PrintWriter(bw);
 
-			for (Sugerencia sugerencia : Archivo.getSugerencias()) {
+			for (Sugerencia sugerencia : Sugerencia.getSugerencias()) {
 				pw.write(sugerencia.getUsuario().getCedula() + "°" + sugerencia.getMensaje() + "\n");
 			}
 

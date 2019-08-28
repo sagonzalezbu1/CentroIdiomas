@@ -50,6 +50,7 @@ public class Main {
 	public static Usuario user = new Invitado();
 	public static ventanaLogin ventanaLogin = new ventanaLogin();
 	public static ventanaUsuario ventanaUsuario = new ventanaUsuario();
+	public static Administrador admin = new Administrador();
 
 
 	//Inicio del programa
