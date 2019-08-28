@@ -31,14 +31,14 @@ public class Curso {
 		this.horario = horario;
 		this.docente = docente;
 		this.tipo = tipo;
-		Archivo.add(this);
+		Curso.add(this);
 		docente.addCurso(this);
 	}
 
 	static public String MatricularEstudiante(long cc, String name) throws NoExisteCurso, NoExisteEstudiante,
 			NoHayCupos, CursoYaInscrito, EstudianteConCertificado, SolicitudYaHecha {
-		Estudiante est = Archivo.buscarEstudiante(cc);
-		Curso curso = Archivo.buscarCurso(name);
+		Estudiante est = Estudiante.buscarEstudiante(cc);
+		Curso curso = Curso.buscarCurso(name);
 		for (Certificado certificado : est.getCertificados()) {
 			if ((certificado.getNombre()).equals(curso.getTipo())) {
 				throw new EstudianteConCertificado();
@@ -83,7 +83,7 @@ public class Curso {
 
 	static public String promedioCurso(String curso) throws NoExisteCurso, NoHayEstudiantes, NoHayNotas {
 
-		Curso course = Archivo.buscarCurso(curso);
+		Curso course = Curso.buscarCurso(curso);
 		double prom = 0;
 		for (Estudiante estudiante : course.getEstudiantes()) {
 			prom += estudiante.getDefinitiva(curso);
@@ -112,12 +112,12 @@ public class Curso {
 		}
 
 		docente.removeCurso(nombre);
-		Archivo.removeCurso(nombre);
+		Curso.removeCurso(nombre);
 	}
 
 	public String finalizarCurso(String nombre) {
 		try {
-			Curso curso = Archivo.buscarCurso(nombre);
+			Curso curso = Curso.buscarCurso(nombre);
 			curso.finalizeCurso();
 			return "El curso ha sido finalizado.";
 		} catch (NoExisteCurso excepcion) {
@@ -238,11 +238,11 @@ public class Curso {
 	static public String crearCurso(String name, String tipo, long profesor, String horario) throws NoExisteCurso, NoExisteDocente, CursoExistente {
 		Curso curso = null;
 		try {
-			curso = Archivo.buscarCurso(name);
+			curso = Curso.buscarCurso(name);
 			throw new CursoExistente();
 		} catch(NoExisteCurso excepcion) {
 			Docente docente = null;
-			docente = Archivo.buscarDocente(profesor);
+			docente = Docente.buscarDocente(profesor);
 			Curso nuevoCurso = new Curso(name, tipo, horario, docente);
 			return "Se ha creado el curso.";
 		}

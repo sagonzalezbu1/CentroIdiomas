@@ -30,8 +30,8 @@ public class Invitado extends Usuario {
 	 * Verifica que los datos sean correctos y ejecuta el menú del correspondiente usuario
 	 * No devuelve nada*/
 	static public void ingresar(long user, String key) {
-		if(user == Archivo.getAdministrador().getCedula() && key.equals(Archivo.getAdministrador().getContrasena())) {
-			Main.user = Archivo.getAdministrador();
+		if(user == Main.admin.getCedula() && key.equals(Main.admin.getContrasena())) {
+			Main.user = Main.admin;
 			System.out.println("\nSe ha iniciado sesión.\n");
 			return;
 		}
