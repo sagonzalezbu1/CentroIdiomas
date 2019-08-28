@@ -32,8 +32,8 @@ public class Curso {
 		docente.addCurso(this);
 	}
 
-	static public String MatricularEstudiante(long cc, String name) throws NoExisteCurso, NoExisteEstudiante, NoHayCupos,
-			CursoYaInscrito, EstudianteConCertificado, SolicitudYaHecha, NoHayEstudiantes {
+	static public String MatricularEstudiante(long cc, String name) throws NoExisteCurso, NoExisteEstudiante,
+			NoHayCupos, CursoYaInscrito, EstudianteConCertificado, SolicitudYaHecha {
 		Estudiante est = Archivo.buscarEstudiante(cc);
 		Curso curso = Archivo.buscarCurso(name);
 		for (Certificado certificado : est.getCertificados()) {
@@ -46,24 +46,27 @@ public class Curso {
 				throw new SolicitudYaHecha();
 			}
 		}
-		if (!curso.getEstudiantes().isEmpty()) {
 
+		try {
 			for (Estudiante estudiante : curso.getEstudiantes()) {
 				// Se verifica si el estudiante ya está en el curso
 				if (est.equals(estudiante)) {
 					throw new CursoYaInscrito();
 				}
 			}
-
 			if (curso.getCuposDisponibles() > 0) {
 				curso.matricular(est);
 				return ("El estudiante quedó matriculado.");
 			} else {
 				throw new NoHayCupos();
 			}
-
+			
+		} catch (NoHayEstudiantes excepcion) {
+			curso.matricular(est);
+			return ("El estudiante quedó matriculado.");
 		}
-		return "";
+
+		
 	}
 
 	/*

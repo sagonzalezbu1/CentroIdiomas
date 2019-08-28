@@ -43,8 +43,6 @@ public class MatricularEstudiantePanel implements ActionListener {
 				Main.ventanaUsuario.Popup(exception.getMessage());
 			} catch (SolicitudYaHecha exception) {
 				Main.ventanaUsuario.Popup(exception.getMessage());
-			} catch (NoHayEstudiantes exception) {
-				Main.ventanaUsuario.Popup(exception.getMessage());
 			} catch (NumberFormatException exception) {
 				Main.ventanaUsuario.Popup(exception.getMessage());
 			}

@@ -42,7 +42,7 @@ public class Main {
 			put("HacerSugerencia", "HacerSugerencia");
 			put("VerSugerencias", "VerSugerencias");
 			put("PromedioCurso","PromedioCurso");
-			put("Matricular","PromedioCurso");
+			put("Matricular","Matricular");
 		}
 	};
 	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa
