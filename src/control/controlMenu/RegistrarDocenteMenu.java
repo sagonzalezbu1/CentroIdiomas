@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
-import BaseDatos.Archivo;
+
 import control.OpcionDeMenu;
 import control.controlPanel.RegistrarDocentePanel;
 import defecto.Main;

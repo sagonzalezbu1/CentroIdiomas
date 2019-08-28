@@ -3,8 +3,9 @@ package control.controlPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
+import modelo.Usuarios.Docente;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.CodigoIncorrecto;
 import modelo.excepciones.UsuarioRegistrado;
@@ -20,7 +21,7 @@ public class RegistrarDocentePanel implements ActionListener {
 				String correo = Main.ventanaUsuario.getPanelP().getValue("Correo: ");
 				String contrasena = Main.ventanaUsuario.getPanelP().getValue("Contraseña: ");
 				String codigo = Main.ventanaUsuario.getPanelP().getValue("Codigo: ");
-				String aviso = Archivo.registrarDocente(nombre, apellido, cedula, correo, contrasena, codigo);
+				String aviso = Docente.registrarDocente(nombre, apellido, cedula, correo, contrasena, codigo);
 				Main.ventanaUsuario.Popup2(aviso);
 				Main.ventanaUsuario.setPanelP();
 			}

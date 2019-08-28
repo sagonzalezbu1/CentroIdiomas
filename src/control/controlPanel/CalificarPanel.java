@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
 import modelo.Centro.Curso;
+import modelo.Usuarios.Docente;
 import modelo.Usuarios.Estudiante;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.DocenteIncorrecto;
@@ -22,7 +23,7 @@ public class CalificarPanel implements ActionListener {
 			try {
 				String curso = Main.ventanaUsuario.getPanelP().getValue("Nombre del curso al que desea Calificar: ");		
 				long cedula = Long.parseLong(Main.ventanaUsuario.getPanelP().getValue("Cedula del docente que da el curso: "));	
-				Archivo.PreCalificar(curso, cedula);
+				Docente.PreCalificar(curso, cedula);
 				for(Estudiante x : (ArrayList<Estudiante>)Curso.buscarCurso(curso).getEstudiantes()) {
 					Float respuesta = Main.ventanaUsuario.calificar("Ingrese la nota de " + x.getCedula());
 					x.calificar(curso,respuesta);

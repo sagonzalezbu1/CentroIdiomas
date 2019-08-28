@@ -3,7 +3,7 @@ package control.controlLogin;
 import java.awt.event.*;
 import java.util.*;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
 import modelo.Usuarios.*;
 import modelo.excepciones.Excepcion2;

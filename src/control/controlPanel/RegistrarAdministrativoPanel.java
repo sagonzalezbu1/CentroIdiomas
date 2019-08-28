@@ -3,8 +3,10 @@ package control.controlPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
+import modelo.Usuarios.Administrador;
+import modelo.Usuarios.Administrativo;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.CodigoIncorrecto;
 import modelo.excepciones.UsuarioRegistrado;
@@ -20,7 +22,7 @@ public class RegistrarAdministrativoPanel implements ActionListener {
 				String correo = Main.ventanaUsuario.getPanelP().getValue("Correo: ");
 				String contrasena = Main.ventanaUsuario.getPanelP().getValue("Contraseña: ");
 				String codigo = Main.ventanaUsuario.getPanelP().getValue("Codigo: ");
-				String aviso = Archivo.registrarAministrativo(nombre, apellido, cedula, correo, contrasena, codigo);
+				String aviso = Administrativo.registrarAministrativo(nombre, apellido, cedula, correo, contrasena, codigo);
 				Main.ventanaUsuario.Popup2(aviso);
 				Main.ventanaUsuario.setPanelP();
 				//Main.ventanaUsuario.getPanelP().borrar();

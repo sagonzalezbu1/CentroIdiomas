@@ -5,8 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
+import modelo.Centro.Curso;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.NoExisteCurso;
 import modelo.excepciones.NoHayEstudiantes;
@@ -17,7 +18,7 @@ public class VerEstudiantesCursoPanel implements ActionListener {
 		if (evento.getActionCommand().equals("Aceptar")) {
 			try {
 				String nombre = Main.ventanaUsuario.getPanelP().getValue("Nombre del curso: ");
-				Main.ventanaUsuario.ver(Archivo.verEstudiantesCurso(nombre));
+				Main.ventanaUsuario.ver(Curso.verEstudiantesCurso(nombre));
 			} catch (CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			} catch (NoExisteCurso excepcion) {

@@ -2,7 +2,7 @@ package modelo.Centro;
 
 import java.util.ArrayList;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
 import modelo.Usuarios.*;
 import modelo.excepciones.NoHaySugerencias;

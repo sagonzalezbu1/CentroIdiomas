@@ -35,7 +35,7 @@ public class Solicitud {
 
 	public String aceptarSolicitud() throws NoHayDisponibilidad {
 		{
-			Curso course = Archivo.cursoDisponibilidad(tipo);
+			Curso course = Curso.cursoDisponibilidad(tipo);
 			if (course == null) {
 				throw new NoHayDisponibilidad();
 			} else {

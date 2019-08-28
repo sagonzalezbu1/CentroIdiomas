@@ -2,7 +2,7 @@ package modelo.Usuarios;
 
 import java.util.ArrayList;
 
-import BaseDatos.Archivo;
+
 import BaseDatos.Data;
 import control.*;
 import defecto.Main;
@@ -309,9 +309,16 @@ public class Administrador extends Usuario {
 	public String[] getFuncionalidadesAdministrativos() {
 		return funcionalidadesAdministrativos;
 	}
+	
+	static public void verificarAdministrador(long cc, String pass) throws NoExisteAdministrador, LoginInvalido {
+		if (Administrador.buscarAdministrador(cc).getContrasena().equals(pass)) {
+			return;
+		}
+		throw new LoginInvalido();
+	}
 	static public String ingresarAdmin(long cc, String pass) {
 		try {
-			Usuario usuario = Archivo.buscarAdministrador(cc);
+			Usuario usuario = Administrador.buscarAdministrador(cc);
 			Administrador.verificarAdministrador(cc, pass);
 			Main.user = usuario;
 			return "Se ha iniciado sesion.";

@@ -1,7 +1,7 @@
 package control.controlMenu;
 
 import java.awt.event.*;
-import BaseDatos.Archivo;
+
 import control.OpcionDeMenu;
 import control.controlPanel.RegistrarDocentePanel;
 import control.controlPanel.RegistrarEstudiantePanel;

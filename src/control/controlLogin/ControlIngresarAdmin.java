@@ -2,8 +2,9 @@ package control.controlLogin;
 
 import java.awt.event.*;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
+import modelo.Usuarios.Administrador;
 import modelo.excepciones.Excepcion1;
 import modelo.excepciones.LoginInvalido;
 
@@ -17,7 +18,7 @@ public class ControlIngresarAdmin implements ActionListener {
 			try {
 				long cedula = Main.ventanaLogin.getCedula();
 				String contraseña = Main.ventanaLogin.getContrasena();
-				mensaje = Archivo.ingresarAdmin(cedula, contraseña);
+				mensaje = Administrador.ingresarAdmin(cedula, contraseña);
 				
 				if (cedula == -1 || contraseña.equals("")) {
 					throw new Excepcion1();

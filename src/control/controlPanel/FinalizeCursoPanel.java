@@ -3,8 +3,9 @@ package control.controlPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import BaseDatos.Archivo;
+
 import defecto.Main;
+import modelo.Centro.Curso;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.NoExisteCurso;
 
@@ -13,7 +14,7 @@ public class FinalizeCursoPanel implements ActionListener {
 		if (evento.getActionCommand().equals("Aceptar")) {
 			try {
 				String nombre = Main.ventanaUsuario.getPanelP().getValue("Nombre del curso: ");
-				String aviso = Archivo.FinalizeCurso(nombre);
+				String aviso = Curso.FinalizeCurso(nombre);
 				Main.ventanaUsuario.Popup2(aviso);
 				Main.ventanaUsuario.setPanelP();
 				

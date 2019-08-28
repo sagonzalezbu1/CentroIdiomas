@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-import BaseDatos.Archivo;
+
 import control.OpcionDeMenu;
 import control.controlPanel.FinalizeCursoPanel;
 import control.controlPanel.HacerSugerenciaPanel;
