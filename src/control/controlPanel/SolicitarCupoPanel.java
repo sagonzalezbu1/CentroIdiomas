@@ -2,6 +2,7 @@ package control.controlPanel;
 import java.awt.event.*;
 import javax.swing.*;
 import control.*;
+import defecto.Main;
 import modelo.Usuarios.*;
 import modelo.excepciones.*;
 

@@ -4,6 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import BaseDatos.*;
 import control.*;
+import defecto.Main;
 import modelo.excepciones.*;
 
 public class SolicitarCupoEstudiantePanel implements ActionListener {

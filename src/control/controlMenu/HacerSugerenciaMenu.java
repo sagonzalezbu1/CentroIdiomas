@@ -3,6 +3,7 @@ package control.controlMenu;
 import java.awt.event.*;
 import control.*;
 import control.controlPanel.*;
+import defecto.Main;
 
 /*Esta clase es usada por Docente y Estudiante para realizar sugerencias sobre 
  * el programa y su funcionamiento.

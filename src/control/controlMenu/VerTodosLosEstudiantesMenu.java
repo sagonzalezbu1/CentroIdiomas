@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
-import control.Main;
+import defecto.Main;
 import modelo.excepciones.NoHayEstudiantes;
 
 /* La clase 'VerTodosLosEstudiantes' es donde mostramos a los usuarios el nombre y la cedula todos los estudiantes que se encuentren en 'Archivo'.

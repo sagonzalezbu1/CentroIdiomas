@@ -3,8 +3,8 @@ package control.controlMenu;
 import java.awt.event.*;
 
 import BaseDatos.Archivo;
-import control.Main;
 import control.controlPanel.VerCertificadosEstudiantePanel;
+import defecto.Main;
 import modelo.excepciones.NoHayAdministrativos;
 
 /* La clase 'VerAdministrativos' es donde mostramos a los usuarios el nombre y la cedula todos los administrativos que se encuentren en 'Archivo'.

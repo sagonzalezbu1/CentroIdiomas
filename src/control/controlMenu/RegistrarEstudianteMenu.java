@@ -2,10 +2,10 @@ package control.controlMenu;
 
 import java.awt.event.*;
 import BaseDatos.Archivo;
-import control.Main;
 import control.OpcionDeMenu;
 import control.controlPanel.RegistrarDocentePanel;
 import control.controlPanel.RegistrarEstudiantePanel;
+import defecto.Main;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 

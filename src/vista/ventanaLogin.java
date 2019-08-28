@@ -11,6 +11,7 @@ import control.controlLogin.ControlImagen;
 import control.controlLogin.ControlIngresarAdmin;
 import control.controlLogin.ControlIngresarUser;
 import control.controlLogin.ControlSalir;
+import defecto.Main;
 
 public class ventanaLogin extends JFrame {
 	

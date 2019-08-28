@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import BaseDatos.Archivo;
-import control.Main;
+import defecto.Main;
 import modelo.Centro.Solicitud;
 import modelo.Usuarios.Estudiante;
 import modelo.excepciones.CampoVacio;

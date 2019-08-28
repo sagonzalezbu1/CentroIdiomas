@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 import BaseDatos.Archivo;
-import control.Main;
 import control.OpcionDeMenu;
 import control.controlPanel.CalificarPanel;
 import control.controlPanel.FinalizeCursoPanel;
+import defecto.Main;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 

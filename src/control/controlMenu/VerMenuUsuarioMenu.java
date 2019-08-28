@@ -3,8 +3,8 @@ package control.controlMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
 import control.controlPanel.VerMenuUsuarioPanel;
+import defecto.Main;
 
 /*Esta clase es usada por Administrador para ver todas las funcionalidades 
  * disponibles de cierto usuario.

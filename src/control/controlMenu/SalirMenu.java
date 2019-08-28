@@ -2,6 +2,7 @@ package control.controlMenu;
 
 import java.awt.event.*;
 import control.*;
+import defecto.Main;
 import vista.*;
 
 

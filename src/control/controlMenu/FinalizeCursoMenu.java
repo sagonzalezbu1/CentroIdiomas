@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 import BaseDatos.Archivo;
-import control.Main;
 import control.OpcionDeMenu;
 import control.controlPanel.FinalizeCursoPanel;
 import control.controlPanel.HacerSugerenciaPanel;
 import control.controlPanel.RegistrarEstudiantePanel;
+import defecto.Main;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 import modelo.excepciones.NoHayNotas;

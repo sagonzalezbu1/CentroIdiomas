@@ -3,8 +3,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
 import control.controlPanel.VerCertificadosEstudiantePanel;
+import defecto.Main;
 /* La clase 'VerCertificados' es donde mostramos los certificados que tiene hasta el momento un estudiante, si quien lo realiza es de instancia 
  * diferente de la instancia 'Estudiante'. Por el contrario se mostraran los certificados que tiene el estudiante.
  * 

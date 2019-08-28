@@ -3,7 +3,7 @@ package control.controlPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
+import defecto.Main;
 import modelo.Centro.Curso;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.CursoYaInscrito;

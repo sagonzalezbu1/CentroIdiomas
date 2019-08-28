@@ -5,8 +5,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-import control.Main;
 import control.controlMenu.*;
+import defecto.Main;
 
 
 public class ventanaUsuario extends JFrame implements Botonera {

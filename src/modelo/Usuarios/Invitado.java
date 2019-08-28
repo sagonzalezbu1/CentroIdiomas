@@ -2,6 +2,7 @@ package modelo.Usuarios;
 
 import BaseDatos.Archivo;
 import control.*;
+import defecto.Main;
 import modelo.Centro.*;
 
 /*Esta clase permite la generación de objetos de tipo invitado 
