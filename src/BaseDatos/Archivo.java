@@ -160,19 +160,6 @@ abstract public class Archivo {
 		throw new LoginInvalido();
 	}
 
-	static public String ingresarAdmin(long cc, String pass) {
-		try {
-			Usuario usuario = Archivo.buscarAdministrador(cc);
-			Archivo.verificarAdministrador(cc, pass);
-			Main.user = usuario;
-			return "Se ha iniciado sesion.";
-		} catch (NoExisteAdministrador exception1) {
-			return "Usuario Incorrecto.";
-		} catch (LoginInvalido exception2) {
-			return "Clave Incorrecta.";
-		}
-	}
-
 	/*static public void Calificar(String curso, long cedula) throws NoExisteCurso,NoHayEstudiantes {
 			String respuesta = JOptionPane.showInputDialog(null, "Ingrese La nota del estudiante", "Calificacion",JOptionPane.INFORMATION_MESSAGE);
 			x.calificar(curso, Float.parseFloat(respuesta));
