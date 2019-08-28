@@ -83,6 +83,15 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	public FieldPanel getPanelP() {
 		return panelPrincipal;
 	}
+	
+	public int responderSolicitud(String text) {
+		String[] options = { "Aceptar", "Rechazar", "Cancelar"};
+		int seleccion = JOptionPane.showOptionDialog(null, text,
+				"Titulo", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
+				options[0]);
+		return seleccion;
+	}
+	
 	public void setPanelP() {
 		panelPrincipal = new FieldPanel();
 		getContentPane().removeAll();;
