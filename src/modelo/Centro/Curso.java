@@ -247,4 +247,29 @@ public class Curso {
 			return "Se ha creado el curso.";
 		}
 	}
+	static public String verCursos() throws NoHayCursos {
+		String ver = "";
+		for (Curso x : listaCursos) {
+			ver += "\n";
+			ver += x.toString() + "\n";
+		}
+		if (ver.equals("")) {
+			throw new NoHayCursos();
+		} else {
+			return "Cursos:\n" + ver;
+		}
+	}
+	static public void removeCurso(String nombre) {
+		Iterator<Curso> I = listaCursos.iterator();
+		while (I.hasNext()) {
+			Curso x = I.next();
+			if (x.getNombreCurso().equals(nombre)) {
+				listaCursos.remove(x);
+				break;
+			}
+		}
+	}
+	static public ArrayList<Curso> getCursos() {
+		return listaCursos;
+	}
 }

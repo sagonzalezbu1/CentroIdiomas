@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import BaseDatos.*;
 import control.*;
 import defecto.Main;
+
 import modelo.excepciones.NoExisteAdministrativo;
+
+import modelo.excepciones.NoHayAdministrativos;
+
 
 /*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)
  * de las labores administrativas del centro de idiomas*/
@@ -54,6 +58,7 @@ public class Administrativo extends Usuario {
 	public String toString() {
 		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
+
 	
 	static public void add(Administrativo a) {
 		listaAdministrativos.add(a);
@@ -67,6 +72,22 @@ public class Administrativo extends Usuario {
 		}
 
 		throw new NoExisteAdministrativo();
+	}
+
+	static public String verAdministrativos() throws NoHayAdministrativos {
+		String ver = "";
+		for (Administrativo x : listaAdministrativos) {
+			ver += "\n";
+			ver += x.toString() + "\n";
+		}
+		if (ver.equals("")) {
+			throw new NoHayAdministrativos();
+		} else {
+			return "Administrativos:\n" + ver;
+		}
+	}
+	static public ArrayList<Administrativo> getAdministrativos() {
+		return listaAdministrativos;
 
 	}
 }

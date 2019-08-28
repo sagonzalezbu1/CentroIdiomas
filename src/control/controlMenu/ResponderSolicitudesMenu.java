@@ -1,11 +1,9 @@
 package control.controlMenu;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import BaseDatos.Archivo;
-import control.controlPanel.ResponderSolicitudesPanel;
-import defecto.Main;
+import java.awt.event.*;
+import control.controlPanel.*;
+import defecto.*;
+import modelo.Centro.*;
 
 /*Esta clase es usada por Administrativo para responder a las solicitudes de cupo
  * que hagan los estudiantes a los cursos que no tengan cupos.*/
@@ -22,7 +20,7 @@ public class ResponderSolicitudesMenu implements ActionListener {
 			Main.ventanaUsuario.formulario(tituloCriterios, criteriosArray, tituloValores, valoresArray, habilitado);
 			Main.ventanaUsuario.getPanelP().nombre("Responder solicitudes");
 			Main.ventanaUsuario.getPanelP().setControlador(new ResponderSolicitudesPanel());
-			Main.ventanaUsuario.getPanelP().descripcion("Responde solicitudes. Ingrese alguno de estos estos tipos: \n"+ Archivo.verSolicitudes());
+			Main.ventanaUsuario.getPanelP().descripcion("Responde solicitudes. Ingrese alguno de estos estos tipos: \n"+ Solicitud.verSolicitudes());
 			Main.ventanaUsuario.pack();
 		}
 	}

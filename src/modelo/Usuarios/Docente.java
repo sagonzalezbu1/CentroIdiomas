@@ -106,5 +106,21 @@ public class Docente extends Usuario implements Horario {
 	public String toString() {
 		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
+	static public String verDocentes() throws NoHayDocentes {
 
+		String ver = "";
+		for (Docente x : listaDocentes) {
+			ver += "\n";
+			ver += x.toString() + "\n";
+		}
+
+		if (!ver.equals("")) {
+			return "\nDocentes:\n" + ver;
+		} else {
+			throw new NoHayDocentes();
+		}
+	}
+	static public ArrayList<Docente> getDocentes() {
+		return listaDocentes;
+	}
 }

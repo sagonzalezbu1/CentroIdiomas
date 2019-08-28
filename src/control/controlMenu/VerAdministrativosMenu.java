@@ -1,11 +1,10 @@
 package control.controlMenu;
 
 import java.awt.event.*;
-
-import BaseDatos.Archivo;
-import control.controlPanel.VerCertificadosEstudiantePanel;
-import defecto.Main;
-import modelo.excepciones.NoHayAdministrativos;
+import control.controlPanel.*;
+import defecto.*;
+import modelo.Usuarios.*;
+import modelo.excepciones.*;
 
 /* La clase 'VerAdministrativos' es donde mostramos a los usuarios el nombre y la cedula todos los administrativos que se encuentren en 'Archivo'.
  * 
@@ -16,7 +15,7 @@ public class VerAdministrativosMenu implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 		if (evento.getActionCommand().equals("VerAdministrativos")) {
 			try {
-				String Administrativos = Archivo.verAdministrativos();
+				String Administrativos = Administrativo.verAdministrativos();
 				Main.ventanaUsuario.ver(Administrativos);
 				Main.ventanaUsuario.getPanelP().nombre("Ver todos los Administrativos");
 				Main.ventanaUsuario.getPanelP().descripcion("Permite ver todos los administrativos del CDI");
