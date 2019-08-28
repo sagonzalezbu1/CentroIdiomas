@@ -37,7 +37,7 @@ public class Estudiante extends Usuario implements Horario {
 		getProcesos().add(Main.funcionalidades.get("VerNotas"));
 		getProcesos().add(Main.funcionalidades.get("SolicitarCupo"));
 		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
-		Archivo.add(this);
+		Estudiante.add(this);
 
 	}
 
@@ -47,7 +47,7 @@ public class Estudiante extends Usuario implements Horario {
 	 */
 	public Estudiante(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		Archivo.add(this);
+		Estudiante.add(this);
 		/*
 		 * Aquí tendrá el menu ya sea por defecto o editado, dependiendo de si el
 		 * administrador lo haya editado
@@ -104,6 +104,47 @@ public class Estudiante extends Usuario implements Horario {
 		} else {
 			throw new EstudianteSinCursos();
 		}
+
+	}
+	
+	static public void add(Estudiante e) {
+		listaEstudiantes.add(e);
+	}
+	
+	static public Estudiante buscarEstudiante(long estud) throws NoExisteEstudiante {
+		for (Estudiante x : listaEstudiantes) {
+			if (x.getCedula() == estud) {
+				return x;
+			}
+		}
+		throw new NoExisteEstudiante();
+	}
+	
+	static public String verSolicitudesEstudiante(long CC) throws NoHaySolicitudes, NoExisteEstudiante {
+		return (Estudiante.buscarEstudiante(CC)).verSolicitudes();
+
+	}
+	
+	static public String verNotasEstudiante(long CC) throws NoExisteEstudiante, EstudianteSinCursos {
+		Estudiante estudiante = Estudiante.buscarEstudiante(CC);
+		String notas = "";
+		for (Curso curso : estudiante.getCursos()) {
+			notas += curso.getNombreCurso() + ": " + estudiante.verNotas(curso.getNombreCurso()) + "\n";
+		}
+		return notas;
+
+	}
+	
+	static public String verHorarioEstudiante(long CC) throws NoExisteEstudiante, NoHayHorario {
+		return (Estudiante.buscarEstudiante(CC)).miHorario();
+
+	}
+	
+	static public String verCertificadosEstudiante(long CC) throws NoExisteEstudiante, NoHayCertificados {
+
+		Estudiante estudiante = Estudiante.buscarEstudiante(CC);
+		String aux = estudiante.verCertificados();
+		return aux;
 
 	}
 
@@ -324,7 +365,7 @@ public class Estudiante extends Usuario implements Horario {
 
 	public String solicitarCupo(long CC, String tipo) throws NoExisteEstudiante, SolicitudYaHecha, CursoYaInscrito, EstudianteConCertificado, CursoConDisponibilidad {
 		Estudiante estudiante = null;
-		estudiante = Archivo.buscarEstudiante(CC);
+		estudiante = Estudiante.buscarEstudiante(CC);
 		try {
 			for (Curso curso : estudiante.getCursos()) {
 				if (curso.getTipo().equals(tipo)) {

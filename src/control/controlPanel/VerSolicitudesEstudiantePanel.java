@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import BaseDatos.Archivo;
 import defecto.Main;
+import modelo.Usuarios.Estudiante;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.NoExisteEstudiante;
 import modelo.excepciones.NoHaySolicitudes;
@@ -17,7 +18,7 @@ public class VerSolicitudesEstudiantePanel implements ActionListener {
 		if(evento.getActionCommand().equals("Aceptar")) {
 			try{
 				String cedula = Main.ventanaUsuario.getPanelP().getValue("Cedula del estudiante: ");
-				Main.ventanaUsuario.ver(Archivo.verSolicitudesEstudiante(Long.parseLong(cedula)));
+				Main.ventanaUsuario.ver(Estudiante.verSolicitudesEstudiante(Long.parseLong(cedula)));
 			}catch(CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			}catch(NoHaySolicitudes excepcion) {

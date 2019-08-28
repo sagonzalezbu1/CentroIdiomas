@@ -20,7 +20,11 @@ public class Sugerencia {
 	public Sugerencia(Usuario usuario, String sugerencia) {
 		this.usuario = usuario;
 		mensaje = sugerencia;
-		Archivo.add(this);
+		Sugerencia.add(this);
+	}
+	
+	static public void add(Sugerencia s) {
+		listaSugerencias.add(s);
 	}
 	
 	//Metodo que retorna el usuario que realizo la sugerencia. No recibe ningun parametro

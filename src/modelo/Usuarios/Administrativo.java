@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import BaseDatos.*;
 import control.*;
 import defecto.Main;
+import modelo.excepciones.NoExisteAdministrativo;
 
 /*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)
  * de las labores administrativas del centro de idiomas*/
@@ -37,7 +38,7 @@ public class Administrativo extends Usuario {
 		getProcesos().add(Main.funcionalidades.get("VerSugerencias"));
 		getProcesos().add(Main.funcionalidades.get("VerEstudiantesCurso"));
 		getProcesos().add(Main.funcionalidades.get("PromedioCurso"));
-		Archivo.add(this);
+		Administrativo.add(this);
 		
 	}
 	
@@ -45,12 +46,27 @@ public class Administrativo extends Usuario {
 	 * los archivos de texto al programa*/
 	public Administrativo(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		Archivo.add(this);
+		Administrativo.add(this);
 		/*Aquí tendrá el menu ya sea por defecto o editado, 
 		* dependiendo de si el administrador lo haya editado*/
 	}
 	//Retorna la información del administrativo, mostrando su nombre y cédula
 	public String toString() {
 		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
+	}
+	
+	static public void add(Administrativo a) {
+		listaAdministrativos.add(a);
+	}
+	
+	static public Administrativo buscarAdministrativo(long admin) throws NoExisteAdministrativo {
+		for (Administrativo x : listaAdministrativos) {
+			if (x.getCedula() == admin) {
+				return x;
+			}
+		}
+
+		throw new NoExisteAdministrativo();
+
 	}
 }

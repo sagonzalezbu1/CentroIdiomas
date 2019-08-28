@@ -5,6 +5,7 @@ import javax.swing.*;
 import BaseDatos.*;
 import control.*;
 import defecto.Main;
+import modelo.Usuarios.Estudiante;
 import modelo.excepciones.*;
 
 public class SolicitarCupoEstudiantePanel implements ActionListener {
@@ -14,7 +15,7 @@ public class SolicitarCupoEstudiantePanel implements ActionListener {
 			try {
 				String cc = Main.ventanaUsuario.getPanelP().getValue("Cedula del Estudiante: ");
 				String tipo = Main.ventanaUsuario.getPanelP().getValue("Tipo del curso: ");
-				String solicitud = Archivo.buscarEstudiante(Long.parseLong(cc)).solicitarCupo(Long.parseLong(cc), tipo);
+				String solicitud = Estudiante.buscarEstudiante(Long.parseLong(cc)).solicitarCupo(Long.parseLong(cc), tipo);
 				
 				Main.ventanaUsuario.Popup2(solicitud);
 				Main.ventanaUsuario.setPanelP();

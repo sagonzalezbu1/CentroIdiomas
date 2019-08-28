@@ -4,6 +4,7 @@ import java.awt.event.*;
 
 import BaseDatos.*;
 import defecto.Main;
+import modelo.Usuarios.Estudiante;
 import modelo.excepciones.*;
 
 public class VerNotasMenu implements ActionListener {
@@ -12,7 +13,7 @@ public class VerNotasMenu implements ActionListener {
 		
 		if(evento.getActionCommand().equals("VerNotas")) {
 			try {
-				String notas= Archivo.verNotasEstudiante(Main.user.getCedula());
+				String notas= Estudiante.verNotasEstudiante(Main.user.getCedula());
 				Main.ventanaUsuario.ver(notas);
 			} catch(EstudianteSinCursos excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());

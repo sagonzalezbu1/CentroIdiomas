@@ -124,6 +124,18 @@ public class Curso {
 			return "No existe el curso.";
 		}
 	}
+	static public void add(Curso c) {
+		listaCursos.add(c);
+	}
+	
+	static public Curso buscarCurso(String curso) throws NoExisteCurso {
+		for (Curso x : listaCursos) {
+			if (x.getNombreCurso().equals(curso)) {
+				return x;
+			}
+		}
+		throw new NoExisteCurso();
+	}
 
 	// Metodo que retorna un int que indica la cantidad de cupos que tiene un curso.
 	// No recibe ningun parametro

@@ -82,7 +82,7 @@ public class Administrador extends Usuario {
 	 * ese respectivo usuario, en el momento
 	 */
 	public String userSystemMenu(long id) throws NoExisteUsuario {
-		Usuario user = Archivo.buscarUsuario(id);
+		Usuario user = Administrador.buscarUsuario(id);
 		String aux = "";
 		int cont = 0;
 		for (String opcion : user.getProcesos()) {
@@ -95,7 +95,7 @@ public class Administrador extends Usuario {
 
 	public String removerFuncionalidad(long CC, String opcion) throws NoExisteUsuario, FuncionalidadIncorrecta {
 
-		Usuario user = Archivo.buscarUsuario(CC);
+		Usuario user = Administrador.buscarUsuario(CC);
 		ArrayList<String> menu = user.getProcesos();
 
 		for (String op : menu) {
@@ -110,7 +110,7 @@ public class Administrador extends Usuario {
 
 	public String addFuncionalidad(long CC, String opcion) {
 		try {
-			Usuario user = Archivo.buscarUsuario(CC);
+			Usuario user = Administrador.buscarUsuario(CC);
 			ArrayList<String> menu = user.getProcesos();
 			
 			for (String op : menu) {
@@ -156,11 +156,47 @@ public class Administrador extends Usuario {
 			return "El usuario no esta registrado.";
 		}
 	}
+	
+	static public Usuario buscarUsuario(long id) throws NoExisteUsuario {
+		try {
+			if (id == 123) {
+				return new Administrador();
+			}
+			return Administrativo.buscarAdministrativo(id);
+		} catch (NoExisteAdministrativo excepcion1) {
+			try {
+				return Docente.buscarDocente(id);
+			} catch (NoExisteDocente excepcion2) {
+				try {
+					return Estudiante.buscarEstudiante(id);
+				} catch (NoExisteEstudiante excepcion3) {
+					throw new NoExisteUsuario();
+				}
+			}
+
+		}
+	}
+	
+	static public Usuario buscarUser(long id) throws NoExisteUsuario {
+		try {
+			return Administrativo.buscarAdministrativo(id);
+		} catch (NoExisteAdministrativo excepcion1) {
+			try {
+				return Docente.buscarDocente(id);
+			} catch (NoExisteDocente excepcion2) {
+				try {
+					return Estudiante.buscarEstudiante(id);
+				} catch (NoExisteEstudiante excepcion3) {
+					throw new NoExisteUsuario();
+				}
+			}
+		}
+	}
 
 	public String registrarAdministrativo(String name, String apellido, long CC, String correo, String pass,
 			String codigo) {
 		try {
-			Usuario user = Archivo.buscarUsuario(CC);
+			Usuario user = Administrador.buscarUsuario(CC);
 			return "Ya se encuentra registrado un usuario.";
 		} catch (NoExisteUsuario excepcion) {
 			if (codigo.equals("1234")) {
@@ -175,7 +211,7 @@ public class Administrador extends Usuario {
 
 	public String registrarDocente(String name, String apellido, long CC, String correo, String pass, String codigo) {
 		try {
-			Usuario user = Archivo.buscarUsuario(CC);
+			Usuario user = Administrador.buscarUsuario(CC);
 			return "Ya se encuentra registrado un usuario.";
 		} catch (NoExisteUsuario excepcion) {
 			if (codigo.equals("0000")) {
@@ -190,7 +226,7 @@ public class Administrador extends Usuario {
 
 	public String registrarEstudiante(String name, String apellido, long CC, String correo, String pass) {
 		try {
-			Usuario user = Archivo.buscarUsuario(CC);
+			Usuario user = Administrador.buscarUsuario(CC);
 			return "Ya se encuentra registrado un usuario.";
 		} catch (NoExisteUsuario excepcion) {
 			new Estudiante(name + " " + apellido, CC, correo, pass);

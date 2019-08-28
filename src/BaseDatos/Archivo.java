@@ -18,83 +18,35 @@ import modelo.excepciones.*;
  */
 abstract public class Archivo {
 	
-	
-	
-	
-	
-	
-	
 
 	// El metodo add esta sobrecargado, el añadira a la lista correspondiente segun
 	// el tipo de dato que reciba
 
 	// Añade un administrativo a la lista de administrativos, recibe como parametro
 	// un administrativo y no retorna nada
-	static public String verSolicitudesEstudiante(long CC) throws NoHaySolicitudes, NoExisteEstudiante {
-		return (Archivo.buscarEstudiante(CC)).verSolicitudes();
-
-	}
+	
 
 	static public void salir() {
 		Data.guardarDatos();
 		System.exit(0);
 	}
-
-	static public String verNotasEstudiante(long CC) throws NoExisteEstudiante, EstudianteSinCursos {
-		Estudiante estudiante = Archivo.buscarEstudiante(CC);
-		String notas = "";
-		for (Curso curso : estudiante.getCursos()) {
-			notas += curso.getNombreCurso() + ": " + estudiante.verNotas(curso.getNombreCurso()) + "\n";
-		}
-		return notas;
-
-	}
-
-	static public String verHorarioEstudiante(long CC) throws NoExisteEstudiante, NoHayHorario {
-		return (Archivo.buscarEstudiante(CC)).miHorario();
-
-	}
-
-	static public String verHorarioDocente(long CC) throws NoExisteDocente, NoHayHorario {
-		return (Archivo.buscarDocente(CC)).miHorario();
-
-	}
-
-	static public String verCertificadosEstudiante(long CC) throws NoExisteEstudiante, NoHayCertificados {
-
-		Estudiante estudiante = Archivo.buscarEstudiante(CC);
-		String aux = estudiante.verCertificados();
-		return aux;
-
-	}
-
-	static public void add(Administrativo a) {
-		listaAdministrativos.add(a);
-	}
+	
 
 	// Añade un curso a la lista de cursos, recibe como parametro un curso y no
 	// retorna nada
-	static public void add(Curso c) {
-		listaCursos.add(c);
-	}
+	
 
 	// Añade un docente a la lista de docentes, recibe como parametro un docente y
 	// no retorna nada
-	static public void add(Docente d) {
-		listaDocentes.add(d);
-	}
+	
 
 	// Añade un estudiante a la lista de estudiantes, recibe como parametro un
 	// estudiante y no retorna nada
-	static public void add(Estudiante e) {
-		listaEstudiantes.add(e);
-	}
+	
 
 	// Añade una sugernecia a la lista de sugerencias, recibe como parametro una
 	// sugerencia y no retorna nada
-	static public void add(Sugerencia s) {
-		listaSugerencias.add(s);
-	}
+	
 
 	/*
 	 * Busca un administrativo en la lista de administrativos por su cedula, recibe
@@ -102,99 +54,37 @@ abstract public class Archivo {
 	 * administrativo en caso de que lo encuentre, si no lo encuentra retornara null
 	 */
 
-	static public Administrativo buscarAdministrativo(long admin) throws NoExisteAdministrativo {
-		for (Administrativo x : listaAdministrativos) {
-			if (x.getCedula() == admin) {
-				return x;
-			}
-		}
-
-		throw new NoExisteAdministrativo();
-
-	}
+	
 
 	/*
 	 * Busca un docente en la lista de docentes por su cedula, recibe como parametro
 	 * la cedula del docente a encontrar y retorna el docente en caso de que lo
 	 * encuentre, si no lo encuentra retornara null
 	 */
-	static public Docente buscarDocente(long docen) throws NoExisteDocente {
-		for (Docente x : listaDocentes) {
-			if (x.getCedula() == docen) {
-				return x;
-			}
-		}
-		throw new NoExisteDocente();
-	}
+	
 
 	/*
 	 * Busca un curso en la lista de cursos por su nombre, recibe como parametro el
 	 * nombre del curso a encontrar y retorna el curso en caso de que lo encuentre,
 	 * si no lo encuentra retornara null
 	 */
-	static public Curso buscarCurso(String curso) throws NoExisteCurso {
-		for (Curso x : listaCursos) {
-			if (x.getNombreCurso().equals(curso)) {
-				return x;
-			}
-		}
-		throw new NoExisteCurso();
-	}
+	
 
 	/*
 	 * Busca un estudiante en la lista de estudiantes por su cedula, recibe como
 	 * parametro la cedula del estudiante a encontrar y retorna el estudiante en
 	 * caso de que lo encuentre, si no lo encuentra retornara null
 	 */
-	static public Estudiante buscarEstudiante(long estud) throws NoExisteEstudiante {
-		for (Estudiante x : listaEstudiantes) {
-			if (x.getCedula() == estud) {
-				return x;
-			}
-		}
-		throw new NoExisteEstudiante();
-	}
+	
 
 	/*
 	 * Busca un usuario en las lista de estudiante,docente y administrativo por su
 	 * cedula, recibe como parametro la cedula del usaurio a encontrar y retorna el
 	 * usuario en caso de que lo encuentre, si no lo encuentra retornara null
 	 */
-	static public Usuario buscarUsuario(long id) throws NoExisteUsuario {
-		try {
-			if (id == 123) {
-				return new Administrador();
-			}
-			return buscarAdministrativo(id);
-		} catch (NoExisteAdministrativo excepcion1) {
-			try {
-				return buscarDocente(id);
-			} catch (NoExisteDocente excepcion2) {
-				try {
-					return buscarEstudiante(id);
-				} catch (NoExisteEstudiante excepcion3) {
-					throw new NoExisteUsuario();
-				}
-			}
+	
 
-		}
-	}
-
-	static public Usuario buscarUser(long id) throws NoExisteUsuario {
-		try {
-			return buscarAdministrativo(id);
-		} catch (NoExisteAdministrativo excepcion1) {
-			try {
-				return buscarDocente(id);
-			} catch (NoExisteDocente excepcion2) {
-				try {
-					return buscarEstudiante(id);
-				} catch (NoExisteEstudiante excepcion3) {
-					throw new NoExisteUsuario();
-				}
-			}
-		}
-	}
+	
 
 	/*
 	 * Busca si hay un curso con cupos disponibles, como parametro recibe el tipo
@@ -214,9 +104,7 @@ abstract public class Archivo {
 
 	// Metodo que retorna al administrador del sistema, no recibe nada como
 	// parametro
-	static public Administrador getAdministrador() {
-		return Admin;
-	}
+	
 
 	// Metodo que retorna la lista de administrativos, no recibe nada como parametro
 	static public ArrayList<Administrativo> getAdministrativos() {

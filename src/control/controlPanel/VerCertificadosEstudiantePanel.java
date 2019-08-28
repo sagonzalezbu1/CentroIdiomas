@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
 import defecto.Main;
+import modelo.Usuarios.Estudiante;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.NoExisteCurso;
 import modelo.excepciones.NoExisteEstudiante;
@@ -17,7 +18,7 @@ public class VerCertificadosEstudiantePanel implements ActionListener {
 		if(evento.getActionCommand().equals("Aceptar")) {
 			try{
 				String cedula = Main.ventanaUsuario.getPanelP().getValue("Cedula del estudiante: ");	
-				String texto = Archivo.verCertificadosEstudiante(Long.parseLong(cedula));
+				String texto = Estudiante.verCertificadosEstudiante(Long.parseLong(cedula));
 				Main.ventanaUsuario.ver(texto);
 			} catch (CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());

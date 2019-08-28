@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import BaseDatos.Archivo;
 import defecto.Main;
+import modelo.Usuarios.Estudiante;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.EstudianteSinCursos;
 import modelo.excepciones.NoExisteEstudiante;
@@ -19,7 +20,7 @@ public class VerNotasEstudiantePanel implements ActionListener {
 		if (evento.getActionCommand().equals("Aceptar")) {
 			try {
 				String cedula = Main.ventanaUsuario.getPanelP().getValue("Cedula del estudiante: ");
-				Main.ventanaUsuario.ver(Archivo.verNotasEstudiante(Long.parseLong(cedula)));
+				Main.ventanaUsuario.ver(Estudiante.verNotasEstudiante(Long.parseLong(cedula)));
 			} catch (CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			} catch (NoExisteEstudiante excepcion) {

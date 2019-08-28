@@ -36,7 +36,7 @@ public class Docente extends Usuario implements Horario {
 		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
 		getProcesos().add(Main.funcionalidades.get("VerSugerencias"));
 		getProcesos().add(Main.funcionalidades.get("PromedioCurso"));
-		Archivo.add(this);
+		Docente.add(this);
 
 	}
 
@@ -44,7 +44,7 @@ public class Docente extends Usuario implements Horario {
 	 * los archivos de texto al programa*/
 	public Docente(long cedula, String name, String correo, String clave) {
 		super(name, cedula, correo, clave);
-		Archivo.add(this);
+		Docente.add(this);
 		/*Aquí tendrá el menu ya sea por defecto o editado, 
 		* dependiendo de si el administrador lo haya editado*/
 	}
@@ -81,6 +81,24 @@ public class Docente extends Usuario implements Horario {
 			}
 		}
 		misCursos.remove(y);
+	}
+	
+	static public void add(Docente d) {
+		listaDocentes.add(d);
+	}
+	
+	static public Docente buscarDocente(long docen) throws NoExisteDocente {
+		for (Docente x : listaDocentes) {
+			if (x.getCedula() == docen) {
+				return x;
+			}
+		}
+		throw new NoExisteDocente();
+	}
+	
+	static public String verHorarioDocente(long CC) throws NoExisteDocente, NoHayHorario {
+		return (Docente.buscarDocente(CC)).miHorario();
+
 	}
 	
 	/*Retorna la información del docente de manera correcta, mostrando su nombre y cédula.
