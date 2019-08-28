@@ -1,17 +1,12 @@
 package control.controlPanel;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import BaseDatos.Archivo;
-import defecto.Main;
-import modelo.Centro.Solicitud;
-import modelo.Usuarios.Estudiante;
-import modelo.excepciones.CampoVacio;
-import modelo.excepciones.NoHayDisponibilidad;
+import javax.swing.*;
+import defecto.*;
+import modelo.Centro.*;
+import modelo.Usuarios.*;
+import modelo.excepciones.*;
 
 public class ResponderSolicitudesPanel implements ActionListener {
 
@@ -19,7 +14,7 @@ public class ResponderSolicitudesPanel implements ActionListener {
 		if (evento.getActionCommand().equals("Aceptar")) {
 			try {
 				String tipo = Main.ventanaUsuario.getPanelP().getValue("Tipo de solicitud: ");
-				ArrayList<Solicitud> lista = Archivo.getSolicitudes().get(tipo);
+				ArrayList<Solicitud> lista = Solicitud.getSolicitudes().get(tipo);
 				for (Solicitud x : lista) {
 					int seleccion = Main.ventanaUsuario
 							.responderSolicitud(x.getEstudiante().getNombre() + ": " + x.getEstudiante().getCedula());
@@ -37,8 +32,7 @@ public class ResponderSolicitudesPanel implements ActionListener {
 				Main.ventanaUsuario.Popup("No hay solicitudes de este tipo");
 			}
 		} else if (evento.getActionCommand().equals("Borrar")) {
-
+			Main.ventanaUsuario.getPanelP().borrar();
 		}
 	}
-
 }

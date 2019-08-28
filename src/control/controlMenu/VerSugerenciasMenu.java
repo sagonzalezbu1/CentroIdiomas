@@ -1,22 +1,21 @@
 package control.controlMenu;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import BaseDatos.Archivo;
-import defecto.Main;
-import modelo.excepciones.NoHaySugerencias;
+import java.awt.event.*;
+import defecto.*;
+import modelo.Centro.*;
+import modelo.excepciones.*;
 
 /* La clase 'VerSugerencias' es donde mostramos a los usuarios el nombre de quien realizo una sugerencia seguido de la sugerencia
  * que realizo. Esto para cada una de las sugerencias localizadas en 'Archivo'.
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerSugerencias. */
+
 public class VerSugerenciasMenu implements ActionListener {
 
 	public void actionPerformed(ActionEvent evento) {
 
 		if (evento.getActionCommand().equals("VerSugerencias")) {
 			try {
-				String sugerencia = Archivo.verSugerencias();
+				String sugerencia = Sugerencia.verSugerencias();
 				Main.ventanaUsuario.ver(sugerencia);
 				Main.ventanaUsuario.getPanelP().nombre("Ver todas las sugerencias");
 				Main.ventanaUsuario.getPanelP()
@@ -26,7 +25,5 @@ public class VerSugerenciasMenu implements ActionListener {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			}
 		}
-
 	}
-
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import BaseDatos.Archivo;
 import defecto.Main;
 import modelo.Usuarios.*;
+import modelo.excepciones.NoHaySugerencias;
 
 /*Esta clase permite crear objetos de tipo sugerencia. Las sugerencias inicialmente pueden ser hechas por docentes y estudiantes, estan van dirigidas a los 
   administrativos. Tienen el usuario que las realiza y un String (mensaje) que contenga cosas que se deben mejorar del sistema*/
@@ -43,5 +44,21 @@ public class Sugerencia {
 		new Sugerencia(usuario ,sugerencia);
 		return "Su sugerencia fue enviada con exito.";
 	}
+	static public String verSugerencias() throws NoHaySugerencias {
 
+		String ver = "";
+		for (Sugerencia x : listaSugerencias) {
+			ver += "\n";
+			ver += x.toString() + "\n";
+		}
+
+		if (!ver.equals("")) {
+			return "Sugerencias:\n" + ver;
+		} else {
+			throw new NoHaySugerencias();
+		}
+	}
+	static public ArrayList<Sugerencia> getSugerencias() {
+		return listaSugerencias;
+	}
 }

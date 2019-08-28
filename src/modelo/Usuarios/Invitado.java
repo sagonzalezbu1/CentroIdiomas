@@ -35,21 +35,21 @@ public class Invitado extends Usuario {
 			System.out.println("\nSe ha iniciado sesión.\n");
 			return;
 		}
-		for (Usuario usuario : Archivo.getEstudiantes()) {
+		for (Usuario usuario : Estudiante.getEstudiantes()) {
 			if (usuario.getCedula() == user && (usuario.getContrasena()).equals(key)) {
 				Main.user = usuario;
 				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
 		}
-		for (Usuario usuario : Archivo.getDocentes()) {
+		for (Usuario usuario : Docente.getDocentes()) {
 			if (usuario.getCedula() == user && (usuario.getContrasena()).equals(key)) {
 				Main.user = usuario;
 				System.out.println("\nSe ha iniciado sesión.\n");
 				return;
 			}
 		}
-		for (Usuario usuario : Archivo.getAdministrativos()) {
+		for (Usuario usuario : Administrativo.getAdministrativos()) {
 			if (usuario.getCedula() == user && (usuario.getContrasena()).equals(key)) {
 				Main.user = usuario;
 				System.out.println("\nSe ha iniciado sesión.\n");

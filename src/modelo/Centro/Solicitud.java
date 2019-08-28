@@ -1,12 +1,9 @@
 package modelo.Centro;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import BaseDatos.Archivo;
-import modelo.Usuarios.Estudiante;
-import modelo.excepciones.NoExisteEstudiante;
-import modelo.excepciones.NoHayDisponibilidad;
+import java.util.*;
+import BaseDatos.*;
+import modelo.Usuarios.*;
+import modelo.excepciones.*;
 
 /*Esta clase permite crear objetos de tipo solicitud. Las solicitudes se hacen con la finalidad de que un estudiante solicite cupo para un tipo de curso,
   Se puede solicitar cupo en un curso de cualquier tipo de idioma, siempre y cuando no queden cupos o no haya cursos creados de dicho idioma*/
@@ -28,13 +25,12 @@ public class Solicitud {
 		this.tipo = tipo;
 		estu = estudiante;
 
-		if (Archivo.getSolicitudes().containsKey(tipo)) {
-			(Archivo.getSolicitudes().get(tipo)).add(this);
+		if (Solicitud.getSolicitudes().containsKey(tipo)) {
+			(Solicitud.getSolicitudes().get(tipo)).add(this);
 		} else {
-			Archivo.getSolicitudes().put(tipo, new ArrayList<>());
-			(Archivo.getSolicitudes().get(tipo)).add(this);
+			Solicitud.getSolicitudes().put(tipo, new ArrayList<>());
+			(Solicitud.getSolicitudes().get(tipo)).add(this);
 		}
-
 	}
 
 	public String aceptarSolicitud() throws NoHayDisponibilidad {
@@ -44,7 +40,7 @@ public class Solicitud {
 				throw new NoHayDisponibilidad();
 			} else {
 				course.matricular(this.getEstudiante());
-				Archivo.removeSolicitud(tipo, this);
+				Solicitud.removeSolicitud(tipo, this);
 				(this.getEstudiante()).removeSolicitud(tipo);
 				return "Solicitud Acetada";
 			}
@@ -52,7 +48,7 @@ public class Solicitud {
 	}
 
 	public String rechazarSolicitud() {
-		Archivo.removeSolicitud(tipo, this);
+		Solicitud.removeSolicitud(tipo, this);
 		(this.getEstudiante()).removeSolicitud(tipo);
 		return "Solicitud Rechazada";
 	}
@@ -74,5 +70,27 @@ public class Solicitud {
 	public String toString() {
 		return tipo;
 	}
+	
+	static public String verSolicitudes() {
+		String ver = "";
 
+		for (String x : solicitudes.keySet()) {
+			ver += x + "\n";
+		}
+
+		if (!ver.equals("")) {
+			return "\nSolicitudes:\n" + ver;
+		} else {
+			return "No hay solicitudes.";
+		}
+	}
+	static public void removeSolicitud(String tipo, Solicitud s) {
+		(solicitudes.get(tipo)).remove(s);
+		if (solicitudes.get(tipo).isEmpty()) {
+			solicitudes.remove(tipo);
+		}
+	}
+	static public HashMap<String, ArrayList<Solicitud>> getSolicitudes() {
+		return solicitudes;
+	}
 }

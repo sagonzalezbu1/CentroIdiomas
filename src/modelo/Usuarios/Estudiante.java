@@ -352,4 +352,20 @@ public class Estudiante extends Usuario implements Horario {
 		} else {
 			throw new CursoConDisponibilidad();			}
 	}
+	static public String verEstudiantes() throws NoHayEstudiantes {
+		String ver = "";
+		for (Estudiante x : listaEstudiantes) {
+			ver += "\n";
+			ver += x.toString() + "\n";
+		}
+
+		if (!ver.equals("")) {
+			return "\nEstudiantes:\n" + ver;
+		} else {
+			throw new NoHayEstudiantes();
+		}
+	}
+	static public ArrayList<Estudiante> getEstudiantes() {
+		return listaEstudiantes;
+	}
 }

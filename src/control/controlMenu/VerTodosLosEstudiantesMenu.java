@@ -1,11 +1,10 @@
 package control.controlMenu;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import defecto.*;
+import modelo.Usuarios.*;
+import modelo.excepciones.*;
 
-import BaseDatos.Archivo;
-import defecto.Main;
-import modelo.excepciones.NoHayEstudiantes;
 
 /* La clase 'VerTodosLosEstudiantes' es donde mostramos a los usuarios el nombre y la cedula todos los estudiantes que se encuentren en 'Archivo'.
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerTodosLosEstudiantes.*/
@@ -15,7 +14,7 @@ public class VerTodosLosEstudiantesMenu implements ActionListener {
 
 		if (evento.getActionCommand().equals("VerTodosLosEstudiantes")) {
 			try {
-				String Estudiantes = Archivo.verEstudiantes();
+				String Estudiantes = Estudiante.verEstudiantes();
 				Main.ventanaUsuario.ver(Estudiantes);
 				Main.ventanaUsuario.getPanelP().nombre("Ver todos los estudiantes");
 				Main.ventanaUsuario.getPanelP().descripcion("Muestra todos los estudiantes que se encuentran registrados en el sistema");
@@ -24,7 +23,5 @@ public class VerTodosLosEstudiantesMenu implements ActionListener {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			}
 		}
-
 	}
-
 }
