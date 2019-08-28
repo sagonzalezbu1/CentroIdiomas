@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import control.Main;
 
-public class AyudaMenu implements ActionListener {
+public class AcercaDe implements ActionListener {
 
 	public void actionPerformed(ActionEvent evento) {
 		if(evento.getActionCommand().equals("Acerca de")) {
