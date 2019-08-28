@@ -6,8 +6,8 @@ import java.util.*;
 
 import defecto.Main;
 import modelo.Usuarios.*;
-import modelo.excepciones.Excepcion2;
-import modelo.excepciones.LoginInvalido;
+import modelo.excepciones.control.Excepcion2;
+import modelo.excepciones.modelo.LoginInvalido;
 
 /*Esta clase es usada por todos los usuarios para ingresar a sus respectivas cuentas.
  * 

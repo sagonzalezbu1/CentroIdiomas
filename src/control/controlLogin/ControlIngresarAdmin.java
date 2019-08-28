@@ -5,8 +5,8 @@ import java.awt.event.*;
 
 import defecto.Main;
 import modelo.Usuarios.Administrador;
-import modelo.excepciones.Excepcion1;
-import modelo.excepciones.LoginInvalido;
+import modelo.excepciones.control.Excepcion1;
+import modelo.excepciones.modelo.LoginInvalido;
 
 public class ControlIngresarAdmin implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {

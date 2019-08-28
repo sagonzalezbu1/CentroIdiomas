@@ -7,6 +7,13 @@ import BaseDatos.Data;
 import control.*;
 import defecto.Main;
 import modelo.excepciones.*;
+import modelo.excepciones.modelo.FuncionalidadIncorrecta;
+import modelo.excepciones.modelo.LoginInvalido;
+import modelo.excepciones.modelo.NoExisteAdministrador;
+import modelo.excepciones.modelo.NoExisteAdministrativo;
+import modelo.excepciones.modelo.NoExisteDocente;
+import modelo.excepciones.modelo.NoExisteEstudiante;
+import modelo.excepciones.modelo.NoExisteUsuario;
 
 /*Esta clase permite la existencia de un Administrador para realizar las tareas "por encima" del programa, 
  * es decir, manejar las funcionalidades que puedan tener los diferentes usuarios y verificar toda la información

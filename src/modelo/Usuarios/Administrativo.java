@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import BaseDatos.*;
 import control.*;
 import defecto.Main;
-import modelo.excepciones.CodigoIncorrecto;
-import modelo.excepciones.NoExisteAdministrativo;
-
-import modelo.excepciones.NoHayAdministrativos;
-import modelo.excepciones.UsuarioRegistrado;
+import modelo.excepciones.modelo.CodigoIncorrecto;
+import modelo.excepciones.modelo.NoExisteAdministrativo;
+import modelo.excepciones.modelo.NoHayAdministrativos;
+import modelo.excepciones.modelo.UsuarioRegistrado;
 
 
 /*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)

@@ -6,6 +6,18 @@ import control.*;
 import defecto.Main;
 import modelo.Centro.*;
 import modelo.excepciones.*;
+import modelo.excepciones.modelo.CursoConDisponibilidad;
+import modelo.excepciones.modelo.CursoYaInscrito;
+import modelo.excepciones.modelo.EstudianteConCertificado;
+import modelo.excepciones.modelo.EstudianteSinCursos;
+import modelo.excepciones.modelo.NoExisteEstudiante;
+import modelo.excepciones.modelo.NoHayCertificados;
+import modelo.excepciones.modelo.NoHayEstudiantes;
+import modelo.excepciones.modelo.NoHayHorario;
+import modelo.excepciones.modelo.NoHayNotas;
+import modelo.excepciones.modelo.NoHaySolicitudes;
+import modelo.excepciones.modelo.SolicitudYaHecha;
+import modelo.excepciones.modelo.UsuarioRegistrado;
 
 /*Esta clase permite crear objetos de tipo Estudiante, los cuales cumplirán tareas como
  * hacer solicitudes, matricularse, etc*/

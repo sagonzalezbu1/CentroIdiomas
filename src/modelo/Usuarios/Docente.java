@@ -7,6 +7,14 @@ import control.*;
 import defecto.Main;
 import modelo.Centro.*;
 import modelo.excepciones.*;
+import modelo.excepciones.modelo.CodigoIncorrecto;
+import modelo.excepciones.modelo.DocenteIncorrecto;
+import modelo.excepciones.modelo.NoExisteCurso;
+import modelo.excepciones.modelo.NoExisteDocente;
+import modelo.excepciones.modelo.NoHayDocentes;
+import modelo.excepciones.modelo.NoHayEstudiantes;
+import modelo.excepciones.modelo.NoHayHorario;
+import modelo.excepciones.modelo.UsuarioRegistrado;
 
 /*Esta clase permite crear objetos de tipo Docente, los cuales cumplirán tareas como
  * calificar a los estudiantes de los cursos que estén dictando*/

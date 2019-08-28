@@ -4,6 +4,7 @@ import java.util.*;
 import BaseDatos.*;
 import modelo.Usuarios.*;
 import modelo.excepciones.*;
+import modelo.excepciones.modelo.NoHayDisponibilidad;
 
 /*Esta clase permite crear objetos de tipo solicitud. Las solicitudes se hacen con la finalidad de que un estudiante solicite cupo para un tipo de curso,
   Se puede solicitar cupo en un curso de cualquier tipo de idioma, siempre y cuando no queden cupos o no haya cursos creados de dicho idioma*/
@@ -42,7 +43,7 @@ public class Solicitud {
 				course.matricular(this.getEstudiante());
 				Solicitud.removeSolicitud(tipo, this);
 				(this.getEstudiante()).removeSolicitud(tipo);
-				return "Solicitud Acetada";
+				return "Solicitud Aceptada";
 			}
 		}
 	}

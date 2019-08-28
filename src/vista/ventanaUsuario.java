@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import control.controlMenu.*;
+import control.controlMenu.archivo.SalirMenu;
+import control.controlMenu.archivo.UsuarioMenu;
+import control.controlMenu.ayuda.AcercaDe;
 import defecto.Main;
 
 
@@ -87,7 +90,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 	public int responderSolicitud(String text) {
 		String[] options = { "Aceptar", "Rechazar", "Cancelar"};
 		int seleccion = JOptionPane.showOptionDialog(null, text,
-				"Titulo", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
+				"Responder Solicitud", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,
 				options[0]);
 		return seleccion;
 	}

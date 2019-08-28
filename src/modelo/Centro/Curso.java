@@ -5,6 +5,17 @@ import java.util.*;
 import BaseDatos.*;
 import modelo.Usuarios.*;
 import modelo.excepciones.*;
+import modelo.excepciones.modelo.CursoExistente;
+import modelo.excepciones.modelo.CursoYaInscrito;
+import modelo.excepciones.modelo.EstudianteConCertificado;
+import modelo.excepciones.modelo.NoExisteCurso;
+import modelo.excepciones.modelo.NoExisteDocente;
+import modelo.excepciones.modelo.NoExisteEstudiante;
+import modelo.excepciones.modelo.NoHayCupos;
+import modelo.excepciones.modelo.NoHayCursos;
+import modelo.excepciones.modelo.NoHayEstudiantes;
+import modelo.excepciones.modelo.NoHayNotas;
+import modelo.excepciones.modelo.SolicitudYaHecha;
 
 /*Esta clase permite crear objetos de tipo curso. Los cursos pueden ser de cualquier idioma y tienen un maximo de 10 cupos por curso. Son parte importante
   del centro de idiomas pues contienen a los estudiantes, y si aprueban o no el curso es lo que les otorga a los estudiantes el certificado del idioma */

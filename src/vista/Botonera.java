@@ -5,6 +5,38 @@ import java.util.*;
 import javax.swing.*;
 import control.*;
 import control.controlMenu.*;
+import control.controlMenu.procesos.AddFuncionalidadMenu;
+import control.controlMenu.procesos.CalificarMenu;
+import control.controlMenu.procesos.CrearCursoMenu;
+import control.controlMenu.procesos.FinalizeCursoMenu;
+import control.controlMenu.procesos.HacerSugerenciaMenu;
+import control.controlMenu.procesos.MatricularEstudianteMenu;
+import control.controlMenu.procesos.MatricularMenu;
+import control.controlMenu.procesos.PromedioCursoMenu;
+import control.controlMenu.procesos.RegistrarAdministrativoMenu;
+import control.controlMenu.procesos.RegistrarDocenteMenu;
+import control.controlMenu.procesos.RegistrarEstudianteMenu;
+import control.controlMenu.procesos.RemoveFuncionalidadMenu;
+import control.controlMenu.procesos.ResponderSolicitudesMenu;
+import control.controlMenu.procesos.SolicitarCupoEstudianteMenu;
+import control.controlMenu.procesos.SolicitarCupoMenu;
+import control.controlMenu.procesos.SystemMenu;
+import control.controlMenu.procesos.VerAdministrativosMenu;
+import control.controlMenu.procesos.VerCertificadosEstudianteMenu;
+import control.controlMenu.procesos.VerCertificadosMenu;
+import control.controlMenu.procesos.VerCursosMenu;
+import control.controlMenu.procesos.VerDocentesMenu;
+import control.controlMenu.procesos.VerEstudiantesCursoMenu;
+import control.controlMenu.procesos.VerHorarioDocenteMenu;
+import control.controlMenu.procesos.VerHorarioEstudianteMenu;
+import control.controlMenu.procesos.VerHorarioMenu;
+import control.controlMenu.procesos.VerMenuUsuarioMenu;
+import control.controlMenu.procesos.VerNotasEstudianteMenu;
+import control.controlMenu.procesos.VerNotasMenu;
+import control.controlMenu.procesos.VerSolicitudesEstudianteMenu;
+import control.controlMenu.procesos.VerSolicitudesMenu;
+import control.controlMenu.procesos.VerSugerenciasMenu;
+import control.controlMenu.procesos.VerTodosLosEstudiantesMenu;
 
 public interface Botonera {
 	public static HashMap<String, ActionListener> controladores = new HashMap<String, ActionListener>() {

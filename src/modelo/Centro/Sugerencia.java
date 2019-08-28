@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import defecto.Main;
 import modelo.Usuarios.*;
-import modelo.excepciones.NoHaySugerencias;
+import modelo.excepciones.modelo.NoHaySugerencias;
 
 /*Esta clase permite crear objetos de tipo sugerencia. Las sugerencias inicialmente pueden ser hechas por docentes y estudiantes, estan van dirigidas a los 
   administrativos. Tienen el usuario que las realiza y un String (mensaje) que contenga cosas que se deben mejorar del sistema*/
