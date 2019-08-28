@@ -23,6 +23,9 @@ public class RemoveFuncionalidadMenu implements ActionListener {
 			boolean[] habilitado = { true, true };
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new RemoveFuncionalidadPanel());
+			Main.ventanaUsuario.getPanelP().nombre("Remover funcionalidad de un usuario");
+			Main.ventanaUsuario.getPanelP().descripcion("Ingresando la cedula del usuario al cual desea remover una funcionalidad,esta si es de ser posible, sera borrada");
+			Main.ventanaUsuario.pack();
 
 		}
 	}

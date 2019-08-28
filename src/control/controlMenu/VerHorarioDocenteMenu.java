@@ -22,7 +22,7 @@ public class VerHorarioDocenteMenu implements ActionListener {
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new VerHorarioDocentePanel());
 			Main.ventanaUsuario.getPanelP().nombre("Ver horario del docente");
-			Main.ventanaUsuario.getPanelP().descripcion("aqui va una descripcion");
+			Main.ventanaUsuario.getPanelP().descripcion("Recibe la cedula de un usuario y luego muestra el menu que este tiene");
 			Main.ventanaUsuario.pack();
 		}
 

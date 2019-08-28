@@ -22,6 +22,9 @@ public class VerMenuUsuarioMenu implements ActionListener {
 			boolean[] habilitado= {true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new VerMenuUsuarioPanel());
+			Main.ventanaUsuario.getPanelP().nombre("Ver menu de un usuario");
+			Main.ventanaUsuario.getPanelP().descripcion("Recibe la cedula de un usuario y luego muestra el menu que este tiene");
+			Main.ventanaUsuario.pack();
 		}
 
 	}
