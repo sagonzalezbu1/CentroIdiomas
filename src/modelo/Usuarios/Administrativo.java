@@ -59,11 +59,18 @@ public class Administrativo extends Usuario {
 		return ("Nombre: " + super.getNombre() + "\nCedula: " + super.getCedula());
 	}
 
-	
+	// Añade un administrativo a la lista de administrativos, recibe como parametro
+		// un administrativo y no retorna nada
 	static public void add(Administrativo a) {
 		listaAdministrativos.add(a);
 	}
 	
+	
+	/*
+	 * Busca un administrativo en la lista de administrativos por su cedula, recibe
+	 * como parametro la cedula del adminitrativo a encontrar y retorna el
+	 * administrativo en caso de que lo encuentre, si no lo encuentra retornara null
+	 */
 	static public Administrativo buscarAdministrativo(long admin) throws NoExisteAdministrativo {
 		for (Administrativo x : listaAdministrativos) {
 			if (x.getCedula() == admin) {
@@ -86,6 +93,8 @@ public class Administrativo extends Usuario {
 			return "Administrativos:\n" + ver;
 		}
 	}
+	
+	// Metodo que retorna la lista de administrativos, no recibe nada como parametro
 	static public ArrayList<Administrativo> getAdministrativos() {
 		return listaAdministrativos;
 

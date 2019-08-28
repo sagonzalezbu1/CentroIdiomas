@@ -83,10 +83,18 @@ public class Docente extends Usuario implements Horario {
 		misCursos.remove(y);
 	}
 	
+	// Añade un docente a la lista de docentes, recibe como parametro un docente y
+		// no retorna nada
 	static public void add(Docente d) {
 		listaDocentes.add(d);
 	}
 	
+	
+	/*
+	 * Busca un docente en la lista de docentes por su cedula, recibe como parametro
+	 * la cedula del docente a encontrar y retorna el docente en caso de que lo
+	 * encuentre, si no lo encuentra retornara null
+	 */
 	static public Docente buscarDocente(long docen) throws NoExisteDocente {
 		for (Docente x : listaDocentes) {
 			if (x.getCedula() == docen) {

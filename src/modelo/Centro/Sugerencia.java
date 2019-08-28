@@ -24,6 +24,8 @@ public class Sugerencia {
 		Sugerencia.add(this);
 	}
 	
+	// Añade una sugernecia a la lista de sugerencias, recibe como parametro una
+		// sugerencia y no retorna nada
 	static public void add(Sugerencia s) {
 		listaSugerencias.add(s);
 	}

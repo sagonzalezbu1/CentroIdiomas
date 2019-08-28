@@ -3,6 +3,7 @@ package modelo.Usuarios;
 import java.util.ArrayList;
 
 import BaseDatos.Archivo;
+import BaseDatos.Data;
 import control.*;
 import defecto.Main;
 import modelo.excepciones.*;
@@ -107,6 +108,39 @@ public class Administrador extends Usuario {
 		throw new FuncionalidadIncorrecta();
 
 	}
+	
+	static public void verificarUsuario(long cc, String pass) throws NoExisteUsuario, LoginInvalido {
+		if (Administrador.buscarUser(cc).getContrasena().equals(pass)) {
+			return;
+		}
+		throw new LoginInvalido();
+	}
+	
+	static public String ingresarUsuario(long cc, String pass) {
+		try {
+			Usuario usuario = Administrador.buscarUser(cc);
+			Administrador.verificarUsuario(cc, pass);
+			Main.user = usuario;
+			return "Se ha iniciado sesion.";
+		} catch (NoExisteUsuario exception1) {
+			return "Usuario Incorrecto";
+
+		} catch (LoginInvalido exception2) {
+			return "Clave Incorrecta.";
+		}
+	}
+	
+	static public Administrador buscarAdministrador(long cc) throws NoExisteAdministrador {
+		if (Main.admin.getCedula() == cc) {
+			return Main.admin;
+		}
+		throw new NoExisteAdministrador();
+	}
+	
+	static public void salir() {
+		Data.guardarDatos();
+		System.exit(0);
+	}
 
 	public String addFuncionalidad(long CC, String opcion) {
 		try {
@@ -157,6 +191,12 @@ public class Administrador extends Usuario {
 		}
 	}
 	
+	
+	/*
+	 * Busca un usuario en las lista de estudiante,docente y administrativo por su
+	 * cedula, recibe como parametro la cedula del usaurio a encontrar y retorna el
+	 * usuario en caso de que lo encuentre, si no lo encuentra retornara null
+	 */
 	static public Usuario buscarUsuario(long id) throws NoExisteUsuario {
 		try {
 			if (id == 123) {

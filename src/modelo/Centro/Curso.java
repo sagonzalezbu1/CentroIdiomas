@@ -34,7 +34,34 @@ public class Curso {
 		Curso.add(this);
 		docente.addCurso(this);
 	}
+	
+	
+	/*
+	 * Busca si hay un curso con cupos disponibles, como parametro recibe el tipo
+	 * del curso, y retornara el primer curso que encuentre con cupos disponibles
+	 * del tipo que se le especifico, en caso de no haber cursos disponibles de ese
+	 * tipo, retornara null
+	 */
+	static public Curso cursoDisponibilidad(String tipo) {
+		ArrayList<Curso> Cursos = getCursos();
+		for (Curso c : Cursos) {
+			if (c.getTipo().equals(tipo) && c.getCuposDisponibles() > 0) {
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	static public String verEstudiantesCurso(String curso) throws NoExisteCurso, NoHayEstudiantes {
 
+		String ver = "";
+		for (Estudiante x : Curso.buscarCurso(curso).getEstudiantes()) {
+			ver += x.toString() + "\n";
+		}
+		return ver;
+
+	}
+	
 	static public String MatricularEstudiante(long cc, String name) throws NoExisteCurso, NoExisteEstudiante,
 			NoHayCupos, CursoYaInscrito, EstudianteConCertificado, SolicitudYaHecha {
 		Estudiante est = Estudiante.buscarEstudiante(cc);
@@ -124,10 +151,19 @@ public class Curso {
 			return "No existe el curso.";
 		}
 	}
+	
+	// Añade un curso a la lista de cursos, recibe como parametro un curso y no
+		// retorna nada
 	static public void add(Curso c) {
 		listaCursos.add(c);
 	}
 	
+	
+	/*
+	 * Busca un curso en la lista de cursos por su nombre, recibe como parametro el
+	 * nombre del curso a encontrar y retorna el curso en caso de que lo encuentre,
+	 * si no lo encuentra retornara null
+	 */
 	static public Curso buscarCurso(String curso) throws NoExisteCurso {
 		for (Curso x : listaCursos) {
 			if (x.getNombreCurso().equals(curso)) {

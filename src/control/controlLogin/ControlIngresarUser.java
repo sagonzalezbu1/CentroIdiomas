@@ -24,7 +24,7 @@ public class ControlIngresarUser implements ActionListener {
 			try {
 				long cedula = Main.ventanaLogin.getCedula();
 				String contraseña = Main.ventanaLogin.getContrasena();
-				mensaje = Archivo.ingresarUsuario(cedula, contraseña);
+				mensaje = Administrador.ingresarUsuario(cedula, contraseña);
 				if (cedula == -1 || contraseña.equals("")) {
 					throw new Excepcion2();
 				} else if (!mensaje.equals("Se ha iniciado sesion.")) {
