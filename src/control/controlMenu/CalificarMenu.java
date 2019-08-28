@@ -21,9 +21,9 @@ public class CalificarMenu implements ActionListener{
 		if(evento.getActionCommand().equals("Calificar")) {
 			String tituloCriterios="Criterio";
 			String tituloValores="Valor";
-			String[] criterios= {"Nombre del curso al que desea Calificar: "};
-			String[] valores = {null};
-			boolean[] habilitado= {true};
+			String[] criterios= {"Nombre del curso al que desea Calificar: ","Cedula del docente que da el curso: " };
+			String[] valores = {null,null};
+			boolean[] habilitado= {true,true};
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new CalificarPanel());
 			Main.ventanaUsuario.getPanelP().nombre("Calificar un curso");

@@ -2,6 +2,8 @@ package BaseDatos;
 
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 import control.Main;
 import modelo.Centro.Curso;
 import modelo.Centro.Solicitud;
@@ -461,13 +463,13 @@ abstract public class Archivo {
 		}
 	}
 
-	static public String registrarAministrativo(String nombre, String apellido, long cedula, String correo,String contrasena, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+	static public String registrarAministrativo(String nombre, String apellido, long cedula, String correo,
+			String contrasena, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
 		try {
 			if (cedula == 123 || Archivo.buscarAdministrativo(cedula) instanceof Administrativo) {
-				//return ("Ya se encuentra registrado un usuario con esa cédula.");
+				// return ("Ya se encuentra registrado un usuario con esa cédula.");
 				throw new UsuarioRegistrado();
-			}
-			else {
+			} else {
 				return "";
 			}
 		} catch (NoExisteAdministrativo exception) {
@@ -479,12 +481,13 @@ abstract public class Archivo {
 			}
 		}
 	}
-	static public String registrarDocente(String nombre, String apellido, long cedula, String correo,String contrasena, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+
+	static public String registrarDocente(String nombre, String apellido, long cedula, String correo, String contrasena,
+			String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
 		try {
 			if (cedula == 123 || Archivo.buscarDocente(cedula) instanceof Docente) {
 				throw new UsuarioRegistrado();
-			}
-			else {
+			} else {
 				return "";
 			}
 		} catch (NoExisteDocente exception) {
@@ -496,12 +499,13 @@ abstract public class Archivo {
 			}
 		}
 	}
-	static public String registrarEstudiante(String nombre, String apellido, long cedula, String correo,String contrasena) throws UsuarioRegistrado{
+
+	static public String registrarEstudiante(String nombre, String apellido, long cedula, String correo,
+			String contrasena) throws UsuarioRegistrado {
 		try {
 			if (cedula == 123 || Archivo.buscarEstudiante(cedula) instanceof Estudiante) {
 				throw new UsuarioRegistrado();
-			}
-			else {
+			} else {
 				return "";
 			}
 		} catch (NoExisteEstudiante exception) {
@@ -509,13 +513,78 @@ abstract public class Archivo {
 			return "Se ha registrado exitosamente";
 		}
 	}
-	static public String FinalizeCurso(String nombreCurso) throws NoExisteCurso{
-			Curso cursofinalizar = null;
-			cursofinalizar = Archivo.buscarCurso(nombreCurso);
-			cursofinalizar.finalizeCurso();
-			return "El curso ha sido finalizado";	
+
+	static public String FinalizeCurso(String nombreCurso) throws NoExisteCurso {
+		Curso cursofinalizar = null;
+		cursofinalizar = Archivo.buscarCurso(nombreCurso);
+		cursofinalizar.finalizeCurso();
+		return "El curso ha sido finalizado";
 	}
-	static public String Calificar() {
-		return "";
+
+	static public boolean DocenteCorrecto(String curso, long cedula) throws NoExisteCurso, DocenteIncorrecto {
+		if (Archivo.buscarCurso(curso).getDocente().getCedula() == cedula) {
+			return true;
+		} else {
+			throw new DocenteIncorrecto();
+		}
 	}
+
+	static public void PreCalificar(String curso, long cedula) throws NoExisteCurso, DocenteIncorrecto, NoHayEstudiantes {
+		Curso cursocalificar = null;
+		cursocalificar = Archivo.buscarCurso(curso);
+		DocenteCorrecto(curso, cedula);
+		if (cursocalificar.getEstudiantes().size() == 0) {
+			throw new NoHayEstudiantes();
+		}
+	}
+
+	/*static public void Calificar(String curso, long cedula) throws NoExisteCurso,NoHayEstudiantes {
+			String respuesta = JOptionPane.showInputDialog(null, "Ingrese La nota del estudiante", "Calificacion",JOptionPane.INFORMATION_MESSAGE);
+			x.calificar(curso, Float.parseFloat(respuesta));
+
+		}
+	}*/
+
+	/*
+	 * public void ejecutar() { Scanner entry = new Scanner(System.in);
+	 * System.out.println("Introduzca el nombre del grupo al que desea calificar: "
+	 * ); String cursocalificar = entry.next(); boolean existenciacurso = false;
+	 * 
+	 * for (Curso curso : Archivo.getCursos()) {
+	 * 
+	 * if (curso.getNombreCurso().equals(cursocalificar)) { existenciacurso = true;
+	 * System.out.println("Introduzca la cedula del docente que da el curso: ");
+	 * long ccdocente = entry.nextLong(); if (ccdocente ==
+	 * curso.getDocente().getCedula()) {
+	 * 
+	 * if (curso.getEstudiantes().size() == 0) {
+	 * System.out.println("\nEste curso no tiene estudiantes inscritos.\n"); } else
+	 * {
+	 * 
+	 * for (Estudiante estudiante : curso.getEstudiantes()) { long id =
+	 * estudiante.getCedula();
+	 * System.out.println("Ingrese la nota del estudiante con ID " + id +
+	 * " (si la nota es un float escribirla con coma): "); float calificacion =
+	 * entry.nextFloat();
+	 * 
+	 * while(calificacion<0 || calificacion>5) {
+	 * System.out.println("Ingrese una nota valida: "); calificacion =
+	 * entry.nextFloat(); }
+	 * 
+	 * System.out.println(""); estudiante.calificar(cursocalificar, calificacion); }
+	 * 
+	 * System.out.println("Ya no quedan estudiantes por calificar.\n");
+	 * 
+	 * }
+	 * 
+	 * } else { System.out.println("\nLa cedula del docente no es correcta.\n"); }
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * if (existenciacurso == false) { System.out.println("\nEl curso '" +
+	 * cursocalificar + "' no existe.\n"); } }
+	 */
+
 }
