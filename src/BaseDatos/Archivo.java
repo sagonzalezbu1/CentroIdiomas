@@ -66,16 +66,6 @@ abstract public class Archivo {
 
 	// Metodo que retorna la lista de administrativos, no recibe nada como parametro
 	
-
-	/
-	
-
-	
-
-	
-
-	
-
 	static public void verificarAdministrador(long cc, String pass) throws NoExisteAdministrador, LoginInvalido {
 		if (Archivo.buscarAdministrador(cc).getContrasena().equals(pass)) {
 			return;
