@@ -19,7 +19,7 @@ public class CrearCursoPanel implements ActionListener {
 			try {
 				String nombre = Main.ventanaUsuario.getPanelP().getValue("Nombre del curso: ");
 				String tipo = Main.ventanaUsuario.getPanelP().getValue("Tipo del curso: ");
-				String docente = Main.ventanaUsuario.getPanelP().getValue("Profesor del curso: ");
+				String docente = Main.ventanaUsuario.getPanelP().getValue("Cedula del profesor que dictara el curso: ");
 				String horario = Main.ventanaUsuario.getPanelP().getValue("Horario del curso: ");
 				
 				String curso = Curso.crearCurso(nombre, tipo, Long.parseLong(docente), horario);
