@@ -1,25 +1,42 @@
 package control.controlMenu;
 
-import java.util.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
-import control.OpcionDeMenu;
-import modelo.Centro.*;
+import control.Main;
+import control.controlPanel.ResponderSolicitudesPanel;
 
 /*Esta clase es usada por Administrativo para responder a las solicitudes de cupo
  * que hagan los estudiantes a los cursos que no tengan cupos.*/
-public class ResponderSolicitudesMenu extends OpcionDeMenu {
-	private String nombre = "ResponderSolicitudes";
+public class ResponderSolicitudesMenu implements ActionListener {
+	
+	@Override
+	public void actionPerformed(ActionEvent evento) {
+		if(evento.getActionCommand().equals("ResponderSolicitudes")) {
+			String tituloCriterios = "Criterio";
+			String[] criteriosArray = {"Tipo de solicitud: "};
+			String tituloValores = "Valores";
+			String[] valoresArray = {null};
+			boolean[] habilitado = {true};
+			Main.ventanaUsuario.formulario(tituloCriterios, criteriosArray, tituloValores, valoresArray, habilitado);
+			Main.ventanaUsuario.getPanelP().nombre("Responder solicitudes");
+			Main.ventanaUsuario.getPanelP().setControlador(new ResponderSolicitudesPanel());
+			Main.ventanaUsuario.getPanelP().descripcion("Responde solicitudes. Ingrese alguno de estos estos tipos: \n"+ Archivo.verSolicitudes());
+			Main.ventanaUsuario.pack();
+		}
+	}
+	
+
+	/*private String nombre = "ResponderSolicitudes";
 	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
-	No recibe ningún parámetro*/
+	No recibe ningún parámetro
 	public String getNombre() {
 		return nombre;
-	}
-
-	/*Se muestran por pantalla las solicitudes disponibles y se da la opción de aceptar, rechazar e ignorar.
+	}Se muestran por pantalla las solicitudes disponibles y se da la opción de aceptar, rechazar e ignorar.
 	 * Al aceptar se matricula al estudiante y se elimina la solicitud, al rechazar sólo se elimina la solicitud, 
 	 * y al ignorar sólo se sale de la opción.*/
-	public void ejecutar() {
+	/*public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		
 		if(!Archivo.verSolicitudes().equals("\nSolicitudes:\n")) {
@@ -71,11 +88,13 @@ public class ResponderSolicitudesMenu extends OpcionDeMenu {
 			System.out.println("\nNo hay solicitudes.\n");
 		}
 
-	}
+	}*/
 
 	/*Método toString.
 	 * Retorna un String correspondiente al nombre de la funcionalidad, que se mostrará por pantalla en el menú*/
 	public String toString() {
 		return "Responder solicitudes";
 	}
+
+	
 }

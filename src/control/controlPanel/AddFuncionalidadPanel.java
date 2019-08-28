@@ -17,6 +17,7 @@ public class AddFuncionalidadPanel implements ActionListener {
 			String funcion= Main.ventanaUsuario.getPanelP().getValue("Funcionalidad a añadir: ");
 			String mensaje=((Administrador)Main.user).addFuncionalidad(CC,funcion);
 			Main.ventanaUsuario.Popup2(mensaje);
+			Main.ventanaUsuario.setPanelP();
 			}catch(CampoVacio excepcion) {
 				Main.ventanaUsuario.Popup2("Campo vacio");
 			}
