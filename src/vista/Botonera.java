@@ -40,6 +40,7 @@ public interface Botonera {
 			put("Matricular", new MatricularMenu());
 			put("VerHorarioEstudiante", new VerHorarioEstudianteMenu());
 			put("SolicitarCupo", new SolicitarCupoMenu());
+			put("VerHorario", new VerHorarioMenu());
 		}
 	};
 	
@@ -76,6 +77,7 @@ public interface Botonera {
 			put("Matricular", new JMenuItem("Matricular"));
 			put("VerHorarioEstudiante", new JMenuItem("VerHorarioEstudiante"));
 			put("SolicitarCupo", new JMenuItem("SolicitarCupo"));
+			put("VerHorario", new JMenuItem("VerHorario"));
 		}
 	};
 	

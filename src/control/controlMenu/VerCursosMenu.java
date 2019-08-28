@@ -18,7 +18,7 @@ public class VerCursosMenu implements ActionListener {
 				String cursos= Archivo.verCursos();
 				Main.ventanaUsuario.ver(cursos);
 				Main.ventanaUsuario.getPanelP().nombre("Ver cursos");
-				Main.ventanaUsuario.getPanelP().descripcion("Imprime el nombre, horario, docente que diicta el curso y los cupos disponibles que hay en los cursos que tenemos en la base de datos.");
+				Main.ventanaUsuario.getPanelP().descripcion("Imprime el nombre, horario, docente que dicta el curso y los cupos disponibles que hay en los cursos que tenemos en la base de datos.");
 				Main.ventanaUsuario.pack();
 			}catch(NoHayCursos excepcion) {
 				Main.ventanaUsuario.Popup(excepcion.getMessage());

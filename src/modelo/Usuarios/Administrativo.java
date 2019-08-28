@@ -1,7 +1,6 @@
 package modelo.Usuarios;
 
-
-import BaseDatos.Archivo;
+import BaseDatos.*;
 import control.*;
 
 /*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)
@@ -25,9 +24,9 @@ public class Administrativo extends Usuario {
 		getProcesos().add(Main.funcionalidades.get("VerAdministrativos"));
 		getProcesos().add(Main.funcionalidades.get("VerDocentes"));
 		getProcesos().add(Main.funcionalidades.get("VerTodosLosEstudiantes"));
-		getProcesos().add(Main.funcionalidades.get("VerCertificados"));		
-		getProcesos().add(Main.funcionalidades.get("VerSolicitudes"));		
-		getProcesos().add(Main.funcionalidades.get("VerNotas"));		
+		getProcesos().add(Main.funcionalidades.get("VerCertificadosEstudiante"));		
+		getProcesos().add(Main.funcionalidades.get("VerSolicitudesEstudiante"));		
+		getProcesos().add(Main.funcionalidades.get("VerNotasEstudiante"));		
 		getProcesos().add(Main.funcionalidades.get("HacerSugerencia"));
 		getProcesos().add(Main.funcionalidades.get("VerSugerencias"));
 		getProcesos().add(Main.funcionalidades.get("VerEstudiantesCurso"));

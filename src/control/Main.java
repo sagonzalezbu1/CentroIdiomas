@@ -43,6 +43,7 @@ public class Main {
 			put("VerSugerencias", "VerSugerencias");
 			put("PromedioCurso","PromedioCurso");
 			put("Matricular","Matricular");
+			put("VerHorario","VerHorario");
 		}
 	};
 	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa

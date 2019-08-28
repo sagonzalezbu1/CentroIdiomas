@@ -37,7 +37,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		setVisible(false);
 		setSize(600, 250);
 		setLocationRelativeTo(null);
-		salirMI.addActionListener(new CerrarSesionMenu());
+		salirMI.addActionListener(new SalirMenu());
 		}
 
 	public void formulario(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
