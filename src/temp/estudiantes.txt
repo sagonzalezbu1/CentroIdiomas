@@ -42,3 +42,7 @@ EstudianteOnce EstudianteOnce;11;EstudianteOnce@gmail.com;11
 0
 0
 VerCursos;VerNotas;VerHorario;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;Matricular
+Santiago Gonzalez;987;sa@gmail.com;987
+0
+0
+VerCursos;Matricular;VerCertificados;VerSolicitudes;VerHorario;VerNotas;SolicitarCupo;HacerSugerencia

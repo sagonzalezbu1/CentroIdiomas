@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 
-import control.OpcionDeMenu;
+
 import control.controlPanel.procesos.AddFuncionalidadPanel;
 import control.controlPanel.procesos.VerHorarioEstudiantePanel;
 import defecto.Main;

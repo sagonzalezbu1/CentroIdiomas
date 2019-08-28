@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 
-import control.OpcionDeMenu;
 import control.controlPanel.procesos.RegistrarDocentePanel;
 import defecto.Main;
 import modelo.Centro.*;

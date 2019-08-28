@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 
-import control.OpcionDeMenu;
+
 import control.controlPanel.procesos.FinalizeCursoPanel;
 import control.controlPanel.procesos.HacerSugerenciaPanel;
 import control.controlPanel.procesos.RegistrarEstudiantePanel;

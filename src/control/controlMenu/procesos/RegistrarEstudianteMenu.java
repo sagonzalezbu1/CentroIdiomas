@@ -2,7 +2,7 @@ package control.controlMenu.procesos;
 
 import java.awt.event.*;
 
-import control.OpcionDeMenu;
+
 import control.controlPanel.procesos.RegistrarDocentePanel;
 import control.controlPanel.procesos.RegistrarEstudiantePanel;
 import defecto.Main;
