@@ -1,75 +1,40 @@
 package control.controlMenu;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.Main;
 import control.OpcionDeMenu;
+import control.controlPanel.AddFuncionalidadPanel;
+import control.controlPanel.VerHorarioEstudiantePanel;
 import modelo.Usuarios.*;
 
 /*Esta clase es usada por el Administrador para agregar funcionalidades a 
  * los menús de los diferentes usuarios.
  * 
  * En esta clase se ejecuta el método anadirOpcion localizado en la clase MenuDeConsola.*/
-public class AddFuncionalidadMenu extends OpcionDeMenu {
-	
-	/*Se hacen las respectivas verificaciones antes de agregar la funcionalidad,
-	 * como por ejemplo que la funcionalidad no esté ya en el menú del usuario,
-	 * que el usuario exista y que la funcionalidad exista.
-	 * No recibe parámetros y no retorna nada*/
-	public void ejecutar() {
-		Scanner e = new Scanner(System.in);
-		System.out.println("Ingrese la cedula del usuario al que desea agregar una funcionalidad: ");
-		int cc = e.nextInt();
-		Usuario user = null;
-		
-		for (Usuario usuario : Archivo.getEstudiantes()) {
-			if (usuario.getCedula() == cc) {
-				user = usuario;
-			}
-		}
-		
-		for (Usuario usuario : Archivo.getDocentes()) {
-			if (usuario.getCedula() == cc) {
-				user = usuario;
-			}
-		}
-		
-		for (Usuario usuario : Archivo.getAdministrativos()) {
-			if (usuario.getCedula() == cc) {
-				user = usuario;
-			}
-		}
-		
-		if (user != null ) {
-			System.out.println(Archivo.getAdministrador().SystemMenu());
-			System.out.println("Ingrese la funcionalidad que quiere agregar: ");
-			String option = e.next();
-			ArrayList<OpcionDeMenu> menu= user.getMenu().getList();
-			
-			for(OpcionDeMenu opcion: menu) {
-				if(opcion.getNombre().equals(option)) {
-					System.out.println("\nLa opcion de menu ya esta disponible para ese usuario.\n");
-					return;
-				}
-			}
-			
-			if(Main2.funcionalidades.get(option)!=null) {
-				user.getMenu().anadirOpcion(Main2.funcionalidades.get(option));
-				System.out.println("\nSe ha añadido la opcion satisfactoriamente.\n");
-			}
-			else {
-				System.out.println("\nOpcion invalida.\n");
-			}
-			
-		} else {
-			System.out.println("\nEl usuario no esta registrado.\n");
+public class AddFuncionalidadMenu implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent evento) {
+		if(evento.getActionCommand().equals("AddFuncionalidad")) {
+			String Docentes= ((Administrador)Main.user).funcionalidadesDocentes();
+			String Estudiantes=((Administrador)Main.user).funcionalidadesEstudiantes();
+			String Administrativos=((Administrador)Main.user).funcionalidadesAdministrativos();
+			String tituloCriterios="Criterio";
+			String tituloValores="Valor";
+			String[] criterios= {"Cedula del Usuario: ","Funcionalidad a añadir: "};
+			String[] valores = {null,null};
+			boolean[] habilitado= {true,true};
+			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
+			Main.ventanaUsuario.getPanelP().setControlador(new AddFuncionalidadPanel());
+			Main.ventanaUsuario.getPanelP().nombre("Añadir funcionalidad a un usuario");
+			Main.ventanaUsuario.getPanelP().descripcion("Antes de añadir una funcionalidad recuerde que solo puede añadir las que se encuentran en alguna de estas listas, respectivamente. Ingrese el nombre sin espacios.\n\n"+ Docentes+"\n\n"+Estudiantes+"\n\n"+Administrativos);
+			Main.ventanaUsuario.pack();
 		}
 	}
 	
-	/*Método toString.
-	 * Retorna un String correspondiente al nombre de la funcionalidad, 
-	 * que se mostrará por pantalla en el menú*/
-	public String toString() {
-		return "Agregar funcionalidad";
-	}
+	
 }

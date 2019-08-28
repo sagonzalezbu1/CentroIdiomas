@@ -10,6 +10,26 @@ import modelo.excepciones.*;
  * es decir, manejar las funcionalidades que puedan tener los diferentes usuarios y verificar toda la información
  * del centro.*/
 public class Administrador extends Usuario {
+	private String[] funcionalidadesDocentes = { "Calificar", "CrearCurso", "VerCursos", "FinalizeCurso",
+			"MatricularEstudiante", "RegistrarDocente", "RegistarAdministrativo", "RegistarEstudiante",
+			"ResponderSolicitudes", "SolicitarCupoEstudiante", "VerAdministrativos", "VerCertificadoEstudiante",
+			"VerDocentes", "VerTodosLosEstudiantes", "VerSolicitudesEstudiante", "VerNotasEstudiante",
+			"VerEstudiantesCurso", "HacerSugerencia", "VerSugerencias", "PromedioCurso", "VerHorarioEstudiante",
+			"VerHorario", "SystemMenu", "VerMenuUsuario" };
+	private String[] funcionalidadesEstudiantes = { "Calificar", "CrearCurso", "VerCursos", "FinalizeCurso",
+			"MatricularEstudiante", "RegistrarDocente", "RegistarAdministrativo", "RegistarEstudiante",
+			"ResponderSolicitudes", "SolicitarCupoEstudiante", "VerAdministrativos", "VerCertificadoEstudiante",
+			"VerDocentes", "VerTodosLosEstudiantes", "VerSolicitudesEstudiante", "VerNotasEstudiante",
+			"VerEstudiantesCurso", "HacerSugerencia", "VerSugerencias", "PromedioCurso", "VerHorarioEstudiante",
+			"VerHorario", "VerNotas", "VerCertificados", "VerSolicitudes", "Matricular", "SystemMenu",
+			"VerMenuUsuario" };
+	private String[] funcionalidadesAdministrativos = { "Calificar", "CrearCurso", "VerCursos", "FinalizeCurso",
+			"MatricularEstudiante", "RegistrarDocente", "RegistarAdministrativo", "RegistarEstudiante",
+			"ResponderSolicitudes", "SolicitarCupoEstudiante", "VerAdministrativos", "VerCertificadoEstudiante",
+			"VerDocentes", "VerTodosLosEstudiantes", "VerSolicitudesEstudiante", "VerNotasEstudiante",
+			"VerEstudiantesCurso", "HacerSugerencia", "VerSugerencias", "PromedioCurso", "VerHorarioEstudiante",
+			"SystemMenu", "VerMenuUsuario" };
+
 	/*
 	 * Constructor de administrador para asignar los atributos heredados de Usuario
 	 * de acuerdo a los que se le asignan al momento de crearse.
@@ -88,19 +108,50 @@ public class Administrador extends Usuario {
 
 	}
 
-	public String addFuncioalidad(long CC, String opcion) {
+	public String addFuncionalidad(long CC, String opcion) {
 		try {
 			Usuario user = Archivo.buscarUsuario(CC);
 			ArrayList<String> menu = user.getProcesos();
-
+			
 			for (String op : menu) {
-				if (op.equals(opcion) && !op.equals("CerrarSesion")) {
-					menu.add(op);
-					return "La opcion de menu fue añadida con exito.";
+					if (op.equals(opcion)) {
+						return "El usuario ya cuenta con esa opcion.";
+					}
 				}
+			
+			if (user instanceof Estudiante) {
+				
+				for (int i = 0; i < funcionalidadesEstudiantes.length; i++) {
+					if (funcionalidadesEstudiantes[i].equals(opcion) && !opcion.equals("CerrarSesion")) {
+						menu.add(opcion);
+						return "Se ha añadido la opcion correctamente.";
+					}
+				}
+				
+				return "Opcion invalida.";
+			} else if (user instanceof Docente) {
+				
+				for (int i = 0; i < funcionalidadesDocentes.length; i++) {
+					if (funcionalidadesDocentes[i].equals(opcion) && !opcion.equals("CerrarSesion")) {
+						menu.add(opcion);
+						return "Se ha añadido la opcion correctamente.";
+					}
+				}
+				
+				return "Opcion invalida.";
+			} else if (user instanceof Administrativo) {
+				
+				for (int i = 0; i < funcionalidadesAdministrativos.length; i++) {
+					if (funcionalidadesAdministrativos[i].equals(opcion) && !opcion.equals("CerrarSesion")) {
+						menu.add(opcion);
+						return "Se ha añadido la opcion correctamente.";
+					}
+				}
+				
+				return "Opcion invalida.";
+			}else {
+				return "No es un usuario.";
 			}
-			return "Opcion invalida.";
-
 		} catch (NoExisteUsuario excepcion) {
 			return "El usuario no esta registrado.";
 		}
@@ -147,4 +198,39 @@ public class Administrador extends Usuario {
 		}
 	}
 
+	public String funcionalidadesDocentes() {
+		String fDocentes = "Las funcionalidades docentes: " + funcionalidadesDocentes[0];
+		for (int i = 1; i < funcionalidadesDocentes.length; i++) {
+			fDocentes += ", " + funcionalidadesDocentes[i];
+		}
+		return fDocentes;
+	}
+
+	public String funcionalidadesEstudiantes() {
+		String fEstudiantes = "Las funcionalidades Estudiantes: " + funcionalidadesEstudiantes[0];
+		for (int i = 1; i < funcionalidadesEstudiantes.length; i++) {
+			fEstudiantes += ", " + funcionalidadesEstudiantes[i];
+		}
+		return fEstudiantes;
+	}
+
+	public String funcionalidadesAdministrativos() {
+		String fAdministrativos = "Las funcionalidades Administrativos: " + funcionalidadesAdministrativos[0];
+		for (int i = 1; i < funcionalidadesAdministrativos.length; i++) {
+			fAdministrativos += ", " + funcionalidadesAdministrativos[i];
+		}
+		return fAdministrativos;
+	}
+
+	public String[] getFuncionalidadesDocentes() {
+		return funcionalidadesDocentes;
+	}
+
+	public String[] getFuncionalidadesEstudiantes() {
+		return funcionalidadesEstudiantes;
+	}
+
+	public String[] getFuncionalidadesAdministrativos() {
+		return funcionalidadesAdministrativos;
+	}
 }
