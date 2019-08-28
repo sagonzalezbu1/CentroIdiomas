@@ -28,20 +28,21 @@ public class Main {
 			put("SolicitarCupoEstudiante", "SolicitarCupoEstudiante");
 			put("VerAdministrativos", "VerAdministrativos");
 			put("VerCertificadosEstudiante", "VerCertificadosEstudiante");
-			put("MisCertificados", "MisCertificados");
+			put("VerCertificados", "VerCertificados");
 			put("VerDocentes","VerDocentes");
 			put("VerTodosLosEstudiantes","VerTodosLosEstudiantes");
 			put("VerHorarioDocente", "VerHorarioDocente");
 			put("VerHorarioEstudiante", "VerHorarioEstudiante");
 			put("VerSolicitudesEstudiante", "VerSolicitudesEstudiante");
-			put("MisSolicitudes", "MisSolicitudes");
+			put("VerSolicitudes", "VerSolicitudes");
 			put("VerNotasEstudiante", "VerNotasEstudiante");
-			put("MisNotas", "MisNotas");
+			put("VerNotas", "VerNotas");
 			put("CerrarSesion", "CerrarSesion");
 			put("VerEstudiantesCurso","VerEstudiantesCurso");
 			put("HacerSugerencia", "HacerSugerencia");
 			put("VerSugerencias", "VerSugerencias");
 			put("PromedioCurso","PromedioCurso");
+			put("Matricular","PromedioCurso");
 		}
 	};
 	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa

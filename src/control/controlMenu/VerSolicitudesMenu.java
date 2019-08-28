@@ -5,25 +5,25 @@ import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
 import control.Main;
+import control.controlPanel.PromedioCursoPanel;
 import modelo.excepciones.NoExisteEstudiante;
-import modelo.excepciones.NoHayCertificados;
 import modelo.excepciones.NoHaySolicitudes;
 
-public class MisCertificadosMenu implements ActionListener {
+public class VerSolicitudesMenu implements ActionListener {
 
-	@Override
 	public void actionPerformed(ActionEvent evento) {
-		if (evento.getActionCommand().equals("MisCertificados")) {
+		if (evento.getActionCommand().equals("VerSolicitudes")) {
 			try {
-				Main.ventanaUsuario.ver(Archivo.verCertificadosEstudiante((Main.user.getCedula())));
+				Main.ventanaUsuario.ver(Archivo.verSolicitudesEstudiante(Main.user.getCedula()));
+			} catch (NoHaySolicitudes excepcion) {
+				Main.ventanaUsuario.Popup(excepcion.getMessage());
 			} catch (NoExisteEstudiante excepcion) {
 				Main.ventanaUsuario.Popup("Usted no es un estudiante");
-			} catch (NoHayCertificados excepcion) {
-				excepcion.printStackTrace();
 			}
 		} else if (evento.getActionCommand().equals("Borrar")) {
 			Main.ventanaUsuario.getPanelP().borrar();
 		}
+
 	}
 
 }

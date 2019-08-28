@@ -6,11 +6,11 @@ import BaseDatos.*;
 import control.Main;
 import modelo.excepciones.*;
 
-public class MisNotasMenu implements ActionListener {
+public class VerNotasMenu implements ActionListener {
 
 	public void actionPerformed(ActionEvent evento) {
 		
-		if(evento.getActionCommand().equals("MisNotas")) {
+		if(evento.getActionCommand().equals("VerNotas")) {
 			try {
 				String notas= Archivo.verNotasEstudiante(Main.user.getCedula());
 				Main.ventanaUsuario.ver(notas);

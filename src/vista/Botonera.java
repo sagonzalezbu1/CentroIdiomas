@@ -36,10 +36,10 @@ public interface Botonera {
 			put("RemoveFuncionalidad", new RemoveFuncionalidadMenu());
 			put("VerMenuUsuario", new VerMenuUsuarioMenu());
 			put("SystemMenu", new SystemMenu());
-			put("MisNotas", new MisNotasMenu());
-			put("MisSolicitudes", new MisSolicitudesMenu());
-			put("MisCertificados", new MisCertificadosMenu());
-			put("MiMatricula", new MiMatriculaMenu());
+			put("VerNotas", new VerNotasMenu());
+			put("VerSolicitudes", new VerSolicitudesMenu());
+			put("VerCertificados", new VerCertificadosMenu());
+			put("Matricular", new MatricularMenu());
 			put("VerHorarioEstudiante", new VerHorarioEstudianteMenu());
 			put("SolicitarCupo", new SolicitarCupoMenu());
 		}
@@ -73,10 +73,10 @@ public interface Botonera {
 			put("RemoveFuncionalidad", new JMenuItem("RemoveFuncionalidad"));
 			put("VerMenuUsuario", new JMenuItem("VerMenuUsuario"));
 			put("SystemMenu", new JMenuItem("SystemMenu"));
-			put("MisNotas", new JMenuItem("MisNotas"));
-			put("MisSolicitudes", new JMenuItem("MisSolicitudes"));
-			put("MisCertificados", new JMenuItem("MisCertificados"));
-			put("MiMatricula", new JMenuItem("MiMatricula"));
+			put("VerNotas", new JMenuItem("VerNotas"));
+			put("VerSolicitudes", new JMenuItem("VerSolicitudes"));
+			put("VerCertificados", new JMenuItem("VerCertificados"));
+			put("Matricular", new JMenuItem("Matricular"));
 			put("VerHorarioEstudiante", new JMenuItem("VerHorarioEstudiante"));
 			put("SolicitarCupo", new JMenuItem("SolicitarCupo"));
 		}

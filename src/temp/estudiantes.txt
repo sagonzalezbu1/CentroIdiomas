@@ -1,44 +1,44 @@
 EstudianteUno EstudianteUno;1;EstudianteUno@gmail.com;1
 frances1;1.0-ruso1;5.0;4.5
 ingles;1;12;3.0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteDos EstudianteDos;2;EstudianteDos@gmail.com;2
 frances1;2.0
 ingles;2;12;3.0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteTres EstudianteTres;3;EstudianteTres@gmail.com;3
 frances1;3.0
 ingles;3;12;3.0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteCuatro EstudianteCuatro;4;EstudianteCuatro@gmail.com;4
 frances1;4.0
 ingles;4;12;3.0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteCinco EstudianteCinco;5;EstudianteCinco@gmail.com;5
 frances1;5.0
 ingles;5;12;3.0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteSeis EstudianteSeis;6;EstudianteSeis@gmail.com;6
 frances1;5.0
 ingles;6;12;4.5
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteSiete EstudianteSiete;7;EstudianteSiete@gmail.com;7
 frances1;4.0-ruso1;4.9;4.5
 0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteOcho EstudianteOcho;8;EstudianteOcho@gmail.com;8
 frances1;3.0
 0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteNueve EstudianteNueve;9;EstudianteNueve@gmail.com;9
 frances1;2.0
 0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteDiez EstudianteDiez;10;EstudianteDiez@gmail.com;10
 frances1;1.0-ruso1;3.0;4.2
 0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
 EstudianteOnce EstudianteOnce;11;EstudianteOnce@gmail.com;11
 0
 0
-VerCursos;MisNotas;MisSolicitudes;MisCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
+VerCursos;VerNotas;VerSolicitudes;VerCertificados;SolicitarCupo;HacerSugerencia;CerrarSesion
