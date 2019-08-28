@@ -1,9 +1,14 @@
 package control.controlMenu;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 import BaseDatos.Archivo;
+import control.Main;
 import control.OpcionDeMenu;
+import control.controlPanel.CalificarPanel;
+import control.controlPanel.FinalizeCursoPanel;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 
@@ -11,16 +16,25 @@ import modelo.Usuarios.*;
  * un cierto curso que esté dictando.
  * 
  * En esta clase se ejecuta el método calificar localizado en la clase Estudiante.*/
-public class CalificarMenu extends OpcionDeMenu {
-	private String nombre = "Calificar";
-	/*Getter del nombre, retorna un String correspondiente a su atributo nombre.
-	No recibe ningún parámetro*/
-	public String getNombre() {
-		return nombre;
+public class CalificarMenu implements ActionListener{
+	public void actionPerformed(ActionEvent evento) {
+		if(evento.getActionCommand().equals("Calificar")) {
+			String tituloCriterios="Criterio";
+			String tituloValores="Valor";
+			String[] criterios= {"Nombre del curso al que desea Calificar: "};
+			String[] valores = {null};
+			boolean[] habilitado= {true};
+			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
+			Main.ventanaUsuario.getPanelP().setControlador(new CalificarPanel());
+			Main.ventanaUsuario.getPanelP().nombre("Calificar un curso");
+			Main.ventanaUsuario.getPanelP().descripcion("Permite calificar los estudiantes de un curso en el CDI.");
+			Main.ventanaUsuario.pack();
+		}
 	}
-
+	
+	
 	/*Se hacen las respectivas verificaciones antes de calificar al estudiante,
-	 * como buscar que el estudiante y el curso existan, y luego se ejecuta propiamente*/
+	 * como buscar que el estudiante y el curso existan, y luego se ejecuta propiamente
 	public void ejecutar() {
 		Scanner entry = new Scanner(System.in);
 		System.out.println("Introduzca el nombre del grupo al que desea calificar: ");
@@ -74,7 +88,4 @@ public class CalificarMenu extends OpcionDeMenu {
 	/*Método toString.
 	 * Retorna un String correspondiente al nombre de la funcionalidad, 
 	 * que se mostrará por pantalla en el menú*/
-	public String toString() {
-		return "Calificar Estudiantes";
-	}
 }

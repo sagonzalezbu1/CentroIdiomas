@@ -97,7 +97,7 @@ public class FieldPanel extends JPanel {
 			constraints.gridheight = 1;
 			formulario.add(jlabel, constraints);
 
-			textos[i] = new JTextField(valoresArray[i],10);
+			textos[i] = new JTextField(valoresArray[i],20);
 			if (!habilitado[i]) {
 				textos[i].setEditable(false);
 			}
@@ -161,7 +161,7 @@ public class FieldPanel extends JPanel {
 	}
 	
 	public void descripcion(String descripcion) {
-		JTextArea text = new JTextArea(descripcion,2,40);
+		JTextArea text = new JTextArea(descripcion,10,40);
 		text.setEditable(false);
 		text.setLineWrap(true);
 		JScrollPane scroll = new JScrollPane(text);
@@ -183,5 +183,11 @@ public class FieldPanel extends JPanel {
 		cons.weighty = 1.0;
 		formulario.add(scroll,BorderLayout.CENTER);
 	}
-	
+	public void borrar2(String noBorrar, int posicion) {
+		int cedula = Integer.parseInt(noBorrar);
+		for(JTextField text : textos) {
+			text.setText(null);
+		}
+		textos[posicion].setText("" + cedula);
+	}
 }

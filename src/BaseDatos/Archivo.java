@@ -505,7 +505,7 @@ abstract public class Archivo {
 				return "";
 			}
 		} catch (NoExisteEstudiante exception) {
-			new Docente(nombre + " " + apellido, cedula, correo, contrasena);
+			new Estudiante(nombre + " " + apellido, cedula, correo, contrasena);
 			return "Se ha registrado exitosamente";
 		}
 	}
@@ -514,5 +514,8 @@ abstract public class Archivo {
 			cursofinalizar = Archivo.buscarCurso(nombreCurso);
 			cursofinalizar.finalizeCurso();
 			return "El curso ha sido finalizado";	
+	}
+	static public String Calificar() {
+		return "";
 	}
 }

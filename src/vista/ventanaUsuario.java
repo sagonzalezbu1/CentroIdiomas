@@ -28,6 +28,7 @@ public class ventanaUsuario extends JFrame implements Botonera {
 		archivoM.add(salirMI);
 		ayudaM.add(acercaDeMI);
 		acercaDeMI.addActionListener(new AyudaMenu());
+		usuarioMI.addActionListener(new UsuarioMenu());
 		setJMenuBar(menuBar);
 		getContentPane().add(panelPrincipal);	
 		panelPrincipal.setBackground(Color.white);
