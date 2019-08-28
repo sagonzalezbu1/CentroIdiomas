@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
-import control.Main;
+import defecto.Main;
 import modelo.excepciones.NoHayDocentes;
 /* La clase 'VerDocentes' es donde mostramos a los usuarios el nombre y la cedula todos los docentes que se encuentren en 'Archivo'. 
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerDocentes.

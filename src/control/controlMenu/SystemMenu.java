@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
-import control.Main;
+import defecto.Main;
 import modelo.Usuarios.Administrador;
 import modelo.excepciones.NoExisteAdministrador;
 

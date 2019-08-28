@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import BaseDatos.Data;
-import control.Main;
+import defecto.Main;
 
 public class ControlSalir implements MouseListener{
 	public void mouseEntered(MouseEvent eento1) {

@@ -7,6 +7,7 @@ import javax.swing.*;
 import BaseDatos.*;
 import control.*;
 import control.controlPanel.*;
+import defecto.Main;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 

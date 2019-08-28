@@ -2,7 +2,7 @@ package control.controlLogin;
 import java.awt.*;
 import java.awt.event.*;
 
-import control.Main;
+import defecto.Main;
 
 public class ControlBienvenida implements MouseListener{
 	public void mouseEntered(MouseEvent evento1) {

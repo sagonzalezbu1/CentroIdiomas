@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
-import control.Main;
 import control.controlPanel.PromedioCursoPanel;
+import defecto.Main;
 import modelo.excepciones.NoExisteEstudiante;
 import modelo.excepciones.NoHaySolicitudes;
 

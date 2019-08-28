@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import BaseDatos.Archivo;
 import control.*;
+import defecto.Main;
 import modelo.excepciones.*;
 
 /*Esta clase permite la existencia de un Administrador para realizar las tareas "por encima" del programa, 

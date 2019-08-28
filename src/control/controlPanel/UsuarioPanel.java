@@ -2,6 +2,7 @@ package control.controlPanel;
 
 import java.awt.event.*;
 import control.*;
+import defecto.Main;
 import modelo.excepciones.*;
 
 public class UsuarioPanel implements ActionListener {

@@ -3,8 +3,8 @@ package control.controlMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
 import control.controlPanel.RemoveFuncionalidadPanel;
+import defecto.Main;
 import vista.FieldPanel;
 
 /*Esta clase es usada por el Administrador para eliminar funcionalidades a 

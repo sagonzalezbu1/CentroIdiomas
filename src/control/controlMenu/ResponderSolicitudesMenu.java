@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import BaseDatos.Archivo;
-import control.Main;
 import control.controlPanel.ResponderSolicitudesPanel;
+import defecto.Main;
 
 /*Esta clase es usada por Administrativo para responder a las solicitudes de cupo
  * que hagan los estudiantes a los cursos que no tengan cupos.*/

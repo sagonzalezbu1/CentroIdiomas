@@ -3,8 +3,8 @@ package control.controlMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
 import control.controlPanel.VerHorarioEstudiantePanel;
+import defecto.Main;
 
 public class VerHorarioEstudianteMenu implements ActionListener {
 	

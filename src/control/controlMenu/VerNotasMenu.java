@@ -3,7 +3,7 @@ package control.controlMenu;
 import java.awt.event.*;
 
 import BaseDatos.*;
-import control.Main;
+import defecto.Main;
 import modelo.excepciones.*;
 
 public class VerNotasMenu implements ActionListener {

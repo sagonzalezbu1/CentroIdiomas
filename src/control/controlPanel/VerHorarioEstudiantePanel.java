@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import BaseDatos.Archivo;
-import control.Main;
+import defecto.Main;
 import modelo.excepciones.CampoVacio;
 import modelo.excepciones.NoExisteEstudiante;
 import modelo.excepciones.NoHayHorario;

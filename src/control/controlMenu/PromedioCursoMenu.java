@@ -6,6 +6,7 @@ import java.util.*;
 import BaseDatos.*;
 import control.*;
 import control.controlPanel.*;
+import defecto.Main;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 

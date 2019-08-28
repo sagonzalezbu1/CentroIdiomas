@@ -3,8 +3,8 @@ package control.controlMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
 import control.controlPanel.VerEstudiantesCursoPanel;
+import defecto.Main;
 
 /* La clase 'VerEstudiantesCurso' es donde mostramos a los usuarios el nombre y la cedula todos los estudiantes registrados el curso que ha elegido para ver los estudiantes.
  * En esta clase estamos ejecutando el metodo localizado en 'Archivo' VerEstudiantesCurso.*/

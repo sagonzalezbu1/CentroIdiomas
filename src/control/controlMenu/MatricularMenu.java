@@ -3,9 +3,9 @@ package control.controlMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
 import control.controlPanel.MatricularEstudiantePanel;
 import control.controlPanel.MatricularPanel;
+import defecto.Main;
 
 public class MatricularMenu implements ActionListener {
 

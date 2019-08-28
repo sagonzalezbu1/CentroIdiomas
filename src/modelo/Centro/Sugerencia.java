@@ -1,7 +1,7 @@
 package modelo.Centro;
 
 import BaseDatos.Archivo;
-import control.Main;
+import defecto.Main;
 import modelo.Usuarios.*;
 
 /*Esta clase permite crear objetos de tipo sugerencia. Las sugerencias inicialmente pueden ser hechas por docentes y estudiantes, estan van dirigidas a los 

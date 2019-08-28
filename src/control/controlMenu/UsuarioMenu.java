@@ -3,6 +3,7 @@ package control.controlMenu;
 import java.awt.event.*;
 import control.*;
 import control.controlPanel.*;
+import defecto.Main;
 
 public class UsuarioMenu implements ActionListener {
 	

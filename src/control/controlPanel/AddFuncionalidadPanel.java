@@ -3,7 +3,7 @@ package control.controlPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
+import defecto.Main;
 import modelo.Usuarios.Administrador;
 import modelo.excepciones.CampoVacio;
 

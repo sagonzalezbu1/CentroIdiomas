@@ -3,7 +3,7 @@ package control.controlMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
+import defecto.Main;
 
 public class AcercaDe implements ActionListener {
 

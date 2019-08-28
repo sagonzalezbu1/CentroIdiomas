@@ -1,7 +1,8 @@
 package control.controlPanel;
 
 import java.awt.event.*;
-import control.Main;
+
+import defecto.Main;
 import modelo.excepciones.*;
 import modelo.Centro.*;
 

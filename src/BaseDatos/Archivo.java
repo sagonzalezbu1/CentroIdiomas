@@ -4,7 +4,7 @@ import java.util.*;
 
 import javax.swing.JOptionPane;
 
-import control.Main;
+import defecto.Main;
 import modelo.Centro.Curso;
 import modelo.Centro.Solicitud;
 import modelo.Centro.Sugerencia;

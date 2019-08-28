@@ -3,8 +3,8 @@ package control.controlMenu;
 import java.util.*;
 import java.awt.event.*;
 import BaseDatos.Archivo;
-import control.Main;
 import control.controlPanel.RegistrarAdministrativoPanel;
+import defecto.Main;
 import modelo.Centro.*;
 import modelo.Usuarios.*;
 

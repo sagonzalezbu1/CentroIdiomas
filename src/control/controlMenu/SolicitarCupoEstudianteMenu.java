@@ -3,9 +3,9 @@ package control.controlMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import control.Main;
 import control.controlPanel.SolicitarCupoEstudiantePanel;
 import control.controlPanel.SolicitarCupoPanel;
+import defecto.Main;
 
 /*Esta clase es usada por Estudiante para solicitar cupo a cursos que estén llenos.
  * 

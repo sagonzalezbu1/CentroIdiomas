@@ -3,6 +3,7 @@ package control.controlMenu;
 import java.awt.event.*;
 import control.*;
 import control.controlPanel.*;
+import defecto.Main;
 
 /*En esta clase se ejecutan las acciones necesarias para que un usuario pueda solicitar
  * cupo a cursos que ya están llenos*/

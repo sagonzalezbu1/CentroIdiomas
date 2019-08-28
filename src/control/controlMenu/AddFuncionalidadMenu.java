@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 import BaseDatos.Archivo;
-import control.Main;
 import control.OpcionDeMenu;
 import control.controlPanel.AddFuncionalidadPanel;
 import control.controlPanel.VerHorarioEstudiantePanel;
+import defecto.Main;
 import modelo.Usuarios.*;
 
 /*Esta clase es usada por el Administrador para agregar funcionalidades a 
