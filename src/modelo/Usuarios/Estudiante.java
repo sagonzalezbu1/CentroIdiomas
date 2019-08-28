@@ -409,4 +409,17 @@ public class Estudiante extends Usuario implements Horario {
 	static public ArrayList<Estudiante> getEstudiantes() {
 		return listaEstudiantes;
 	}
+	static public String registrarEstudiante(String nombre, String apellido, long cedula, String correo,
+			String contrasena) throws UsuarioRegistrado {
+		try {
+			if (cedula == 123 || Estudiante.buscarEstudiante(cedula) instanceof Estudiante) {
+				throw new UsuarioRegistrado();
+			} else {
+				return "";
+			}
+		} catch (NoExisteEstudiante exception) {
+			new Estudiante(nombre + " " + apellido, cedula, correo, contrasena);
+			return "Se ha registrado exitosamente";
+		}
+	}
 }

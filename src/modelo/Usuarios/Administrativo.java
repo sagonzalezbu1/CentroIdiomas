@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import BaseDatos.*;
 import control.*;
 import defecto.Main;
-
+import modelo.excepciones.CodigoIncorrecto;
 import modelo.excepciones.NoExisteAdministrativo;
 
 import modelo.excepciones.NoHayAdministrativos;
+import modelo.excepciones.UsuarioRegistrado;
 
 
 /*Esta clase permite crear objetos de tipo Administrativo, los cuales se encargarán (valga la redundancia)
@@ -88,6 +89,23 @@ public class Administrativo extends Usuario {
 	}
 	static public ArrayList<Administrativo> getAdministrativos() {
 		return listaAdministrativos;
-
+	}
+	static public String registrarAministrativo(String nombre, String apellido, long cedula, String correo,
+			String contrasena, String codigo) throws UsuarioRegistrado, CodigoIncorrecto {
+		try {
+			if (cedula == 123 || Administrativo.buscarAdministrativo(cedula) instanceof Administrativo) {
+				// return ("Ya se encuentra registrado un usuario con esa cédula.");
+				throw new UsuarioRegistrado();
+			} else {
+				return "";
+			}
+		} catch (NoExisteAdministrativo exception) {
+			if (codigo.equals(Administrativo.getCodigo())) {
+				new Administrativo(nombre + " " + apellido, cedula, correo, contrasena);
+				return "Se ha registrado exitosamente.";
+			} else {
+				throw new CodigoIncorrecto();
+			}
+		}
 	}
 }

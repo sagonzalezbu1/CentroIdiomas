@@ -272,4 +272,10 @@ public class Curso {
 	static public ArrayList<Curso> getCursos() {
 		return listaCursos;
 	}
+	static public String FinalizeCurso(String nombreCurso) throws NoExisteCurso {
+		Curso cursofinalizar = null;
+		cursofinalizar = Curso.buscarCurso(nombreCurso);
+		cursofinalizar.finalizeCurso();
+		return "El curso ha sido finalizado";
+	}
 }
