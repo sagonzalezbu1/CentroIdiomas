@@ -43,6 +43,9 @@ public class Administrativo extends Usuario {
 		getProcesos().add(Main.funcionalidades.get("VerSugerencias"));
 		getProcesos().add(Main.funcionalidades.get("VerEstudiantesCurso"));
 		getProcesos().add(Main.funcionalidades.get("PromedioCurso"));
+		getProcesos().add(Main.funcionalidades.get("RegistrarDocente"));
+		getProcesos().add(Main.funcionalidades.get("RegistrarEstudiante"));
+		getProcesos().add(Main.funcionalidades.get("RegistrarAdministrativo"));
 		Administrativo.add(this);
 		
 	}

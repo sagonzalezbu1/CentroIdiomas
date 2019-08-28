@@ -37,13 +37,14 @@ public class Main {
 			put("VerSolicitudes", "VerSolicitudes");
 			put("VerNotasEstudiante", "VerNotasEstudiante");
 			put("VerNotas", "VerNotas");
-			put("CerrarSesion", "CerrarSesion");
 			put("VerEstudiantesCurso","VerEstudiantesCurso");
 			put("HacerSugerencia", "HacerSugerencia");
 			put("VerSugerencias", "VerSugerencias");
 			put("PromedioCurso","PromedioCurso");
 			put("Matricular","Matricular");
 			put("VerHorario","VerHorario");
+			put("SystemMenu","SystemMenu");
+			put("VerMenuUsuario","VerMenuUsuario");
 		}
 	};
 	//Se crea un Invitado, usuario al que se ingresará siempre que se ejecute el programa
