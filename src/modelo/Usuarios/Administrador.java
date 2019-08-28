@@ -138,7 +138,7 @@ public class Administrador extends Usuario {
 	}
 	
 	static public void salir() {
-		Data.guardarDatos();
+		Main.data.guardarDatos();
 		System.exit(0);
 	}
 

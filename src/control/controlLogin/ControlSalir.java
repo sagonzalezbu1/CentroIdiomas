@@ -8,12 +8,12 @@ import defecto.Main;
 public class ControlSalir implements MouseListener{
 	public void mouseEntered(MouseEvent eento1) {
         if(Main.ventanaLogin.salir() == 0) {
-        	Data.escribirDocentes();
-			Data.escribirEstudiantes();
-			Data.escribirAdministrativos();
-			Data.escribirSolicitudes();
-			Data.escribirCursos();
-			Data.escribirSugerencias();
+        	Main.data.escribirDocentes();
+        	Main.data.escribirEstudiantes();
+        	Main.data.escribirAdministrativos();
+        	Main.data.escribirSolicitudes();
+        	Main.data.escribirCursos();
+        	Main.data.escribirSugerencias();
 			System.exit(0);
         }
     }

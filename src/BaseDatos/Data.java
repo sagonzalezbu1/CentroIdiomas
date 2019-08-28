@@ -16,7 +16,7 @@ public class Data {
 	// cargarEstudiantes se encarga de leer el archivo estudiantes.txt y cargar en
 	// memoria a los estudiantes. No recibe ningun parametro y tampoco retorna nada
 	
-	public static void cargarDatos() {
+	public void cargarDatos() {
 		cargarDocentes();
 		cargarCursos();
 		cargarEstudiantes();
@@ -24,7 +24,7 @@ public class Data {
 		cargarSolicitudes();
 		cargarSugerencias();
 	}
-	public static void guardarDatos() {
+	public void guardarDatos() {
 		escribirDocentes();
 		escribirEstudiantes();
 		escribirAdministrativos();
@@ -33,7 +33,7 @@ public class Data {
 		escribirSugerencias();
 	}
 	
-	public static void cargarEstudiantes() {
+	public void cargarEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "estudiantes.txt");
@@ -94,7 +94,7 @@ public class Data {
 
 	// cargarDocentes se encarga de leer el archivo docentes.txt y cargar en memoria
 	// a los docentes. No recibe ningun parametro y tampoco retorna nada
-	public static void cargarDocentes() {
+	public void cargarDocentes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "docentes.txt");
@@ -142,7 +142,7 @@ public class Data {
 	// cargarAdministrativos se encarga de leer el archivo administrativos.txt y
 	// cargar en memoria a los administrativos. No recibe ningun parametro y tampoco
 	// retorna nada
-	public static void cargarAdministrativos() {
+	public void cargarAdministrativos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "administrativos.txt");
@@ -197,7 +197,7 @@ public class Data {
 	 * decidimos hacerle un archivo aparte. No recibe ningun parametro y tampoco
 	 * retorna nada
 	 */
-	public static void cargarSolicitudes() {
+	public void cargarSolicitudes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "solicitudes.txt");
@@ -233,7 +233,7 @@ public class Data {
 
 	// cargarCursos se encarga de leer el archivo cursos.txt y cargar en memoria a
 	// los cursos. No recibe ningun parametro y tampoco retorna nada
-	public static void cargarCursos() {
+	public void cargarCursos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "cursos.txt");
@@ -269,7 +269,7 @@ public class Data {
 
 	// cargarSugerencias se encarga de leer el archivo sugerencias.txt y cargar en
 	// memoria a las sugerencias. No recibe ningun parametro y tampoco retorna nada
-	public static void cargarSugerencias() {
+	public void cargarSugerencias() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "sugerencias.txt");
@@ -301,7 +301,7 @@ public class Data {
 	 * estudiantes en el archivo de texto estudiantes.txt para posteriormente ser
 	 * leido por el metodo cargarEstudiantes. No recibe nada ni retorna nada
 	 */
-	public static void escribirEstudiantes() {
+	public void escribirEstudiantes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "estudiantes.txt");
@@ -377,7 +377,7 @@ public class Data {
 	 * en el archivo de texto docentes.txt para posteriormente ser leido por el
 	 * metodo cargarDocentes. No recibe nada ni retorna nada.
 	 */
-	public static void escribirDocentes() {
+	public void escribirDocentes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "docentes.txt");
@@ -417,7 +417,7 @@ public class Data {
 	 * posteriormente ser leido por el metodo cargarAdministrativos. No recibe nada
 	 * ni retorna nada
 	 */
-	public static void escribirAdministrativos() {
+	public void escribirAdministrativos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "administrativos.txt");
@@ -454,7 +454,7 @@ public class Data {
 	 * archivo de texto cursos.txt para posteriormente ser leido por el metodo
 	 * cargarCursos. No recibe nada ni retorna nada
 	 */
-	public static void escribirCursos() {
+	public void escribirCursos() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "cursos.txt");
@@ -483,7 +483,7 @@ public class Data {
 	 * solicitudes en el archivo de texto solicitudes.txt para posteriormente ser
 	 * leido por el metodo cargarSolicitudes. No recibe nada ni retorna nada
 	 */
-	public static void escribirSolicitudes() {
+	public void escribirSolicitudes() {
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";
 			File file = new File(direccion + "solicitudes.txt");
@@ -514,7 +514,7 @@ public class Data {
 	 * sugerencias en el archivo de texto asugernecias.txt para posteriormente ser
 	 * leido por el metodo cargarSugerencias. No recibe nada ni retorna nada
 	 */
-	public static void escribirSugerencias() {
+	public void escribirSugerencias() {
 
 		try {
 			String direccion = System.getProperty("user.dir") + "\\src\\temp\\";

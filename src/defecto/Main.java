@@ -51,18 +51,19 @@ public class Main {
 	public static ventanaLogin ventanaLogin = new ventanaLogin();
 	public static ventanaUsuario ventanaUsuario = new ventanaUsuario();
 	public static Administrador admin = new Administrador();
+	public static Data data = new Data();
 
 
 	//Inicio del programa
 	public static void main(String[] args) {
 		/* Siempre que se inicie el porgrama se cargarán los datos de los archivos de 
 		 * texto a éste*/
-		Data.cargarDocentes();
-		Data.cargarCursos();
-		Data.cargarEstudiantes();
-		Data.cargarAdministrativos();
-		Data.cargarSolicitudes();
-		Data.cargarSugerencias();
+		data.cargarDocentes();
+		data.cargarCursos();
+		data.cargarEstudiantes();
+		data.cargarAdministrativos();
+		data.cargarSolicitudes();
+		data.cargarSugerencias();
 		
 
 		/*Ejecución del menú de (inicialmente) Invitado y luego de 
