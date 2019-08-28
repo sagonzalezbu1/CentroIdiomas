@@ -27,7 +27,7 @@ public class CalificarMenu implements ActionListener{
 			Main.ventanaUsuario.formulario(tituloCriterios, criterios, tituloValores, valores, habilitado);
 			Main.ventanaUsuario.getPanelP().setControlador(new CalificarPanel());
 			Main.ventanaUsuario.getPanelP().nombre("Calificar un curso");
-			Main.ventanaUsuario.getPanelP().descripcion("Permite calificar los estudiantes de un curso en el CDI.");
+			Main.ventanaUsuario.getPanelP().descripcion("Permite calificar los estudiantes de un curso en el CDI.\n Ingresar una nota invalida, hara que la coloque automaticamente en cero.\nnotas invalidas:\n-letras\n-numeros>5\n-numeros<0");
 			Main.ventanaUsuario.pack();
 		}
 	}
